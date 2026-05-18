@@ -6,6 +6,7 @@
     "restart-act-one-exit-opened"
   ],
   "consequences": [
+    "restart-event-14-glass-gate-audit",
     "restart-act-two-threshold"
   ],
   "conditions": [
@@ -22,7 +23,8 @@
     "have.card:card-restart-ticket"
   ],
   "effects": [
-    "set.flag:restart_false_exit_audited"
+    "set.flag:restart_false_exit_audited",
+    "set.flag:restart_act_two_threshold_unlocked"
   ],
   "slots": [
     {

@@ -12,6 +12,7 @@
   "conditions": [
     "flag.restart_counterfeit_city_registry_opened:1",
     "flag.restart_broadcast_tower_named:1",
+    "flag.restart_counterfeit_city_map_stabilized:1",
     "have.card:card-restart-seventh-sun",
     "have.card:card-restart-counterfeit-city-map",
     "have.card:card-restart-radio",
@@ -47,6 +48,10 @@
         {
           "type": "set.flag",
           "flag": "restart_exposed_radio_operator"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_living_file_location_unsealed"
         }
       ]
     },
@@ -64,6 +69,10 @@
         {
           "type": "set.flag",
           "flag": "restart_bargained_for_living_file"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_living_file_location_unsealed"
         }
       ]
     }

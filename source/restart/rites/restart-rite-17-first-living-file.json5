@@ -11,6 +11,7 @@
   "conditions": [
     "flag.restart_broadcast_tower_decided:1",
     "flag.restart_living_file_location_unsealed:1",
+    "flag.restart_broadcast_tower_entered:1",
     "have.card:card-restart-seventh-sun",
     "have.card:card-restart-audit-stamp",
     "have.card:card-restart-counterfeit-city-map"

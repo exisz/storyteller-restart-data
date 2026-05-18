@@ -11,12 +11,14 @@
   "conditions": [
     "flag.restart_false_exit_audited:1",
     "flag.restart_act_two_threshold_unlocked:1",
+    "flag.restart_glass_gate_audit_answered:1",
     "have.card:card-restart-real-bed-number",
     "have.card:card-restart-blank-death-certificate",
     "have.card:card-restart-radio"
   ],
   "effects": [
     "set.flag:restart_act_two_threshold_entered",
+    "set.flag:restart_seventh_sun_witness_stabilized",
     "gain.card:card-restart-seventh-sun",
     "gain.card:card-restart-audit-stamp"
   ],

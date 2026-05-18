@@ -186,6 +186,10 @@
       "target": "restart-event-12-signature-pressure"
     },
     {
+      "source": "restart-rite-13-false-exit-audit",
+      "target": "restart-event-14-glass-gate-audit"
+    },
+    {
       "source": "restart-rite-15-counterfeit-city-registry",
       "target": "restart-event-15-broadcast-name-hunt"
     },

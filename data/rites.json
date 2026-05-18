@@ -1282,6 +1282,7 @@
       "restart-act-one-exit-opened"
     ],
     "consequences": [
+      "restart-event-14-glass-gate-audit",
       "restart-act-two-threshold"
     ],
     "conditions": [
@@ -1298,7 +1299,8 @@
       "have.card:card-restart-ticket"
     ],
     "effects": [
-      "set.flag:restart_false_exit_audited"
+      "set.flag:restart_false_exit_audited",
+      "set.flag:restart_act_two_threshold_unlocked"
     ],
     "slots": [
       {
@@ -1401,12 +1403,14 @@
     "conditions": [
       "flag.restart_false_exit_audited:1",
       "flag.restart_act_two_threshold_unlocked:1",
+      "flag.restart_glass_gate_audit_answered:1",
       "have.card:card-restart-real-bed-number",
       "have.card:card-restart-blank-death-certificate",
       "have.card:card-restart-radio"
     ],
     "effects": [
       "set.flag:restart_act_two_threshold_entered",
+      "set.flag:restart_seventh_sun_witness_stabilized",
       "gain.card:card-restart-seventh-sun",
       "gain.card:card-restart-audit-stamp"
     ],
@@ -1520,12 +1524,14 @@
     "conditions": [
       "flag.restart_seventh_sun_contacted:1",
       "flag.restart_act_two_threshold_entered:1",
+      "flag.restart_seventh_sun_witness_stabilized:1",
       "have.card:card-restart-seventh-sun",
       "have.card:card-restart-audit-stamp",
       "have.card:card-restart-ticket"
     ],
     "effects": [
       "set.flag:restart_counterfeit_city_registry_opened",
+      "set.flag:restart_counterfeit_city_map_stabilized",
       "gain.card:card-restart-counterfeit-city-map"
     ],
     "slots": [
@@ -1630,6 +1636,7 @@
     "conditions": [
       "flag.restart_counterfeit_city_registry_opened:1",
       "flag.restart_broadcast_tower_named:1",
+      "flag.restart_counterfeit_city_map_stabilized:1",
       "have.card:card-restart-seventh-sun",
       "have.card:card-restart-counterfeit-city-map",
       "have.card:card-restart-radio",
@@ -1665,6 +1672,10 @@
           {
             "type": "set.flag",
             "flag": "restart_exposed_radio_operator"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_living_file_location_unsealed"
           }
         ]
       },
@@ -1682,6 +1693,10 @@
           {
             "type": "set.flag",
             "flag": "restart_bargained_for_living_file"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_living_file_location_unsealed"
           }
         ]
       }
@@ -1747,6 +1762,7 @@
     "conditions": [
       "flag.restart_broadcast_tower_decided:1",
       "flag.restart_living_file_location_unsealed:1",
+      "flag.restart_broadcast_tower_entered:1",
       "have.card:card-restart-seventh-sun",
       "have.card:card-restart-audit-stamp",
       "have.card:card-restart-counterfeit-city-map"
