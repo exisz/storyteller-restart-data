@@ -3,8 +3,8 @@
   "schemaVersion": "0.4.0",
   "title": "Sultan Manual Groups",
   "groupingMode": "runtime-manual-groups",
-  "updatedAt": "2026-05-18T15:20:44.944Z",
-  "version": "d9d14fc",
+  "updatedAt": "2026-05-18T15:27:42.065Z",
+  "version": "8e40552",
   "files": {
     "groups": "groups/manual-groups.json5"
   },
