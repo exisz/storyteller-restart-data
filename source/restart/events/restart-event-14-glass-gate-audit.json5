@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-14-glass-gate-audit",
+  "name": "第十四回合事件：玻璃门审计回声",
+  "description": "检票口打开后，门后不是街道，而是一整面玻璃。玻璃另一侧有人敲了三下，节奏和第七次日出的求救广播完全一致；同时，坏掉的收音机开始替林夕回答审计问题。",
+  "trigger": {
+    "turn": 14
+  },
+  "consequences": [
+    "restart-act-two-threshold"
+  ],
+  "options": [
+    {
+      "text": "跟随玻璃后的三下敲击，先确认第七次日出还保有自己的声音。",
+      "effects": [
+        "gain.influence:5",
+        "set.flag:restart_glass_gate_audit_answered",
+        "set.flag:restart_followed_seventh_knock"
+      ]
+    },
+    {
+      "text": "让坏掉的收音机继续代答，把广播塔的审计问题全部录下来。",
+      "effects": [
+        "gain.favor:5",
+        "set.flag:restart_glass_gate_audit_answered",
+        "set.flag:restart_radio_answered_exit_audit"
+      ]
+    }
+  ]
+}

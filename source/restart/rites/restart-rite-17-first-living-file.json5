@@ -1,0 +1,109 @@
+{
+  "id": "restart-rite-17-first-living-file",
+  "name": "RESTART 17：第一份活人档案",
+  "description": "广播塔顶层保存着一只没有编号的档案盒。盒盖上没有死亡日期，只有第七次日出的指纹；越医生的旧章卡在锁孔里，像是很久以前有人试图把活人改写成病历。",
+  "triggers": [
+    "restart-broadcast-tower-decided"
+  ],
+  "consequences": [
+    "restart-living-file-claimed"
+  ],
+  "conditions": [
+    "flag.restart_broadcast_tower_decided:1",
+    "flag.restart_living_file_location_unsealed:1",
+    "have.card:card-restart-seventh-sun",
+    "have.card:card-restart-audit-stamp",
+    "have.card:card-restart-counterfeit-city-map"
+  ],
+  "effects": [
+    "set.flag:restart_first_living_file_reached",
+    "gain.card:card-restart-living-file"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "打开档案盒的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "证明活人路线的凭证",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "把档案交给第七次日出，让她亲自证明自己从未合法死亡。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 7
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_living_file_given_to_seventh_sun"
+        }
+      ]
+    },
+    {
+      "text": "先用审计章复制档案，给林夕留下一份能在下一轮自证的备份。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 7
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_living_file_copied_for_linxi"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 7,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "档案盒打开后立刻开始自焚。你只抢出一页：活人档案不是名单，是出口算法。"
+    },
+    {
+      "minValue": 8,
+      "maxValue": 13,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "第七次日出按住档案，第一次在广播里拥有完整姓名。伪城所有路灯同时熄灭一秒。"
+    },
+    {
+      "minValue": 14,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_living_exit_algorithm_seen"
+        }
+      ],
+      "description": "档案夹最深处写着下一幕的规则：只要有人能作为活人离开，整座医院的死亡证明都会倒欠她一次重启。"
+    }
+  ]
+}

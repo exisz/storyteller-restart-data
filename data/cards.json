@@ -1,5 +1,22 @@
 [
   {
+    "id": "card-restart-audit-stamp",
+    "type": "item",
+    "name": "假出口审计章",
+    "description": "检票机盖下的临时通行章。它证明本轮的死亡证明足以骗开一扇门，也证明持章者的身份会被下一座城市复查。",
+    "coinValue": 6,
+    "metaData": {
+      "tags": [
+        "item",
+        "paperwork",
+        "access",
+        "restart"
+      ],
+      "gameCardId": "card-restart-audit-stamp"
+    },
+    "effects": []
+  },
+  {
     "id": "card-restart-black-box",
     "type": "item",
     "name": "黑匣子录音",
@@ -29,6 +46,23 @@
         "restart"
       ],
       "gameCardId": "card-restart-blank-death-certificate"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-counterfeit-city-map",
+    "type": "item",
+    "name": "伪城地图",
+    "description": "检票口后的城市地图，街名全是被注销过的病历编号。地图背面标着广播塔、户籍柜和一条只能由已死亡者通过的回廊。",
+    "coinValue": 6,
+    "metaData": {
+      "tags": [
+        "item",
+        "map",
+        "act-two",
+        "restart"
+      ],
+      "gameCardId": "card-restart-counterfeit-city-map"
     },
     "effects": []
   },
@@ -63,6 +97,23 @@
         "restart"
       ],
       "gameCardId": "card-restart-linxi"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-living-file",
+    "type": "item",
+    "name": "第一份活人档案",
+    "description": "广播塔债务台吐出的档案。它没有死亡日期，只有一行反复闪烁的批注：此人尚未被允许存在。",
+    "coinValue": 8,
+    "metaData": {
+      "tags": [
+        "item",
+        "proof",
+        "living-file",
+        "restart"
+      ],
+      "gameCardId": "card-restart-living-file"
     },
     "effects": []
   },
@@ -114,6 +165,23 @@
         "restart"
       ],
       "gameCardId": "card-restart-real-bed-number"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-seventh-sun",
+    "type": "person",
+    "name": "第七次日出",
+    "description": "被旧日出医院反复注销的第一名醒来者。她像林夕，又比林夕多记得一次拒签死亡证明的代价；只要她被带出玻璃门，广播就会追着她的缺名档案而来。",
+    "coinValue": 7,
+    "metaData": {
+      "tags": [
+        "person",
+        "witness",
+        "seventh-sun",
+        "restart"
+      ],
+      "gameCardId": "card-restart-seventh-sun"
     },
     "effects": []
   },

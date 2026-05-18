@@ -66,6 +66,26 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-14-glass-behind-seventh-sun",
+      "name": "RESTART 14：玻璃后的第七次日出",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-15-counterfeit-city-registry",
+      "name": "RESTART 15：伪城入户登记",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-16-broadcast-tower-debt-desk",
+      "name": "RESTART 16：广播塔债务台",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-17-first-living-file",
+      "name": "RESTART 17：第一份活人档案",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -103,6 +123,16 @@
     {
       "id": "restart-event-12-signature-pressure",
       "name": "第十二回合事件：签名栏催告",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-14-glass-gate-audit",
+      "name": "第十四回合事件：玻璃门审计回声",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-15-broadcast-name-hunt",
+      "name": "第十五回合事件：缺名者追播",
       "type": "event"
     }
   ],
@@ -154,6 +184,10 @@
     {
       "source": "restart-rite-11-bed-zero-signature-room",
       "target": "restart-event-12-signature-pressure"
+    },
+    {
+      "source": "restart-rite-15-counterfeit-city-registry",
+      "target": "restart-event-15-broadcast-name-hunt"
     },
     {
       "source": "restart-event-02-broadcast",

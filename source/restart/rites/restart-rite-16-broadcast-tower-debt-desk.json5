@@ -1,0 +1,118 @@
+{
+  "id": "restart-rite-16-broadcast-tower-debt-desk",
+  "name": "RESTART 16：广播塔债务台",
+  "description": "伪城地图把林夕带到广播塔底层。这里没有播音员，只有一张债务台，台面上摆着越医生的旧章、林夕的替身死亡证明，以及一份被反复退回的活人档案。广播塔要求她交出一个解释：为什么已经死过的人还在走路？",
+  "triggers": [
+    "restart-counterfeit-city-breathes",
+    "restart-counterfeit-city-registry-filed"
+  ],
+  "consequences": [
+    "restart-broadcast-tower-decided"
+  ],
+  "conditions": [
+    "flag.restart_counterfeit_city_registry_opened:1",
+    "flag.restart_broadcast_tower_named:1",
+    "have.card:card-restart-seventh-sun",
+    "have.card:card-restart-counterfeit-city-map",
+    "have.card:card-restart-radio",
+    "have.card:card-restart-audit-stamp"
+  ],
+  "effects": [
+    "set.flag:restart_broadcast_tower_entered"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "面对债务台的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "证明伪城路线的地图",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "公开收音机里的代答录音，指认广播塔一直在伪造林夕的死亡路线。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 7
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_broadcast_tower_decided"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_exposed_radio_operator"
+        }
+      ]
+    },
+    {
+      "text": "把伪城地图压在债务台上，和广播塔交换第一份活人档案的位置。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 7
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_broadcast_tower_decided"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_bargained_for_living_file"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 7,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "债务台承认录音有效，却把活人档案锁进更高一层。你只拿到一枚写着“待复查”的纸夹。"
+    },
+    {
+      "minValue": 8,
+      "maxValue": 13,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "广播塔暂停全城追播。第七次日出听见自己第一次没有被消音的名字。"
+    },
+    {
+      "minValue": 14,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 5
+        },
+        {
+          "type": "gain.influence",
+          "amount": 5
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_living_file_location_unsealed"
+        }
+      ],
+      "description": "债务台向上弹开，露出一条只写给未死亡者的电梯路线。广播塔终于承认：有人在系统外活着。"
+    }
+  ]
+}

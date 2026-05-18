@@ -63,3 +63,25 @@ Branch memory added for later checks:
 - `restart_signed_linxi_decoy_death` vs `restart_signed_yue_debt_death`
 
 This packet advances the Hospital/Yue, Broadcast/radio, Linxi identity, and Paperwork threads while keeping the current turn-9 hand useful.
+
+## Turn 14–17 packet: Act Two threshold / living-file arc
+
+The false-exit audit now opens into a second-region threshold instead of stopping at the station gate:
+
+- `restart-event-14-glass-gate-audit` makes the audit answer itself unstable: the player can follow the Seventh Sunrise's knock or exploit the radio's automated replies.
+- `restart-rite-14-glass-behind-seventh-sun` converts the Seventh Sunrise from mystery into a usable witness card and creates the `假出口审计章` as both access and risk.
+- `restart-rite-15-counterfeit-city-registry` turns the gate into a paperwork city and grants `伪城地图`, forcing a choice between hiding Linxi as a dead resident or registering the Seventh Sunrise as a living debt.
+- `restart-event-15-broadcast-name-hunt` escalates the broadcast/radio pressure now that a missing name has entered the city.
+- `restart-rite-16-broadcast-tower-debt-desk` confronts the radio/broadcast system as an active antagonist and opens the living-file route.
+- `restart-rite-17-first-living-file` gives Act Two a concrete proof object: the first file that records a person as alive instead of pre-dead.
+
+Branch memory added for later checks:
+
+- `restart_followed_seventh_knock` vs `restart_radio_answered_exit_audit`
+- `restart_seventh_sun_rescued_as_witness` vs `restart_seventh_sun_kept_behind_glass`
+- `restart_linxi_registered_as_dead_resident` vs `restart_seventh_sun_registered_as_living_debt`
+- `restart_seventh_name_hidden_in_static` vs `restart_baited_tower_operator`
+- `restart_exposed_radio_operator` vs `restart_bargained_for_living_file`
+- `restart_living_file_given_to_seventh_sun` vs `restart_living_file_copied_for_linxi`
+
+This packet advances the Seventh Sunrise, Broadcast/radio, Linxi identity, and Paperwork threads beyond Act One while keeping the current hand relevant through radio, ticket, death certificate, audit stamp, and witness cards.

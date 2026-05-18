@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-seventh-sun",
+  "type": "person",
+  "name": "第七次日出",
+  "description": "被旧日出医院反复注销的第一名醒来者。她像林夕，又比林夕多记得一次拒签死亡证明的代价；只要她被带出玻璃门，广播就会追着她的缺名档案而来。",
+  "coinValue": 7,
+  "metaData": {
+    "tags": [
+      "person",
+      "witness",
+      "seventh-sun",
+      "restart"
+    ],
+    "gameCardId": "card-restart-seventh-sun"
+  },
+  "effects": []
+}

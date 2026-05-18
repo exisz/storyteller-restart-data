@@ -1,0 +1,118 @@
+{
+  "id": "restart-rite-14-glass-behind-seventh-sun",
+  "name": "RESTART 14：玻璃后的第七次日出",
+  "description": "假出口审计通过后，检票口后的玻璃终于映出第七次日出的脸。她和林夕拥有同一双眼睛，却穿着没有编号的病号服；她说自己不是出口，而是第一个拒绝在死亡证明上签名的人。",
+  "triggers": [
+    "restart-act-two-threshold"
+  ],
+  "consequences": [
+    "restart-seventh-sun-contacted"
+  ],
+  "conditions": [
+    "flag.restart_false_exit_audited:1",
+    "flag.restart_act_two_threshold_unlocked:1",
+    "have.card:card-restart-real-bed-number",
+    "have.card:card-restart-blank-death-certificate",
+    "have.card:card-restart-radio"
+  ],
+  "effects": [
+    "set.flag:restart_act_two_threshold_entered",
+    "gain.card:card-restart-seventh-sun",
+    "gain.card:card-restart-audit-stamp"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "隔着玻璃对证的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "骗开出口的文件",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "用空白死亡证明敲碎审计玻璃，把第七次日出作为活证人带走。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_contacted"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_rescued_as_witness"
+        }
+      ]
+    },
+    {
+      "text": "不打碎玻璃，只让她把下一座城市的规则写在审计章背面。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_contacted"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_kept_behind_glass"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 7,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "玻璃裂开一条细缝。第七次日出递出半枚审计章，但她的名字仍被广播吞掉。"
+    },
+    {
+      "minValue": 8,
+      "maxValue": 13,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "审计章落到林夕掌心。第七次日出终于能在广播停顿时说完整一句：下一座城市只承认已经死过的人。"
+    },
+    {
+      "minValue": 14,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 5
+        },
+        {
+          "type": "gain.influence",
+          "amount": 5
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_witness_stabilized"
+        }
+      ],
+      "description": "玻璃后方的候车厅倒转成一座伪城。第七次日出把审计章按进林夕的车票：现在起，你不是逃犯，是一份会走路的错误档案。"
+    }
+  ]
+}

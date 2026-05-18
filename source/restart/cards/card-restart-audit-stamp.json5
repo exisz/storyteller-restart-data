@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-audit-stamp",
+  "type": "item",
+  "name": "假出口审计章",
+  "description": "检票机盖下的临时通行章。它证明本轮的死亡证明足以骗开一扇门，也证明持章者的身份会被下一座城市复查。",
+  "coinValue": 6,
+  "metaData": {
+    "tags": [
+      "item",
+      "paperwork",
+      "access",
+      "restart"
+    ],
+    "gameCardId": "card-restart-audit-stamp"
+  },
+  "effects": []
+}

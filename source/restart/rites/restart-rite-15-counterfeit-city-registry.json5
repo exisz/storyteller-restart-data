@@ -1,0 +1,110 @@
+{
+  "id": "restart-rite-15-counterfeit-city-registry",
+  "name": "RESTART 15：伪城入户登记",
+  "description": "检票口后的城市没有居民，只有一排排会自己盖章的户籍柜。柜台要求林夕提交一个能被审计的活人身份；第七次日出提醒她，填错名字就会让广播塔重新拥有死亡证明的解释权。",
+  "triggers": [
+    "restart-seventh-sun-contacted"
+  ],
+  "consequences": [
+    "restart-event-15-broadcast-name-hunt",
+    "restart-counterfeit-city-registry-filed"
+  ],
+  "conditions": [
+    "flag.restart_seventh_sun_contacted:1",
+    "flag.restart_act_two_threshold_entered:1",
+    "have.card:card-restart-seventh-sun",
+    "have.card:card-restart-audit-stamp",
+    "have.card:card-restart-ticket"
+  ],
+  "effects": [
+    "set.flag:restart_counterfeit_city_registry_opened",
+    "gain.card:card-restart-counterfeit-city-map"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "提交户籍的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "盖章用的假出口凭证",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "把林夕登记成“已死亡但可通行”的居民，让广播名单暂时找不到活人。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_linxi_registered_as_dead_resident"
+        }
+      ]
+    },
+    {
+      "text": "把第七次日出登记成活债权人，要求伪城承认它欠她一个出口。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_registered_as_living_debt"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 7,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "户籍柜吐出一张临时地图，但每条街名都在十秒后换成死亡证明编号。"
+    },
+    {
+      "minValue": 8,
+      "maxValue": 12,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "伪城地图稳定下来，广播塔的位置第一次出现在纸面上。第七次日出说：那里保存着第一份活人档案。"
+    },
+    {
+      "minValue": 13,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 5
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_counterfeit_city_map_stabilized"
+        }
+      ],
+      "description": "审计章和车票重叠，显出一条隐藏路线：从户籍柜穿过广播塔债务台，可以抵达还没有被写死的人。"
+    }
+  ]
+}

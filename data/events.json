@@ -220,5 +220,63 @@
         ]
       }
     ]
+  },
+  {
+    "id": "restart-event-14-glass-gate-audit",
+    "name": "第十四回合事件：玻璃门审计回声",
+    "description": "检票口打开后，门后不是街道，而是一整面玻璃。玻璃另一侧有人敲了三下，节奏和第七次日出的求救广播完全一致；同时，坏掉的收音机开始替林夕回答审计问题。",
+    "trigger": {
+      "turn": 14
+    },
+    "consequences": [
+      "restart-act-two-threshold"
+    ],
+    "options": [
+      {
+        "text": "跟随玻璃后的三下敲击，先确认第七次日出还保有自己的声音。",
+        "effects": [
+          "gain.influence:5",
+          "set.flag:restart_glass_gate_audit_answered",
+          "set.flag:restart_followed_seventh_knock"
+        ]
+      },
+      {
+        "text": "让坏掉的收音机继续代答，把广播塔的审计问题全部录下来。",
+        "effects": [
+          "gain.favor:5",
+          "set.flag:restart_glass_gate_audit_answered",
+          "set.flag:restart_radio_answered_exit_audit"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-15-broadcast-name-hunt",
+    "name": "第十五回合事件：缺名者追播",
+    "description": "伪城的路灯逐盏亮起，每一盏都在念同一个空白姓名。广播塔发现第七次日出离开了玻璃门，开始沿着审计章追查谁把一个没有死亡证明的人带进了城市。",
+    "trigger": {
+      "turn": 15
+    },
+    "consequences": [
+      "restart-counterfeit-city-breathes"
+    ],
+    "options": [
+      {
+        "text": "把第七次日出的名字藏进收音机静电里，让广播塔暂时追错频率。",
+        "effects": [
+          "gain.influence:5",
+          "set.flag:restart_broadcast_tower_named",
+          "set.flag:restart_seventh_name_hidden_in_static"
+        ]
+      },
+      {
+        "text": "故意让广播塔听见她的真声，逼操作员承认塔里还有活人档案。",
+        "effects": [
+          "gain.favor:5",
+          "set.flag:restart_broadcast_tower_named",
+          "set.flag:restart_baited_tower_operator"
+        ]
+      }
+    ]
   }
 ]

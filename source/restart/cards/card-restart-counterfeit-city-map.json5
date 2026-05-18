@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-counterfeit-city-map",
+  "type": "item",
+  "name": "伪城地图",
+  "description": "检票口后的城市地图，街名全是被注销过的病历编号。地图背面标着广播塔、户籍柜和一条只能由已死亡者通过的回廊。",
+  "coinValue": 6,
+  "metaData": {
+    "tags": [
+      "item",
+      "map",
+      "act-two",
+      "restart"
+    ],
+    "gameCardId": "card-restart-counterfeit-city-map"
+  },
+  "effects": []
+}

@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-living-file",
+  "type": "item",
+  "name": "第一份活人档案",
+  "description": "广播塔债务台吐出的档案。它没有死亡日期，只有一行反复闪烁的批注：此人尚未被允许存在。",
+  "coinValue": 8,
+  "metaData": {
+    "tags": [
+      "item",
+      "proof",
+      "living-file",
+      "restart"
+    ],
+    "gameCardId": "card-restart-living-file"
+  },
+  "effects": []
+}

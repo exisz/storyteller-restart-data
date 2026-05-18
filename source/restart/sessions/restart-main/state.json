@@ -1,5 +1,5 @@
 {
-  "turn": 9,
+  "turn": 11,
   "rites": [
     {
       "id": "restart-rite-01-wake-at-platform",
@@ -1389,6 +1389,461 @@
           "description": "检票口开启到下一座城市。广播最后一次用林夕的声音确认：死亡证明有效，活人可以通行。"
         }
       ]
+    },
+    {
+      "id": "restart-rite-14-glass-behind-seventh-sun",
+      "name": "RESTART 14：玻璃后的第七次日出",
+      "description": "假出口审计通过后，检票口后的玻璃终于映出第七次日出的脸。她和林夕拥有同一双眼睛，却穿着没有编号的病号服；她说自己不是出口，而是第一个拒绝在死亡证明上签名的人。",
+      "triggers": [
+        "restart-act-two-threshold"
+      ],
+      "consequences": [
+        "restart-seventh-sun-contacted"
+      ],
+      "conditions": [
+        "flag.restart_false_exit_audited:1",
+        "flag.restart_act_two_threshold_unlocked:1",
+        "have.card:card-restart-real-bed-number",
+        "have.card:card-restart-blank-death-certificate",
+        "have.card:card-restart-radio"
+      ],
+      "effects": [
+        "set.flag:restart_act_two_threshold_entered",
+        "gain.card:card-restart-seventh-sun",
+        "gain.card:card-restart-audit-stamp"
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "隔着玻璃对证的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "骗开出口的文件",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "用空白死亡证明敲碎审计玻璃，把第七次日出作为活证人带走。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_sun_contacted"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_sun_rescued_as_witness"
+            }
+          ]
+        },
+        {
+          "text": "不打碎玻璃，只让她把下一座城市的规则写在审计章背面。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_sun_contacted"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_sun_kept_behind_glass"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 7,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "玻璃裂开一条细缝。第七次日出递出半枚审计章，但她的名字仍被广播吞掉。"
+        },
+        {
+          "minValue": 8,
+          "maxValue": 13,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 3
+            },
+            {
+              "type": "gain.influence",
+              "amount": 3
+            }
+          ],
+          "description": "审计章落到林夕掌心。第七次日出终于能在广播停顿时说完整一句：下一座城市只承认已经死过的人。"
+        },
+        {
+          "minValue": 14,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 5
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_sun_witness_stabilized"
+            }
+          ],
+          "description": "玻璃后方的候车厅倒转成一座伪城。第七次日出把审计章按进林夕的车票：现在起，你不是逃犯，是一份会走路的错误档案。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-15-counterfeit-city-registry",
+      "name": "RESTART 15：伪城入户登记",
+      "description": "检票口后的城市没有居民，只有一排排会自己盖章的户籍柜。柜台要求林夕提交一个能被审计的活人身份；第七次日出提醒她，填错名字就会让广播塔重新拥有死亡证明的解释权。",
+      "triggers": [
+        "restart-seventh-sun-contacted"
+      ],
+      "consequences": [
+        "restart-event-15-broadcast-name-hunt",
+        "restart-counterfeit-city-registry-filed"
+      ],
+      "conditions": [
+        "flag.restart_seventh_sun_contacted:1",
+        "flag.restart_act_two_threshold_entered:1",
+        "have.card:card-restart-seventh-sun",
+        "have.card:card-restart-audit-stamp",
+        "have.card:card-restart-ticket"
+      ],
+      "effects": [
+        "set.flag:restart_counterfeit_city_registry_opened",
+        "gain.card:card-restart-counterfeit-city-map"
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "提交户籍的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "盖章用的假出口凭证",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把林夕登记成“已死亡但可通行”的居民，让广播名单暂时找不到活人。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_linxi_registered_as_dead_resident"
+            }
+          ]
+        },
+        {
+          "text": "把第七次日出登记成活债权人，要求伪城承认它欠她一个出口。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_sun_registered_as_living_debt"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 7,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "户籍柜吐出一张临时地图，但每条街名都在十秒后换成死亡证明编号。"
+        },
+        {
+          "minValue": 8,
+          "maxValue": 12,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 3
+            },
+            {
+              "type": "gain.influence",
+              "amount": 3
+            }
+          ],
+          "description": "伪城地图稳定下来，广播塔的位置第一次出现在纸面上。第七次日出说：那里保存着第一份活人档案。"
+        },
+        {
+          "minValue": 13,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 5
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_counterfeit_city_map_stabilized"
+            }
+          ],
+          "description": "审计章和车票重叠，显出一条隐藏路线：从户籍柜穿过广播塔债务台，可以抵达还没有被写死的人。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-16-broadcast-tower-debt-desk",
+      "name": "RESTART 16：广播塔债务台",
+      "description": "伪城地图把林夕带到广播塔底层。这里没有播音员，只有一张债务台，台面上摆着越医生的旧章、林夕的替身死亡证明，以及一份被反复退回的活人档案。广播塔要求她交出一个解释：为什么已经死过的人还在走路？",
+      "triggers": [
+        "restart-counterfeit-city-breathes",
+        "restart-counterfeit-city-registry-filed"
+      ],
+      "consequences": [
+        "restart-broadcast-tower-decided"
+      ],
+      "conditions": [
+        "flag.restart_counterfeit_city_registry_opened:1",
+        "flag.restart_broadcast_tower_named:1",
+        "have.card:card-restart-seventh-sun",
+        "have.card:card-restart-counterfeit-city-map",
+        "have.card:card-restart-radio",
+        "have.card:card-restart-audit-stamp"
+      ],
+      "effects": [
+        "set.flag:restart_broadcast_tower_entered"
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "面对债务台的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "证明伪城路线的地图",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "公开收音机里的代答录音，指认广播塔一直在伪造林夕的死亡路线。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 7
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_broadcast_tower_decided"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_exposed_radio_operator"
+            }
+          ]
+        },
+        {
+          "text": "把伪城地图压在债务台上，和广播塔交换第一份活人档案的位置。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 7
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_broadcast_tower_decided"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_bargained_for_living_file"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 7,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "债务台承认录音有效，却把活人档案锁进更高一层。你只拿到一枚写着“待复查”的纸夹。"
+        },
+        {
+          "minValue": 8,
+          "maxValue": 13,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 3
+            },
+            {
+              "type": "gain.influence",
+              "amount": 3
+            }
+          ],
+          "description": "广播塔暂停全城追播。第七次日出听见自己第一次没有被消音的名字。"
+        },
+        {
+          "minValue": 14,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 5
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_living_file_location_unsealed"
+            }
+          ],
+          "description": "债务台向上弹开，露出一条只写给未死亡者的电梯路线。广播塔终于承认：有人在系统外活着。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-17-first-living-file",
+      "name": "RESTART 17：第一份活人档案",
+      "description": "广播塔顶层保存着一只没有编号的档案盒。盒盖上没有死亡日期，只有第七次日出的指纹；越医生的旧章卡在锁孔里，像是很久以前有人试图把活人改写成病历。",
+      "triggers": [
+        "restart-broadcast-tower-decided"
+      ],
+      "consequences": [
+        "restart-living-file-claimed"
+      ],
+      "conditions": [
+        "flag.restart_broadcast_tower_decided:1",
+        "flag.restart_living_file_location_unsealed:1",
+        "have.card:card-restart-seventh-sun",
+        "have.card:card-restart-audit-stamp",
+        "have.card:card-restart-counterfeit-city-map"
+      ],
+      "effects": [
+        "set.flag:restart_first_living_file_reached",
+        "gain.card:card-restart-living-file"
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "打开档案盒的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "证明活人路线的凭证",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把档案交给第七次日出，让她亲自证明自己从未合法死亡。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 7
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_living_file_given_to_seventh_sun"
+            }
+          ]
+        },
+        {
+          "text": "先用审计章复制档案，给林夕留下一份能在下一轮自证的备份。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 7
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_living_file_copied_for_linxi"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 7,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "档案盒打开后立刻开始自焚。你只抢出一页：活人档案不是名单，是出口算法。"
+        },
+        {
+          "minValue": 8,
+          "maxValue": 13,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 3
+            },
+            {
+              "type": "gain.influence",
+              "amount": 3
+            }
+          ],
+          "description": "第七次日出按住档案，第一次在广播里拥有完整姓名。伪城所有路灯同时熄灭一秒。"
+        },
+        {
+          "minValue": 14,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_living_exit_algorithm_seen"
+            }
+          ],
+          "description": "档案夹最深处写着下一幕的规则：只要有人能作为活人离开，整座医院的死亡证明都会倒欠她一次重启。"
+        }
+      ]
     }
   ],
   "cards": [
@@ -1541,6 +1996,74 @@
           "restart"
         ],
         "gameCardId": "card-restart-yue"
+      },
+      "effects": []
+    },
+    {
+      "id": "card-restart-audit-stamp",
+      "type": "item",
+      "name": "假出口审计章",
+      "description": "检票机盖下的临时通行章。它证明本轮的死亡证明足以骗开一扇门，也证明持章者的身份会被下一座城市复查。",
+      "coinValue": 6,
+      "metaData": {
+        "tags": [
+          "item",
+          "paperwork",
+          "access",
+          "restart"
+        ],
+        "gameCardId": "card-restart-audit-stamp"
+      },
+      "effects": []
+    },
+    {
+      "id": "card-restart-counterfeit-city-map",
+      "type": "item",
+      "name": "伪城地图",
+      "description": "检票口后的城市地图，街名全是被注销过的病历编号。地图背面标着广播塔、户籍柜和一条只能由已死亡者通过的回廊。",
+      "coinValue": 6,
+      "metaData": {
+        "tags": [
+          "item",
+          "map",
+          "act-two",
+          "restart"
+        ],
+        "gameCardId": "card-restart-counterfeit-city-map"
+      },
+      "effects": []
+    },
+    {
+      "id": "card-restart-living-file",
+      "type": "item",
+      "name": "第一份活人档案",
+      "description": "广播塔债务台吐出的档案。它没有死亡日期，只有一行反复闪烁的批注：此人尚未被允许存在。",
+      "coinValue": 8,
+      "metaData": {
+        "tags": [
+          "item",
+          "proof",
+          "living-file",
+          "restart"
+        ],
+        "gameCardId": "card-restart-living-file"
+      },
+      "effects": []
+    },
+    {
+      "id": "card-restart-seventh-sun",
+      "type": "person",
+      "name": "第七次日出",
+      "description": "被旧日出医院反复注销的第一名醒来者。她像林夕，又比林夕多记得一次拒签死亡证明的代价；只要她被带出玻璃门，广播就会追着她的缺名档案而来。",
+      "coinValue": 7,
+      "metaData": {
+        "tags": [
+          "person",
+          "witness",
+          "seventh-sun",
+          "restart"
+        ],
+        "gameCardId": "card-restart-seventh-sun"
       },
       "effects": []
     }
@@ -1767,6 +2290,64 @@
           ]
         }
       ]
+    },
+    {
+      "id": "restart-event-14-glass-gate-audit",
+      "name": "第十四回合事件：玻璃门审计回声",
+      "description": "检票口打开后，门后不是街道，而是一整面玻璃。玻璃另一侧有人敲了三下，节奏和第七次日出的求救广播完全一致；同时，坏掉的收音机开始替林夕回答审计问题。",
+      "trigger": {
+        "turn": 14
+      },
+      "consequences": [
+        "restart-act-two-threshold"
+      ],
+      "options": [
+        {
+          "text": "跟随玻璃后的三下敲击，先确认第七次日出还保有自己的声音。",
+          "effects": [
+            "gain.influence:5",
+            "set.flag:restart_glass_gate_audit_answered",
+            "set.flag:restart_followed_seventh_knock"
+          ]
+        },
+        {
+          "text": "让坏掉的收音机继续代答，把广播塔的审计问题全部录下来。",
+          "effects": [
+            "gain.favor:5",
+            "set.flag:restart_glass_gate_audit_answered",
+            "set.flag:restart_radio_answered_exit_audit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restart-event-15-broadcast-name-hunt",
+      "name": "第十五回合事件：缺名者追播",
+      "description": "伪城的路灯逐盏亮起，每一盏都在念同一个空白姓名。广播塔发现第七次日出离开了玻璃门，开始沿着审计章追查谁把一个没有死亡证明的人带进了城市。",
+      "trigger": {
+        "turn": 15
+      },
+      "consequences": [
+        "restart-counterfeit-city-breathes"
+      ],
+      "options": [
+        {
+          "text": "把第七次日出的名字藏进收音机静电里，让广播塔暂时追错频率。",
+          "effects": [
+            "gain.influence:5",
+            "set.flag:restart_broadcast_tower_named",
+            "set.flag:restart_seventh_name_hidden_in_static"
+          ]
+        },
+        {
+          "text": "故意让广播塔听见她的真声，逼操作员承认塔里还有活人档案。",
+          "effects": [
+            "gain.favor:5",
+            "set.flag:restart_broadcast_tower_named",
+            "set.flag:restart_baited_tower_operator"
+          ]
+        }
+      ]
     }
   ],
   "deck": [
@@ -1778,19 +2359,25 @@
     "card-restart-blank-death-certificate",
     "card-restart-eighth-wristband",
     "card-restart-memory-ampoule",
-    "card-restart-real-bed-number"
+    "card-restart-real-bed-number",
+    "card-restart-seventh-sun",
+    "card-restart-audit-stamp",
+    "card-restart-counterfeit-city-map",
+    "card-restart-living-file"
   ],
   "hands": {
     "player": [
       "card-restart-linxi",
       "card-restart-radio",
       "card-restart-ticket",
-      "card-restart-yue"
+      "card-restart-yue",
+      "card-restart-eighth-wristband",
+      "card-restart-memory-ampoule"
     ]
   },
   "counters": {
-    "influence": 37,
-    "favor": 26
+    "influence": 49,
+    "favor": 30
   },
   "flags": {
     "restart_woke_at_platform": true,
@@ -1821,8 +2408,44 @@
     "restart_saved_yue_from_certificate": true,
     "restart_false_discharge_route_opened": true,
     "complete_restart-rite-08-false-discharge-route": true,
-    "restart_chased_false_ambulance": true
+    "restart_chased_false_ambulance": true,
+    "restart_ambulance_platform_reached": true,
+    "complete_restart-rite-09-ambulance-platform": true,
+    "restart_boarded_with_yue": true,
+    "restart_eighth_loop_opened": true,
+    "restart_linxi_kept_memory": true,
+    "restart_tunnel_transfer_registered": true,
+    "complete_restart-rite-10-tunnel-transfer-register": true,
+    "restart_saved_linxi_memory_route": true
   },
-  "unresolvedEvent": null,
+  "unresolvedEvent": {
+    "id": "restart-event-11-bed-number-broadcast",
+    "name": "第十一回合事件：倒置床号广播",
+    "description": "救护车广播开始朗读第八轮腕带上的倒置床号，却每读一遍就删掉一个数字。越医生说这是签名室在确认谁有资格作证；如果不立刻固定床号，下一轮只会记得一串空白。",
+    "trigger": {
+      "turn": 11
+    },
+    "consequences": [
+      "restart-bed-number-broadcast-answered"
+    ],
+    "options": [
+      {
+        "text": "让林夕把床号背下来，即使这会让广播开始追踪她的记忆。",
+        "effects": [
+          "gain.influence:5",
+          "set.flag:restart_bed_number_broadcast_answered",
+          "set.flag:restart_linxi_memorized_bed_zero"
+        ]
+      },
+      {
+        "text": "让越医生用旧章固定床号，换取他进入签名室后的主动权。",
+        "effects": [
+          "gain.favor:5",
+          "set.flag:restart_bed_number_broadcast_answered",
+          "set.flag:restart_yue_stamped_bed_zero"
+        ]
+      }
+    ]
+  },
   "activeEvents": []
 }
