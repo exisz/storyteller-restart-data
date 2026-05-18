@@ -16,6 +16,40 @@
     "effects": []
   },
   {
+    "id": "card-restart-blank-death-certificate",
+    "type": "item",
+    "name": "空白死亡证明",
+    "description": "签名栏还空着的死亡证明。它可以救出第七次日出，也可以把某个人正式留在本轮死亡里。",
+    "coinValue": 8,
+    "metaData": {
+      "tags": [
+        "item",
+        "paperwork",
+        "death-certificate",
+        "restart"
+      ],
+      "gameCardId": "card-restart-blank-death-certificate"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-eighth-wristband",
+    "type": "item",
+    "name": "第八轮腕带",
+    "description": "病号服林夕从救护车里递出的腕带。腕带内侧写着今天的日期和一串倒置床号，证明她来自下一轮，却也可能是医院预先打印的陷阱。",
+    "coinValue": 6,
+    "metaData": {
+      "tags": [
+        "item",
+        "proof",
+        "loop",
+        "restart"
+      ],
+      "gameCardId": "card-restart-eighth-wristband"
+    },
+    "effects": []
+  },
+  {
     "id": "card-restart-linxi",
     "type": "person",
     "name": "林夕",
@@ -33,6 +67,23 @@
     "effects": []
   },
   {
+    "id": "card-restart-memory-ampoule",
+    "type": "item",
+    "name": "记忆安瓿",
+    "description": "第八轮林夕留在车门槽里的小玻璃管。打碎它能让一个人带着本轮记忆下车，但医院会立刻注销另一个人的通行权。",
+    "coinValue": 5,
+    "metaData": {
+      "tags": [
+        "item",
+        "memory",
+        "cost",
+        "restart"
+      ],
+      "gameCardId": "card-restart-memory-ampoule"
+    },
+    "effects": []
+  },
+  {
     "id": "card-restart-radio",
     "type": "item",
     "name": "坏掉的收音机",
@@ -46,6 +97,23 @@
         "restart"
       ],
       "gameCardId": "card-restart-radio"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-real-bed-number",
+    "type": "item",
+    "name": "真实床号：B-07/0",
+    "description": "从第八轮腕带、倒放广播和越医生旧章之间拼出的床号。它指向的不是病房，而是救护车月台下方的签名室。",
+    "coinValue": 7,
+    "metaData": {
+      "tags": [
+        "item",
+        "clue",
+        "bed-number",
+        "restart"
+      ],
+      "gameCardId": "card-restart-real-bed-number"
     },
     "effects": []
   },

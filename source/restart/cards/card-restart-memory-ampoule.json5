@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-memory-ampoule",
+  "type": "item",
+  "name": "记忆安瓿",
+  "description": "第八轮林夕留在车门槽里的小玻璃管。打碎它能让一个人带着本轮记忆下车，但医院会立刻注销另一个人的通行权。",
+  "coinValue": 5,
+  "metaData": {
+    "tags": [
+      "item",
+      "memory",
+      "cost",
+      "restart"
+    ],
+    "gameCardId": "card-restart-memory-ampoule"
+  },
+  "effects": []
+}

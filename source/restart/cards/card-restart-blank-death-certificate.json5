@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-blank-death-certificate",
+  "type": "item",
+  "name": "空白死亡证明",
+  "description": "签名栏还空着的死亡证明。它可以救出第七次日出，也可以把某个人正式留在本轮死亡里。",
+  "coinValue": 8,
+  "metaData": {
+    "tags": [
+      "item",
+      "paperwork",
+      "death-certificate",
+      "restart"
+    ],
+    "gameCardId": "card-restart-blank-death-certificate"
+  },
+  "effects": []
+}

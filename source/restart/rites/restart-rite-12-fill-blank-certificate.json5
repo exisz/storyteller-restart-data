@@ -1,0 +1,107 @@
+{
+  "id": "restart-rite-12-fill-blank-certificate",
+  "name": "RESTART 12：填写空白死亡证明",
+  "description": "签名室只剩一盏红灯。空白死亡证明要求补上一个名字，才能让救护车离开地下月台。林夕终于明白：救出第七次日出不是撕掉死亡证明，而是决定谁愿意把自己的死亡变成出口。",
+  "triggers": [
+    "restart-signature-pressure-decided"
+  ],
+  "consequences": [
+    "restart-act-one-exit-opened"
+  ],
+  "conditions": [
+    "flag.restart_signature_pressure_decided:1",
+    "have.card:card-restart-linxi",
+    "have.card:card-restart-real-bed-number",
+    "have.card:card-restart-blank-death-certificate"
+  ],
+  "effects": [
+    "set.flag:restart_blank_certificate_filled"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "决定签名的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "证明出口的文件",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "签下林夕的名字，制造一具官方认可的替身尸体。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_signed_linxi_decoy_death"
+        }
+      ]
+    },
+    {
+      "text": "签下越医生的名字，兑现他欠第七次日出的那一次死亡。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_signed_yue_debt_death"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 6,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "死亡证明接受了名字，却把出口延后到下一轮。你得到一条冷冰冰的广播：替身还不够像。"
+    },
+    {
+      "minValue": 7,
+      "maxValue": 12,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "红灯熄灭。救护车门外出现旧车站的检票口，第七次日出的声音说：你终于学会让文件说谎。"
+    },
+    {
+      "minValue": 13,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 5
+        },
+        {
+          "type": "gain.influence",
+          "amount": 5
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_act_one_exit_unsealed"
+        }
+      ],
+      "description": "空白死亡证明反向盖章：本轮已死亡的人可以离开，仍活着的人必须留下。第七次日出终于在车站另一侧等你。"
+    }
+  ]
+}

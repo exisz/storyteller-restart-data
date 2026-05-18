@@ -13,6 +13,7 @@
       "text": "让林夕保留记忆下车，牺牲越医生对医院的通行权。",
       "effects": [
         "gain.influence:5",
+        "set.flag:restart_eighth_loop_opened",
         "set.flag:restart_linxi_kept_memory"
       ]
     },
@@ -20,6 +21,7 @@
       "text": "让越医生保留通行权，要求他把第七次日出的真实床号交出来。",
       "effects": [
         "gain.favor:5",
+        "set.flag:restart_eighth_loop_opened",
         "set.flag:restart_yue_kept_access"
       ]
     }

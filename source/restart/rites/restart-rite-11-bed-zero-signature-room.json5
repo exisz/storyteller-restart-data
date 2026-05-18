@@ -1,0 +1,109 @@
+{
+  "id": "restart-rite-11-bed-zero-signature-room",
+  "name": "RESTART 11：零号床签名室",
+  "description": "广播读出倒置床号后，救护车地板向下滑开，露出写着 B-07/0 的签名室。墙上挂满没有姓名的出院单；第七次日出的声音从每一张纸背后响起，要求林夕证明自己找到的不是又一份伪造。",
+  "triggers": [
+    "restart-bed-number-broadcast-answered"
+  ],
+  "consequences": [
+    "restart-event-12-signature-pressure"
+  ],
+  "conditions": [
+    "flag.restart_bed_number_broadcast_answered:1",
+    "have.card:card-restart-eighth-wristband",
+    "have.card:card-restart-memory-ampoule",
+    "have.card:card-restart-yue"
+  ],
+  "effects": [
+    "set.flag:restart_signature_room_entered",
+    "gain.card:card-restart-real-bed-number",
+    "gain.card:card-restart-blank-death-certificate"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "对照床号的证物",
+      "cardType": "item"
+    },
+    {
+      "id": "slot-1",
+      "name": "承认证词的人",
+      "cardType": "person"
+    }
+  ],
+  "options": [
+    {
+      "text": "让越医生承认他每一轮都把第七次日出登记成“零号床”。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 5
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_yue_admitted_bed_zero"
+        }
+      ]
+    },
+    {
+      "text": "先把真实床号藏进收音机，防止广播当场改写它。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 5
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_bed_number_hidden_in_radio"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 6,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "签名室只承认半个床号。第七次日出的声音变得模糊，但她仍说出一句：不要让越医生替你签。"
+    },
+    {
+      "minValue": 7,
+      "maxValue": 11,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "空白死亡证明从柜底滑出，签名栏旁写着三个可选身份：林夕、越医生、第七次日出。"
+    },
+    {
+      "minValue": 12,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_bed_zero_verified"
+        }
+      ],
+      "description": "床号 B-07/0 被钉回现实。广播第一次卡壳：第七次日出不是病人编号，而是第一个拒绝在死亡证明上签名的人。"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-12-signature-pressure",
+  "name": "第十二回合事件：签名栏催告",
+  "description": "空白死亡证明被取下后，整辆救护车停电。第七次日出终于直接说话：她不是要林夕找到凶手，而是要林夕决定谁的死亡能骗过医院，让下一轮拥有一个真实出口。",
+  "trigger": {
+    "turn": 12
+  },
+  "consequences": [
+    "restart-signature-pressure-decided"
+  ],
+  "options": [
+    {
+      "text": "承诺先救第七次日出，哪怕必须伪造林夕自己的死亡。",
+      "effects": [
+        "gain.influence:5",
+        "set.flag:restart_signature_pressure_decided",
+        "set.flag:restart_promised_rescue_seventh_sun"
+      ]
+    },
+    {
+      "text": "要求第七次日出先说出越医生欠下的死亡，避免替他背债。",
+      "effects": [
+        "gain.favor:5",
+        "set.flag:restart_signature_pressure_decided",
+        "set.flag:restart_demanded_yue_debt_truth"
+      ]
+    }
+  ]
+}

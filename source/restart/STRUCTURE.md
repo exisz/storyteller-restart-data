@@ -45,3 +45,21 @@ Before adding nodes, answer in the work log or final report:
 - Is any node isolated? If yes, is it deliberately optional, or is the graph missing an edge?
 
 A packet is bad if it only appends the next rite after the previous rite. A packet is good when the Player can see several meaningful pressures and the graph shows why those pressures exist.
+
+## Turn 9–12 packet: Eighth-loop signature arc
+
+The current first-exit attempt now continues past the ambulance platform into a three-step pressure chain:
+
+- `restart-rite-10-tunnel-transfer-register` turns the ambulance into a transfer machine and forces memory vs Yue-access pressure. It creates concrete state with the Eighth Loop Wristband and Memory Ampoule.
+- `restart-event-11-bed-number-broadcast` and `restart-rite-11-bed-zero-signature-room` stabilize the real bed number B-07/0 and convert the Seventh Sunrise mystery into signature-room paperwork pressure.
+- `restart-event-12-signature-pressure` and `restart-rite-12-fill-blank-certificate` open the next exit decision: falsify Linxi's death as a decoy or make Yue pay the death debt.
+
+Branch memory added for later checks:
+
+- `restart_saved_linxi_memory_route` vs `restart_preserved_yue_access_route`
+- `restart_linxi_memorized_bed_zero` vs `restart_yue_stamped_bed_zero`
+- `restart_yue_admitted_bed_zero` vs `restart_bed_number_hidden_in_radio`
+- `restart_promised_rescue_seventh_sun` vs `restart_demanded_yue_debt_truth`
+- `restart_signed_linxi_decoy_death` vs `restart_signed_yue_debt_death`
+
+This packet advances the Hospital/Yue, Broadcast/radio, Linxi identity, and Paperwork threads while keeping the current turn-9 hand useful.

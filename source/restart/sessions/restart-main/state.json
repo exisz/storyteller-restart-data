@@ -1,5 +1,5 @@
 {
-  "turn": 7,
+  "turn": 9,
   "rites": [
     {
       "id": "restart-rite-01-wake-at-platform",
@@ -939,6 +939,331 @@
           "description": "救护车启动前，第八轮林夕递出下一张死亡证明：这一次，签名栏等着玩家填写。"
         }
       ]
+    },
+    {
+      "id": "restart-rite-10-tunnel-transfer-register",
+      "name": "RESTART 10：隧道换乘登记",
+      "description": "救护车驶进无出口隧道后，车厢墙面弹出一台旧医院的换乘登记机。机器要求林夕在“记忆下车”和“通行权下车”之间盖章；第八轮腕带则在登记口里发烫，像是在提醒她：选项会被带到下一轮。",
+      "triggers": [
+        "restart-eighth-loop-opened"
+      ],
+      "consequences": [
+        "restart-event-11-bed-number-broadcast"
+      ],
+      "conditions": [
+        "flag.restart_eighth_loop_opened:1",
+        "have.card:card-restart-linxi",
+        "have.card:card-restart-yue",
+        "have.card:card-restart-radio"
+      ],
+      "effects": [
+        "set.flag:restart_tunnel_transfer_registered",
+        "gain.card:card-restart-eighth-wristband",
+        "gain.card:card-restart-memory-ampoule"
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "负责盖章的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "监听登记机的物件",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "打碎记忆安瓿，让林夕把第八轮来电完整带下车。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_saved_linxi_memory_route"
+            }
+          ]
+        },
+        {
+          "text": "让越医生先盖通行章，保住他进入签名室的权限。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_preserved_yue_access_route"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 5,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 1
+            }
+          ],
+          "description": "登记机吞掉半枚章。广播警告：有人将无证下车，下一轮会少一段记忆。"
+        },
+        {
+          "minValue": 6,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 2
+            },
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "腕带内侧显出倒置床号。越医生认出那不是病房号，而是旧日出医院的地下签名柜。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 3
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_transfer_stamp_stabilized"
+            }
+          ],
+          "description": "登记机吐出两枚互相矛盾的章：林夕可带记忆下车，越医生可带债务下车，但签名室会要求补交一个人的死亡。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-11-bed-zero-signature-room",
+      "name": "RESTART 11：零号床签名室",
+      "description": "广播读出倒置床号后，救护车地板向下滑开，露出写着 B-07/0 的签名室。墙上挂满没有姓名的出院单；第七次日出的声音从每一张纸背后响起，要求林夕证明自己找到的不是又一份伪造。",
+      "triggers": [
+        "restart-bed-number-broadcast-answered"
+      ],
+      "consequences": [
+        "restart-event-12-signature-pressure"
+      ],
+      "conditions": [
+        "flag.restart_bed_number_broadcast_answered:1",
+        "have.card:card-restart-eighth-wristband",
+        "have.card:card-restart-memory-ampoule",
+        "have.card:card-restart-yue"
+      ],
+      "effects": [
+        "set.flag:restart_signature_room_entered",
+        "gain.card:card-restart-real-bed-number",
+        "gain.card:card-restart-blank-death-certificate"
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "对照床号的证物",
+          "cardType": "item"
+        },
+        {
+          "id": "slot-1",
+          "name": "承认证词的人",
+          "cardType": "person"
+        }
+      ],
+      "options": [
+        {
+          "text": "让越医生承认他每一轮都把第七次日出登记成“零号床”。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 5
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_yue_admitted_bed_zero"
+            }
+          ]
+        },
+        {
+          "text": "先把真实床号藏进收音机，防止广播当场改写它。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_bed_number_hidden_in_radio"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 6,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "签名室只承认半个床号。第七次日出的声音变得模糊，但她仍说出一句：不要让越医生替你签。"
+        },
+        {
+          "minValue": 7,
+          "maxValue": 11,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 2
+            },
+            {
+              "type": "gain.influence",
+              "amount": 3
+            }
+          ],
+          "description": "空白死亡证明从柜底滑出，签名栏旁写着三个可选身份：林夕、越医生、第七次日出。"
+        },
+        {
+          "minValue": 12,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_bed_zero_verified"
+            }
+          ],
+          "description": "床号 B-07/0 被钉回现实。广播第一次卡壳：第七次日出不是病人编号，而是第一个拒绝在死亡证明上签名的人。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-12-fill-blank-certificate",
+      "name": "RESTART 12：填写空白死亡证明",
+      "description": "签名室只剩一盏红灯。空白死亡证明要求补上一个名字，才能让救护车离开地下月台。林夕终于明白：救出第七次日出不是撕掉死亡证明，而是决定谁愿意把自己的死亡变成出口。",
+      "triggers": [
+        "restart-signature-pressure-decided"
+      ],
+      "consequences": [
+        "restart-act-one-exit-opened"
+      ],
+      "conditions": [
+        "flag.restart_signature_pressure_decided:1",
+        "have.card:card-restart-linxi",
+        "have.card:card-restart-real-bed-number",
+        "have.card:card-restart-blank-death-certificate"
+      ],
+      "effects": [
+        "set.flag:restart_blank_certificate_filled"
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "决定签名的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "证明出口的文件",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "签下林夕的名字，制造一具官方认可的替身尸体。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_signed_linxi_decoy_death"
+            }
+          ]
+        },
+        {
+          "text": "签下越医生的名字，兑现他欠第七次日出的那一次死亡。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_signed_yue_debt_death"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 6,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "死亡证明接受了名字，却把出口延后到下一轮。你得到一条冷冰冰的广播：替身还不够像。"
+        },
+        {
+          "minValue": 7,
+          "maxValue": 12,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 3
+            },
+            {
+              "type": "gain.influence",
+              "amount": 3
+            }
+          ],
+          "description": "红灯熄灭。救护车门外出现旧车站的检票口，第七次日出的声音说：你终于学会让文件说谎。"
+        },
+        {
+          "minValue": 13,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 5
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_act_one_exit_unsealed"
+            }
+          ],
+          "description": "空白死亡证明反向盖章：本轮已死亡的人可以离开，仍活着的人必须留下。第七次日出终于在车站另一侧等你。"
+        }
+      ]
     }
   ],
   "cards": [
@@ -955,6 +1280,40 @@
           "restart"
         ],
         "gameCardId": "card-restart-black-box"
+      },
+      "effects": []
+    },
+    {
+      "id": "card-restart-blank-death-certificate",
+      "type": "item",
+      "name": "空白死亡证明",
+      "description": "签名栏还空着的死亡证明。它可以救出第七次日出，也可以把某个人正式留在本轮死亡里。",
+      "coinValue": 8,
+      "metaData": {
+        "tags": [
+          "item",
+          "paperwork",
+          "death-certificate",
+          "restart"
+        ],
+        "gameCardId": "card-restart-blank-death-certificate"
+      },
+      "effects": []
+    },
+    {
+      "id": "card-restart-eighth-wristband",
+      "type": "item",
+      "name": "第八轮腕带",
+      "description": "病号服林夕从救护车里递出的腕带。腕带内侧写着今天的日期和一串倒置床号，证明她来自下一轮，却也可能是医院预先打印的陷阱。",
+      "coinValue": 6,
+      "metaData": {
+        "tags": [
+          "item",
+          "proof",
+          "loop",
+          "restart"
+        ],
+        "gameCardId": "card-restart-eighth-wristband"
       },
       "effects": []
     },
@@ -976,6 +1335,23 @@
       "effects": []
     },
     {
+      "id": "card-restart-memory-ampoule",
+      "type": "item",
+      "name": "记忆安瓿",
+      "description": "第八轮林夕留在车门槽里的小玻璃管。打碎它能让一个人带着本轮记忆下车，但医院会立刻注销另一个人的通行权。",
+      "coinValue": 5,
+      "metaData": {
+        "tags": [
+          "item",
+          "memory",
+          "cost",
+          "restart"
+        ],
+        "gameCardId": "card-restart-memory-ampoule"
+      },
+      "effects": []
+    },
+    {
       "id": "card-restart-radio",
       "type": "item",
       "name": "坏掉的收音机",
@@ -989,6 +1365,23 @@
           "restart"
         ],
         "gameCardId": "card-restart-radio"
+      },
+      "effects": []
+    },
+    {
+      "id": "card-restart-real-bed-number",
+      "type": "item",
+      "name": "真实床号：B-07/0",
+      "description": "从第八轮腕带、倒放广播和越医生旧章之间拼出的床号。它指向的不是病房，而是救护车月台下方的签名室。",
+      "coinValue": 7,
+      "metaData": {
+        "tags": [
+          "item",
+          "clue",
+          "bed-number",
+          "restart"
+        ],
+        "gameCardId": "card-restart-real-bed-number"
       },
       "effects": []
     },
@@ -1178,6 +1571,7 @@
           "text": "让林夕保留记忆下车，牺牲越医生对医院的通行权。",
           "effects": [
             "gain.influence:5",
+            "set.flag:restart_eighth_loop_opened",
             "set.flag:restart_linxi_kept_memory"
           ]
         },
@@ -1185,7 +1579,66 @@
           "text": "让越医生保留通行权，要求他把第七次日出的真实床号交出来。",
           "effects": [
             "gain.favor:5",
+            "set.flag:restart_eighth_loop_opened",
             "set.flag:restart_yue_kept_access"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restart-event-11-bed-number-broadcast",
+      "name": "第十一回合事件：倒置床号广播",
+      "description": "救护车广播开始朗读第八轮腕带上的倒置床号，却每读一遍就删掉一个数字。越医生说这是签名室在确认谁有资格作证；如果不立刻固定床号，下一轮只会记得一串空白。",
+      "trigger": {
+        "turn": 11
+      },
+      "consequences": [
+        "restart-bed-number-broadcast-answered"
+      ],
+      "options": [
+        {
+          "text": "让林夕把床号背下来，即使这会让广播开始追踪她的记忆。",
+          "effects": [
+            "gain.influence:5",
+            "set.flag:restart_bed_number_broadcast_answered",
+            "set.flag:restart_linxi_memorized_bed_zero"
+          ]
+        },
+        {
+          "text": "让越医生用旧章固定床号，换取他进入签名室后的主动权。",
+          "effects": [
+            "gain.favor:5",
+            "set.flag:restart_bed_number_broadcast_answered",
+            "set.flag:restart_yue_stamped_bed_zero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restart-event-12-signature-pressure",
+      "name": "第十二回合事件：签名栏催告",
+      "description": "空白死亡证明被取下后，整辆救护车停电。第七次日出终于直接说话：她不是要林夕找到凶手，而是要林夕决定谁的死亡能骗过医院，让下一轮拥有一个真实出口。",
+      "trigger": {
+        "turn": 12
+      },
+      "consequences": [
+        "restart-signature-pressure-decided"
+      ],
+      "options": [
+        {
+          "text": "承诺先救第七次日出，哪怕必须伪造林夕自己的死亡。",
+          "effects": [
+            "gain.influence:5",
+            "set.flag:restart_signature_pressure_decided",
+            "set.flag:restart_promised_rescue_seventh_sun"
+          ]
+        },
+        {
+          "text": "要求第七次日出先说出越医生欠下的死亡，避免替他背债。",
+          "effects": [
+            "gain.favor:5",
+            "set.flag:restart_signature_pressure_decided",
+            "set.flag:restart_demanded_yue_debt_truth"
           ]
         }
       ]
@@ -1196,7 +1649,11 @@
     "card-restart-linxi",
     "card-restart-radio",
     "card-restart-ticket",
-    "card-restart-yue"
+    "card-restart-yue",
+    "card-restart-blank-death-certificate",
+    "card-restart-eighth-wristband",
+    "card-restart-memory-ampoule",
+    "card-restart-real-bed-number"
   ],
   "hands": {
     "player": [
@@ -1207,8 +1664,8 @@
     ]
   },
   "counters": {
-    "influence": 31,
-    "favor": 16
+    "influence": 37,
+    "favor": 26
   },
   "flags": {
     "restart_woke_at_platform": true,
@@ -1232,7 +1689,14 @@
     "restart_ward_seven_opened": true,
     "complete_restart-rite-06-open-ward-seven": true,
     "restart_linxi_read_case_record": true,
-    "restart_gave_record_to_yue": true
+    "restart_gave_record_to_yue": true,
+    "restart_death_certificate_cabinet_opened": true,
+    "complete_restart-rite-07-death-certificate-cabinet": true,
+    "restart_forced_yue_confession": true,
+    "restart_saved_yue_from_certificate": true,
+    "restart_false_discharge_route_opened": true,
+    "complete_restart-rite-08-false-discharge-route": true,
+    "restart_chased_false_ambulance": true
   },
   "unresolvedEvent": null,
   "activeEvents": []

@@ -149,6 +149,7 @@
         "text": "让林夕保留记忆下车，牺牲越医生对医院的通行权。",
         "effects": [
           "gain.influence:5",
+          "set.flag:restart_eighth_loop_opened",
           "set.flag:restart_linxi_kept_memory"
         ]
       },
@@ -156,7 +157,66 @@
         "text": "让越医生保留通行权，要求他把第七次日出的真实床号交出来。",
         "effects": [
           "gain.favor:5",
+          "set.flag:restart_eighth_loop_opened",
           "set.flag:restart_yue_kept_access"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-11-bed-number-broadcast",
+    "name": "第十一回合事件：倒置床号广播",
+    "description": "救护车广播开始朗读第八轮腕带上的倒置床号，却每读一遍就删掉一个数字。越医生说这是签名室在确认谁有资格作证；如果不立刻固定床号，下一轮只会记得一串空白。",
+    "trigger": {
+      "turn": 11
+    },
+    "consequences": [
+      "restart-bed-number-broadcast-answered"
+    ],
+    "options": [
+      {
+        "text": "让林夕把床号背下来，即使这会让广播开始追踪她的记忆。",
+        "effects": [
+          "gain.influence:5",
+          "set.flag:restart_bed_number_broadcast_answered",
+          "set.flag:restart_linxi_memorized_bed_zero"
+        ]
+      },
+      {
+        "text": "让越医生用旧章固定床号，换取他进入签名室后的主动权。",
+        "effects": [
+          "gain.favor:5",
+          "set.flag:restart_bed_number_broadcast_answered",
+          "set.flag:restart_yue_stamped_bed_zero"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-12-signature-pressure",
+    "name": "第十二回合事件：签名栏催告",
+    "description": "空白死亡证明被取下后，整辆救护车停电。第七次日出终于直接说话：她不是要林夕找到凶手，而是要林夕决定谁的死亡能骗过医院，让下一轮拥有一个真实出口。",
+    "trigger": {
+      "turn": 12
+    },
+    "consequences": [
+      "restart-signature-pressure-decided"
+    ],
+    "options": [
+      {
+        "text": "承诺先救第七次日出，哪怕必须伪造林夕自己的死亡。",
+        "effects": [
+          "gain.influence:5",
+          "set.flag:restart_signature_pressure_decided",
+          "set.flag:restart_promised_rescue_seventh_sun"
+        ]
+      },
+      {
+        "text": "要求第七次日出先说出越医生欠下的死亡，避免替他背债。",
+        "effects": [
+          "gain.favor:5",
+          "set.flag:restart_signature_pressure_decided",
+          "set.flag:restart_demanded_yue_debt_truth"
         ]
       }
     ]

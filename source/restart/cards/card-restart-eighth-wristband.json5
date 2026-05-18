@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-eighth-wristband",
+  "type": "item",
+  "name": "第八轮腕带",
+  "description": "病号服林夕从救护车里递出的腕带。腕带内侧写着今天的日期和一串倒置床号，证明她来自下一轮，却也可能是医院预先打印的陷阱。",
+  "coinValue": 6,
+  "metaData": {
+    "tags": [
+      "item",
+      "proof",
+      "loop",
+      "restart"
+    ],
+    "gameCardId": "card-restart-eighth-wristband"
+  },
+  "effects": []
+}

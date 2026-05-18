@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-11-bed-number-broadcast",
+  "name": "第十一回合事件：倒置床号广播",
+  "description": "救护车广播开始朗读第八轮腕带上的倒置床号，却每读一遍就删掉一个数字。越医生说这是签名室在确认谁有资格作证；如果不立刻固定床号，下一轮只会记得一串空白。",
+  "trigger": {
+    "turn": 11
+  },
+  "consequences": [
+    "restart-bed-number-broadcast-answered"
+  ],
+  "options": [
+    {
+      "text": "让林夕把床号背下来，即使这会让广播开始追踪她的记忆。",
+      "effects": [
+        "gain.influence:5",
+        "set.flag:restart_bed_number_broadcast_answered",
+        "set.flag:restart_linxi_memorized_bed_zero"
+      ]
+    },
+    {
+      "text": "让越医生用旧章固定床号，换取他进入签名室后的主动权。",
+      "effects": [
+        "gain.favor:5",
+        "set.flag:restart_bed_number_broadcast_answered",
+        "set.flag:restart_yue_stamped_bed_zero"
+      ]
+    }
+  ]
+}

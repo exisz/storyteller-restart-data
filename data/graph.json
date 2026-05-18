@@ -46,6 +46,21 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-10-tunnel-transfer-register",
+      "name": "RESTART 10：隧道换乘登记",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-11-bed-zero-signature-room",
+      "name": "RESTART 11：零号床签名室",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-12-fill-blank-certificate",
+      "name": "RESTART 12：填写空白死亡证明",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -73,6 +88,16 @@
     {
       "id": "restart-event-10-eighth-loop-signal",
       "name": "第十回合事件：第八轮来电",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-11-bed-number-broadcast",
+      "name": "第十一回合事件：倒置床号广播",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-12-signature-pressure",
+      "name": "第十二回合事件：签名栏催告",
       "type": "event"
     }
   ],
@@ -116,6 +141,14 @@
     {
       "source": "restart-rite-09-ambulance-platform",
       "target": "restart-event-10-eighth-loop-signal"
+    },
+    {
+      "source": "restart-rite-10-tunnel-transfer-register",
+      "target": "restart-event-11-bed-number-broadcast"
+    },
+    {
+      "source": "restart-rite-11-bed-zero-signature-room",
+      "target": "restart-event-12-signature-pressure"
     },
     {
       "source": "restart-event-02-broadcast",

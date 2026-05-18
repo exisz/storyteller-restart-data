@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-real-bed-number",
+  "type": "item",
+  "name": "真实床号：B-07/0",
+  "description": "从第八轮腕带、倒放广播和越医生旧章之间拼出的床号。它指向的不是病房，而是救护车月台下方的签名室。",
+  "coinValue": 7,
+  "metaData": {
+    "tags": [
+      "item",
+      "clue",
+      "bed-number",
+      "restart"
+    ],
+    "gameCardId": "card-restart-real-bed-number"
+  },
+  "effects": []
+}
