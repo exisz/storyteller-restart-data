@@ -1,14 +1,12 @@
 {
   "sourceId": "sultan-grouped",
-  "schemaVersion": "0.3.0",
-  "title": "Sultan Manual Group Prototype",
-  "groupingMode": "manual-single-route-prototype",
-  "updatedAt": "2026-05-18T15:08:47.721Z",
-  "version": "d78c64d",
+  "schemaVersion": "0.4.0",
+  "title": "Sultan Manual Groups",
+  "groupingMode": "runtime-manual-groups",
+  "updatedAt": "2026-05-18T15:20:44.944Z",
+  "version": "d9d14fc",
   "files": {
-    "rites": "data/rites.json",
-    "events": "data/events.json",
-    "subgraphs": "data/subgraphs.json",
-    "supergraph": "data/supergraph.json"
-  }
+    "groups": "groups/manual-groups.json5"
+  },
+  "note": "The app combines these manual group definitions with bundled Sultan source graph at runtime. Updating groups does not require an app rebuild."
 }
