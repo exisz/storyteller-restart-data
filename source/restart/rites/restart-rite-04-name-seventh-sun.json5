@@ -1,0 +1,107 @@
+{
+  "id": "restart-rite-04-name-seventh-sun",
+  "name": "RESTART 04：说出第七次日出的名字",
+  "description": "黑匣子的杂音退去后，车票背面浮出一行新字：第七次日出不是时间，是被城市藏起来的人。越医生要求林夕立刻用收音机反向播报这个名字，否则下一轮会从她的记忆里删掉它。",
+  "triggers": [
+    "restart-next-chapter"
+  ],
+  "consequences": [
+    "restart-chapter-two-opened"
+  ],
+  "conditions": [
+    "flag.restart_black_box_opened:1",
+    "have.card:card-restart-radio",
+    "have.card:card-restart-ticket",
+    "have.card:card-restart-yue"
+  ],
+  "effects": [
+    "set.flag:restart_seventh_sun_named"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "说出名字的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "广播或车票",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "用坏掉的收音机向全城播出那个名字，让凶手先露出破绽。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_broadcast_name"
+        }
+      ]
+    },
+    {
+      "text": "把名字写回第七次日出的车票，锁定下一轮醒来的地点。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_ticket_named"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 4,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "名字只播出半句，城市立刻用噪音覆盖它；但越医生确认：有人在害怕你接近真相。"
+    },
+    {
+      "minValue": 5,
+      "maxValue": 9,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "车票烫伤你的指尖，留下一个站名：旧日出医院。下一轮的入口被你钉住了。"
+    },
+    {
+      "minValue": 10,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_chapter_two_unlocked"
+        }
+      ],
+      "description": "全城广播同时念出那个名字。第七次日出回答你：如果想活过明天，就来旧日出医院找我。"
+    }
+  ]
+}

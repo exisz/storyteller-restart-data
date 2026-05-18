@@ -1,0 +1,13 @@
+{
+  "sourceId": "restart",
+  "schemaVersion": "0.1.0",
+  "title": "RESTART",
+  "updatedAt": "2026-05-18T06:00:09.033Z",
+  "version": "37dec87",
+  "files": {
+    "graph": "data/graph.json",
+    "cards": "data/cards.json",
+    "events": "data/events.json",
+    "rites": "data/rites.json"
+  }
+}

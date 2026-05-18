@@ -1,0 +1,106 @@
+{
+  "id": "restart-rite-08-false-discharge-route",
+  "name": "RESTART 08：伪造出院路线",
+  "description": "警报停下后，车票背面变成一张旧日出医院的出院单。出院人写着“第七次日出”，押送人却被划掉了姓名。越医生承认，只有沿着这条伪造路线走，林夕才能找到第一个逃出循环的人。",
+  "triggers": [
+    "restart-yue-certificate-decided"
+  ],
+  "consequences": [
+    "restart-false-discharge-route-found"
+  ],
+  "conditions": [
+    "flag.restart_death_certificate_cabinet_opened:1",
+    "have.card:card-restart-ticket",
+    "have.card:card-restart-radio"
+  ],
+  "effects": [
+    "set.flag:restart_false_discharge_route_opened"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "定位路线的车票",
+      "cardType": "item"
+    },
+    {
+      "id": "slot-1",
+      "name": "监听未来的广播",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "沿着出院单上的救护车编号追出去，寻找被转移的第七次日出。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_chased_false_ambulance"
+        }
+      ]
+    },
+    {
+      "text": "用收音机倒放出院广播，改写路线终点，让第七次日出主动暴露坐标。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_rewrote_discharge_destination"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 4,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 1
+        }
+      ],
+      "description": "出院单被水渍糊住，只剩一个方向：医院后门。"
+    },
+    {
+      "minValue": 5,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "救护车编号与末班车车票相同。第七次日出不是被救走，而是被送回了起点。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_confirmed_ambulance_is_train"
+        }
+      ],
+      "description": "收音机接通救护车驾驶室。司机用林夕的声音说：别上车，车里坐着第八轮的你。"
+    }
+  ]
+}

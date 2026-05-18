@@ -1,0 +1,27 @@
+{
+  "id": "restart-event-06-hospital-triage",
+  "name": "第六回合事件：地下门诊分诊台",
+  "description": "旧日出医院的分诊台自动叫号：林夕，七号诊室。屏幕上同时跳出另一行字：越医生，六号死亡证明待签。你只能先追问一个真相。",
+  "trigger": {
+    "turn": 6
+  },
+  "consequences": [
+    "restart-hospital-truth-opened"
+  ],
+  "options": [
+    {
+      "text": "追问七号诊室：第七次日出到底是谁。",
+      "effects": [
+        "gain.influence:3",
+        "set.flag:restart_chose_ward_seven"
+      ]
+    },
+    {
+      "text": "拦住越医生：先弄清他为什么会死在这一轮。",
+      "effects": [
+        "gain.favor:3",
+        "set.flag:restart_chose_yue_death_certificate"
+      ]
+    }
+  ]
+}

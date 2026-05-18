@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-ticket",
+  "type": "item",
+  "name": "第七次日出的车票",
+  "description": "一张没有起点的末班车票。票面背后不断浮现新的字迹，像是来自另一个循环里的自己。",
+  "coinValue": 5,
+  "metaData": {
+    "tags": [
+      "item",
+      "mystery",
+      "starter",
+      "restart"
+    ],
+    "gameCardId": "card-restart-ticket"
+  },
+  "effects": []
+}

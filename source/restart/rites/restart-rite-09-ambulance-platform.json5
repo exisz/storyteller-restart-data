@@ -1,0 +1,107 @@
+{
+  "id": "restart-rite-09-ambulance-platform",
+  "name": "RESTART 09：救护车月台",
+  "description": "医院后门没有街道，只有一截停在地下的月台。救护车亮着末班车的车灯，车厢里坐着一个穿病号服的林夕；她举起写着“第八轮”的牌子，示意现在上车会把越医生留在本轮死亡。",
+  "triggers": [
+    "restart-false-discharge-route-found"
+  ],
+  "consequences": [
+    "restart-event-10-eighth-loop-signal"
+  ],
+  "conditions": [
+    "flag.restart_false_discharge_route_opened:1",
+    "have.card:card-restart-linxi",
+    "have.card:card-restart-yue",
+    "have.card:card-restart-ticket"
+  ],
+  "effects": [
+    "set.flag:restart_ambulance_platform_reached"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "面对第八轮的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "决定归途的物证",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "带越医生一起上车，赌第八轮林夕仍需要这个叛徒活着。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_boarded_with_yue"
+        }
+      ]
+    },
+    {
+      "text": "把车票交给病号服林夕，要求她先证明自己不是下一次伪造。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 4
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_demanded_eighth_loop_proof"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 5,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "救护车门只开了一半。第八轮林夕把一枚医院腕带塞出来，上面写着今天的日期。"
+    },
+    {
+      "minValue": 6,
+      "maxValue": 10,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "越医生第一次承认：第七次日出不是被他杀死，而是被他一次次送上这辆车。"
+    },
+    {
+      "minValue": 11,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_eighth_loop_contacted"
+        }
+      ],
+      "description": "救护车启动前，第八轮林夕递出下一张死亡证明：这一次，签名栏等着玩家填写。"
+    }
+  ]
+}

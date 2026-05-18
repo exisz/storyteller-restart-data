@@ -1,0 +1,16 @@
+{
+  "id": "card-restart-black-box",
+  "type": "item",
+  "name": "黑匣子录音",
+  "description": "来自坠毁列车的录音。里面有林夕的声音：如果你听见这段话，说明我们又失败了。",
+  "coinValue": 7,
+  "metaData": {
+    "tags": [
+      "item",
+      "evidence",
+      "restart"
+    ],
+    "gameCardId": "card-restart-black-box"
+  },
+  "effects": []
+}

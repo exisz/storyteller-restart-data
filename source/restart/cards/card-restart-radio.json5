@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-radio",
+  "type": "item",
+  "name": "坏掉的收音机",
+  "description": "只能收到未来十五分钟的广播。每当你改变选择，播音员都会用更陌生的声音重新播报你的死讯。",
+  "coinValue": 4,
+  "metaData": {
+    "tags": [
+      "item",
+      "omen",
+      "starter",
+      "restart"
+    ],
+    "gameCardId": "card-restart-radio"
+  },
+  "effects": []
+}

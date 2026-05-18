@@ -1,0 +1,97 @@
+{
+  "id": "restart-rite-01-wake-at-platform",
+  "name": "RESTART 01：雾站醒来",
+  "description": "林夕在一座无名车站醒来。广播说末班车将在七分钟后进站，而候车厅里所有人都同时转头，喊出了她的名字。",
+  "triggers": [
+    "restart-begin"
+  ],
+  "consequences": [
+    "restart-event-02-broadcast",
+    "restart-rite-02-board-or-stay"
+  ],
+  "conditions": [
+    "have.card:card-restart-linxi"
+  ],
+  "effects": [
+    "gain.influence:1",
+    "set.flag:restart_woke_at_platform"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "醒来的人",
+      "cardType": "any"
+    }
+  ],
+  "options": [
+    {
+      "text": "假装认识他们，套出自己在这座城里的身份。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_blend_in"
+        }
+      ]
+    },
+    {
+      "text": "立刻逃向检票口，追上那班不该存在的末班车。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_run_to_train"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 2,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 1
+        }
+      ],
+      "description": "你强作镇定，但他们看出你在撒谎。"
+    },
+    {
+      "minValue": 3,
+      "maxValue": 5,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 1
+        },
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "你拿到第一条线索：这不是你第一次醒来。"
+    },
+    {
+      "minValue": 6,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "你听见广播里有另一个自己在倒数。"
+    }
+  ]
+}

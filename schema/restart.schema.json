@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Storyteller RESTART manifest",
+  "type": "object",
+  "required": [
+    "sourceId",
+    "schemaVersion",
+    "title",
+    "updatedAt",
+    "files"
+  ],
+  "properties": {
+    "sourceId": {
+      "const": "restart"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "files": {
+      "type": "object"
+    }
+  }
+}

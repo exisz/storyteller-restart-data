@@ -1,0 +1,27 @@
+{
+  "id": "restart-event-03-doctor",
+  "name": "第三回合事件：越医生的坦白",
+  "description": "越医生拦住你，说他记得每一次重启。他递来一支药：喝下去，你会忘掉恐惧；拒绝它，你会想起自己曾经做过什么。",
+  "trigger": {
+    "turn": 3
+  },
+  "consequences": [
+    "restart-rite-03-open-black-box"
+  ],
+  "options": [
+    {
+      "text": "喝下药，保留行动能力。",
+      "effects": [
+        "gain.favor:2",
+        "set.flag:restart_took_medicine"
+      ]
+    },
+    {
+      "text": "拒绝药，承受记忆回流。",
+      "effects": [
+        "gain.influence:3",
+        "set.flag:restart_memory_returned"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "restart-event-07-case-record",
+  "name": "第七回合事件：病历倒放",
+  "description": "七号诊室的病历夹自动翻到最后一页。上面不是诊断，而是一段签名：如果林夕读到这里，就说明第七次日出又被杀死了一次。门外的广播开始倒数，要求你立刻决定把这份真相交给谁。",
+  "trigger": {
+    "turn": 7
+  },
+  "consequences": [
+    "restart-case-record-claimed"
+  ],
+  "options": [
+    {
+      "text": "把病历交给越医生，让他解释自己在每一轮里签过的死亡证明。",
+      "effects": [
+        "gain.favor:3",
+        "set.flag:restart_gave_record_to_yue"
+      ]
+    },
+    {
+      "text": "把病历藏进收音机，让未来十五分钟的林夕先听见真相。",
+      "effects": [
+        "gain.influence:3",
+        "set.flag:restart_broadcast_case_record"
+      ]
+    }
+  ]
+}

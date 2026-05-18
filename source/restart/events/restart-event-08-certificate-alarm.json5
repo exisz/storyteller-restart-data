@@ -1,0 +1,27 @@
+{
+  "id": "restart-event-08-certificate-alarm",
+  "name": "第八回合事件：死亡证明警报",
+  "description": "死亡证明柜被打开后，医院的广播改播病危通知：越医生将在三分钟后死于林夕的选择。第七次日出的声音从天花板落下，要求你决定这张死亡证明该不该生效。",
+  "trigger": {
+    "turn": 8
+  },
+  "consequences": [
+    "restart-yue-certificate-decided"
+  ],
+  "options": [
+    {
+      "text": "撕毁越医生的死亡证明，暂时相信他还能带路。",
+      "effects": [
+        "gain.favor:4",
+        "set.flag:restart_saved_yue_from_certificate"
+      ]
+    },
+    {
+      "text": "让死亡证明生效，逼第七次日出亲自接管广播。",
+      "effects": [
+        "gain.influence:4",
+        "set.flag:restart_exposed_yue_to_certificate"
+      ]
+    }
+  ]
+}

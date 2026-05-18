@@ -1,0 +1,941 @@
+[
+  {
+    "id": "restart-rite-01-wake-at-platform",
+    "name": "RESTART 01：雾站醒来",
+    "description": "林夕在一座无名车站醒来。广播说末班车将在七分钟后进站，而候车厅里所有人都同时转头，喊出了她的名字。",
+    "triggers": [
+      "restart-begin"
+    ],
+    "consequences": [
+      "restart-event-02-broadcast",
+      "restart-rite-02-board-or-stay"
+    ],
+    "conditions": [
+      "have.card:card-restart-linxi"
+    ],
+    "effects": [
+      "gain.influence:1",
+      "set.flag:restart_woke_at_platform"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "醒来的人",
+        "cardType": "any"
+      }
+    ],
+    "options": [
+      {
+        "text": "假装认识他们，套出自己在这座城里的身份。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_blend_in"
+          }
+        ]
+      },
+      {
+        "text": "立刻逃向检票口，追上那班不该存在的末班车。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_run_to_train"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 2,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 1
+          }
+        ],
+        "description": "你强作镇定，但他们看出你在撒谎。"
+      },
+      {
+        "minValue": 3,
+        "maxValue": 5,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 1
+          },
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "你拿到第一条线索：这不是你第一次醒来。"
+      },
+      {
+        "minValue": 6,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "你听见广播里有另一个自己在倒数。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-02-board-or-stay",
+    "name": "RESTART 02：末班车抉择",
+    "description": "末班车停靠。车窗里没有乘客，只有一排排倒映出的林夕。收音机突然播报：本次循环剩余十五分钟。",
+    "triggers": [
+      "restart-rite-02-board-or-stay"
+    ],
+    "consequences": [
+      "restart-event-03-doctor",
+      "restart-rite-03-open-black-box"
+    ],
+    "conditions": [
+      "flag.restart_woke_at_platform:1",
+      "have.card:card-restart-ticket"
+    ],
+    "effects": [
+      "set.flag:restart_train_seen",
+      "gain.card:card-restart-yue"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "关键物",
+        "cardType": "any"
+      }
+    ],
+    "options": [
+      {
+        "text": "上车。既然所有人都怕这列车，它一定通向真相。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_boarded_train"
+          }
+        ]
+      },
+      {
+        "text": "不上车。跟踪那个一直盯着你的白衣医生。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_followed_doctor"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 2,
+        "rewards": [
+          {
+            "type": "lose.favor",
+            "amount": 1
+          },
+          {
+            "type": "gain.influence",
+            "amount": 1
+          }
+        ],
+        "description": "你错过列车，却看见月台下藏着上一轮的尸体。"
+      },
+      {
+        "minValue": 3,
+        "maxValue": 5,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "你避开一次死亡，并确认循环会修正目击者记忆。"
+      },
+      {
+        "minValue": 6,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.card",
+            "cardId": "card-restart-black-box"
+          }
+        ],
+        "description": "你找到坠毁列车的黑匣子，里面有自己的遗言。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-03-open-black-box",
+    "name": "RESTART 03：打开黑匣子",
+    "description": "越医生说：第七次日出不是时间，是一个人。黑匣子里保存着前六次循环的最后录音。你必须决定先听哪一段。",
+    "triggers": [
+      "restart-rite-03-open-black-box"
+    ],
+    "consequences": [
+      "restart-next-chapter"
+    ],
+    "conditions": [
+      "flag.restart_train_seen:1",
+      "have.card:card-restart-yue"
+    ],
+    "effects": [
+      "set.flag:restart_black_box_opened"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "证据或同伴",
+        "cardType": "any"
+      }
+    ],
+    "options": [
+      {
+        "text": "听第一段：寻找循环开始的原因。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_heard_origin"
+          }
+        ]
+      },
+      {
+        "text": "听第六段：确认上一轮是谁背叛了你。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_heard_betrayal"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 2,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 1
+          }
+        ],
+        "description": "录音残缺，但你听见一个名字：林夕。不是你，是另一个林夕。"
+      },
+      {
+        "minValue": 3,
+        "maxValue": 5,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "gain.influence",
+            "amount": 3
+          }
+        ],
+        "description": "你知道下一轮该找谁，也知道谁会先死。"
+      },
+      {
+        "minValue": 6,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          },
+          {
+            "type": "game_win"
+          }
+        ],
+        "description": "黑匣子播放你的声音：不要阻止循环，偷走它。第一章结束。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-04-name-seventh-sun",
+    "name": "RESTART 04：说出第七次日出的名字",
+    "description": "黑匣子的杂音退去后，车票背面浮出一行新字：第七次日出不是时间，是被城市藏起来的人。越医生要求林夕立刻用收音机反向播报这个名字，否则下一轮会从她的记忆里删掉它。",
+    "triggers": [
+      "restart-next-chapter"
+    ],
+    "consequences": [
+      "restart-chapter-two-opened"
+    ],
+    "conditions": [
+      "flag.restart_black_box_opened:1",
+      "have.card:card-restart-radio",
+      "have.card:card-restart-ticket",
+      "have.card:card-restart-yue"
+    ],
+    "effects": [
+      "set.flag:restart_seventh_sun_named"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "说出名字的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "广播或车票",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "用坏掉的收音机向全城播出那个名字，让凶手先露出破绽。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_broadcast_name"
+          }
+        ]
+      },
+      {
+        "text": "把名字写回第七次日出的车票，锁定下一轮醒来的地点。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_ticket_named"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 4,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "名字只播出半句，城市立刻用噪音覆盖它；但越医生确认：有人在害怕你接近真相。"
+      },
+      {
+        "minValue": 5,
+        "maxValue": 9,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "车票烫伤你的指尖，留下一个站名：旧日出医院。下一轮的入口被你钉住了。"
+      },
+      {
+        "minValue": 10,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_chapter_two_unlocked"
+          }
+        ],
+        "description": "全城广播同时念出那个名字。第七次日出回答你：如果想活过明天，就来旧日出医院找我。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-05-enter-old-sunrise-hospital",
+    "name": "RESTART 05：进入旧日出医院",
+    "description": "全城广播念出那个名字后，车票背面渗出一枚旧医院的挂号章。越医生承认，第七次日出曾被关在旧日出医院的地下门诊；如果林夕要找到这个人，必须在城市重新修正记忆前闯进去。",
+    "triggers": [
+      "restart-chapter-two-opened"
+    ],
+    "consequences": [
+      "restart-event-06-hospital-triage"
+    ],
+    "conditions": [
+      "flag.restart_seventh_sun_named:1",
+      "have.card:card-restart-linxi",
+      "have.card:card-restart-yue",
+      "have.card:card-restart-radio"
+    ],
+    "effects": [
+      "set.flag:restart_old_hospital_entered"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "闯入地下门诊的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "定位入口的线索",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "让越医生带路，逼他说出第七次日出被藏起来的病房号。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_yue_forced_ward_number"
+          }
+        ]
+      },
+      {
+        "text": "用坏掉的收音机反调频，追踪那句来自未来的求救广播。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_followed_future_sos"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 4,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 1
+          }
+        ],
+        "description": "地下门诊的灯只亮了一秒。你看见病历夹上写着林夕的名字，但生日不属于你。"
+      },
+      {
+        "minValue": 5,
+        "maxValue": 9,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "越医生没有撒谎：第七次日出确实在这里留下过求救记录，而签收人是上一轮的林夕。"
+      },
+      {
+        "minValue": 10,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_found_hospital_basement"
+          }
+        ],
+        "description": "收音机在地下门诊播出你的声音：别相信越医生，他不是唯一记得循环的人。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-06-open-ward-seven",
+    "name": "RESTART 06：打开七号诊室",
+    "description": "分诊台把林夕的名字推到七号诊室门口。门缝里传出她自己的声音，正在向下一轮林夕口述病历；越医生说，如果现在不夺回那份病历，城市会把第七次日出改写成从未存在过的人。",
+    "triggers": [
+      "restart-hospital-truth-opened"
+    ],
+    "consequences": [
+      "restart-event-07-case-record"
+    ],
+    "conditions": [
+      "flag.restart_chose_ward_seven:1",
+      "flag.restart_old_hospital_entered:1",
+      "have.card:card-restart-linxi",
+      "have.card:card-restart-ticket"
+    ],
+    "effects": [
+      "set.flag:restart_ward_seven_opened"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "推开诊室门的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "证明第七次日出的物证",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "让林夕亲口朗读病历，把“第七次日出”从城市修正里抢回来。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_linxi_read_case_record"
+          }
+        ]
+      },
+      {
+        "text": "把车票压进病历夹，逼它承认这张票曾经属于七号诊室的病人。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_ticket_bound_to_ward_seven"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 4,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 1
+          }
+        ],
+        "description": "七号诊室只开了一道缝。病历上的照片像林夕，又像一个被剪掉姓名的人。"
+      },
+      {
+        "minValue": 5,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "病历夹承认了一个事实：第七次日出不是时间，而是一名被城市反复注销的病人。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "gain.influence",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_found_seventh_patient"
+          }
+        ],
+        "description": "林夕听见自己的录音从病历夹里倒放：第七次日出，是第一个成功醒来却被所有人忘记的林夕。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-07-death-certificate-cabinet",
+    "name": "RESTART 07：死亡证明柜",
+    "description": "越医生接过病历后，七号诊室的墙体向后滑开，露出一整柜提前签好的死亡证明。每一张都写着林夕的不同死法，最底层却夹着一张越医生自己的死亡证明：签署人是第七次日出。",
+    "triggers": [
+      "restart-case-record-claimed"
+    ],
+    "consequences": [
+      "restart-event-08-certificate-alarm"
+    ],
+    "conditions": [
+      "flag.restart_ward_seven_opened:1",
+      "flag.restart_gave_record_to_yue:1",
+      "have.card:card-restart-linxi",
+      "have.card:card-restart-yue"
+    ],
+    "effects": [
+      "set.flag:restart_death_certificate_cabinet_opened"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "翻检死亡证明的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "被迫对证的人",
+        "cardType": "person"
+      }
+    ],
+    "options": [
+      {
+        "text": "逼越医生念出自己的死亡证明，确认他到底在哪一轮开始说谎。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 4
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_forced_yue_confession"
+          }
+        ]
+      },
+      {
+        "text": "先替越医生藏起那张证明，换他交出第七次日出的出院路线。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_bargained_for_discharge_route"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 5,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 1
+          }
+        ],
+        "description": "死亡证明柜只吐出半张复写纸：越医生确实死过，但他删掉了签名。"
+      },
+      {
+        "minValue": 6,
+        "maxValue": 10,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "你看见每张证明都少了一分钟。有人不是在杀林夕，而是在从循环里偷时间。"
+      },
+      {
+        "minValue": 11,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_found_stolen_minutes"
+          }
+        ],
+        "description": "柜底弹出一张空白死亡证明，等待林夕亲手填写：救越医生，或让他替第七次日出偿命。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-08-false-discharge-route",
+    "name": "RESTART 08：伪造出院路线",
+    "description": "警报停下后，车票背面变成一张旧日出医院的出院单。出院人写着“第七次日出”，押送人却被划掉了姓名。越医生承认，只有沿着这条伪造路线走，林夕才能找到第一个逃出循环的人。",
+    "triggers": [
+      "restart-yue-certificate-decided"
+    ],
+    "consequences": [
+      "restart-false-discharge-route-found"
+    ],
+    "conditions": [
+      "flag.restart_death_certificate_cabinet_opened:1",
+      "have.card:card-restart-ticket",
+      "have.card:card-restart-radio"
+    ],
+    "effects": [
+      "set.flag:restart_false_discharge_route_opened"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "定位路线的车票",
+        "cardType": "item"
+      },
+      {
+        "id": "slot-1",
+        "name": "监听未来的广播",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "沿着出院单上的救护车编号追出去，寻找被转移的第七次日出。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_chased_false_ambulance"
+          }
+        ]
+      },
+      {
+        "text": "用收音机倒放出院广播，改写路线终点，让第七次日出主动暴露坐标。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_rewrote_discharge_destination"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 4,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 1
+          }
+        ],
+        "description": "出院单被水渍糊住，只剩一个方向：医院后门。"
+      },
+      {
+        "minValue": 5,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "救护车编号与末班车车票相同。第七次日出不是被救走，而是被送回了起点。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "gain.influence",
+            "amount": 3
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_confirmed_ambulance_is_train"
+          }
+        ],
+        "description": "收音机接通救护车驾驶室。司机用林夕的声音说：别上车，车里坐着第八轮的你。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-09-ambulance-platform",
+    "name": "RESTART 09：救护车月台",
+    "description": "医院后门没有街道，只有一截停在地下的月台。救护车亮着末班车的车灯，车厢里坐着一个穿病号服的林夕；她举起写着“第八轮”的牌子，示意现在上车会把越医生留在本轮死亡。",
+    "triggers": [
+      "restart-false-discharge-route-found"
+    ],
+    "consequences": [
+      "restart-event-10-eighth-loop-signal"
+    ],
+    "conditions": [
+      "flag.restart_false_discharge_route_opened:1",
+      "have.card:card-restart-linxi",
+      "have.card:card-restart-yue",
+      "have.card:card-restart-ticket"
+    ],
+    "effects": [
+      "set.flag:restart_ambulance_platform_reached"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "面对第八轮的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "决定归途的物证",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "带越医生一起上车，赌第八轮林夕仍需要这个叛徒活着。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_boarded_with_yue"
+          }
+        ]
+      },
+      {
+        "text": "把车票交给病号服林夕，要求她先证明自己不是下一次伪造。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 4
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_demanded_eighth_loop_proof"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 5,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "救护车门只开了一半。第八轮林夕把一枚医院腕带塞出来，上面写着今天的日期。"
+      },
+      {
+        "minValue": 6,
+        "maxValue": 10,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 2
+          },
+          {
+            "type": "gain.influence",
+            "amount": 3
+          }
+        ],
+        "description": "越医生第一次承认：第七次日出不是被他杀死，而是被他一次次送上这辆车。"
+      },
+      {
+        "minValue": 11,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_eighth_loop_contacted"
+          }
+        ],
+        "description": "救护车启动前，第八轮林夕递出下一张死亡证明：这一次，签名栏等着玩家填写。"
+      }
+    ]
+  }
+]

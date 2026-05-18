@@ -1,0 +1,107 @@
+{
+  "id": "restart-rite-07-death-certificate-cabinet",
+  "name": "RESTART 07：死亡证明柜",
+  "description": "越医生接过病历后，七号诊室的墙体向后滑开，露出一整柜提前签好的死亡证明。每一张都写着林夕的不同死法，最底层却夹着一张越医生自己的死亡证明：签署人是第七次日出。",
+  "triggers": [
+    "restart-case-record-claimed"
+  ],
+  "consequences": [
+    "restart-event-08-certificate-alarm"
+  ],
+  "conditions": [
+    "flag.restart_ward_seven_opened:1",
+    "flag.restart_gave_record_to_yue:1",
+    "have.card:card-restart-linxi",
+    "have.card:card-restart-yue"
+  ],
+  "effects": [
+    "set.flag:restart_death_certificate_cabinet_opened"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "翻检死亡证明的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "被迫对证的人",
+      "cardType": "person"
+    }
+  ],
+  "options": [
+    {
+      "text": "逼越医生念出自己的死亡证明，确认他到底在哪一轮开始说谎。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 4
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_forced_yue_confession"
+        }
+      ]
+    },
+    {
+      "text": "先替越医生藏起那张证明，换他交出第七次日出的出院路线。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_bargained_for_discharge_route"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 5,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 1
+        }
+      ],
+      "description": "死亡证明柜只吐出半张复写纸：越医生确实死过，但他删掉了签名。"
+    },
+    {
+      "minValue": 6,
+      "maxValue": 10,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "你看见每张证明都少了一分钟。有人不是在杀林夕，而是在从循环里偷时间。"
+    },
+    {
+      "minValue": 11,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_found_stolen_minutes"
+        }
+      ],
+      "description": "柜底弹出一张空白死亡证明，等待林夕亲手填写：救越医生，或让他替第七次日出偿命。"
+    }
+  ]
+}

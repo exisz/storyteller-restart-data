@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-yue",
+  "type": "person",
+  "name": "越医生",
+  "description": "城中唯一承认循环存在的人。他说自己救过林夕六次，也杀过她一次。",
+  "coinValue": 5,
+  "metaData": {
+    "tags": [
+      "person",
+      "ally",
+      "doctor",
+      "restart"
+    ],
+    "gameCardId": "card-restart-yue"
+  },
+  "effects": []
+}

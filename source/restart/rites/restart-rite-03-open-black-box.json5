@@ -1,0 +1,99 @@
+{
+  "id": "restart-rite-03-open-black-box",
+  "name": "RESTART 03：打开黑匣子",
+  "description": "越医生说：第七次日出不是时间，是一个人。黑匣子里保存着前六次循环的最后录音。你必须决定先听哪一段。",
+  "triggers": [
+    "restart-rite-03-open-black-box"
+  ],
+  "consequences": [
+    "restart-next-chapter"
+  ],
+  "conditions": [
+    "flag.restart_train_seen:1",
+    "have.card:card-restart-yue"
+  ],
+  "effects": [
+    "set.flag:restart_black_box_opened"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "证据或同伴",
+      "cardType": "any"
+    }
+  ],
+  "options": [
+    {
+      "text": "听第一段：寻找循环开始的原因。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_heard_origin"
+        }
+      ]
+    },
+    {
+      "text": "听第六段：确认上一轮是谁背叛了你。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_heard_betrayal"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 2,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 1
+        }
+      ],
+      "description": "录音残缺，但你听见一个名字：林夕。不是你，是另一个林夕。"
+    },
+    {
+      "minValue": 3,
+      "maxValue": 5,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "你知道下一轮该找谁，也知道谁会先死。"
+    },
+    {
+      "minValue": 6,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        },
+        {
+          "type": "game_win"
+        }
+      ],
+      "description": "黑匣子播放你的声音：不要阻止循环，偷走它。第一章结束。"
+    }
+  ]
+}

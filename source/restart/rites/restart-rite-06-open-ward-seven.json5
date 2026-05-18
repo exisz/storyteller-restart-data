@@ -1,0 +1,107 @@
+{
+  "id": "restart-rite-06-open-ward-seven",
+  "name": "RESTART 06：打开七号诊室",
+  "description": "分诊台把林夕的名字推到七号诊室门口。门缝里传出她自己的声音，正在向下一轮林夕口述病历；越医生说，如果现在不夺回那份病历，城市会把第七次日出改写成从未存在过的人。",
+  "triggers": [
+    "restart-hospital-truth-opened"
+  ],
+  "consequences": [
+    "restart-event-07-case-record"
+  ],
+  "conditions": [
+    "flag.restart_chose_ward_seven:1",
+    "flag.restart_old_hospital_entered:1",
+    "have.card:card-restart-linxi",
+    "have.card:card-restart-ticket"
+  ],
+  "effects": [
+    "set.flag:restart_ward_seven_opened"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "推开诊室门的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "证明第七次日出的物证",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "让林夕亲口朗读病历，把“第七次日出”从城市修正里抢回来。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_linxi_read_case_record"
+        }
+      ]
+    },
+    {
+      "text": "把车票压进病历夹，逼它承认这张票曾经属于七号诊室的病人。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_ticket_bound_to_ward_seven"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 4,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 1
+        }
+      ],
+      "description": "七号诊室只开了一道缝。病历上的照片像林夕，又像一个被剪掉姓名的人。"
+    },
+    {
+      "minValue": 5,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "病历夹承认了一个事实：第七次日出不是时间，而是一名被城市反复注销的病人。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_found_seventh_patient"
+        }
+      ],
+      "description": "林夕听见自己的录音从病历夹里倒放：第七次日出，是第一个成功醒来却被所有人忘记的林夕。"
+    }
+  ]
+}

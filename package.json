@@ -1,0 +1,9 @@
+{
+  "name": "storyteller-restart-data",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "id": "restart-rite-05-enter-old-sunrise-hospital",
+  "name": "RESTART 05：进入旧日出医院",
+  "description": "全城广播念出那个名字后，车票背面渗出一枚旧医院的挂号章。越医生承认，第七次日出曾被关在旧日出医院的地下门诊；如果林夕要找到这个人，必须在城市重新修正记忆前闯进去。",
+  "triggers": [
+    "restart-chapter-two-opened"
+  ],
+  "consequences": [
+    "restart-event-06-hospital-triage"
+  ],
+  "conditions": [
+    "flag.restart_seventh_sun_named:1",
+    "have.card:card-restart-linxi",
+    "have.card:card-restart-yue",
+    "have.card:card-restart-radio"
+  ],
+  "effects": [
+    "set.flag:restart_old_hospital_entered"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "闯入地下门诊的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "定位入口的线索",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "让越医生带路，逼他说出第七次日出被藏起来的病房号。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_yue_forced_ward_number"
+        }
+      ]
+    },
+    {
+      "text": "用坏掉的收音机反调频，追踪那句来自未来的求救广播。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_followed_future_sos"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 4,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 1
+        }
+      ],
+      "description": "地下门诊的灯只亮了一秒。你看见病历夹上写着林夕的名字，但生日不属于你。"
+    },
+    {
+      "minValue": 5,
+      "maxValue": 9,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "越医生没有撒谎：第七次日出确实在这里留下过求救记录，而签收人是上一轮的林夕。"
+    },
+    {
+      "minValue": 10,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_found_hospital_basement"
+        }
+      ],
+      "description": "收音机在地下门诊播出你的声音：别相信越医生，他不是唯一记得循环的人。"
+    }
+  ]
+}

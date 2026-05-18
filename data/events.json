@@ -1,0 +1,164 @@
+[
+  {
+    "id": "restart-event-02-broadcast",
+    "name": "第二回合事件：未来广播",
+    "description": "坏掉的收音机突然响起：十五分钟后，林夕将在检票口被人群推下铁轨。播音员停顿了一下，又补充：除非她先认出凶手。",
+    "trigger": {
+      "turn": 2
+    },
+    "consequences": [
+      "restart-rite-02-board-or-stay"
+    ],
+    "options": [
+      {
+        "text": "相信广播，避开检票口。",
+        "effects": [
+          "gain.influence:2",
+          "set.flag:restart_trusted_broadcast"
+        ]
+      },
+      {
+        "text": "反利用广播，故意走向检票口引凶手现身。",
+        "effects": [
+          "gain.favor:2",
+          "set.flag:restart_baited_killer"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-03-doctor",
+    "name": "第三回合事件：越医生的坦白",
+    "description": "越医生拦住你，说他记得每一次重启。他递来一支药：喝下去，你会忘掉恐惧；拒绝它，你会想起自己曾经做过什么。",
+    "trigger": {
+      "turn": 3
+    },
+    "consequences": [
+      "restart-rite-03-open-black-box"
+    ],
+    "options": [
+      {
+        "text": "喝下药，保留行动能力。",
+        "effects": [
+          "gain.favor:2",
+          "set.flag:restart_took_medicine"
+        ]
+      },
+      {
+        "text": "拒绝药，承受记忆回流。",
+        "effects": [
+          "gain.influence:3",
+          "set.flag:restart_memory_returned"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-06-hospital-triage",
+    "name": "第六回合事件：地下门诊分诊台",
+    "description": "旧日出医院的分诊台自动叫号：林夕，七号诊室。屏幕上同时跳出另一行字：越医生，六号死亡证明待签。你只能先追问一个真相。",
+    "trigger": {
+      "turn": 6
+    },
+    "consequences": [
+      "restart-hospital-truth-opened"
+    ],
+    "options": [
+      {
+        "text": "追问七号诊室：第七次日出到底是谁。",
+        "effects": [
+          "gain.influence:3",
+          "set.flag:restart_chose_ward_seven"
+        ]
+      },
+      {
+        "text": "拦住越医生：先弄清他为什么会死在这一轮。",
+        "effects": [
+          "gain.favor:3",
+          "set.flag:restart_chose_yue_death_certificate"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-07-case-record",
+    "name": "第七回合事件：病历倒放",
+    "description": "七号诊室的病历夹自动翻到最后一页。上面不是诊断，而是一段签名：如果林夕读到这里，就说明第七次日出又被杀死了一次。门外的广播开始倒数，要求你立刻决定把这份真相交给谁。",
+    "trigger": {
+      "turn": 7
+    },
+    "consequences": [
+      "restart-case-record-claimed"
+    ],
+    "options": [
+      {
+        "text": "把病历交给越医生，让他解释自己在每一轮里签过的死亡证明。",
+        "effects": [
+          "gain.favor:3",
+          "set.flag:restart_gave_record_to_yue"
+        ]
+      },
+      {
+        "text": "把病历藏进收音机，让未来十五分钟的林夕先听见真相。",
+        "effects": [
+          "gain.influence:3",
+          "set.flag:restart_broadcast_case_record"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-08-certificate-alarm",
+    "name": "第八回合事件：死亡证明警报",
+    "description": "死亡证明柜被打开后，医院的广播改播病危通知：越医生将在三分钟后死于林夕的选择。第七次日出的声音从天花板落下，要求你决定这张死亡证明该不该生效。",
+    "trigger": {
+      "turn": 8
+    },
+    "consequences": [
+      "restart-yue-certificate-decided"
+    ],
+    "options": [
+      {
+        "text": "撕毁越医生的死亡证明，暂时相信他还能带路。",
+        "effects": [
+          "gain.favor:4",
+          "set.flag:restart_saved_yue_from_certificate"
+        ]
+      },
+      {
+        "text": "让死亡证明生效，逼第七次日出亲自接管广播。",
+        "effects": [
+          "gain.influence:4",
+          "set.flag:restart_exposed_yue_to_certificate"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-10-eighth-loop-signal",
+    "name": "第十回合事件：第八轮来电",
+    "description": "救护车驶入没有出口的隧道。坏掉的收音机突然收到第八轮林夕的来电：她说第七次日出还活着，但只有一个人能带着记忆下车。下一次选择，将决定谁被留在旧日出医院。",
+    "trigger": {
+      "turn": 10
+    },
+    "consequences": [
+      "restart-eighth-loop-opened"
+    ],
+    "options": [
+      {
+        "text": "让林夕保留记忆下车，牺牲越医生对医院的通行权。",
+        "effects": [
+          "gain.influence:5",
+          "set.flag:restart_linxi_kept_memory"
+        ]
+      },
+      {
+        "text": "让越医生保留通行权，要求他把第七次日出的真实床号交出来。",
+        "effects": [
+          "gain.favor:5",
+          "set.flag:restart_yue_kept_access"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+{
+  "id": "restart-rite-02-board-or-stay",
+  "name": "RESTART 02：末班车抉择",
+  "description": "末班车停靠。车窗里没有乘客，只有一排排倒映出的林夕。收音机突然播报：本次循环剩余十五分钟。",
+  "triggers": [
+    "restart-rite-02-board-or-stay"
+  ],
+  "consequences": [
+    "restart-event-03-doctor",
+    "restart-rite-03-open-black-box"
+  ],
+  "conditions": [
+    "flag.restart_woke_at_platform:1",
+    "have.card:card-restart-ticket"
+  ],
+  "effects": [
+    "set.flag:restart_train_seen",
+    "gain.card:card-restart-yue"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "关键物",
+      "cardType": "any"
+    }
+  ],
+  "options": [
+    {
+      "text": "上车。既然所有人都怕这列车，它一定通向真相。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_boarded_train"
+        }
+      ]
+    },
+    {
+      "text": "不上车。跟踪那个一直盯着你的白衣医生。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_followed_doctor"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 2,
+      "rewards": [
+        {
+          "type": "lose.favor",
+          "amount": 1
+        },
+        {
+          "type": "gain.influence",
+          "amount": 1
+        }
+      ],
+      "description": "你错过列车，却看见月台下藏着上一轮的尸体。"
+    },
+    {
+      "minValue": 3,
+      "maxValue": 5,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 2
+        },
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "你避开一次死亡，并确认循环会修正目击者记忆。"
+    },
+    {
+      "minValue": 6,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-black-box"
+        }
+      ],
+      "description": "你找到坠毁列车的黑匣子，里面有自己的遗言。"
+    }
+  ]
+}

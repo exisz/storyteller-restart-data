@@ -1,0 +1,86 @@
+[
+  {
+    "id": "card-restart-black-box",
+    "type": "item",
+    "name": "黑匣子录音",
+    "description": "来自坠毁列车的录音。里面有林夕的声音：如果你听见这段话，说明我们又失败了。",
+    "coinValue": 7,
+    "metaData": {
+      "tags": [
+        "item",
+        "evidence",
+        "restart"
+      ],
+      "gameCardId": "card-restart-black-box"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-linxi",
+    "type": "person",
+    "name": "林夕",
+    "description": "醒来时，她发现整座城市都认识她，唯独她不记得自己是谁。口袋里有一张写着“不要相信第七次日出”的车票。",
+    "coinValue": 6,
+    "metaData": {
+      "tags": [
+        "person",
+        "protagonist",
+        "starter",
+        "restart"
+      ],
+      "gameCardId": "card-restart-linxi"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-radio",
+    "type": "item",
+    "name": "坏掉的收音机",
+    "description": "只能收到未来十五分钟的广播。每当你改变选择，播音员都会用更陌生的声音重新播报你的死讯。",
+    "coinValue": 4,
+    "metaData": {
+      "tags": [
+        "item",
+        "omen",
+        "starter",
+        "restart"
+      ],
+      "gameCardId": "card-restart-radio"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-ticket",
+    "type": "item",
+    "name": "第七次日出的车票",
+    "description": "一张没有起点的末班车票。票面背后不断浮现新的字迹，像是来自另一个循环里的自己。",
+    "coinValue": 5,
+    "metaData": {
+      "tags": [
+        "item",
+        "mystery",
+        "starter",
+        "restart"
+      ],
+      "gameCardId": "card-restart-ticket"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-yue",
+    "type": "person",
+    "name": "越医生",
+    "description": "城中唯一承认循环存在的人。他说自己救过林夕六次，也杀过她一次。",
+    "coinValue": 5,
+    "metaData": {
+      "tags": [
+        "person",
+        "ally",
+        "doctor",
+        "restart"
+      ],
+      "gameCardId": "card-restart-yue"
+    },
+    "effects": []
+  }
+]

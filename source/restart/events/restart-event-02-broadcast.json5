@@ -1,0 +1,27 @@
+{
+  "id": "restart-event-02-broadcast",
+  "name": "第二回合事件：未来广播",
+  "description": "坏掉的收音机突然响起：十五分钟后，林夕将在检票口被人群推下铁轨。播音员停顿了一下，又补充：除非她先认出凶手。",
+  "trigger": {
+    "turn": 2
+  },
+  "consequences": [
+    "restart-rite-02-board-or-stay"
+  ],
+  "options": [
+    {
+      "text": "相信广播，避开检票口。",
+      "effects": [
+        "gain.influence:2",
+        "set.flag:restart_trusted_broadcast"
+      ]
+    },
+    {
+      "text": "反利用广播，故意走向检票口引凶手现身。",
+      "effects": [
+        "gain.favor:2",
+        "set.flag:restart_baited_killer"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "restart-event-10-eighth-loop-signal",
+  "name": "第十回合事件：第八轮来电",
+  "description": "救护车驶入没有出口的隧道。坏掉的收音机突然收到第八轮林夕的来电：她说第七次日出还活着，但只有一个人能带着记忆下车。下一次选择，将决定谁被留在旧日出医院。",
+  "trigger": {
+    "turn": 10
+  },
+  "consequences": [
+    "restart-eighth-loop-opened"
+  ],
+  "options": [
+    {
+      "text": "让林夕保留记忆下车，牺牲越医生对医院的通行权。",
+      "effects": [
+        "gain.influence:5",
+        "set.flag:restart_linxi_kept_memory"
+      ]
+    },
+    {
+      "text": "让越医生保留通行权，要求他把第七次日出的真实床号交出来。",
+      "effects": [
+        "gain.favor:5",
+        "set.flag:restart_yue_kept_access"
+      ]
+    }
+  ]
+}

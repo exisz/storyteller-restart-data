@@ -1,0 +1,17 @@
+{
+  "id": "card-restart-linxi",
+  "type": "person",
+  "name": "林夕",
+  "description": "醒来时，她发现整座城市都认识她，唯独她不记得自己是谁。口袋里有一张写着“不要相信第七次日出”的车票。",
+  "coinValue": 6,
+  "metaData": {
+    "tags": [
+      "person",
+      "protagonist",
+      "starter",
+      "restart"
+    ],
+    "gameCardId": "card-restart-linxi"
+  },
+  "effects": []
+}

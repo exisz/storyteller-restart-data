@@ -1,0 +1,129 @@
+{
+  "nodes": [
+    {
+      "id": "restart-rite-01-wake-at-platform",
+      "name": "RESTART 01：雾站醒来",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-02-board-or-stay",
+      "name": "RESTART 02：末班车抉择",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-03-open-black-box",
+      "name": "RESTART 03：打开黑匣子",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-04-name-seventh-sun",
+      "name": "RESTART 04：说出第七次日出的名字",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-05-enter-old-sunrise-hospital",
+      "name": "RESTART 05：进入旧日出医院",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-06-open-ward-seven",
+      "name": "RESTART 06：打开七号诊室",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-07-death-certificate-cabinet",
+      "name": "RESTART 07：死亡证明柜",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-08-false-discharge-route",
+      "name": "RESTART 08：伪造出院路线",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-09-ambulance-platform",
+      "name": "RESTART 09：救护车月台",
+      "type": "rite"
+    },
+    {
+      "id": "restart-event-02-broadcast",
+      "name": "第二回合事件：未来广播",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-03-doctor",
+      "name": "第三回合事件：越医生的坦白",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-06-hospital-triage",
+      "name": "第六回合事件：地下门诊分诊台",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-07-case-record",
+      "name": "第七回合事件：病历倒放",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-08-certificate-alarm",
+      "name": "第八回合事件：死亡证明警报",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-10-eighth-loop-signal",
+      "name": "第十回合事件：第八轮来电",
+      "type": "event"
+    }
+  ],
+  "links": [
+    {
+      "source": "restart-rite-01-wake-at-platform",
+      "target": "restart-event-02-broadcast"
+    },
+    {
+      "source": "restart-rite-01-wake-at-platform",
+      "target": "restart-rite-02-board-or-stay"
+    },
+    {
+      "source": "restart-rite-02-board-or-stay",
+      "target": "restart-event-03-doctor"
+    },
+    {
+      "source": "restart-rite-02-board-or-stay",
+      "target": "restart-rite-03-open-black-box"
+    },
+    {
+      "source": "restart-rite-02-board-or-stay",
+      "target": "restart-rite-02-board-or-stay"
+    },
+    {
+      "source": "restart-rite-03-open-black-box",
+      "target": "restart-rite-03-open-black-box"
+    },
+    {
+      "source": "restart-rite-05-enter-old-sunrise-hospital",
+      "target": "restart-event-06-hospital-triage"
+    },
+    {
+      "source": "restart-rite-06-open-ward-seven",
+      "target": "restart-event-07-case-record"
+    },
+    {
+      "source": "restart-rite-07-death-certificate-cabinet",
+      "target": "restart-event-08-certificate-alarm"
+    },
+    {
+      "source": "restart-rite-09-ambulance-platform",
+      "target": "restart-event-10-eighth-loop-signal"
+    },
+    {
+      "source": "restart-event-02-broadcast",
+      "target": "restart-rite-02-board-or-stay"
+    },
+    {
+      "source": "restart-event-03-doctor",
+      "target": "restart-rite-03-open-black-box"
+    }
+  ]
+}
