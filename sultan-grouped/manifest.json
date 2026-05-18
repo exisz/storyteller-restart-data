@@ -1,0 +1,13 @@
+{
+  "sourceId": "sultan-grouped",
+  "schemaVersion": "0.2.0",
+  "title": "Sultan Grouped Mesh",
+  "updatedAt": "2026-05-18T12:26:30.110Z",
+  "version": "abb647c",
+  "files": {
+    "rites": "data/rites.json",
+    "events": "data/events.json",
+    "subgraphs": "data/subgraphs.json",
+    "supergraph": "data/supergraph.json"
+  }
+}
