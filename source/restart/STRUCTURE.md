@@ -12,7 +12,8 @@ The visualizer has three kinds of structural edges:
 
 1. Explicit consequence edges: node A declares node B as a consequence.
 2. Causal requirement edges: node A sets a flag or grants a card that node B later requires.
-3. Timeline edges: turn-triggered events attach to virtual `Turn N` nodes, and turn nodes connect sequentially.
+3. Card-mediated causal edges: if one node grants/draws a card and another requires it, the graph links those story nodes directly. Cards themselves are not graph nodes.
+4. Timeline edges: turn-triggered events attach to virtual `Turn N` nodes, and turn nodes connect sequentially.
 
 This means time-driven events are no longer isolated islands in the graph. If a node is still isolated, either it is intentionally optional color, or the content is structurally incomplete.
 
@@ -39,7 +40,7 @@ Before adding nodes, answer in the work log or final report:
 - What existing unresolved promise or pressure is this packet paying off or escalating?
 - Which thread(s) does it advance?
 - Which new choice is actually available to the Player?
-- Which cards/flags make the choice mechanically visible?
+- Which cards/flags make the choice mechanically visible? Cards are resources/state, not graph nodes.
 - What later node will remember this choice?
 - Is any node isolated? If yes, is it deliberately optional, or is the graph missing an edge?
 
