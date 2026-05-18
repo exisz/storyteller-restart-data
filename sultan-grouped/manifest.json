@@ -3,8 +3,8 @@
   "schemaVersion": "0.3.0",
   "title": "Sultan Manual Group Prototype",
   "groupingMode": "manual-single-route-prototype",
-  "updatedAt": "2026-05-18T13:22:29.649Z",
-  "version": "848ebad",
+  "updatedAt": "2026-05-18T14:11:22.171Z",
+  "version": "2dad724",
   "files": {
     "rites": "data/rites.json",
     "events": "data/events.json",

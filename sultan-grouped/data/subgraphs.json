@@ -5818,11 +5818,6 @@
         "type": "consequence"
       },
       {
-        "source": "5000569",
-        "target": "5320253",
-        "type": "trigger"
-      },
-      {
         "source": "5000570",
         "target": "5320254",
         "type": "consequence"
@@ -5831,11 +5826,6 @@
         "source": "5000570",
         "target": "5320255",
         "type": "consequence"
-      },
-      {
-        "source": "5320253",
-        "target": "5000570",
-        "type": "trigger"
       },
       {
         "source": "5320254",
@@ -5843,19 +5833,9 @@
         "type": "consequence"
       },
       {
-        "source": "5000570",
-        "target": "5320254",
-        "type": "trigger"
-      },
-      {
         "source": "5320255",
         "target": "5000572",
         "type": "consequence"
-      },
-      {
-        "source": "5000570",
-        "target": "5320255",
-        "type": "trigger"
       },
       {
         "source": "5000571",
@@ -5866,11 +5846,6 @@
         "source": "5000571",
         "target": "5320256",
         "type": "consequence"
-      },
-      {
-        "source": "5320254",
-        "target": "5000571",
-        "type": "trigger"
       },
       {
         "source": "5320257",
@@ -5913,34 +5888,9 @@
         "type": "consequence"
       },
       {
-        "source": "5000571",
-        "target": "5320257",
-        "type": "trigger"
-      },
-      {
-        "source": "5320257",
-        "target": "5320258",
-        "type": "trigger"
-      },
-      {
-        "source": "5320257",
-        "target": "5320259",
-        "type": "trigger"
-      },
-      {
-        "source": "5320257",
-        "target": "5320260",
-        "type": "trigger"
-      },
-      {
         "source": "5320262",
         "target": "5000573",
         "type": "consequence"
-      },
-      {
-        "source": "5320257",
-        "target": "5320262",
-        "type": "trigger"
       },
       {
         "source": "5320263",
@@ -5948,39 +5898,14 @@
         "type": "consequence"
       },
       {
-        "source": "5320257",
-        "target": "5320263",
-        "type": "trigger"
-      },
-      {
-        "source": "5320257",
-        "target": "5320264",
-        "type": "trigger"
-      },
-      {
-        "source": "5320257",
-        "target": "5320265",
-        "type": "trigger"
-      },
-      {
         "source": "5320266",
         "target": "5000575",
         "type": "consequence"
       },
       {
-        "source": "5000573",
-        "target": "5320266",
-        "type": "trigger"
-      },
-      {
         "source": "5320268",
         "target": "5320269",
         "type": "consequence"
-      },
-      {
-        "source": "5000575",
-        "target": "5320268",
-        "type": "trigger"
       },
       {
         "source": "5320269",
@@ -5998,39 +5923,14 @@
         "type": "consequence"
       },
       {
-        "source": "5320268",
-        "target": "5320269",
-        "type": "trigger"
-      },
-      {
         "source": "5320270",
         "target": "5000578",
         "type": "consequence"
       },
       {
-        "source": "5320269",
-        "target": "5320270",
-        "type": "trigger"
-      },
-      {
-        "source": "5320276",
-        "target": "5320270",
-        "type": "trigger"
-      },
-      {
         "source": "5320273",
         "target": "5000578",
         "type": "consequence"
-      },
-      {
-        "source": "5000579",
-        "target": "5320273",
-        "type": "trigger"
-      },
-      {
-        "source": "5000581",
-        "target": "5320273",
-        "type": "trigger"
       },
       {
         "source": "5320274",
@@ -6053,34 +5953,9 @@
         "type": "consequence"
       },
       {
-        "source": "5320269",
-        "target": "5320277",
-        "type": "trigger"
-      },
-      {
-        "source": "5320276",
-        "target": "5320277",
-        "type": "trigger"
-      },
-      {
-        "source": "5320269",
-        "target": "5320278",
-        "type": "trigger"
-      },
-      {
-        "source": "5320276",
-        "target": "5320278",
-        "type": "trigger"
-      },
-      {
         "source": "5000572",
         "target": "5320256",
         "type": "consequence"
-      },
-      {
-        "source": "5320255",
-        "target": "5000572",
-        "type": "trigger"
       },
       {
         "source": "5000573",
@@ -6088,26 +5963,11 @@
         "type": "consequence"
       },
       {
-        "source": "5320262",
-        "target": "5000573",
-        "type": "trigger"
-      },
-      {
-        "source": "5320263",
-        "target": "5000574",
-        "type": "trigger"
-      },
-      {
         "source": "5000575",
         "target": "5320268",
         "type": "consequence"
       },
       {
-        "source": "5320266",
-        "target": "5000575",
-        "type": "trigger"
-      },
-      {
         "source": "5000576",
         "target": "5000579",
         "type": "consequence"
@@ -6128,29 +5988,9 @@
         "type": "consequence"
       },
       {
-        "source": "5320257",
-        "target": "5000576",
-        "type": "trigger"
-      },
-      {
         "source": "5000578",
         "target": "5000578",
         "type": "consequence"
-      },
-      {
-        "source": "5000578",
-        "target": "5000578",
-        "type": "trigger"
-      },
-      {
-        "source": "5320270",
-        "target": "5000578",
-        "type": "trigger"
-      },
-      {
-        "source": "5320273",
-        "target": "5000578",
-        "type": "trigger"
       },
       {
         "source": "5000579",
@@ -6173,16 +6013,6 @@
         "type": "consequence"
       },
       {
-        "source": "5000576",
-        "target": "5000579",
-        "type": "trigger"
-      },
-      {
-        "source": "5000579",
-        "target": "5000580",
-        "type": "trigger"
-      },
-      {
         "source": "5000581",
         "target": "5320273",
         "type": "consequence"
@@ -6193,19 +6023,9 @@
         "type": "consequence"
       },
       {
-        "source": "5000576",
-        "target": "5000581",
-        "type": "trigger"
-      },
-      {
         "source": "5000582",
         "target": "5320256",
         "type": "consequence"
-      },
-      {
-        "source": "5000576",
-        "target": "5000582",
-        "type": "trigger"
       },
       {
         "source": "5000583",
@@ -6213,59 +6033,9 @@
         "type": "consequence"
       },
       {
-        "source": "5320279",
-        "target": "5000583",
-        "type": "trigger"
-      },
-      {
-        "source": "5320280",
-        "target": "5000583",
-        "type": "trigger"
-      },
-      {
-        "source": "5320281",
-        "target": "5000584",
-        "type": "trigger"
-      },
-      {
         "source": "5320256",
         "target": "5320281",
         "type": "consequence"
-      },
-      {
-        "source": "5000571",
-        "target": "5320256",
-        "type": "trigger"
-      },
-      {
-        "source": "5000572",
-        "target": "5320256",
-        "type": "trigger"
-      },
-      {
-        "source": "5000576",
-        "target": "5320256",
-        "type": "trigger"
-      },
-      {
-        "source": "5000579",
-        "target": "5320256",
-        "type": "trigger"
-      },
-      {
-        "source": "5000581",
-        "target": "5320256",
-        "type": "trigger"
-      },
-      {
-        "source": "5000582",
-        "target": "5320256",
-        "type": "trigger"
-      },
-      {
-        "source": "5320274",
-        "target": "5320256",
-        "type": "trigger"
       },
       {
         "source": "5320279",
@@ -6273,29 +6043,14 @@
         "type": "consequence"
       },
       {
-        "source": "5000579",
-        "target": "5320279",
-        "type": "trigger"
-      },
-      {
         "source": "5320280",
         "target": "5000583",
         "type": "consequence"
       },
       {
-        "source": "5000583",
-        "target": "5320280",
-        "type": "trigger"
-      },
-      {
         "source": "5320281",
         "target": "5000584",
         "type": "consequence"
-      },
-      {
-        "source": "5320256",
-        "target": "5320281",
-        "type": "trigger"
       }
     ],
     "entryNodeIds": [
