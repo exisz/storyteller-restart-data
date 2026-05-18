@@ -3893,7 +3893,7 @@
   "manual-iman-secret-prayer-route": {
     "groupId": "manual-iman-secret-prayer-route",
     "groupNodeId": "group:manual-iman-secret-prayer-route",
-    "rationale": "手搓人物线 group：以伊曼开启祈祷、辩经、密室祈祷、秘密幽会、通奸被抓、炎日天平到伊曼羁绊/茉莉花香为核心。排除敦请圣像、给正教打工、感谢信、消解疯狂等旁支或 hub。",
+    "rationale": "手搓人物线章节 group：伊曼线第一块，以伊曼开启祈祷、辩经、密室祈祷、秘密幽会、通奸被抓、炎日天平到伊曼羁绊/茉莉花香为核心。它不是完整伊曼线；后续教领/选光者另切独立块。排除敦请圣像、给正教打工、感谢信、消解疯狂等旁支或 hub。",
     "nodes": [
       {
         "id": "5310609",
@@ -7301,5 +7301,2907 @@
       "5310614",
       "5004817"
     ]
+  },
+  "manual-iman-church-leadership-route": {
+    "groupId": "manual-iman-church-leadership-route",
+    "groupNodeId": "group:manual-iman-church-leadership-route",
+    "rationale": "手搓人物线章节 group：伊曼线第二块，从成为教领启动进入伊曼存活/死亡/决裂后的教会权力分歧。与密室祈祷段不是同一条干净 path，中间由正教幕后/状态门控隔开，因此单独成块。排除神圣烙印/神临仪式等正教系统升级旁支。",
+    "nodes": [
+      {
+        "id": "5310615",
+        "text": "成为教领的启动",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": false,
+        "on": {
+          "round_begin_ba": 1
+        },
+        "condition": {
+          "all": {
+            "table_have.2000847": 1,
+            "!table_have.2000843": 1,
+            "!table_have.2000844": 1
+          }
+        },
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "counter+7000608": 1,
+              "no_prompt": {
+                "card": [
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076,
+                  2001076
+                ]
+              },
+              "rite": 5010034,
+              "prompt": {
+                "id": "5310615_prompt_1",
+                "text": "从梦中惊醒的那一瞬间，你耳畔依然回响着纯净者的启示——祂要你做祂在陆上的代言人，引领信者为祂筑起纯白的高塔，准备好迎接祂的降临……",
+                "icon": [
+                  "cards/position_shenmiao_1"
+                ]
+              },
+              "counter+7000626": 1,
+              "event_on": [
+                5310616,
+                5310617,
+                5310618,
+                5310619
+              ],
+              "success": {
+                "event_off": 5310615
+              }
+            }
+          }
+        ],
+        "type": "event",
+        "name": "成为教领的启动",
+        "description": "成为教领的启动",
+        "triggers": [
+          5310604
+        ],
+        "consequences": [
+          5010034,
+          5310616,
+          5310617,
+          5310618,
+          5310619
+        ],
+        "conditions": [
+          "all: [object Object]",
+          "回合开始: 1"
+        ],
+        "effects": [],
+        "counters": [],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5310616",
+        "text": "没有决裂伊曼存活",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": true,
+        "on": {
+          "round_begin_ba": 1
+        },
+        "condition": {
+          "all": {
+            "!rite": [
+              5004517,
+              5004518
+            ],
+            "counter.7000572<": 1,
+            "have.2000021": 1
+          }
+        },
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "clean.rite": [
+                5004513,
+                5004514,
+                5004515,
+                5004516
+              ],
+              "rite": 5004519,
+              "success": {
+                "event_off": [
+                  5310616,
+                  5310617,
+                  5310618,
+                  5310619
+                ]
+              }
+            }
+          }
+        ],
+        "type": "event",
+        "name": "没有决裂伊曼存活",
+        "description": "没有决裂伊曼存活",
+        "triggers": [
+          5310615
+        ],
+        "consequences": [
+          5004519
+        ],
+        "conditions": [
+          "all: [object Object]",
+          "回合开始: 1"
+        ],
+        "effects": [
+          "共享计数器 7000572 与节点 5000002",
+          "共享计数器 7000572 与节点 5000004",
+          "共享计数器 7000572 与节点 5004501",
+          "共享计数器 7000572 与节点 5004513",
+          "共享计数器 7000572 与节点 5004514",
+          "共享计数器 7000572 与节点 5004516",
+          "共享计数器 7000572 与节点 5004517",
+          "共享计数器 7000572 与节点 5008164",
+          "共享计数器 7000572 与节点 5008168",
+          "共享计数器 7000572 与节点 5310605",
+          "共享计数器 7000572 与节点 5310606",
+          "共享计数器 7000572 与节点 5310607",
+          "共享计数器 7000572 与节点 5310608",
+          "共享计数器 7000572 与节点 5310609",
+          "共享计数器 7000572 与节点 5310610",
+          "共享计数器 7000572 与节点 5310611",
+          "共享计数器 7000572 与节点 5310617",
+          "共享计数器 7000572 与节点 5310618",
+          "共享计数器 7000572 与节点 5310619",
+          "共享计数器 7000572 与节点 5310623",
+          "共享计数器 7000572 与节点 5310624",
+          "共享计数器 7000572 与节点 5321156",
+          "共享计数器 7000572 与节点 5321173"
+        ],
+        "counters": [
+          "7000572"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5004519",
+        "name": "揣测神意",
+        "text": "想要修筑神临之塔，毫无疑问地必须集结所有信徒的力量，也许这正是纯净者将你视为“代行者”的原因。但……教会并非没有自己的主祭，这事你非找伊曼谈谈不可。",
+        "tips": "",
+        "once_new": 1,
+        "round_number": 1,
+        "waiting_round": 2,
+        "waiting_round_end_action": [
+          {
+            "condition": {},
+            "result_title": "",
+            "result_text": "",
+            "result": {
+              "clean.s1": 1,
+              "no_show": {
+                "card": 2001071
+              },
+              "counter=7000586": 0
+            },
+            "action": {
+              "rite": 5004523,
+              "prompt": {
+                "id": "5004519_prompt_01",
+                "text": "在你犹豫着迟迟没有行动的时候，纯净者教会那边传来消息——他们的主祭伊曼死了，在一次难以想象、无法承受的自伤中，他聆听到了最伟大的纯净之言——那是一道明确的旨意：让[player.name]成为教领，集中所有的资源修筑高塔，以迎接那至高至净者的伟大神降。",
+                "icon": "cards/2000021"
+              }
+            }
+          }
+        ],
+        "method_settlement": "",
+        "auto_begin": 0,
+        "auto_result": 0,
+        "location": "神殿区:[2,10]",
+        "icon": "rite_9",
+        "tag_tips": [],
+        "tag_tips_up": {},
+        "tips_text": [],
+        "open_conditions": [],
+        "random_text": {},
+        "random_text_up": {},
+        "settlement_prior": [],
+        "settlement": [
+          {
+            "condition": {
+              "!s4": 1
+            },
+            "result_title": "血的祝圣",
+            "result_text": "茉莉花的淡香中，伊曼邀请你坐下。听你说完自己梦中得到的启示之后，他沉吟了片刻，抬眼望向你，缓缓地、坚定地说道：“我愿意用我的血为您祝圣。”\n伊曼告诉玩家，纯净之神让自己的教士流血以照耀世人，当它降临了，它会让什么流血呢？",
+            "result": {},
+            "action": {
+              "event_on": 5310622
+            }
+          },
+          {
+            "condition": {
+              "s4": 1
+            },
+            "result_title": "无辜者之血",
+            "result_text": "亮出刀刃的时候，你说：“我必须这么做。”\n而伊曼只是笑了。你很少看到他笑，不是吗？此刻，他笑得这样轻松、如释重负，仿佛已经看破了这场游戏的逻辑——这一刻，他窥破了神降临世间的秘密：祂需要用苏丹的游戏来脱罪！神也害怕这份勾连世界的罪孽！而你对他的杀戮，而他流淌在你刀尖下的血，将会成为神降临世间的通道……啊，这不就是祭司们一直都在做的么？\n就这样，他闭上了双眼。",
+            "result": {
+              "clean.s1": 1,
+              "no_show": {
+                "card": 2001071
+              },
+              "counter=7000586": 0
+            },
+            "action": {
+              "rite": 5004523
+            }
+          }
+        ],
+        "settlement_extre": [
+          {
+            "condition": {
+              "s4": 1,
+              "counter.7000581<": 1
+            },
+            "result_title": "",
+            "result_text": "血的气味被茉莉花洁净的芳馨冲淡，冥冥之中，有一道枷锁已被破除，有一重罪孽，已由这张卡片领受。",
+            "result": {
+              "card": [
+                2001038,
+                "已拥有+1"
+              ],
+              "counter+7000581": 1
+            },
+            "action": {}
+          }
+        ],
+        "cards_slot": {
+          "s1": {
+            "condition": {
+              "type": "char",
+              "is": 2000021
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "伊曼"
+          },
+          "s2": {
+            "condition": {
+              "type": "char",
+              "主角": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你必须亲自前往"
+          },
+          "s3": {
+            "condition": {
+              "type": "item",
+              "is": 2000847
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你已于梦中见过神的面容"
+          },
+          "s4": {
+            "condition": {
+              "type": "sudan",
+              "杀戮": 1,
+              "rare<=": 3
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "也许，杀了他是最简单方便的选择"
+          }
+        },
+        "type": "rite",
+        "description": "想要修筑神临之塔，毫无疑问地必须集结所有信徒的力量，也许这正是纯净者将你视为“代行者”的原因。但……教会并非没有自己的主祭，这事你非找伊曼谈谈不可。",
+        "triggers": [
+          5310616
+        ],
+        "consequences": [
+          5310622,
+          5004523
+        ],
+        "conditions": [
+          "!s4: 1",
+          "s4: 1",
+          "s4: 1",
+          "计数器条件: counter.7000581< 1"
+        ],
+        "effects": [
+          "clean.s1: 1",
+          "no_show: [object Object]",
+          "counter=7000586: 0",
+          "共享计数器 7000586 与节点 5004513",
+          "共享计数器 7000586 与节点 5004514",
+          "共享计数器 7000586 与节点 5004515",
+          "共享计数器 7000586 与节点 5004516",
+          "共享计数器 7000586 与节点 5004517",
+          "共享计数器 7000586 与节点 5004518",
+          "共享计数器 7000586 与节点 5004524",
+          "共享计数器 7000586 与节点 5310609",
+          "共享计数器 7000586 与节点 5004513",
+          "共享计数器 7000586 与节点 5004514",
+          "共享计数器 7000586 与节点 5004515",
+          "共享计数器 7000586 与节点 5004516",
+          "共享计数器 7000586 与节点 5004517",
+          "共享计数器 7000586 与节点 5004518",
+          "共享计数器 7000586 与节点 5004524",
+          "共享计数器 7000586 与节点 5310609",
+          "共享计数器 7000581 与节点 5000004",
+          "共享计数器 7000581 与节点 5004513",
+          "共享计数器 7000581 与节点 5008182",
+          "共享计数器 7000581 与节点 5010037",
+          "共享计数器 7000581 与节点 5000004",
+          "共享计数器 7000581 与节点 5004513",
+          "共享计数器 7000581 与节点 5008182",
+          "共享计数器 7000581 与节点 5010037"
+        ],
+        "counters": [
+          "7000586",
+          "7000586",
+          "7000581",
+          "7000581"
+        ],
+        "globalCounters": [],
+        "cards": [
+          2001038
+        ],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5310622",
+        "text": "抉择",
+        "is_replay": 0,
+        "auto_start": false,
+        "start_trigger": false,
+        "on": {
+          "rite_end": 5004519
+        },
+        "condition": {},
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "option": {
+                "id": "5310622_option_1",
+                "text": "伊曼提出，他愿意用自己的血为你——为纯净者教会的新教领祝圣。那么，你怎么看？",
+                "icon": [
+                  "cards/2000021",
+                  null,
+                  "cards/2000001"
+                ],
+                "items": [
+                  {
+                    "text": "这是我们的命运",
+                    "tag": "op1"
+                  },
+                  {
+                    "text": "不，你不要死",
+                    "tag": "op2"
+                  }
+                ]
+              },
+              "case:op1": {
+                "card": 2001095,
+                "table.clean.2000021": 1,
+                "no_prompt": {
+                  "card": 2001071
+                },
+                "counter=7000586": 0,
+                "rite": 5004523,
+                "prompt": {
+                  "id": "5310622_prompt_1",
+                  "text": "伊曼点点头，没错，这就是你们的命运。就这样，他用自己的血在你身上画了华服与冠冕，它们在伊曼的血流尽的瞬间变成了一道纯白的烈焰，加冕你的身体。\n他没有为自己的死亡而叹息，他知道世人将受更大的苦——纯净之神向来都是让自己的祭司流血以照耀世人的，那么，当祂降临于世，又会让什么流血呢？",
+                  "icon": [
+                    "cards/2000001",
+                    null,
+                    "cards/2000021"
+                  ]
+                },
+                "event_off": 5310622
+              },
+              "case:op2": {
+                "rite": 5004524,
+                "prompt": {
+                  "id": "5310622_prompt_2",
+                  "text": "你想也不想地拒绝了。\n你至此才向他坦白，你非但不希望伊曼死，甚至，你也不想帮助纯净之神降临……想想看吧！一个素来都是让自己的祭司受难、流血以照耀世人的神祇，将信徒逼至痛苦和折磨之尽头的神祇，祂降临之后，又会让什么流血呢？\n伊曼似有所动容，没有再提祝圣的事，只是忧虑仍攀绕在他眉宇之间——神的启示已于梦中降下，这命运，当真是你们能够逃避的么？",
+                  "icon": [
+                    "cards/2000021",
+                    null,
+                    "cards/2000001"
+                  ]
+                },
+                "event_off": 5310622
+              }
+            }
+          }
+        ],
+        "type": "event",
+        "name": "抉择",
+        "description": "抉择",
+        "triggers": [
+          5004519
+        ],
+        "consequences": [
+          5004523,
+          5004524
+        ],
+        "conditions": [
+          "仪式结束: 5004519"
+        ],
+        "effects": [
+          "提供选项: 伊曼提出，他愿意用自己的血为你——为纯净者教会的新教领祝圣。那么，你怎么看？",
+          "- 选项: 这是我们的命运 (op1)",
+          "  → 触发仪式: 5004523",
+          "  → 获得卡片: 2001095",
+          "- 选项: 不，你不要死 (op2)",
+          "  → 触发仪式: 5004524"
+        ],
+        "counters": [],
+        "globalCounters": [],
+        "cards": [
+          2001095
+        ],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5004523",
+        "name": "神的仆人",
+        "text": "纯净者教会的主祭伊曼已经死去，这一晚，所有信徒都在梦中听见了神的声音，梦到了一个名字——[player.name]，会是引导他们继续前行的教领。",
+        "tips": "",
+        "once_new": 1,
+        "round_number": 1,
+        "waiting_round": 0,
+        "waiting_round_end_action": [],
+        "method_settlement": "",
+        "auto_begin": 0,
+        "auto_result": 0,
+        "location": "神殿区:[2,10]",
+        "icon": "rite_9",
+        "tag_tips": [],
+        "tag_tips_up": {},
+        "tips_text": [],
+        "open_conditions": [],
+        "random_text": {},
+        "random_text_up": {},
+        "settlement_prior": [],
+        "settlement": [
+          {
+            "condition": {
+              "any": {
+                "!s2": 1,
+                "s2.rare<=": 3
+              }
+            },
+            "result_title": "你不是他们当中信仰最坚的那一个",
+            "result_text": "人们对这个梦将信将疑，还有一部分认为这有可能是邪术造就的阴谋，因为神从未如此大规模地显圣过。当他们争得不可开交的时候，叫得最大声、伊曼死后最有希望当主祭的那几个后背的伤口突然崩裂，突兀地流血而亡，而这又顺理成章地被认定为这是忤逆神的旨意所遭受的惩罚。\n于是，你顺利地走到教会最深处的祭坛上，脱光了上衣，虔敬地接受鞭笞，然后高声宣告众人你聆听到的启示——\n<size=+10><font=\"Title SDF\"><b>神将降临</b></font></size>",
+            "result": {
+              "s1.uprare": 1,
+              "s1+魅力": 2,
+              "s1+魔力": 2,
+              "s1+社交": 2,
+              "s1+equip": 2000098,
+              "counter+7100003": 2,
+              "counter+7100005": 2,
+              "s1+教领": 1,
+              "counter+7000591": 1
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "s2.rare=": 4
+            },
+            "result_title": "你是他们当中信仰最坚的那一个",
+            "result_text": "于是，当你的双足踏入茉莉花的水流，祭司们都在诚心为你祝赞。他们每人抽了你一鞭子，让你的血一路蔓延，让水流见证而后又冲刷干净你的罪孽，直到你行至教会最深处的祭坛，高声宣告众人你聆听到的启示——\n<size=+10><font=\"Title SDF\"><b>神将降临，神将令此间世界完美。</b></font></size>",
+            "result": {
+              "s1.uprare": 1,
+              "s1+魅力": 2,
+              "s1+魔力": 2,
+              "s1+社交": 2,
+              "s1+equip": 2000098,
+              "counter+7100003": 2,
+              "counter+7100005": 2,
+              "s1+教领": 1,
+              "counter+7000591": 1
+            },
+            "action": {}
+          }
+        ],
+        "settlement_extre": [
+          {
+            "condition": {
+              "s1.魔力>=": 5,
+              "counter.7100005>=": 10
+            },
+            "result_title": "",
+            "result_text": "在弥漫的香雾中，你敏锐地觉察到了某种窥视……但你没有抬头。正相反，你更恭顺地跪下、祈祷、承诺：一切都将……如您所愿。\n那个存在满意了。它在湿冷的空气里轻轻抚摸你的发顶。它的触碰冰冷如石。",
+            "result": {},
+            "action": {}
+          },
+          {
+            "condition": {
+              "any": {
+                "s1.魔力<": 5,
+                "counter.7100005<": 10
+              }
+            },
+            "result_title": "",
+            "result_text": "在弥漫的香雾中，不知为何，你感到一阵莫名的战栗。冰冷而尖锐的疼痛从你的伤口急速攀升，令你眼前阵阵眩晕。一句纯净之言不由自主地从你颤抖的齿缝里吐露出来，而它治愈了所有信徒的伤痛，抹消了所有的怀疑……只余至纯至净的可怕狂热……\n在信徒的欢呼声中，你晕了过去。",
+            "result": {},
+            "action": {}
+          },
+          {
+            "condition": {
+              "any": {
+                "!s2": 1,
+                "s2.rare<=": 3
+              }
+            },
+            "result_title": "",
+            "result_text": "这场仪式之后，你的信仰得到升华。现在，你只记得一件事——一件最重要的、也是唯一重要的事：你要为纯净者筑造一座高塔，一座恭迎神明降世的高塔。",
+            "result": {
+              "no_show": {
+                "clean.s2": 1
+              },
+              "card": 2000728
+            },
+            "action": {}
+          }
+        ],
+        "cards_slot": {
+          "s1": {
+            "condition": {
+              "type": "char",
+              "主角": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你已没有回头路可走"
+          },
+          "s2": {
+            "condition": {
+              "type": "item",
+              "思潮": 1,
+              "any": {
+                "is": [
+                  2000725,
+                  2000726,
+                  2000727,
+                  2000728
+                ]
+              }
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "你对纯净者的信仰"
+          }
+        },
+        "type": "rite",
+        "description": "纯净者教会的主祭伊曼已经死去，这一晚，所有信徒都在梦中听见了神的声音，梦到了一个名字——[player.name]，会是引导他们继续前行的教领。",
+        "triggers": [
+          5004519,
+          5310622
+        ],
+        "consequences": [],
+        "conditions": [
+          "any: [object Object]",
+          "s2.rare=: 4",
+          "s1.魔力>=: 5",
+          "计数器条件: counter.7100005>= 10",
+          "any: [object Object]",
+          "any: [object Object]"
+        ],
+        "effects": [
+          "s1.uprare: 1",
+          "s1+魅力: 2",
+          "s1+魔力: 2",
+          "s1+社交: 2",
+          "s1+equip: 2000098",
+          "counter+7100003: 2",
+          "counter+7100005: 2",
+          "s1+教领: 1",
+          "counter+7000591: 1",
+          "s1.uprare: 1",
+          "s1+魅力: 2",
+          "s1+魔力: 2",
+          "s1+社交: 2",
+          "s1+equip: 2000098",
+          "counter+7100003: 2",
+          "counter+7100005: 2",
+          "s1+教领: 1",
+          "counter+7000591: 1",
+          "共享计数器 7000591 与节点 5004520",
+          "共享计数器 7000591 与节点 5004521",
+          "共享计数器 7000591 与节点 5004522",
+          "共享计数器 7000591 与节点 5004524",
+          "共享计数器 7000591 与节点 5310607",
+          "共享计数器 7000591 与节点 5004520",
+          "共享计数器 7000591 与节点 5004521",
+          "共享计数器 7000591 与节点 5004522",
+          "共享计数器 7000591 与节点 5004524",
+          "共享计数器 7000591 与节点 5310607"
+        ],
+        "counters": [
+          "7100003",
+          "7100005",
+          "7000591",
+          "7100003",
+          "7100005",
+          "7000591",
+          "7100005",
+          "7100005"
+        ],
+        "globalCounters": [],
+        "cards": [
+          2000728
+        ],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5004524",
+        "name": "神圣哗变",
+        "text": "这一晚，所有信徒都做了同一个梦，梦中只有一个名字在如雷般轰鸣——[player.name]。狂热的信徒们苏醒后自发地聚在你的居所，他们当中最虔诚的那位、听到纯净之言最清晰的那位，要求你站出来，来做教会的指引者——你避无可避。",
+        "tips": "",
+        "once_new": 1,
+        "round_number": 1,
+        "waiting_round": 0,
+        "waiting_round_end_action": [],
+        "method_settlement": "",
+        "auto_begin": 1,
+        "auto_result": 0,
+        "location": "神殿区:[2,10]",
+        "icon": "rite_9",
+        "tag_tips": [],
+        "tag_tips_up": {},
+        "tips_text": [],
+        "open_conditions": [],
+        "random_text": {},
+        "random_text_up": {},
+        "settlement_prior": [],
+        "settlement": [
+          {
+            "condition": {},
+            "result_title": "没有人能够逃避其命运",
+            "result_text": "祭司们无比强硬地把你带离宅邸，押到教会。他们鞭笞你的背脊，直到你的血一路蔓延，让水流见证而后又冲刷干净你的罪孽，直到你行至最深处的祭坛，一句纯净之言终于在难以忍受的痛楚中从你齿缝里逼了出来——你的声音不大，但每一个人都听到了——\n<size=+10><font=\"Title SDF\"><b>神将降临，神将令此间世界完美。</b></font></size>\n至此，你终于明白——不论你愿或者不愿，神的恩赐和任务都是没法逃避的。",
+            "result": {
+              "s1.uprare": 1,
+              "s1+魅力": 2,
+              "s1+魔力": 2,
+              "s1+社交": 2,
+              "s1+equip": 2000098,
+              "counter+7100003": 2,
+              "counter+7100005": 2,
+              "s1+教领": 1,
+              "counter+7000591": 1
+            },
+            "action": {}
+          }
+        ],
+        "settlement_extre": [
+          {
+            "condition": {
+              "any": {
+                "!s2": 1,
+                "s2.rare<=": 3
+              }
+            },
+            "result_title": "",
+            "result_text": "这场仪式之后，你的信仰得到升华。现在，你只记得一件事——一件最重要的、也是唯一重要的事：你要为纯净者筑造一座高塔，一座恭迎神明降世的高塔。",
+            "result": {
+              "no_show": {
+                "clean.s2": 1
+              },
+              "card": 2000728
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "s3": 1,
+              "!s3.追随者": 1
+            },
+            "result_title": "这是神的旨意",
+            "result_text": "祭司们剥夺了伊曼的名号，将这名被神遗弃的主祭逐出了教会。\n伊曼对这一切似乎早有预料，而且毫无怨言地接受了一切鞭笞和唾弃。事后，他找到你，平静且不容拒绝地表示，他愿意为神的降临出一份力，不论你要他做什么。",
+            "result": {
+              "s3-体魄": 2,
+              "s3+equip": 2000098,
+              "s3+追随者": 1,
+              "no_show": {
+                "card": 2001071
+              },
+              "counter=7000586": 0
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "s3": 1,
+              "s3.追随者": 1
+            },
+            "result_title": "神弃之人",
+            "result_text": "祭司们剥夺了伊曼的名号，将这名被神遗弃的主祭逐出了教会。\n他不再是主祭了，这份沉重的责任落在了你肩头、这条始终充斥着痛苦和荆棘的道路延展到了你脚下……而他依然愿意为你分担一二。",
+            "result": {
+              "s3-体魄": 2,
+              "s3+equip": 2000098
+            },
+            "action": {}
+          }
+        ],
+        "cards_slot": {
+          "s1": {
+            "condition": {
+              "type": "char",
+              "主角": 1
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你被包围了"
+          },
+          "s2": {
+            "condition": {
+              "type": "item",
+              "思潮": 1,
+              "any": {
+                "is": [
+                  2000725,
+                  2000726,
+                  2000727,
+                  2000728
+                ]
+              }
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "你对纯净者的信仰"
+          },
+          "s3": {
+            "condition": {
+              "type": "char",
+              "is": 2000021
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "伊曼也被裹挟其中"
+          }
+        },
+        "type": "rite",
+        "description": "这一晚，所有信徒都做了同一个梦，梦中只有一个名字在如雷般轰鸣——[player.name]。狂热的信徒们苏醒后自发地聚在你的居所，他们当中最虔诚的那位、听到纯净之言最清晰的那位，要求你站出来，来做教会的指引者——你避无可避。",
+        "triggers": [
+          5310622
+        ],
+        "consequences": [],
+        "conditions": [
+          "any: [object Object]",
+          "s3: 1",
+          "!s3.追随者: 1",
+          "s3: 1",
+          "s3.追随者: 1"
+        ],
+        "effects": [
+          "s1.uprare: 1",
+          "s1+魅力: 2",
+          "s1+魔力: 2",
+          "s1+社交: 2",
+          "s1+equip: 2000098",
+          "counter+7100003: 2",
+          "counter+7100005: 2",
+          "s1+教领: 1",
+          "counter+7000591: 1",
+          "共享计数器 7000591 与节点 5004520",
+          "共享计数器 7000591 与节点 5004521",
+          "共享计数器 7000591 与节点 5004522",
+          "共享计数器 7000591 与节点 5004523",
+          "共享计数器 7000591 与节点 5310607",
+          "共享计数器 7000586 与节点 5004513",
+          "共享计数器 7000586 与节点 5004514",
+          "共享计数器 7000586 与节点 5004515",
+          "共享计数器 7000586 与节点 5004516",
+          "共享计数器 7000586 与节点 5004517",
+          "共享计数器 7000586 与节点 5004518",
+          "共享计数器 7000586 与节点 5004519",
+          "共享计数器 7000586 与节点 5310609"
+        ],
+        "counters": [
+          "7100003",
+          "7100005",
+          "7000591",
+          "7000586"
+        ],
+        "globalCounters": [],
+        "cards": [
+          2000728
+        ],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5310617",
+        "text": "没有决裂伊曼死亡",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": true,
+        "on": {
+          "round_begin_ba": 1
+        },
+        "condition": {
+          "all": {
+            "!rite": [
+              5004517,
+              5004518
+            ],
+            "counter.7000572<": 1,
+            "!have.2000021": 1
+          }
+        },
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "clean.rite": [
+                5004513,
+                5004514,
+                5004515,
+                5004516
+              ],
+              "rite": 5004520,
+              "success": {
+                "event_off": [
+                  5310616,
+                  5310617,
+                  5310618,
+                  5310619
+                ]
+              }
+            }
+          }
+        ],
+        "type": "event",
+        "name": "没有决裂伊曼死亡",
+        "description": "没有决裂伊曼死亡",
+        "triggers": [
+          5310615
+        ],
+        "consequences": [
+          5004520
+        ],
+        "conditions": [
+          "all: [object Object]",
+          "回合开始: 1"
+        ],
+        "effects": [
+          "共享计数器 7000572 与节点 5000002",
+          "共享计数器 7000572 与节点 5000004",
+          "共享计数器 7000572 与节点 5004501",
+          "共享计数器 7000572 与节点 5004513",
+          "共享计数器 7000572 与节点 5004514",
+          "共享计数器 7000572 与节点 5004516",
+          "共享计数器 7000572 与节点 5004517",
+          "共享计数器 7000572 与节点 5008164",
+          "共享计数器 7000572 与节点 5008168",
+          "共享计数器 7000572 与节点 5310605",
+          "共享计数器 7000572 与节点 5310606",
+          "共享计数器 7000572 与节点 5310607",
+          "共享计数器 7000572 与节点 5310608",
+          "共享计数器 7000572 与节点 5310609",
+          "共享计数器 7000572 与节点 5310610",
+          "共享计数器 7000572 与节点 5310611",
+          "共享计数器 7000572 与节点 5310616",
+          "共享计数器 7000572 与节点 5310618",
+          "共享计数器 7000572 与节点 5310619",
+          "共享计数器 7000572 与节点 5310623",
+          "共享计数器 7000572 与节点 5310624",
+          "共享计数器 7000572 与节点 5321156",
+          "共享计数器 7000572 与节点 5321173"
+        ],
+        "counters": [
+          "7000572"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5004520",
+        "name": "接管教会",
+        "text": "纯净者教会的主祭早已死去，那么，你凭着神的启示，凭着你对纯净者无比坚贞的信仰，成为信众的引领者也属顺理成章。",
+        "tips": "",
+        "once_new": 1,
+        "round_number": 1,
+        "waiting_round": 0,
+        "waiting_round_end_action": [],
+        "method_settlement": "",
+        "auto_begin": 0,
+        "auto_result": 0,
+        "location": "神殿区:[2,10]",
+        "icon": "rite_9",
+        "tag_tips": [],
+        "tag_tips_up": {},
+        "tips_text": [],
+        "open_conditions": [],
+        "random_text": {},
+        "random_text_up": {},
+        "settlement_prior": [],
+        "settlement": [
+          {
+            "condition": {},
+            "result_title": "顺应天命",
+            "result_text": "这一晚，所有信徒都在梦中听见了神的声音，梦到了一个名字——[player.name]——这是神选中的，引导他们继续前行的教领。\n于是，当你的双足踏入茉莉花的水流，祭司们都在诚心为你祝赞。他们每人抽了你一鞭子，让你的血一路蔓延，让水流见证而后又冲刷干净你的罪孽，直到你行至教会最深处的祭坛，高声宣告众人你聆听到的启示——\n<size=+10><font=\"Title SDF\"><b>神将降临，神将令此间世界完美。</b></font></size>",
+            "result": {
+              "s1.uprare": 1,
+              "s1+魅力": 2,
+              "s1+魔力": 2,
+              "s1+社交": 2,
+              "s1+equip": 2000098,
+              "counter+7100003": 2,
+              "counter+7100005": 2,
+              "s1+教领": 1,
+              "counter+7000591": 1
+            },
+            "action": {}
+          }
+        ],
+        "settlement_extre": [],
+        "cards_slot": {
+          "s1": {
+            "condition": {
+              "type": "char",
+              "主角": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你必须亲自办这件事"
+          },
+          "s2": {
+            "condition": {
+              "type": "item",
+              "思潮": 1,
+              "is": 2000728
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你对纯净者最纯粹、最坚定的信仰"
+          }
+        },
+        "type": "rite",
+        "description": "纯净者教会的主祭早已死去，那么，你凭着神的启示，凭着你对纯净者无比坚贞的信仰，成为信众的引领者也属顺理成章。",
+        "triggers": [
+          5310617
+        ],
+        "consequences": [],
+        "conditions": [],
+        "effects": [
+          "s1.uprare: 1",
+          "s1+魅力: 2",
+          "s1+魔力: 2",
+          "s1+社交: 2",
+          "s1+equip: 2000098",
+          "counter+7100003: 2",
+          "counter+7100005: 2",
+          "s1+教领: 1",
+          "counter+7000591: 1",
+          "共享计数器 7000591 与节点 5004521",
+          "共享计数器 7000591 与节点 5004522",
+          "共享计数器 7000591 与节点 5004523",
+          "共享计数器 7000591 与节点 5004524",
+          "共享计数器 7000591 与节点 5310607"
+        ],
+        "counters": [
+          "7100003",
+          "7100005",
+          "7000591"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5310618",
+        "text": "决裂伊曼存活",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": true,
+        "on": {
+          "round_begin_ba": 1
+        },
+        "condition": {
+          "all": {
+            "!rite": [
+              5004517,
+              5004518
+            ],
+            "counter.7000572>=": 1,
+            "have.2000021": 1
+          }
+        },
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "clean.rite": [
+                5004513,
+                5004514,
+                5004515,
+                5004516
+              ],
+              "no_prompt": {
+                "card": 2001092
+              },
+              "rite": 5004521,
+              "success": {
+                "event_off": [
+                  5310616,
+                  5310617,
+                  5310618,
+                  5310619
+                ]
+              }
+            }
+          }
+        ],
+        "type": "event",
+        "name": "决裂伊曼存活",
+        "description": "决裂伊曼存活",
+        "triggers": [
+          5310615
+        ],
+        "consequences": [
+          5004521
+        ],
+        "conditions": [
+          "all: [object Object]",
+          "回合开始: 1"
+        ],
+        "effects": [
+          "共享计数器 7000572 与节点 5000002",
+          "共享计数器 7000572 与节点 5000004",
+          "共享计数器 7000572 与节点 5004501",
+          "共享计数器 7000572 与节点 5004513",
+          "共享计数器 7000572 与节点 5004514",
+          "共享计数器 7000572 与节点 5004516",
+          "共享计数器 7000572 与节点 5004517",
+          "共享计数器 7000572 与节点 5008164",
+          "共享计数器 7000572 与节点 5008168",
+          "共享计数器 7000572 与节点 5310605",
+          "共享计数器 7000572 与节点 5310606",
+          "共享计数器 7000572 与节点 5310607",
+          "共享计数器 7000572 与节点 5310608",
+          "共享计数器 7000572 与节点 5310609",
+          "共享计数器 7000572 与节点 5310610",
+          "共享计数器 7000572 与节点 5310611",
+          "共享计数器 7000572 与节点 5310616",
+          "共享计数器 7000572 与节点 5310617",
+          "共享计数器 7000572 与节点 5310619",
+          "共享计数器 7000572 与节点 5310623",
+          "共享计数器 7000572 与节点 5310624",
+          "共享计数器 7000572 与节点 5321156",
+          "共享计数器 7000572 与节点 5321173"
+        ],
+        "counters": [
+          "7000572"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5004521",
+        "name": "异端之战",
+        "text": "你是与纯净者教会决裂的异端，被祭司们驱逐的不信之徒，然而，多么可笑啊！你的使命已得神授，你是祂在陆上的代言人，那么，现在是时候证明了——谁才是异端？谁当执掌那纯净、洁白的权柄？",
+        "tips": "",
+        "once_new": 1,
+        "round_number": 1,
+        "waiting_round": 0,
+        "waiting_round_end_action": [],
+        "method_settlement": "",
+        "auto_begin": 0,
+        "auto_result": 0,
+        "location": "神殿区:[2,10]",
+        "icon": "rite_9",
+        "tag_tips": [],
+        "tag_tips_up": {
+          "tips": [
+            "魔力",
+            "魅力",
+            "战斗",
+            "体魄"
+          ],
+          "type": "fight_result"
+        },
+        "tips_text": [
+          "先进行魔力与魅力的对抗，再进行战斗和体魄的对抗",
+          "对方会死守正教的位置"
+        ],
+        "open_conditions": [],
+        "random_text": {},
+        "random_text_up": {
+          "r1": {
+            "text": "神圣的真言构成了第一道阻拦你的屏障",
+            "type": "fight_result",
+            "type_tips": "你的魔力与魅力属性为你提供的骰子数量受对方影响",
+            "low_target": 3,
+            "low_target_tips": "你至少需要3点成功才能获得胜利。"
+          },
+          "r2": {
+            "text": "很多祭司惊惧间四散溃败，但更多的，依然认为这不过是你惯来耍弄的邪术——他们坚定地迎向你的刀锋，与你的队伍拼杀在了一起！",
+            "type": "fight_result",
+            "type_tips": "你的战斗与体魄属性为你提供的骰子数量受对方影响",
+            "low_target": 3,
+            "low_target_tips": "你至少需要3点成功才能获得胜利。"
+          }
+        },
+        "settlement_prior": [],
+        "settlement": [],
+        "settlement_extre": [
+          {
+            "condition": {
+              "r1:魔力+魅力-e(魔力+魅力)<": [
+                3,
+                5
+              ]
+            },
+            "result_title": "虫豸相争",
+            "result_text": "当那些纯净之言化为利剑刺穿你的心胸，你只觉得可笑——你该去问吗，为什么神赐予你正义之名，却用这样捉弄你？\n你的耳畔只有一片谎言笼罩的寂静——你在濒死的极度痛楚中，却再未听见祂的只言片语。",
+            "result": {
+              "clean.s6": 1,
+              "clean.s5": 1,
+              "clean.s4": 1,
+              "clean.s3": 1
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "r1:魔力+魅力-e(魔力+魅力)>=": [
+                3,
+                5
+              ]
+            },
+            "result_title": "得天所授",
+            "result_text": "他们张开嘴，却发不出任何声音。纯净者将他们抛弃了，祂用你的喉咙，只说了一句话——天地间，只这一句话还有资格发出声音——\n<size=+10><font=\"Title SDF\"><b>吾将降临</b></font></size>",
+            "result": {},
+            "action": {}
+          },
+          {
+            "condition": {
+              "r1:魔力+魅力-e(魔力+魅力)>=": [
+                3,
+                5
+              ],
+              "r2:战斗+体魄-e(战斗+体魄)<": [
+                3,
+                5
+              ]
+            },
+            "result_title": "虫豸相争",
+            "result_text": "纯净者教会的主祭和祭司们镇压了这次可笑的叛乱，清洗了所有参战的异端。\n不自量力的人啊，你倒下的那一刻，难道还在乞求、还在奢望神的怜悯吗？",
+            "result": {
+              "clean.s6": 1,
+              "clean.s5": 1,
+              "clean.s4": 1,
+              "clean.s3": 1
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "r1:魔力+魅力-e(魔力+魅力)>=": [
+                3,
+                5
+              ],
+              "r2:战斗+体魄-e(战斗+体魄)>=": [
+                3,
+                5
+              ]
+            },
+            "result_title": "",
+            "result_text": "你无情地屠戮了每一个负隅顽抗的人——每一个自以为信仰坚贞，实则早已偏离正道的人。他们的血被茉莉花水冲散，纯白的石板上重新变得洁净如新。你就踏着这样的罪孽、这样的杀业，迈步走向教会最深处的祭坛。然后对着所有臣服于你的、战战兢兢的信徒，再一次高声宣告、再一次重复你所聆听到的启示——\n<size=+10><font=\"Title SDF\"><b>神将降临，神将令世界就此完美。</b></font></size>",
+            "result": {
+              "clean.s1": 1,
+              "clean.s2": 1,
+              "s3.uprare": 1,
+              "s3+魅力": 2,
+              "s3+魔力": 2,
+              "s3+社交": 2,
+              "s3+equip": 2000098,
+              "counter+7100003": 2,
+              "counter+7100005": 2,
+              "s3+教领": 1,
+              "counter+7000591": 1
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "r1:魔力+魅力-e(魔力+魅力)>=": [
+                3,
+                5
+              ],
+              "r2:战斗+体魄-e(战斗+体魄)>=": [
+                3,
+                5
+              ],
+              "s8": 1
+            },
+            "result_title": "",
+            "result_text": "这场血腥的清洗赢得了苏丹的认可。他甚至公开认可了你的纯净者教领的名号，微笑着，戏谑着，等待你把这场好戏继续演下去。",
+            "result": {
+              "clean.s8": 1
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "r1:魔力+魅力-e(魔力+魅力)>=": [
+                3,
+                5
+              ],
+              "r2:战斗+体魄-e(战斗+体魄)>=": [
+                3,
+                5
+              ],
+              "s8": 1,
+              "counter.5000579<": 1
+            },
+            "result_title": "裂隙",
+            "result_text": "冥冥之中，有一道裂隙已被撕开，有一重罪孽，已由这张卡片领受。",
+            "result": {
+              "card": [
+                2001036,
+                "已拥有+1"
+              ],
+              "counter+5000579": 1
+            },
+            "action": {}
+          }
+        ],
+        "cards_slot": {
+          "s1": {
+            "condition": {
+              "type": "char",
+              "is": 2000021
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 1,
+            "text": "异端者主祭"
+          },
+          "s2": {
+            "condition": {
+              "type": "item",
+              "is": 2001092
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 1,
+            "text": "异端的军队"
+          },
+          "s3": {
+            "condition": {
+              "type": "char",
+              "主角": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你必须亲自率队征伐异端"
+          },
+          "s4": {
+            "condition": {
+              "type": "char"
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "你可以委派一名追随者协助作战"
+          },
+          "s5": {
+            "condition": {
+              "any": {
+                "type": [
+                  "item",
+                  "char"
+                ]
+              },
+              "部队": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "响应你号召的圣战队伍"
+          },
+          "s6": {
+            "condition": {
+              "any": {
+                "type": [
+                  "item",
+                  "char"
+                ]
+              },
+              "部队": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "响应你号召的圣战队伍"
+          },
+          "s7": {
+            "condition": {
+              "type": "item",
+              "cost.消耗品=": 1,
+              "!金币": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "在作战中派得上用场的消耗品"
+          },
+          "s8": {
+            "condition": {
+              "type": "sudan",
+              "征服": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "你可以借机折断任意一张征服卡"
+          }
+        },
+        "type": "rite",
+        "description": "你是与纯净者教会决裂的异端，被祭司们驱逐的不信之徒，然而，多么可笑啊！你的使命已得神授，你是祂在陆上的代言人，那么，现在是时候证明了——谁才是异端？谁当执掌那纯净、洁白的权柄？",
+        "triggers": [
+          5310618
+        ],
+        "consequences": [],
+        "conditions": [
+          "r1:魔力+魅力-e(魔力+魅力)<: 3,5",
+          "r1:魔力+魅力-e(魔力+魅力)>=: 3,5",
+          "r1:魔力+魅力-e(魔力+魅力)>=: 3,5",
+          "r2:战斗+体魄-e(战斗+体魄)<: 3,5",
+          "r1:魔力+魅力-e(魔力+魅力)>=: 3,5",
+          "r2:战斗+体魄-e(战斗+体魄)>=: 3,5",
+          "r1:魔力+魅力-e(魔力+魅力)>=: 3,5",
+          "r2:战斗+体魄-e(战斗+体魄)>=: 3,5",
+          "s8: 1",
+          "r1:魔力+魅力-e(魔力+魅力)>=: 3,5",
+          "r2:战斗+体魄-e(战斗+体魄)>=: 3,5",
+          "s8: 1",
+          "计数器条件: counter.5000579< 1"
+        ],
+        "effects": [
+          "共享计数器 7000591 与节点 5004520",
+          "共享计数器 7000591 与节点 5004522",
+          "共享计数器 7000591 与节点 5004523",
+          "共享计数器 7000591 与节点 5004524",
+          "共享计数器 7000591 与节点 5310607"
+        ],
+        "counters": [
+          "7100003",
+          "7100005",
+          "7000591",
+          "5000579",
+          "5000579"
+        ],
+        "globalCounters": [],
+        "cards": [
+          2001036
+        ],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5310619",
+        "text": "决裂伊曼死亡",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": true,
+        "on": {
+          "round_begin_ba": 1
+        },
+        "condition": {
+          "all": {
+            "!rite": [
+              5004517,
+              5004518
+            ],
+            "counter.7000572>=": 1,
+            "!have.2000021": 1
+          }
+        },
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "clean.rite": [
+                5004513,
+                5004514,
+                5004515,
+                5004516
+              ],
+              "rite": 5004522,
+              "success": {
+                "event_off": [
+                  5310616,
+                  5310617,
+                  5310618,
+                  5310619
+                ]
+              }
+            }
+          }
+        ],
+        "type": "event",
+        "name": "决裂伊曼死亡",
+        "description": "决裂伊曼死亡",
+        "triggers": [
+          5310615
+        ],
+        "consequences": [
+          5004522
+        ],
+        "conditions": [
+          "all: [object Object]",
+          "回合开始: 1"
+        ],
+        "effects": [
+          "共享计数器 7000572 与节点 5000002",
+          "共享计数器 7000572 与节点 5000004",
+          "共享计数器 7000572 与节点 5004501",
+          "共享计数器 7000572 与节点 5004513",
+          "共享计数器 7000572 与节点 5004514",
+          "共享计数器 7000572 与节点 5004516",
+          "共享计数器 7000572 与节点 5004517",
+          "共享计数器 7000572 与节点 5008164",
+          "共享计数器 7000572 与节点 5008168",
+          "共享计数器 7000572 与节点 5310605",
+          "共享计数器 7000572 与节点 5310606",
+          "共享计数器 7000572 与节点 5310607",
+          "共享计数器 7000572 与节点 5310608",
+          "共享计数器 7000572 与节点 5310609",
+          "共享计数器 7000572 与节点 5310610",
+          "共享计数器 7000572 与节点 5310611",
+          "共享计数器 7000572 与节点 5310616",
+          "共享计数器 7000572 与节点 5310617",
+          "共享计数器 7000572 与节点 5310618",
+          "共享计数器 7000572 与节点 5310623",
+          "共享计数器 7000572 与节点 5310624",
+          "共享计数器 7000572 与节点 5321156",
+          "共享计数器 7000572 与节点 5321173"
+        ],
+        "counters": [
+          "7000572"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      },
+      {
+        "id": "5004522",
+        "name": "人前显圣",
+        "text": "你是与纯净者教会决裂的异端，被祭司们驱逐的不信之徒，然而，多么可笑啊！你的使命已得神授，你是祂在陆上的代言人，那么，现在是时候证明了——谁才是神的代行者？谁当执掌那纯净、洁白的权柄？",
+        "tips": "",
+        "once_new": 1,
+        "round_number": 1,
+        "waiting_round": 0,
+        "waiting_round_end_action": [],
+        "method_settlement": "",
+        "auto_begin": 0,
+        "auto_result": 0,
+        "location": "神殿区:[2,10]",
+        "icon": "rite_9",
+        "tag_tips": [],
+        "tag_tips_up": {},
+        "tips_text": [
+          "只需要20金币和总计20点魔力，就能接管教会"
+        ],
+        "open_conditions": [
+          {
+            "condition": {
+              "f:s1.魔力+s2.魔力+s3.魔力>=": 20
+            },
+            "tips": "想要征服众祭司，必须拥有至少20点魔力属性"
+          }
+        ],
+        "random_text": {},
+        "random_text_up": {},
+        "settlement_prior": [],
+        "settlement": [
+          {
+            "condition": {
+              "f:s1.魔力+s2.魔力+s3.魔力>=": 20
+            },
+            "result_title": "天堂之光",
+            "result_text": "你拉起一套声势浩大的排场，在几十个身着洁白袍服的少年少女的簇拥和歌颂下，踩着各种魔法催生的花瓣、祥云，趾高气昂地、大摇大摆地闯入纯净者教会。在众人错愕的目光下，你向他们展示你体内蕴藏的纯粹而夺目的光辉，高声宣告你于梦中得到的启示——\n<size=+10><font=\"Title SDF\"><b>神将降临。</b></font></size>\n你的声音经过加持，如雷鸣一般在这片天地间震耳欲聋，没有人敢质疑你，甚至，没有人敢在你的威压下抬起头来。祭司们俯首在你座前，忏悔此前的罪，而且异口同声地把这些过错都推到已死的主祭伊曼头上。\n哈哈，这就是纯净者的信徒啊！不过如此嘛。",
+            "result": {
+              "s1.uprare": 1,
+              "s1+魅力": 2,
+              "s1+魔力": 2,
+              "s1+社交": 2,
+              "counter+7100003": 2,
+              "counter+7100005": 2,
+              "s1+教领": 1,
+              "counter+7000591": 1
+            },
+            "action": {}
+          }
+        ],
+        "settlement_extre": [],
+        "cards_slot": {
+          "s1": {
+            "condition": {
+              "type": "char",
+              "主角": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你必须亲自上阵"
+          },
+          "s2": {
+            "condition": {
+              "type": "char"
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "从旁辅助的追随者"
+          },
+          "s3": {
+            "condition": {
+              "type": "char"
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "从旁辅助的追随者"
+          },
+          "s4": {
+            "condition": {
+              "type": "item",
+              "cost.金币=": 20
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "20枚金币也是必须的"
+          }
+        },
+        "type": "rite",
+        "description": "你是与纯净者教会决裂的异端，被祭司们驱逐的不信之徒，然而，多么可笑啊！你的使命已得神授，你是祂在陆上的代言人，那么，现在是时候证明了——谁才是神的代行者？谁当执掌那纯净、洁白的权柄？",
+        "triggers": [
+          5310619
+        ],
+        "consequences": [],
+        "conditions": [
+          "f:s1.魔力+s2.魔力+s3.魔力>=: 20"
+        ],
+        "effects": [
+          "s1.uprare: 1",
+          "s1+魅力: 2",
+          "s1+魔力: 2",
+          "s1+社交: 2",
+          "counter+7100003: 2",
+          "counter+7100005: 2",
+          "s1+教领: 1",
+          "counter+7000591: 1",
+          "共享计数器 7000591 与节点 5004520",
+          "共享计数器 7000591 与节点 5004521",
+          "共享计数器 7000591 与节点 5004523",
+          "共享计数器 7000591 与节点 5004524",
+          "共享计数器 7000591 与节点 5310607"
+        ],
+        "counters": [
+          "7100003",
+          "7100005",
+          "7000591"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-church-leadership-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-church-leadership-route",
+        "groupNodeId": "group:manual-iman-church-leadership-route"
+      }
+    ],
+    "links": [
+      {
+        "source": "5310615",
+        "target": "5310616",
+        "type": "consequence"
+      },
+      {
+        "source": "5310615",
+        "target": "5310617",
+        "type": "consequence"
+      },
+      {
+        "source": "5310615",
+        "target": "5310618",
+        "type": "consequence"
+      },
+      {
+        "source": "5310615",
+        "target": "5310619",
+        "type": "consequence"
+      },
+      {
+        "source": "5310616",
+        "target": "5004519",
+        "type": "consequence"
+      },
+      {
+        "source": "5004519",
+        "target": "5310622",
+        "type": "consequence"
+      },
+      {
+        "source": "5004519",
+        "target": "5004523",
+        "type": "consequence"
+      },
+      {
+        "source": "5310622",
+        "target": "5004523",
+        "type": "consequence"
+      },
+      {
+        "source": "5310622",
+        "target": "5004524",
+        "type": "consequence"
+      },
+      {
+        "source": "5310617",
+        "target": "5004520",
+        "type": "consequence"
+      },
+      {
+        "source": "5310618",
+        "target": "5004521",
+        "type": "consequence"
+      },
+      {
+        "source": "5310619",
+        "target": "5004522",
+        "type": "consequence"
+      }
+    ],
+    "entryNodeIds": [
+      "5310604"
+    ],
+    "exitNodeIds": [
+      "5010034"
+    ]
+  },
+  "manual-iman-chosen-light-route": {
+    "groupId": "manual-iman-chosen-light-route",
+    "groupNodeId": "group:manual-iman-chosen-light-route",
+    "rationale": "手搓人物线章节 group：伊曼线第三块，从辨识灵光进入灵光之试、选光者与其代价/解释。它由正教幕后触发，但内部是独立的选光者分支。",
+    "nodes": [
+      {
+        "id": "5310623",
+        "text": "辨识灵光",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": false,
+        "on": {
+          "round_begin_ba": 1
+        },
+        "condition": {
+          "all": {
+            "counter.7100005>=": 8,
+            "any": {
+              "table_have.2000726": 1,
+              "table_have.2000727": 1,
+              "table_have.2000728": 1
+            },
+            "counter.7000572<": 1,
+            "counter.7000600<": 1,
+            "counter.7000626<": 1,
+            "!rite": 5010034
+          }
+        },
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "option": {
+                "id": "5310623_option_1",
+                "text": "这天，你路过纯净者教会时，正看到几位低级僧侣正为民众传递纯净之言。他们的双手都被割得鲜血淋漓，一缕奇妙的白色光芒从其中一名僧侣身上钻了出来，有点像黄昏时刚刚点起的烛火，飘忽着没入跪在他面前的伤者身上。那人的脖子瞬间就不流血了，但伤口并没有愈合，看来还得接受后续的治疗。\n然而，相比这名僧侣，其他人身上的光就太不起眼了……虽说他们以同样的流程完成了工作，但他们转述的纯净之言看起来没多大用，他们跟前的伤者还是在痛苦中呻吟着、扭曲着……\n你问身边的人，为什么他们身上的光辉不一样？可旁人似乎都看不到你说的光晕……\n呃，你应该就这个奇怪的现象问问主祭大人么？",
+                "icon": "common/position_shenmiao_1",
+                "items": [
+                  {
+                    "text": "我应当追根究底",
+                    "tag": "op1"
+                  },
+                  {
+                    "text": "肯定是我看错了",
+                    "tag": "op2"
+                  }
+                ]
+              },
+              "case:op1": {
+                "counter+7100005": 1,
+                "rite": 5004525,
+                "prompt": {
+                  "id": "5310623_prompt_1",
+                  "text": "很好，你决定抽空去拜访主祭大人，问个明白。",
+                  "icon": "common/position_shenmiao_1"
+                },
+                "event_off": 5310623
+              },
+              "case:op2": {
+                "counter-7100005": 1,
+                "prompt": {
+                  "id": "5310623_prompt_2",
+                  "text": "你使劲儿揉了揉眼睛，发现刚才看到的应该都是你的错觉——哈哈，确实，好端端的，人身上怎么可能发光呢？",
+                  "icon": "common/position_shenmiao_1"
+                },
+                "event_off": 5310623
+              }
+            }
+          }
+        ],
+        "type": "event",
+        "name": "辨识灵光",
+        "description": "辨识灵光",
+        "triggers": [
+          5310604
+        ],
+        "consequences": [
+          5004525
+        ],
+        "conditions": [
+          "all: [object Object]",
+          "回合开始: 1"
+        ],
+        "effects": [
+          "提供选项: 这天，你路过纯净者教会时，正看到几位低级僧侣正为民众传递纯净之言。他们的双手都被割得鲜血淋漓，一缕奇妙的白色光芒从其中一名僧侣身上钻了出来，有点像黄昏时刚刚点起的烛火，飘忽着没入跪在他面前的伤者身上。那人的脖子瞬间就不流血了，但伤口并没有愈合，看来还得接受后续的治疗。\n然而，相比这名僧侣，其他人身上的光就太不起眼了……虽说他们以同样的流程完成了工作，但他们转述的纯净之言看起来没多大用，他们跟前的伤者还是在痛苦中呻吟着、扭曲着……\n你问身边的人，为什么他们身上的光辉不一样？可旁人似乎都看不到你说的光晕……\n呃，你应该就这个奇怪的现象问问主祭大人么？",
+          "- 选项: 我应当追根究底 (op1)",
+          "  → 触发仪式: 5004525",
+          "  → 增加计数器 7100005: 1",
+          "- 选项: 肯定是我看错了 (op2)",
+          "共享计数器 7000572 与节点 5000002",
+          "共享计数器 7000572 与节点 5000004",
+          "共享计数器 7000572 与节点 5004501",
+          "共享计数器 7000572 与节点 5004513",
+          "共享计数器 7000572 与节点 5004514",
+          "共享计数器 7000572 与节点 5004516",
+          "共享计数器 7000572 与节点 5004517",
+          "共享计数器 7000572 与节点 5008164",
+          "共享计数器 7000572 与节点 5008168",
+          "共享计数器 7000572 与节点 5310605",
+          "共享计数器 7000572 与节点 5310606",
+          "共享计数器 7000572 与节点 5310607",
+          "共享计数器 7000572 与节点 5310608",
+          "共享计数器 7000572 与节点 5310609",
+          "共享计数器 7000572 与节点 5310610",
+          "共享计数器 7000572 与节点 5310611",
+          "共享计数器 7000572 与节点 5310616",
+          "共享计数器 7000572 与节点 5310617",
+          "共享计数器 7000572 与节点 5310618",
+          "共享计数器 7000572 与节点 5310619",
+          "共享计数器 7000572 与节点 5310624",
+          "共享计数器 7000572 与节点 5321156",
+          "共享计数器 7000572 与节点 5321173",
+          "共享计数器 7000600 与节点 5310612",
+          "共享计数器 7000600 与节点 5310624"
+        ],
+        "counters": [
+          "7100005",
+          "7000572",
+          "7000600",
+          "7000626",
+          "7100005"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-chosen-light-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-chosen-light-route",
+        "groupNodeId": "group:manual-iman-chosen-light-route"
+      },
+      {
+        "id": "5004525",
+        "name": "灵光之试",
+        "text": "你偶然见到祭司们用纯净之言治疗信徒的场面，他们身上涌现出明暗不一的光辉……那是什么？你打算找伊曼问问。",
+        "tips": "",
+        "once_new": 1,
+        "round_number": 1,
+        "waiting_round": 3,
+        "waiting_round_end_action": [],
+        "method_settlement": "",
+        "auto_begin": 0,
+        "auto_result": 0,
+        "location": "神殿区:[2,10]",
+        "icon": "rite_9",
+        "tag_tips": [],
+        "tag_tips_up": {},
+        "tips_text": [],
+        "open_conditions": [],
+        "random_text": {},
+        "random_text_up": {},
+        "settlement_prior": [],
+        "settlement": [
+          {
+            "condition": {},
+            "result_title": "",
+            "result_text": "听了你描述的事，环绕在伊曼周围的所有僧侣和祭司都明显地竖起了耳朵。\n“您能看到神光么？”伊曼有点意外地望着你，“……所以，您不光受到了地上的王的宠信，就连天上的王都给了您一些恩赐……”\n他若有所思地沉吟片刻，解下身上的白色石片，把它递给了身边侍立的年轻僧侣。那位年轻人干脆利索地用石片划破了自己的脸——而后又毕恭毕敬地用它割开伊曼肩胛骨处的皮肤。\n伴随着一阵战栗，你望见一团白色的光从伊曼的额头迸出，环绕在他周身——那简直就像是一件光做成的外衣，仔细看去，还能见到其上有羽毛般细致的装饰，闪烁着冰晶般的光芒……\n集中精神观察这种神光让你迅速地感到疲惫，而只要稍微分神，光就消失了……不等你再次凝神细看，伊曼已经用纯净之言治疗好了那位年轻人的伤口，在场的所有人都望着你。\n“所以您望见了？我的神光？”伊曼问你，“是什么样的？”\n你如实地描述了。\n僧侣和祭司们望向伊曼的眼神充满了复杂的情绪，有嫉妒，有羡慕，有憧憬……或许还有怜悯。\n没等你想出个所以然来，伊曼点了点头：“和我自己见过的一样，我也这样告诉过他们。”伊曼指了指身边的人们，“纯净者的追随者们分三级，僧侣为最低，他们的神光聚不成团，其次是祭司，他们的神光有如小猫般大小，再就是主祭……我的就是这件罩袍。这也是为什么我不需要世俗的华服，因为我的神已经把最好的衣服披在了我身上。”\n所有祭司和僧侣都围着伊曼跪了下来，齐声赞颂着纯净者的大能、大恩、大智。\n然而，不知为何，你感觉伊曼此刻的眼神里浸满了疲惫。也许这里还隐藏着什么秘密，只是现在的你，还不够格去探究。",
+            "result": {
+              "s2+虔信": 1,
+              "counter+7100001": 1,
+              "counter+7100005": 1
+            },
+            "action": {
+              "event_on": 5310624
+            }
+          }
+        ],
+        "settlement_extre": [],
+        "cards_slot": {
+          "s1": {
+            "condition": {
+              "type": "char",
+              "主角": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你必须亲自前去拜访"
+          },
+          "s2": {
+            "condition": {
+              "type": "item",
+              "思潮": 1,
+              "any": {
+                "is": [
+                  2000725,
+                  2000726,
+                  2000727,
+                  2000728
+                ]
+              }
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你对纯净者的信仰"
+          }
+        },
+        "type": "rite",
+        "description": "你偶然见到祭司们用纯净之言治疗信徒的场面，他们身上涌现出明暗不一的光辉……那是什么？你打算找伊曼问问。",
+        "triggers": [
+          5310623
+        ],
+        "consequences": [
+          5310624
+        ],
+        "conditions": [],
+        "effects": [
+          "s2+虔信: 1",
+          "counter+7100001: 1",
+          "counter+7100005: 1"
+        ],
+        "counters": [
+          "7100001",
+          "7100005"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-chosen-light-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-chosen-light-route",
+        "groupNodeId": "group:manual-iman-chosen-light-route"
+      },
+      {
+        "id": "5310624",
+        "text": "选光者",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": false,
+        "on": {
+          "round_begin_ba": 1
+        },
+        "condition": {
+          "all": {
+            "counter.7100003>=": 15,
+            "any": {
+              "table_have.2000727": 1,
+              "table_have.2000728": 1
+            },
+            "counter.7000572<": 1,
+            "counter.7000600<": 1
+          }
+        },
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "option": {
+                "id": "5310624_option_1",
+                "text": "由于你对纯净者的虔诚信仰和无私奉献——以及你此前表现出来的对神光的敏锐，教会邀请你来主持今年的神光检定会，简单来说，就是看谁神光强就选谁来当僧侣或者祭司啦。\n不过这种事通常都伴随着复杂的政治斗争，而且教会一向不会给你什么报酬，所以，你要蹚这浑水么？",
+                "icon": "common/position_shenmiao_1",
+                "items": [
+                  {
+                    "text": "接受",
+                    "tag": "op1"
+                  },
+                  {
+                    "text": "拒绝",
+                    "tag": "op2"
+                  }
+                ]
+              },
+              "case:op1": {
+                "no_prompt": {
+                  "card": [
+                    2001097,
+                    2001098,
+                    2001099,
+                    2001100,
+                    2001096,
+                    2001096
+                  ]
+                },
+                "rite": 5004526,
+                "prompt": {
+                  "id": "5310624_prompt_1",
+                  "text": "你接受了这个任务，并且着重强调，你不是为了什么谢礼才接受的，而是出于对纯净者的虔信。\n祭司连呼“那当然”，离开前，他给了你两个名额，这意味着你能够在接下来的仪式中为教会甄选两名祭司。",
+                  "icon": "common/position_shenmiao_1"
+                },
+                "event_off": 5310624
+              },
+              "case:op2": {
+                "prompt": {
+                  "id": "5310624_prompt_2",
+                  "text": "你委婉地拒绝了使者，说你最近忙于苏丹的游戏，实在无法脱身。大概是你看错了吧，但这名使者似乎松了口气。",
+                  "icon": "common/position_shenmiao_1"
+                },
+                "event_off": 5310624
+              }
+            }
+          }
+        ],
+        "type": "event",
+        "name": "选光者",
+        "description": "选光者",
+        "triggers": [
+          5004525
+        ],
+        "consequences": [
+          5004526
+        ],
+        "conditions": [
+          "all: [object Object]",
+          "回合开始: 1"
+        ],
+        "effects": [
+          "提供选项: 由于你对纯净者的虔诚信仰和无私奉献——以及你此前表现出来的对神光的敏锐，教会邀请你来主持今年的神光检定会，简单来说，就是看谁神光强就选谁来当僧侣或者祭司啦。\n不过这种事通常都伴随着复杂的政治斗争，而且教会一向不会给你什么报酬，所以，你要蹚这浑水么？",
+          "- 选项: 接受 (op1)",
+          "  → 触发仪式: 5004526",
+          "- 选项: 拒绝 (op2)",
+          "共享计数器 7000572 与节点 5000002",
+          "共享计数器 7000572 与节点 5000004",
+          "共享计数器 7000572 与节点 5004501",
+          "共享计数器 7000572 与节点 5004513",
+          "共享计数器 7000572 与节点 5004514",
+          "共享计数器 7000572 与节点 5004516",
+          "共享计数器 7000572 与节点 5004517",
+          "共享计数器 7000572 与节点 5008164",
+          "共享计数器 7000572 与节点 5008168",
+          "共享计数器 7000572 与节点 5310605",
+          "共享计数器 7000572 与节点 5310606",
+          "共享计数器 7000572 与节点 5310607",
+          "共享计数器 7000572 与节点 5310608",
+          "共享计数器 7000572 与节点 5310609",
+          "共享计数器 7000572 与节点 5310610",
+          "共享计数器 7000572 与节点 5310611",
+          "共享计数器 7000572 与节点 5310616",
+          "共享计数器 7000572 与节点 5310617",
+          "共享计数器 7000572 与节点 5310618",
+          "共享计数器 7000572 与节点 5310619",
+          "共享计数器 7000572 与节点 5310623",
+          "共享计数器 7000572 与节点 5321156",
+          "共享计数器 7000572 与节点 5321173",
+          "共享计数器 7000600 与节点 5310612",
+          "共享计数器 7000600 与节点 5310623"
+        ],
+        "counters": [
+          "7100003",
+          "7000572",
+          "7000600"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-chosen-light-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-chosen-light-route",
+        "groupNodeId": "group:manual-iman-chosen-light-route"
+      },
+      {
+        "id": "5004526",
+        "name": "选光者",
+        "text": "你来到教会，很多等待晋升的信徒已经在此等待多时了。他们在祭司们的示意下割开自己的手心，以疼痛唤醒属于他的神之恩赐。你从中看到纷乱的神光，还有人们望向你时，闪烁着不同期待的眼神。",
+        "tips": "",
+        "once_new": 1,
+        "round_number": 1,
+        "waiting_round": 3,
+        "waiting_round_end_action": [],
+        "method_settlement": "",
+        "auto_begin": 0,
+        "auto_result": 0,
+        "location": "神殿区:[2,10]",
+        "icon": "rite_9",
+        "tag_tips": [],
+        "tag_tips_up": {},
+        "tips_text": [
+          "你可以在他们中任意选择，甚至，也可以谁都不选。"
+        ],
+        "open_conditions": [],
+        "random_text": {},
+        "random_text_up": {},
+        "settlement_prior": [],
+        "settlement": [],
+        "settlement_extre": [
+          {
+            "condition": {
+              "s2": 1
+            },
+            "result_title": "你认可富家子弟的灵光",
+            "result_text": "尽管他的灵光你瞪大了双眼也看不到分毫，但你还是给了他许可，毕竟……谁会跟钱过不去呢？\n他喜不自胜地差点原地跳起来欢呼，当然，他也没有忘记时候偷偷给你送去答应好的金子。",
+            "result": {
+              "金币": 4,
+              "no_show": {
+                "clean.s1": 1,
+                "clean.s2": 1
+              }
+            },
+            "action": {
+              "event_on": 5310625
+            }
+          },
+          {
+            "condition": {
+              "!s2": 1
+            },
+            "result_title": "你的灵光不太行",
+            "result_text": "你诚实地说出了真相，这位富家子弟的表情一下子就垮了。\n好吧、那好吧。这也在他的意料之中，毕竟教会那么纯洁、这么高尚、用钱走不通也是当然的。他哭丧着脸离开了。",
+            "result": {
+              "no_show": {
+                "clean.s1": 1,
+                "clean.s2": 1
+              }
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "s4": 1
+            },
+            "result_title": "你认可贵族子弟的灵光",
+            "result_text": "他的灵光足足有小猫那么大呢，鲜活灵动，比场上所有人加起来的都强。你没理由不给他认可，甚至略带劝勉地拍拍他的肩。然而，少年看起来却并不怎么高兴。他面无表情地看看你，用袖子掩盖住鲜血淋漓的手臂，低垂着头退回了行列之中。\n这之后，他的父亲在朝堂上说了你好多坏话。干什么啊这是，成为祭司不是大大的荣幸、大大的好事吗？",
+            "result": {
+              "card": 2000168,
+              "counter-7100003": 1,
+              "no_show": {
+                "clean.s3": 1,
+                "clean.s4": 1
+              }
+            },
+            "action": {
+              "event_on": [
+                5310626,
+                5310628
+              ]
+            }
+          },
+          {
+            "condition": {
+              "!s4": 1
+            },
+            "result_title": "你对贵族子弟的灵光保持沉默",
+            "result_text": "他的灵光足足有小猫那么大，鲜活灵动，比场上所有人加起来的都强。但是，你保持了沉默，而这沉默正是这名少年想要的。他望向你的眼神隐含着感激，事后，他派人给了你一袋沉甸甸的金子。",
+            "result": {
+              "coin": 10,
+              "counter+7100003": 1,
+              "no_show": {
+                "clean.s3": 1,
+                "clean.s4": 1
+              }
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "s6": 1
+            },
+            "result_title": "你认可卑微仆役的灵光",
+            "result_text": "他激动得眼含泪光，仿佛这辈子都没有过如此荣耀的时刻。他能将这无用的身躯、无能的鲜血奉献给伟大的神和祂的信徒，这是多好的一件事啊！他对你谢了又谢。",
+            "result": {
+              "no_show": {
+                "clean.s5": 1,
+                "clean.s6": 1
+              }
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "!s6": 1
+            },
+            "result_title": "你不认可仆役的灵光",
+            "result_text": "他的灵光太微弱了，他的纯净之言几乎起不到治疗的效果。你残酷地给予了你的评价，而他只是低下头，很快调整出一个微笑来献给你：“我、我还会继续努力的。”",
+            "result": {
+              "no_show": {
+                "clean.s5": 1,
+                "clean.s6": 1
+              }
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "s8": 1
+            },
+            "result_title": "你认可少年的灵光",
+            "result_text": "多么纯粹的眼睛，多么纯粹的灵光……虽然比那名贵族还差了一点，但他年纪还小嘛！\n少年听了你的夸赞，有些兴奋又有些不好意思地涨红了脸。他马上扭头往人群里找，大概是想找他的父母分享这份快乐吧。",
+            "result": {
+              "no_show": {
+                "clean.s7": 1,
+                "clean.s8": 1
+              }
+            },
+            "action": {
+              "event_on": [
+                5310627,
+                5310628
+              ]
+            }
+          },
+          {
+            "condition": {
+              "!s8": 1
+            },
+            "result_title": "你不认可少年的灵光",
+            "result_text": "泪水立刻涌上了他的眼眶，纯净的水滴滚滚而落，他就这样在人群中大哭了起来，你不得不手忙脚乱地安抚他好一阵子，他才抽抽噎噎地离开了。",
+            "result": {
+              "no_show": {
+                "clean.s7": 1,
+                "clean.s8": 1
+              }
+            },
+            "action": {}
+          },
+          {
+            "condition": {
+              "any": {
+                "s4": 1,
+                "s8": 1
+              }
+            },
+            "result_title": "",
+            "result_text": "时间证明你选对了人，看来你真的是被神眷顾的选光者。祭司们对你心服口服。",
+            "result": {
+              "s9+虔信": 1
+            },
+            "action": {}
+          }
+        ],
+        "cards_slot": {
+          "s1": {
+            "condition": {
+              "type": "char",
+              "is": 2001097
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "富家子弟，此人身上完全没有灵光散发"
+          },
+          "s2": {
+            "condition": {
+              "type": "item",
+              "is": 2001096,
+              "cost.已拥有=": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "你选择认可这名富家子弟的灵光"
+          },
+          "s3": {
+            "condition": {
+              "type": "char",
+              "is": 2001098
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "贵族子弟，此人灵光比其他所有人都要强大"
+          },
+          "s4": {
+            "condition": {
+              "type": "item",
+              "is": 2001096,
+              "cost.已拥有=": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "你选择认可这名贵族子弟的灵光"
+          },
+          "s5": {
+            "condition": {
+              "type": "char",
+              "is": 2001099
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "卑微的仆役，此人灵光微弱，只能说不算没有"
+          },
+          "s6": {
+            "condition": {
+              "type": "item",
+              "is": 2001096,
+              "cost.已拥有=": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "你选择认可这名卑微仆役的灵光"
+          },
+          "s7": {
+            "condition": {
+              "type": "char",
+              "is": 2001100
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "无知少年，此人灵光较强，仅次于贵族子弟"
+          },
+          "s8": {
+            "condition": {
+              "type": "item",
+              "is": 2001096,
+              "cost.已拥有=": 1
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "你选择认可这名无知少年的灵光"
+          },
+          "s9": {
+            "condition": {
+              "type": "item",
+              "思潮": 1,
+              "any": {
+                "is": [
+                  2000725,
+                  2000726,
+                  2000727,
+                  2000728
+                ]
+              }
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 0,
+            "is_enemy": 0,
+            "text": "你对纯净之神的信仰"
+          }
+        },
+        "type": "rite",
+        "description": "你来到教会，很多等待晋升的信徒已经在此等待多时了。他们在祭司们的示意下割开自己的手心，以疼痛唤醒属于他的神之恩赐。你从中看到纷乱的神光，还有人们望向你时，闪烁着不同期待的眼神。",
+        "triggers": [
+          5310624
+        ],
+        "consequences": [
+          5310625,
+          5310626,
+          5310628,
+          5310627
+        ],
+        "conditions": [
+          "s2: 1",
+          "!s2: 1",
+          "s4: 1",
+          "!s4: 1",
+          "s6: 1",
+          "!s6: 1",
+          "s8: 1",
+          "!s8: 1",
+          "any: [object Object]"
+        ],
+        "effects": [],
+        "counters": [
+          "7100003",
+          "7100003"
+        ],
+        "globalCounters": [],
+        "cards": [
+          2000168
+        ],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-chosen-light-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-chosen-light-route",
+        "groupNodeId": "group:manual-iman-chosen-light-route"
+      },
+      {
+        "id": "5310625",
+        "text": "开启神之硕鼠",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": false,
+        "on": {
+          "round_begin_ba": [
+            5,
+            10
+          ]
+        },
+        "condition": {
+          "table_have.正教的乙太>=": 2
+        },
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "rite": 5004527,
+              "event_off": 5310625
+            }
+          }
+        ],
+        "type": "event",
+        "name": "开启神之硕鼠",
+        "description": "开启神之硕鼠",
+        "triggers": [
+          5004526,
+          5004527
+        ],
+        "consequences": [
+          5004527
+        ],
+        "conditions": [
+          "桌面拥有: 正教的乙太>= 2",
+          "回合开始: 5,10"
+        ],
+        "effects": [],
+        "counters": [],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-chosen-light-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-chosen-light-route",
+        "groupNodeId": "group:manual-iman-chosen-light-route"
+      },
+      {
+        "id": "5004527",
+        "name": "神之硕鼠",
+        "text": "被你选中的那名富家子弟偷偷来拜访你了：“还记得我吗？”他咧着嘴笑道，“我搞到了一点好东西——嘿，别问是从哪来的，就说要不要吧！”",
+        "tips": "",
+        "once_new": 1,
+        "round_number": 1,
+        "waiting_round": 2,
+        "waiting_round_end_action": [
+          {
+            "condition": {},
+            "result_title": "",
+            "result_text": "你没理会他的挤眉弄眼，他只好灰溜溜地去找别人销赃了。",
+            "result": {},
+            "action": {
+              "event_on": 5310625
+            }
+          }
+        ],
+        "method_settlement": "",
+        "auto_begin": 0,
+        "auto_result": 0,
+        "location": "神殿区:[2,10]",
+        "icon": "rite_9",
+        "tag_tips": [],
+        "tag_tips_up": {},
+        "tips_text": [
+          "侠名超过13点，即可省下10金币"
+        ],
+        "open_conditions": [],
+        "random_text": {},
+        "random_text_up": {},
+        "settlement_prior": [],
+        "settlement": [
+          {
+            "condition": {
+              "have.教领": 1
+            },
+            "result_title": "开玩笑的",
+            "result_text": "“哪敢收您的钱啊，这都是孝敬给您的！”他谄媚地笑笑，仿佛替你做了一件微不足道的事。",
+            "result": {
+              "clean.s1": 1,
+              "card": 2000986,
+              "s2+回收": 1,
+              "s3+回收": 1
+            },
+            "action": {
+              "event_on": 5310625
+            }
+          },
+          {
+            "condition": {
+              "counter.7100004>=": 13,
+              "any": {
+                "s2": 1,
+                "s3": 1
+              }
+            },
+            "result_title": "",
+            "result_text": "你威胁他不打折就去教会举报，他皱着脸只好答应了。",
+            "result": {
+              "clean.s1": 1,
+              "card": 2000986
+            },
+            "action": {
+              "event_on": 5310625
+            }
+          },
+          {
+            "condition": {
+              "s2": 1,
+              "s3": 1
+            },
+            "result_title": "",
+            "result_text": "区区二十金币，买这么精纯的乙太一点都不亏！他努力地向你推销，而你确实也有这方面需要……没办法，只好掏钱了。",
+            "result": {
+              "clean.s1": 1,
+              "card": 2000986
+            },
+            "action": {
+              "event_on": 5310625
+            }
+          },
+          {
+            "condition": {},
+            "result_title": "",
+            "result_text": "你们最终没谈拢，就此不欢而散。",
+            "result": {
+              "s2+回收": 1,
+              "s3+回收": 1
+            },
+            "action": {
+              "event_on": 5310625
+            }
+          }
+        ],
+        "settlement_extre": [],
+        "cards_slot": {
+          "s1": {
+            "condition": {
+              "cost.正教的乙太": 1
+            },
+            "open_adsorb": 1,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "无比精纯的乙太"
+          },
+          "s2": {
+            "condition": {
+              "type": "item",
+              "cost.金币=": 10
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "10金币"
+          },
+          "s3": {
+            "condition": {
+              "type": "item",
+              "cost.金币=": 10,
+              "counter.7100004<": 13
+            },
+            "open_adsorb": 0,
+            "is_key": 0,
+            "is_empty": 1,
+            "is_enemy": 0,
+            "text": "如果你没法靠道上的名声吓住他，就得多给10枚金币"
+          }
+        },
+        "type": "rite",
+        "description": "被你选中的那名富家子弟偷偷来拜访你了：“还记得我吗？”他咧着嘴笑道，“我搞到了一点好东西——嘿，别问是从哪来的，就说要不要吧！”",
+        "triggers": [
+          5310625
+        ],
+        "consequences": [
+          5310625
+        ],
+        "conditions": [
+          "have.教领: 1",
+          "计数器条件: counter.7100004>= 13",
+          "any: [object Object]",
+          "s2: 1",
+          "s3: 1"
+        ],
+        "effects": [
+          "clean.s1: 1",
+          "card: 2000986",
+          "s2+回收: 1",
+          "s3+回收: 1",
+          "clean.s1: 1",
+          "card: 2000986",
+          "clean.s1: 1",
+          "card: 2000986",
+          "s2+回收: 1",
+          "s3+回收: 1"
+        ],
+        "counters": [
+          "7100004"
+        ],
+        "globalCounters": [],
+        "cards": [
+          2000986,
+          2000986,
+          2000986
+        ],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-chosen-light-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-chosen-light-route",
+        "groupNodeId": "group:manual-iman-chosen-light-route"
+      },
+      {
+        "id": "5310626",
+        "text": "贵族子弟之死",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": false,
+        "on": {
+          "round_begin_ba": 5
+        },
+        "condition": {},
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "prompt": {
+                "id": "5310626_prompt_1",
+                "text": "不久后，你听到消息，被你选择晋升的贵族子弟在为信徒们治疗时陷入昏迷，被他父亲接回了家去……",
+                "icon": "common/position_shenmiao_1"
+              },
+              "counter+7000604": 1,
+              "event_off": 5310626
+            }
+          }
+        ],
+        "type": "event",
+        "name": "贵族子弟之死",
+        "description": "贵族子弟之死",
+        "triggers": [
+          5004526
+        ],
+        "consequences": [],
+        "conditions": [
+          "回合开始: 5"
+        ],
+        "effects": [],
+        "counters": [],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-chosen-light-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-chosen-light-route",
+        "groupNodeId": "group:manual-iman-chosen-light-route"
+      },
+      {
+        "id": "5310627",
+        "text": "无知少年之死之死",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": false,
+        "on": {
+          "round_begin_ba": 5
+        },
+        "condition": {},
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "prompt": {
+                "id": "5310627_prompt_1",
+                "text": "不久后，你听到消息，被你选择晋升的少年失血过多而死，就倒在了一名急需他施救的信徒面前……",
+                "icon": "common/position_shenmiao_1"
+              },
+              "counter+7000604": 1,
+              "event_off": 5310627
+            }
+          }
+        ],
+        "type": "event",
+        "name": "无知少年之死之死",
+        "description": "无知少年之死之死",
+        "triggers": [
+          5004526
+        ],
+        "consequences": [],
+        "conditions": [
+          "回合开始: 5"
+        ],
+        "effects": [],
+        "counters": [],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-chosen-light-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-chosen-light-route",
+        "groupNodeId": "group:manual-iman-chosen-light-route"
+      },
+      {
+        "id": "5310628",
+        "text": "伊曼的解释",
+        "is_replay": 1,
+        "auto_start": false,
+        "start_trigger": false,
+        "on": {
+          "round_begin_ba": 1
+        },
+        "condition": {
+          "table_have.2000021": 1,
+          "counter.7000604>=": 1
+        },
+        "settlement": [
+          {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+              "prompt": {
+                "id": "5310628_prompt_1",
+                "text": "“您是为那名新晋祭司的事来的么？”伊曼见到你，微微叹了口气。他对你的造访早有预料，行步间，他领着你一同走向教会的深处，一路上都有祭司和僧侣恭谨地向他问好。\n“只要我还活着，祭司的晋升就毫无意义。但我总有一天会死——总有一天，他们要为主祭之位、教领之位打得头破血流……”伊曼平淡地说着，“所以，只要发现谁的神光强大，这些人就会排着队把摔断腿的孩子、长了恶疮的老妈妈都送过来给这个人看，然后这个人就会被割得鲜血淋漓，痂比皮还多，因为疼痛彻夜难眠，因为我们是不被允许用止痛药的，那违背神恩……他必须忍受这些痛苦，直到死为止。”\n你没有想到在这洁净之地竟然也会有这么残忍的行径，忍不住问，“可纯净者怎么会允许这样的事发生？”\n伊曼只是看看你，没有回答，但从他沉重而忧虑的眼神中，你望见了答案：神不在乎信徒的性命，甚至正相反，祂乐意见到信徒为祂奉献更多——更多的血，更多的死……\n可是，这样的存在，真的值得供奉吗？\n沉默充斥在你们俩之间，谁也没办法再说下去。\n这件事只能——也必须到此为止。",
+                "icon": "cards/2000021"
+              },
+              "event_off": 5310628
+            }
+          }
+        ],
+        "type": "event",
+        "name": "伊曼的解释",
+        "description": "伊曼的解释",
+        "triggers": [
+          5004526
+        ],
+        "consequences": [],
+        "conditions": [
+          "桌面拥有: 2000021 1",
+          "计数器条件: counter.7000604>= 1",
+          "回合开始: 1"
+        ],
+        "effects": [],
+        "counters": [
+          "7000604"
+        ],
+        "globalCounters": [],
+        "cards": [],
+        "metaData": {
+          "sultanGrouped": true,
+          "groupId": "manual-iman-chosen-light-route",
+          "isOriginalSultanNode": true
+        },
+        "groupId": "manual-iman-chosen-light-route",
+        "groupNodeId": "group:manual-iman-chosen-light-route"
+      }
+    ],
+    "links": [
+      {
+        "source": "5310623",
+        "target": "5004525",
+        "type": "consequence"
+      },
+      {
+        "source": "5004525",
+        "target": "5310624",
+        "type": "consequence"
+      },
+      {
+        "source": "5310624",
+        "target": "5004526",
+        "type": "consequence"
+      },
+      {
+        "source": "5004526",
+        "target": "5310625",
+        "type": "consequence"
+      },
+      {
+        "source": "5004526",
+        "target": "5310626",
+        "type": "consequence"
+      },
+      {
+        "source": "5004526",
+        "target": "5310628",
+        "type": "consequence"
+      },
+      {
+        "source": "5004526",
+        "target": "5310627",
+        "type": "consequence"
+      },
+      {
+        "source": "5310625",
+        "target": "5004527",
+        "type": "consequence"
+      },
+      {
+        "source": "5004527",
+        "target": "5310625",
+        "type": "consequence"
+      }
+    ],
+    "entryNodeIds": [
+      "5310604"
+    ],
+    "exitNodeIds": []
   }
 }
