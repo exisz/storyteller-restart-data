@@ -1,9 +1,10 @@
 {
   "sourceId": "sultan-grouped",
-  "schemaVersion": "0.2.0",
-  "title": "Sultan Grouped Mesh",
-  "updatedAt": "2026-05-18T12:26:30.110Z",
-  "version": "abb647c",
+  "schemaVersion": "0.3.0",
+  "title": "Sultan Manual Group Prototype",
+  "groupingMode": "manual-single-route-prototype",
+  "updatedAt": "2026-05-18T13:22:29.649Z",
+  "version": "848ebad",
   "files": {
     "rites": "data/rites.json",
     "events": "data/events.json",
