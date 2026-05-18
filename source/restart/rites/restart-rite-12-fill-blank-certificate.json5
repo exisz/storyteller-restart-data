@@ -12,7 +12,9 @@
     "flag.restart_signature_pressure_decided:1",
     "have.card:card-restart-linxi",
     "have.card:card-restart-real-bed-number",
-    "have.card:card-restart-blank-death-certificate"
+    "have.card:card-restart-blank-death-certificate",
+    "flag.restart_yue_admitted_bed_zero:1",
+    "flag.restart_promised_rescue_seventh_sun:1"
   ],
   "effects": [
     "set.flag:restart_blank_certificate_filled"

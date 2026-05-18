@@ -1,0 +1,114 @@
+{
+  "id": "restart-rite-13-false-exit-audit",
+  "name": "RESTART 13：假出口审计",
+  "description": "死亡证明被填写后，旧车站检票口没有立刻放行。检票机要求审计本轮每一次关键选择：谁被带上救护车、谁保留记忆、谁承认零号床、谁被写进官方死亡。出口不是门，而是一份能经得起广播复查的谎言。",
+  "triggers": [
+    "restart-act-one-exit-opened"
+  ],
+  "consequences": [
+    "restart-act-two-threshold"
+  ],
+  "conditions": [
+    "flag.restart_blank_certificate_filled:1",
+    "flag.restart_signed_linxi_decoy_death:1",
+    "flag.restart_boarded_with_yue:1",
+    "flag.restart_ambulance_platform_reached:1",
+    "flag.restart_tunnel_transfer_registered:1",
+    "flag.restart_bed_number_broadcast_answered:1",
+    "flag.restart_signature_room_entered:1",
+    "flag.restart_signature_pressure_decided:1",
+    "have.card:card-restart-real-bed-number",
+    "have.card:card-restart-blank-death-certificate",
+    "have.card:card-restart-ticket"
+  ],
+  "effects": [
+    "set.flag:restart_false_exit_audited"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "递交审计的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "被审计的死亡文件",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "按林夕替身死亡的路线递交，让真正的林夕从广播名单里消失。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_linxi_erased_from_broadcast_list"
+        }
+      ]
+    },
+    {
+      "text": "把越医生的债务附在审计后页，逼他在下一幕继续作证。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_yue_bound_to_next_testimony"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 7,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "检票机接受审计，却把出口盖成临时通行。下一轮仍会追问签名里的破绽。"
+    },
+    {
+      "minValue": 8,
+      "maxValue": 13,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "广播名单少了一个林夕，多了一名无名死者。第七次日出在检票口后方敲了三下玻璃。"
+    },
+    {
+      "minValue": 14,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 5
+        },
+        {
+          "type": "gain.influence",
+          "amount": 5
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_act_two_threshold_unlocked"
+        }
+      ],
+      "description": "检票口开启到下一座城市。广播最后一次用林夕的声音确认：死亡证明有效，活人可以通行。"
+    }
+  ]
+}

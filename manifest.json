@@ -2,8 +2,8 @@
   "sourceId": "restart",
   "schemaVersion": "0.1.0",
   "title": "RESTART",
-  "updatedAt": "2026-05-18T12:26:07.376Z",
-  "version": "abb647c",
+  "updatedAt": "2026-05-18T12:27:13.950Z",
+  "version": "1370f8e",
   "files": {
     "graph": "data/graph.json",
     "cards": "data/cards.json",

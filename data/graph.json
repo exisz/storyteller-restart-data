@@ -61,6 +61,11 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-13-false-exit-audit",
+      "name": "RESTART 13：假出口审计",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"

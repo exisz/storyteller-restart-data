@@ -12,7 +12,14 @@
     "flag.restart_eighth_loop_opened:1",
     "have.card:card-restart-linxi",
     "have.card:card-restart-yue",
-    "have.card:card-restart-radio"
+    "have.card:card-restart-radio",
+    "flag.restart_chased_false_ambulance:1",
+    "flag.restart_saved_yue_from_certificate:1",
+    "flag.restart_forced_yue_confession:1",
+    "flag.restart_gave_record_to_yue:1",
+    "flag.restart_linxi_read_case_record:1",
+    "flag.restart_broadcast_name:1",
+    "flag.restart_trusted_broadcast:1"
   ],
   "effects": [
     "set.flag:restart_tunnel_transfer_registered",

@@ -12,7 +12,9 @@
     "flag.restart_bed_number_broadcast_answered:1",
     "have.card:card-restart-eighth-wristband",
     "have.card:card-restart-memory-ampoule",
-    "have.card:card-restart-yue"
+    "have.card:card-restart-yue",
+    "flag.restart_linxi_kept_memory:1",
+    "flag.restart_saved_linxi_memory_route:1"
   ],
   "effects": [
     "set.flag:restart_signature_room_entered",
