@@ -1,12 +1,12 @@
 {
   "sourceId": "sultan-grouped",
   "schemaVersion": "0.4.0",
-  "title": "Sultan Manual Groups",
-  "groupingMode": "runtime-manual-groups",
-  "updatedAt": "2026-05-18T15:27:42.065Z",
-  "version": "8e40552",
+  "title": "Sultan Curated Groups",
+  "groupingMode": "runtime-curated-groups",
+  "updatedAt": "2026-05-19T03:21:37.889Z",
+  "version": "0843606",
   "files": {
     "groups": "groups/manual-groups.json5"
   },
-  "note": "The app combines these manual group definitions with bundled Sultan source graph at runtime. Updating groups does not require an app rebuild."
+  "note": "The app combines these curated group definitions with bundled Sultan source graph at runtime. Updating groups does not require an app rebuild."
 }
