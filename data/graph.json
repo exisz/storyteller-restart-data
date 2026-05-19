@@ -101,6 +101,21 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-21-paper-factory-tram",
+      "name": "RESTART 21：纸厂夜班车",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-22-watermark-mold-room",
+      "name": "RESTART 22：水印模具室",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-23-foreman-witness-ledger",
+      "name": "RESTART 23：纸厂工头证词簿",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -158,6 +173,11 @@
     {
       "id": "restart-event-19-counterfeit-city-blackout",
       "name": "第十九回合事件：伪城熄灯税",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-22-night-shift-paper-tax",
+      "name": "第二十二回合事件：夜班纸税",
       "type": "event"
     }
   ],

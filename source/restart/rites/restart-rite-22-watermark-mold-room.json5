@@ -1,0 +1,109 @@
+{
+  "id": "restart-rite-22-watermark-mold-room",
+  "name": "RESTART 22：水印模具室",
+  "description": "纸税缴清后，夜班车停进水印模具室。墙上挂满铜模，每一枚都能把“准许死亡”的隐形印压进空白纸里；越医生的旧章也在其中，像是一把曾经被借走又还回来的钥匙。",
+  "triggers": [
+    "restart-paper-tax-paid"
+  ],
+  "consequences": [
+    "restart-watermark-mold-room-opened"
+  ],
+  "conditions": [
+    "flag.restart_paper_tax_paid:1",
+    "have.card:card-restart-night-shift-ticket",
+    "have.card:card-restart-audit-stamp",
+    "have.card:card-restart-living-file"
+  ],
+  "effects": [
+    "set.flag:restart_watermark_mold_room_opened",
+    "gain.card:card-restart-watermark-mold",
+    "gain.card:card-restart-uncut-certificate-paper"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "进入模具室的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "缴清纸税的凭证",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "偷走死亡证明水印模，让广播塔以后不能再伪造同一批准死纸。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 8
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_stole_death_watermark_mold"
+        }
+      ]
+    },
+    {
+      "text": "把活人档案的边码压进未裁切证明纸，污染这一批死亡证明。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 8
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_contaminated_certificate_paper_batch"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "铜模烫伤林夕的指尖。你知道它能作证，但纸厂已经发现少了一枚模具。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 14,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        }
+      ],
+      "description": "未裁切证明纸短暂拒绝显字。第七次日出第一次看见一批死亡证明同时变成空白。"
+    },
+    {
+      "minValue": 15,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_watermark_authority_broken"
+        }
+      ],
+      "description": "水印室的铜模一起反印出一句话：死亡证明的源头不是医院，是供纸账本。"
+    }
+  ]
+}

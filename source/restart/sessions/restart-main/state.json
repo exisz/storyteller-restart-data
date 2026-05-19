@@ -1,5 +1,5 @@
 {
-  "turn": 13,
+  "turn": 15,
   "rites": [
     {
       "id": "restart-rite-01-wake-at-platform",
@@ -2845,11 +2845,13 @@
       "card-restart-eighth-wristband",
       "card-restart-memory-ampoule",
       "card-restart-real-bed-number",
-      "card-restart-blank-death-certificate"
+      "card-restart-blank-death-certificate",
+      "card-restart-seventh-sun",
+      "card-restart-audit-stamp"
     ]
   },
   "counters": {
-    "influence": 74,
+    "influence": 95,
     "favor": 30
   },
   "flags": {
@@ -2899,8 +2901,47 @@
     "restart_promised_rescue_seventh_sun": true,
     "restart_blank_certificate_filled": true,
     "complete_restart-rite-12-fill-blank-certificate": true,
-    "restart_signed_linxi_decoy_death": true
+    "restart_signed_linxi_decoy_death": true,
+    "restart_false_exit_audited": true,
+    "restart_act_two_threshold_unlocked": true,
+    "complete_restart-rite-13-false-exit-audit": true,
+    "restart_linxi_erased_from_broadcast_list": true,
+    "restart_glass_gate_audit_answered": true,
+    "restart_followed_seventh_knock": true,
+    "restart_act_two_threshold_entered": true,
+    "restart_seventh_sun_witness_stabilized": true,
+    "complete_restart-rite-14-glass-behind-seventh-sun": true,
+    "restart_seventh_sun_contacted": true,
+    "restart_seventh_sun_rescued_as_witness": true
   },
-  "unresolvedEvent": null,
+  "unresolvedEvent": {
+    "id": "restart-event-15-broadcast-name-hunt",
+    "name": "第十五回合事件：缺名者追播",
+    "description": "伪城的路灯逐盏亮起，每一盏都在念同一个空白姓名。广播塔发现第七次日出离开了玻璃门，开始沿着审计章追查谁把一个没有死亡证明的人带进了城市。",
+    "trigger": {
+      "turn": 15
+    },
+    "consequences": [
+      "restart-counterfeit-city-breathes"
+    ],
+    "options": [
+      {
+        "text": "把第七次日出的名字藏进收音机静电里，让广播塔暂时追错频率。",
+        "effects": [
+          "gain.influence:5",
+          "set.flag:restart_broadcast_tower_named",
+          "set.flag:restart_seventh_name_hidden_in_static"
+        ]
+      },
+      {
+        "text": "故意让广播塔听见她的真声，逼操作员承认塔里还有活人档案。",
+        "effects": [
+          "gain.favor:5",
+          "set.flag:restart_broadcast_tower_named",
+          "set.flag:restart_baited_tower_operator"
+        ]
+      }
+    ]
+  },
   "activeEvents": []
 }

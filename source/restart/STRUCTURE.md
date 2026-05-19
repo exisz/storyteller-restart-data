@@ -106,3 +106,22 @@ Branch memory added for later checks:
 - `restart_next_region_alive_witness_route` vs `restart_next_region_operator_debt_route`
 
 This packet advances the Broadcast/radio, Seventh Sunrise, Linxi identity, and Paperwork threads while preserving the current turn-13 path through existing Act Two threshold content.
+
+## Turn 21–23 packet: Paper-factory supply-chain arc
+
+The night-exit ledger now leads into the paper factory named by the previous packet instead of ending at a loose station name:
+
+- `restart-rite-21-paper-factory-tram` converts the night exit into a supply route for blank death-certificate paper and makes the previous witness/debt branch matter at the factory gate.
+- `restart-event-22-night-shift-paper-tax` charges a route cost: hide the living-file route under the audit stamp or convert the tax into a broadcast voice debt.
+- `restart-rite-22-watermark-mold-room` reveals that death certificates are pre-authorized by hidden watermarks and grants `死亡证明水印模` plus `未裁切证明纸` as concrete proof/tools.
+- `restart-rite-23-foreman-witness-ledger` turns the factory from scenery into witness pressure, ending with either protected worker testimony or a bargain for the supply-ledger route.
+
+Branch memory added for later checks:
+
+- `restart_paper_factory_witness_route` vs `restart_paper_factory_operator_debt_route`
+- `restart_paper_route_shielded_by_audit_stamp` vs `restart_paper_tax_converted_to_voice_debt`
+- `restart_stole_death_watermark_mold` vs `restart_contaminated_certificate_paper_batch`
+- `restart_protected_paper_workers_testimony` vs `restart_bargained_with_paper_foreman`
+- `restart_next_region_supply_chain_witness_route` vs `restart_next_region_supply_ledger_route`
+
+This packet advances the Paperwork, Broadcast/radio, Seventh Sunrise, and Linxi identity threads by shifting from individual false documents to the industrial source of death-proof authority.

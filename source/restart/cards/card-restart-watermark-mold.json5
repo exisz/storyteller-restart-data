@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-watermark-mold",
+  "type": "item",
+  "name": "死亡证明水印模",
+  "description": "纸厂水印室的铜模。每一份死亡证明在写上姓名前，都会先被它压出一枚只有广播塔能读懂的隐形准死印。",
+  "coinValue": 8,
+  "metaData": {
+    "tags": ["item", "proof", "paperwork", "paper-factory", "restart"],
+    "gameCardId": "card-restart-watermark-mold"
+  },
+  "effects": []
+}

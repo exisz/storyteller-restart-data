@@ -135,6 +135,23 @@
     "effects": []
   },
   {
+    "id": "card-restart-night-shift-ticket",
+    "type": "item",
+    "name": "纸厂夜班票",
+    "description": "夜间出口账本折出的窄票。票面没有座位号，只有一行供货批次：本车运送尚未写上姓名的死亡证明纸。",
+    "coinValue": 7,
+    "metaData": {
+      "tags": [
+        "item",
+        "ticket",
+        "paper-factory",
+        "restart"
+      ],
+      "gameCardId": "card-restart-night-shift-ticket"
+    },
+    "effects": []
+  },
+  {
     "id": "card-restart-operator-coordinate",
     "type": "item",
     "name": "播音员坐标",
@@ -250,6 +267,59 @@
         "restart"
       ],
       "gameCardId": "card-restart-tower-operator"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-uncut-certificate-paper",
+    "type": "item",
+    "name": "未裁切证明纸",
+    "description": "还没被裁成死亡证明的整张纸。它暂时没有姓名、病床号或死因，因此也短暂保留着改写命运的空白。",
+    "coinValue": 6,
+    "metaData": {
+      "tags": [
+        "item",
+        "blank",
+        "paperwork",
+        "paper-factory",
+        "restart"
+      ],
+      "gameCardId": "card-restart-uncut-certificate-paper"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-watermark-mold",
+    "type": "item",
+    "name": "死亡证明水印模",
+    "description": "纸厂水印室的铜模。每一份死亡证明在写上姓名前，都会先被它压出一枚只有广播塔能读懂的隐形准死印。",
+    "coinValue": 8,
+    "metaData": {
+      "tags": [
+        "item",
+        "proof",
+        "paperwork",
+        "paper-factory",
+        "restart"
+      ],
+      "gameCardId": "card-restart-watermark-mold"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-worker-testimony",
+    "type": "item",
+    "name": "纸厂工人证词",
+    "description": "夜班工人偷偷按下的口供纸带。它证明旧日出医院的死亡证明不是医院独立签发，而是由纸厂、广播塔和户籍柜共同预印。",
+    "coinValue": 7,
+    "metaData": {
+      "tags": [
+        "item",
+        "testimony",
+        "paper-factory",
+        "restart"
+      ],
+      "gameCardId": "card-restart-worker-testimony"
     },
     "effects": []
   },

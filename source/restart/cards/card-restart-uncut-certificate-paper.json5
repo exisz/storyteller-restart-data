@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-uncut-certificate-paper",
+  "type": "item",
+  "name": "未裁切证明纸",
+  "description": "还没被裁成死亡证明的整张纸。它暂时没有姓名、病床号或死因，因此也短暂保留着改写命运的空白。",
+  "coinValue": 6,
+  "metaData": {
+    "tags": ["item", "blank", "paperwork", "paper-factory", "restart"],
+    "gameCardId": "card-restart-uncut-certificate-paper"
+  },
+  "effects": []
+}

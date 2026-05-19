@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-worker-testimony",
+  "type": "item",
+  "name": "纸厂工人证词",
+  "description": "夜班工人偷偷按下的口供纸带。它证明旧日出医院的死亡证明不是医院独立签发，而是由纸厂、广播塔和户籍柜共同预印。",
+  "coinValue": 7,
+  "metaData": {
+    "tags": ["item", "testimony", "paper-factory", "restart"],
+    "gameCardId": "card-restart-worker-testimony"
+  },
+  "effects": []
+}

@@ -2201,5 +2201,338 @@
         "description": "夜间出口账本合上时，广播塔第一次没有播报死亡。它播报了一句迟到的站名：纸厂。"
       }
     ]
+  },
+  {
+    "id": "restart-rite-21-paper-factory-tram",
+    "name": "RESTART 21：纸厂夜班车",
+    "description": "夜间出口账本合上后，伪城边缘开来一辆没有司机的夜班车。车厢里堆满空白纸箱，箱封写着旧日出医院；第七次日出说，死亡证明不是在医院诞生，而是在下一站提前备好。",
+    "triggers": [
+      "restart-night-exit-ledger-filed"
+    ],
+    "consequences": [
+      "restart-paper-factory-tram-boarded"
+    ],
+    "conditions": [
+      "flag.restart_night_exit_ledger_opened:1",
+      "have.card:card-restart-living-file",
+      "have.card:card-restart-counterfeit-city-map",
+      "have.card:card-restart-seventh-sun"
+    ],
+    "effects": [
+      "set.flag:restart_paper_factory_tram_seen",
+      "gain.card:card-restart-night-shift-ticket"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "登上夜班车的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "证明夜间出口的档案",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "让第七次日出坐在第一排，以受保护活证人的身份进入纸厂。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_paper_factory_witness_route"
+          }
+        ]
+      },
+      {
+        "text": "让塔内播音员用夜班广播代报车次，欠下一段通往纸厂的声音债。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_paper_factory_operator_debt_route"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "夜班车只认出半张票。纸箱里的空白纸开始渗出林夕的姓名。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "车厢广播改口称你们为夜班稽核。纸厂大门在远处亮起一枚准死水印。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_paper_factory_gate_precleared"
+          }
+        ],
+        "description": "夜班票被打出两个孔：一个属于活证人，一个属于欠债播音员。纸厂暂时分不清谁该先被登记。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-22-watermark-mold-room",
+    "name": "RESTART 22：水印模具室",
+    "description": "纸税缴清后，夜班车停进水印模具室。墙上挂满铜模，每一枚都能把“准许死亡”的隐形印压进空白纸里；越医生的旧章也在其中，像是一把曾经被借走又还回来的钥匙。",
+    "triggers": [
+      "restart-paper-tax-paid"
+    ],
+    "consequences": [
+      "restart-watermark-mold-room-opened"
+    ],
+    "conditions": [
+      "flag.restart_paper_tax_paid:1",
+      "have.card:card-restart-night-shift-ticket",
+      "have.card:card-restart-audit-stamp",
+      "have.card:card-restart-living-file"
+    ],
+    "effects": [
+      "set.flag:restart_watermark_mold_room_opened",
+      "gain.card:card-restart-watermark-mold",
+      "gain.card:card-restart-uncut-certificate-paper"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "进入模具室的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "缴清纸税的凭证",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "偷走死亡证明水印模，让广播塔以后不能再伪造同一批准死纸。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_stole_death_watermark_mold"
+          }
+        ]
+      },
+      {
+        "text": "把活人档案的边码压进未裁切证明纸，污染这一批死亡证明。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_contaminated_certificate_paper_batch"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "铜模烫伤林夕的指尖。你知道它能作证，但纸厂已经发现少了一枚模具。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "未裁切证明纸短暂拒绝显字。第七次日出第一次看见一批死亡证明同时变成空白。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_watermark_authority_broken"
+          }
+        ],
+        "description": "水印室的铜模一起反印出一句话：死亡证明的源头不是医院，是供纸账本。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-23-foreman-witness-ledger",
+    "name": "RESTART 23：纸厂工头证词簿",
+    "description": "水印模具室后方坐着一名没有脸的工头。TA管理所有夜班工人的口供纸带，也知道哪一批证明纸会被送回旧日出医院；只要林夕能让证词离厂，死亡证明的供应链就会第一次拥有证人。",
+    "triggers": [
+      "restart-watermark-mold-room-opened"
+    ],
+    "consequences": [
+      "restart-paper-factory-witness-filed"
+    ],
+    "conditions": [
+      "flag.restart_watermark_mold_room_opened:1",
+      "have.card:card-restart-watermark-mold",
+      "have.card:card-restart-uncut-certificate-paper",
+      "have.card:card-restart-seventh-sun"
+    ],
+    "effects": [
+      "set.flag:restart_foreman_witness_ledger_opened",
+      "gain.card:card-restart-worker-testimony"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "要求证词的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "指向供纸源头的证物",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "保护夜班工人的证词纸带，让他们证明每一份死亡都曾被预印。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 9
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_protected_paper_workers_testimony"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_supply_chain_witness_route"
+          }
+        ]
+      },
+      {
+        "text": "逼工头交出供纸账本坐标，允许TA把一批污染证明纸送回医院。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 9
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_bargained_with_paper_foreman"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_supply_ledger_route"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "工头只交出半卷证词纸带。上面的名字还在跳动，像是随时会被广播裁掉。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "纸厂工人证词离开车间。夜班车第一次不是运送死亡证明，而是运送能推翻它们的人。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_paper_supply_chain_exposed"
+          }
+        ],
+        "description": "供纸账本坐标在证词纸带背面显形。下一站不是医院，而是决定谁有资格被印成死者的账房。"
+      }
+    ]
   }
 ]

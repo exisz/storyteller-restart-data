@@ -1,0 +1,108 @@
+{
+  "id": "restart-rite-21-paper-factory-tram",
+  "name": "RESTART 21：纸厂夜班车",
+  "description": "夜间出口账本合上后，伪城边缘开来一辆没有司机的夜班车。车厢里堆满空白纸箱，箱封写着旧日出医院；第七次日出说，死亡证明不是在医院诞生，而是在下一站提前备好。",
+  "triggers": [
+    "restart-night-exit-ledger-filed"
+  ],
+  "consequences": [
+    "restart-paper-factory-tram-boarded"
+  ],
+  "conditions": [
+    "flag.restart_night_exit_ledger_opened:1",
+    "have.card:card-restart-living-file",
+    "have.card:card-restart-counterfeit-city-map",
+    "have.card:card-restart-seventh-sun"
+  ],
+  "effects": [
+    "set.flag:restart_paper_factory_tram_seen",
+    "gain.card:card-restart-night-shift-ticket"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "登上夜班车的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "证明夜间出口的档案",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "让第七次日出坐在第一排，以受保护活证人的身份进入纸厂。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 8
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_paper_factory_witness_route"
+        }
+      ]
+    },
+    {
+      "text": "让塔内播音员用夜班广播代报车次，欠下一段通往纸厂的声音债。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 8
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_paper_factory_operator_debt_route"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "夜班车只认出半张票。纸箱里的空白纸开始渗出林夕的姓名。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 14,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        }
+      ],
+      "description": "车厢广播改口称你们为夜班稽核。纸厂大门在远处亮起一枚准死水印。"
+    },
+    {
+      "minValue": 15,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_paper_factory_gate_precleared"
+        }
+      ],
+      "description": "夜班票被打出两个孔：一个属于活证人，一个属于欠债播音员。纸厂暂时分不清谁该先被登记。"
+    }
+  ]
+}

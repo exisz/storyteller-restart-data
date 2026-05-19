@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-night-shift-ticket",
+  "type": "item",
+  "name": "纸厂夜班票",
+  "description": "夜间出口账本折出的窄票。票面没有座位号，只有一行供货批次：本车运送尚未写上姓名的死亡证明纸。",
+  "coinValue": 7,
+  "metaData": {
+    "tags": ["item", "ticket", "paper-factory", "restart"],
+    "gameCardId": "card-restart-night-shift-ticket"
+  },
+  "effects": []
+}
