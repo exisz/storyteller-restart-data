@@ -1875,6 +1875,10 @@
     "conditions": [
       "flag.restart_first_living_file_reached:1",
       "flag.restart_living_file_recheck_decided:1",
+      "flag.restart_heard_origin:1",
+      "flag.restart_took_medicine:1",
+      "flag.restart_yue_forced_ward_number:1",
+      "flag.restart_linxi_memorized_bed_zero:1",
       "have.card:card-restart-living-file",
       "have.card:card-restart-seventh-sun",
       "have.card:card-restart-audit-stamp"

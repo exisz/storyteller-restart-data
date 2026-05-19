@@ -43,3 +43,7 @@ Files added:
 - rites: recheck hearing, operator room, night exit route
 
 The packet uses the existing living file, audit stamp, radio, map, Seventh Sunrise, and Linxi/Yue relationship pressure rather than introducing a detached scene.
+
+## Revision note
+
+Depth check flagged too much branch memory as unrequired. The recheck hearing now explicitly checks current-route memory (`heard_origin`, `took_medicine`, `yue_forced_ward_number`, `linxi_memorized_bed_zero`) so earlier choices mechanically shape access to the Act Two living-file hearing rather than remaining inert history.
