@@ -116,6 +116,16 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-24-worker-testimony-caravan",
+      "name": "RESTART 24：证词纸带车队",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-25-foreman-supply-ledger-coordinate",
+      "name": "RESTART 25：工头供纸账本坐标",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"

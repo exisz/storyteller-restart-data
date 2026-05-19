@@ -2534,5 +2534,197 @@
         "description": "供纸账本坐标在证词纸带背面显形。下一站不是医院，而是决定谁有资格被印成死者的账房。"
       }
     ]
+  },
+  {
+    "id": "restart-rite-24-worker-testimony-caravan",
+    "name": "RESTART 24：证词纸带车队",
+    "description": "被保护的夜班工人把证词纸带藏进送纸车底。第七次日出必须决定这些证词先交给下一站账房，还是先广播给仍在伪城里躲藏的活人。",
+    "triggers": [
+      "restart-paper-factory-witness-filed"
+    ],
+    "consequences": [
+      "restart-worker-testimony-caravan-ready"
+    ],
+    "conditions": [
+      "flag.restart_foreman_witness_ledger_opened:1",
+      "flag.restart_protected_paper_workers_testimony:1",
+      "flag.restart_next_region_supply_chain_witness_route:1",
+      "have.card:card-restart-worker-testimony",
+      "have.card:card-restart-watermark-mold"
+    ],
+    "effects": [
+      "set.flag:restart_worker_testimony_caravan_ready"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "护送证词的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "离厂证词",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "先把证词送往账房，让供纸链的下一环无法否认预印死亡。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 9
+          }
+        ]
+      },
+      {
+        "text": "先用广播塔余频公布证词，提醒伪城里仍活着的人避开新纸批次。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 9
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "车队只驶出半条街，证词纸带被水印烫出黑边。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "证词纸带在夜色里连续复写，越来越多工人愿意说出供纸账本的位置。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          }
+        ],
+        "description": "送纸车变成证人车队。下一站账房必须面对一整批没有被写死的活人。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-25-foreman-supply-ledger-coordinate",
+    "name": "RESTART 25：工头供纸账本坐标",
+    "description": "工头交出的坐标不是地址，而是一串纸浆配比。塔内播音员说，只要按这串比例反向调频，就能找到决定死亡证明供给的账房。代价是那批污染证明纸会先抵达医院。",
+    "triggers": [
+      "restart-paper-factory-witness-filed"
+    ],
+    "consequences": [
+      "restart-foreman-supply-ledger-coordinate-decoded"
+    ],
+    "conditions": [
+      "flag.restart_foreman_witness_ledger_opened:1",
+      "flag.restart_bargained_with_paper_foreman:1",
+      "flag.restart_next_region_supply_ledger_route:1",
+      "have.card:card-restart-worker-testimony",
+      "have.card:card-restart-uncut-certificate-paper"
+    ],
+    "effects": [
+      "set.flag:restart_foreman_supply_ledger_coordinate_decoded"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "解码坐标的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "污染批次样纸",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "立刻追踪账房坐标，抢在污染证明纸送回医院前接管供纸账本。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 9
+          }
+        ]
+      },
+      {
+        "text": "放任污染证明纸先抵达医院，让旧日出医院的死亡证明集体失效。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 9
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "坐标解出半截。你知道账房存在，却还不知道它属于医院还是广播塔。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "未裁切证明纸显出账房门牌：所有死亡证明都从同一本供纸账里扣数。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          }
+        ],
+        "description": "广播塔和纸厂同时沉默一秒。工头的坐标指向下一处核心：给死亡分配纸额的账房。"
+      }
+    ]
   }
 ]

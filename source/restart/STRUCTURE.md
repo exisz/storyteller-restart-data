@@ -125,3 +125,5 @@ Branch memory added for later checks:
 - `restart_next_region_supply_chain_witness_route` vs `restart_next_region_supply_ledger_route`
 
 This packet advances the Paperwork, Broadcast/radio, Seventh Sunrise, and Linxi identity threads by shifting from individual false documents to the industrial source of death-proof authority.
+
+Revision: `restart-rite-24-worker-testimony-caravan` and `restart-rite-25-foreman-supply-ledger-coordinate` now consume `纸厂工人证词` on two branch-specific routes, making the protected-worker vs foreman-bargain choice mechanically visible beyond rite 23.
