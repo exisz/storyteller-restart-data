@@ -182,6 +182,7 @@
   },
     {
     id: 'task-dark-tide-oasis-expedition',
+      attachToNodeIds: ['5001001'], // 权力的游戏：政治/赞助类任务入口
     name: '任务包：暗潮涌动 / 绿洲探索',
     kind: 'task-package',
     system: '暗潮涌动',
@@ -213,6 +214,7 @@
 
   {
     id: 'task-sultan-tutorial-guide',
+      attachToNodeIds: ['5000796'], // 苏丹的游戏：教程主入口
     name: '任务包：苏丹引导 / 新手教学',
     kind: 'task-package',
     system: '苏丹引导',
@@ -250,6 +252,7 @@
   },
   {
     id: 'task-ending-escape-route',
+      attachToNodeIds: ['5000796'], // 苏丹的游戏：逃跑结局入口
     name: '任务包：逃离苏丹的游戏 / 逃跑结局',
     kind: 'task-package',
     system: '逃跑结局',
@@ -285,6 +288,7 @@
   },
   {
     id: 'task-vassal-territory-crisis',
+      attachToNodeIds: ['5001001'], // 权力的游戏：附属领地/政务入口
     name: '任务包：远来质子 / 附属领地难题',
     kind: 'task-package',
     system: '附属领地',
@@ -323,6 +327,7 @@
   },
   {
     id: 'task-black-street-crime-tutorial',
+      attachToNodeIds: ['5000796'], // 苏丹的游戏：城市机制入口
     name: '任务包：黑街盗窃 / 犯罪教程',
     kind: 'task-package',
     system: '黑街犯罪',
@@ -350,6 +355,7 @@
   },
   {
     id: 'task-law-bottom-line-trial',
+      attachToNodeIds: ['5001001'], // 权力的游戏：法律/审判入口
     name: '任务包：法律的底线 / 审判',
     kind: 'task-package',
     system: '审判',
@@ -370,6 +376,7 @@
   },
   {
     id: 'task-lodging-house-upgrades',
+      attachToNodeIds: ['5006560'], // 修建舍馆：设施入口
     name: '任务包：舍馆建设 / 等级升级',
     kind: 'task-package',
     system: '舍馆',
@@ -392,6 +399,7 @@
   },
   {
     id: 'task-wilderness-recipes',
+      attachToNodeIds: ['5000002'], // 俺寻思：荒野料理触发入口
     name: '任务包：荒野食谱 / 怪物料理',
     kind: 'task-package',
     system: '料理',

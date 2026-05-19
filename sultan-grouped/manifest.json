@@ -3,8 +3,8 @@
   "schemaVersion": "0.4.0",
   "title": "Sultan Curated Groups",
   "groupingMode": "runtime-curated-groups",
-  "updatedAt": "2026-05-19T04:57:24.979Z",
-  "version": "c0d86dc",
+  "updatedAt": "2026-05-19T05:19:23.855Z",
+  "version": "34169a0",
   "files": {
     "groups": "groups/manual-groups.json5"
   },
