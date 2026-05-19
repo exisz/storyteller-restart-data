@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-18-living-file-recheck",
+  "name": "第十八回合事件：活人档案复查",
+  "description": "第一份活人档案离开盒子后，广播塔立刻启动复查。所有街灯开始朗读同一句话：活人资格只能保护一个名字。第七次日出按住档案，林夕的收音机却已经开始把算法抄进自己的静电里。",
+  "trigger": {
+    "turn": 18
+  },
+  "consequences": [
+    "restart-living-file-recheck-decided"
+  ],
+  "options": [
+    {
+      "text": "先保护第七次日出的合法存在，让她作为活证人接受复查。",
+      "effects": [
+        "gain.influence:6",
+        "set.flag:restart_living_file_recheck_decided",
+        "set.flag:restart_protected_seventh_sun_living_status"
+      ]
+    },
+    {
+      "text": "允许收音机复制活人算法，让林夕下一轮也能自证未死。",
+      "effects": [
+        "gain.favor:6",
+        "set.flag:restart_living_file_recheck_decided",
+        "set.flag:restart_copied_living_algorithm_to_radio"
+      ]
+    }
+  ]
+}

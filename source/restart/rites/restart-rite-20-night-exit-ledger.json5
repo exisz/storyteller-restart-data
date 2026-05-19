@@ -1,0 +1,116 @@
+{
+  "id": "restart-rite-20-night-exit-ledger",
+  "name": "RESTART 20：夜间出口账本",
+  "description": "播音室背后藏着一本夜间出口账本。账本只登记两类人：已经被死亡证明骗过的活人，和替广播塔说过谎的活人。第七次日出、林夕和塔内播音员都在等同一个决定。",
+  "triggers": [
+    "restart-operator-room-decided"
+  ],
+  "consequences": [
+    "restart-night-exit-ledger-filed"
+  ],
+  "conditions": [
+    "flag.restart_operator_room_entered:1",
+    "have.card:card-restart-tower-operator",
+    "have.card:card-restart-living-file",
+    "have.card:card-restart-counterfeit-city-map",
+    "have.card:card-restart-seventh-sun"
+  ],
+  "effects": [
+    "set.flag:restart_night_exit_ledger_opened"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "决定夜间出口的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "登记活路的档案",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "把第七次日出登记为受保护活证人，让她先走出伪城。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 8
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_registered_for_night_exit"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_next_region_alive_witness_route"
+        }
+      ]
+    },
+    {
+      "text": "把塔内播音员登记为随行债务人，用TA的声音骗过下一道广播。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 8
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_operator_registered_as_broadcast_debt"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_next_region_operator_debt_route"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "夜间出口账本接受登记，却把下一站写成待复查。你知道门会开，但不知道谁会被留名。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 14,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        }
+      ],
+      "description": "伪城地图折成一张夜班车票。第七次日出说，下一站不是医院，而是给死亡证明供纸的地方。"
+    },
+    {
+      "minValue": 15,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_night_exit_route_stabilized"
+        }
+      ],
+      "description": "夜间出口账本合上时，广播塔第一次没有播报死亡。它播报了一句迟到的站名：纸厂。"
+    }
+  ]
+}

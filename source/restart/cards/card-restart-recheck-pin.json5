@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-recheck-pin",
+  "type": "item",
+  "name": "复查反签针",
+  "description": "广播塔复查庭掉出的细针。它能把已经盖章的死亡证明反向刺穿，让一份档案暂时承认：签名不是事实，只是命令。",
+  "coinValue": 6,
+  "metaData": {
+    "tags": ["item", "paperwork", "recheck", "restart"],
+    "gameCardId": "card-restart-recheck-pin"
+  },
+  "effects": []
+}

@@ -6,6 +6,7 @@
     "restart-broadcast-tower-decided"
   ],
   "consequences": [
+    "restart-event-18-living-file-recheck",
     "restart-living-file-claimed"
   ],
   "conditions": [

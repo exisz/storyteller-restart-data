@@ -1,0 +1,112 @@
+{
+  "id": "restart-rite-18-living-file-recheck-hearing",
+  "name": "RESTART 18：活人档案复查庭",
+  "description": "广播塔顶层降下一间临时复查庭。桌面上摆着第一份活人档案、假出口审计章和一盒尚未启封的反签针；复查员没有脸，只要求林夕说明：谁有资格把“还活着”带出伪城？",
+  "triggers": [
+    "restart-living-file-claimed",
+    "restart-living-file-recheck-decided"
+  ],
+  "consequences": [
+    "restart-event-19-counterfeit-city-blackout",
+    "restart-living-file-recheck-heard"
+  ],
+  "conditions": [
+    "flag.restart_first_living_file_reached:1",
+    "flag.restart_living_file_recheck_decided:1",
+    "have.card:card-restart-living-file",
+    "have.card:card-restart-seventh-sun",
+    "have.card:card-restart-audit-stamp"
+  ],
+  "effects": [
+    "set.flag:restart_living_file_recheck_heard",
+    "gain.card:card-restart-recheck-pin",
+    "gain.card:card-restart-operator-coordinate"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "出席复查的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "被复查的活人档案",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "让第七次日出公开作证：她从未签过自己的死亡证明。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 7
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_public_living_witness"
+        }
+      ]
+    },
+    {
+      "text": "用反签针刺穿审计章，把林夕的替身死亡改写成临时豁免。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 7
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_linxi_counter_signed_living_exception"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 7,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "复查庭只承认半份证词。反签针落下时弯了一截，像是在警告这条活路还会被复核。"
+    },
+    {
+      "minValue": 8,
+      "maxValue": 13,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "复查员第一次停顿。活人档案没有被没收，反而吐出一串指向播音室的坐标。"
+    },
+    {
+      "minValue": 14,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 5
+        },
+        {
+          "type": "gain.influence",
+          "amount": 5
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_recheck_hearing_stabilized"
+        }
+      ],
+      "description": "整座复查庭向广播塔深处折叠。第七次日出听见播音员低声说：别把档案交上来，我也是活人。"
+    }
+  ]
+}

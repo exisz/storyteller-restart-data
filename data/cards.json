@@ -135,6 +135,23 @@
     "effects": []
   },
   {
+    "id": "card-restart-operator-coordinate",
+    "type": "item",
+    "name": "播音员坐标",
+    "description": "从活人档案边码里抄出的坐标。它指向广播塔内一间不存在楼层的播音室；每次收音机代答，坐标就向上偏移一层。",
+    "coinValue": 7,
+    "metaData": {
+      "tags": [
+        "item",
+        "coordinate",
+        "broadcast",
+        "restart"
+      ],
+      "gameCardId": "card-restart-operator-coordinate"
+    },
+    "effects": []
+  },
+  {
     "id": "card-restart-radio",
     "type": "item",
     "name": "坏掉的收音机",
@@ -169,6 +186,23 @@
     "effects": []
   },
   {
+    "id": "card-restart-recheck-pin",
+    "type": "item",
+    "name": "复查反签针",
+    "description": "广播塔复查庭掉出的细针。它能把已经盖章的死亡证明反向刺穿，让一份档案暂时承认：签名不是事实，只是命令。",
+    "coinValue": 6,
+    "metaData": {
+      "tags": [
+        "item",
+        "paperwork",
+        "recheck",
+        "restart"
+      ],
+      "gameCardId": "card-restart-recheck-pin"
+    },
+    "effects": []
+  },
+  {
     "id": "card-restart-seventh-sun",
     "type": "person",
     "name": "第七次日出",
@@ -199,6 +233,23 @@
         "restart"
       ],
       "gameCardId": "card-restart-ticket"
+    },
+    "effects": []
+  },
+  {
+    "id": "card-restart-tower-operator",
+    "type": "person",
+    "name": "塔内播音员",
+    "description": "躲在广播塔无楼层播音室里的声音。TA一直替死亡证明朗读结果，却把自己的活人档案藏在所有播报的空拍之间。",
+    "coinValue": 6,
+    "metaData": {
+      "tags": [
+        "person",
+        "operator",
+        "broadcast",
+        "restart"
+      ],
+      "gameCardId": "card-restart-tower-operator"
     },
     "effects": []
   },

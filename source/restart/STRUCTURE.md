@@ -85,3 +85,24 @@ Branch memory added for later checks:
 - `restart_living_file_given_to_seventh_sun` vs `restart_living_file_copied_for_linxi`
 
 This packet advances the Seventh Sunrise, Broadcast/radio, Linxi identity, and Paperwork threads beyond Act One while keeping the current hand relevant through radio, ticket, death certificate, audit stamp, and witness cards.
+
+## Turn 18–20 packet: Living-file recheck / operator-room arc
+
+The first living-file reveal now has consequences instead of ending as a static proof object:
+
+- `restart-event-18-living-file-recheck` forces the Player to decide whether the living-file protection belongs first to the Seventh Sunrise or to Linxi's next-loop self via the radio.
+- `restart-rite-18-living-file-recheck-hearing` turns that decision into a formal recheck and grants `复查反签针` plus `播音员坐标`, making paperwork and broadcast pressure playable tools.
+- `restart-event-19-counterfeit-city-blackout` charges a route cost and asks whether the Player shields the night exit or baits the operator.
+- `restart-rite-19-operator-room` reveals the tower operator as another living-person pressure, not a faceless system.
+- `restart-rite-20-night-exit-ledger` converts the packet into a stable next-region branch: protected living witness route vs operator-debt route.
+
+Branch memory added for later checks:
+
+- `restart_protected_seventh_sun_living_status` vs `restart_copied_living_algorithm_to_radio`
+- `restart_seventh_sun_public_living_witness` vs `restart_linxi_counter_signed_living_exception`
+- `restart_night_exit_route_shielded` vs `restart_operator_room_baited`
+- `restart_operator_exposed_as_living_voice` vs `restart_operator_bargained_for_night_exit`
+- `restart_seventh_sun_registered_for_night_exit` vs `restart_operator_registered_as_broadcast_debt`
+- `restart_next_region_alive_witness_route` vs `restart_next_region_operator_debt_route`
+
+This packet advances the Broadcast/radio, Seventh Sunrise, Linxi identity, and Paperwork threads while preserving the current turn-13 path through existing Act Two threshold content.

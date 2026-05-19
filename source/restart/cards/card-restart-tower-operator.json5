@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-tower-operator",
+  "type": "person",
+  "name": "塔内播音员",
+  "description": "躲在广播塔无楼层播音室里的声音。TA一直替死亡证明朗读结果，却把自己的活人档案藏在所有播报的空拍之间。",
+  "coinValue": 6,
+  "metaData": {
+    "tags": ["person", "operator", "broadcast", "restart"],
+    "gameCardId": "card-restart-tower-operator"
+  },
+  "effects": []
+}

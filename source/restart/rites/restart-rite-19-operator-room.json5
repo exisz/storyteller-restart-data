@@ -1,0 +1,110 @@
+{
+  "id": "restart-rite-19-operator-room",
+  "name": "RESTART 19：塔内播音室",
+  "description": "播音员坐标指向广播塔没有编号的一层。门后堆满未播出的死亡通知，每张通知都缺一个签名；坏掉的收音机在门口自动调频，像是认出了替它念死讯的人。",
+  "triggers": [
+    "restart-living-file-recheck-heard",
+    "restart-counterfeit-blackout-paid"
+  ],
+  "consequences": [
+    "restart-operator-room-decided"
+  ],
+  "conditions": [
+    "flag.restart_living_file_recheck_heard:1",
+    "flag.restart_counterfeit_blackout_paid:1",
+    "have.card:card-restart-operator-coordinate",
+    "have.card:card-restart-radio",
+    "have.card:card-restart-recheck-pin"
+  ],
+  "effects": [
+    "set.flag:restart_operator_room_entered",
+    "gain.card:card-restart-tower-operator"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "推门对质的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "定位播音室的证物",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "公开塔内播音员的活人身份，切断广播塔继续代答死亡证明的权限。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 7
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_operator_exposed_as_living_voice"
+        }
+      ]
+    },
+    {
+      "text": "和播音员交易：保住TA的缺名档案，换TA护送夜间出口。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 7
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_operator_bargained_for_night_exit"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 7,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "播音室只打开一条缝。你看见里面有第三份活人档案，却没能读到姓名。"
+    },
+    {
+      "minValue": 8,
+      "maxValue": 13,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 3
+        },
+        {
+          "type": "gain.influence",
+          "amount": 3
+        }
+      ],
+      "description": "播音员关掉一半喇叭。伪城的追播慢了下来，夜间出口第一次出现在地图边缘。"
+    },
+    {
+      "minValue": 14,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 5
+        },
+        {
+          "type": "gain.influence",
+          "amount": 5
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_operator_voice_bound_to_escape"
+        }
+      ],
+      "description": "塔内播音员把自己的缺名档案压进收音机：如果要离开伪城，就带走一个仍被广播雇佣的活人。"
+    }
+  ]
+}

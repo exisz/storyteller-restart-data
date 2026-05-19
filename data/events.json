@@ -278,5 +278,63 @@
         ]
       }
     ]
+  },
+  {
+    "id": "restart-event-18-living-file-recheck",
+    "name": "第十八回合事件：活人档案复查",
+    "description": "第一份活人档案离开盒子后，广播塔立刻启动复查。所有街灯开始朗读同一句话：活人资格只能保护一个名字。第七次日出按住档案，林夕的收音机却已经开始把算法抄进自己的静电里。",
+    "trigger": {
+      "turn": 18
+    },
+    "consequences": [
+      "restart-living-file-recheck-decided"
+    ],
+    "options": [
+      {
+        "text": "先保护第七次日出的合法存在，让她作为活证人接受复查。",
+        "effects": [
+          "gain.influence:6",
+          "set.flag:restart_living_file_recheck_decided",
+          "set.flag:restart_protected_seventh_sun_living_status"
+        ]
+      },
+      {
+        "text": "允许收音机复制活人算法，让林夕下一轮也能自证未死。",
+        "effects": [
+          "gain.favor:6",
+          "set.flag:restart_living_file_recheck_decided",
+          "set.flag:restart_copied_living_algorithm_to_radio"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-19-counterfeit-city-blackout",
+    "name": "第十九回合事件：伪城熄灯税",
+    "description": "复查庭散场后，伪城突然熄灯。广播塔宣布所有携带活人档案的人必须缴纳一段可被注销的路线；伪城地图上只剩两条亮线，一条通向夜间出口，一条通向塔内播音室。",
+    "trigger": {
+      "turn": 19
+    },
+    "consequences": [
+      "restart-counterfeit-blackout-paid"
+    ],
+    "options": [
+      {
+        "text": "用假出口审计章保护夜间出口路线，把追播引到废弃街区。",
+        "effects": [
+          "gain.favor:6",
+          "set.flag:restart_counterfeit_blackout_paid",
+          "set.flag:restart_night_exit_route_shielded"
+        ]
+      },
+      {
+        "text": "故意让地图暴露播音室坐标，逼塔内播音员亲自改口。",
+        "effects": [
+          "gain.influence:6",
+          "set.flag:restart_counterfeit_blackout_paid",
+          "set.flag:restart_operator_room_baited"
+        ]
+      }
+    ]
   }
 ]

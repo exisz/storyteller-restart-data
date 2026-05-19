@@ -86,6 +86,21 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-18-living-file-recheck-hearing",
+      "name": "RESTART 18：活人档案复查庭",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-19-operator-room",
+      "name": "RESTART 19：塔内播音室",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-20-night-exit-ledger",
+      "name": "RESTART 20：夜间出口账本",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -133,6 +148,16 @@
     {
       "id": "restart-event-15-broadcast-name-hunt",
       "name": "第十五回合事件：缺名者追播",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-18-living-file-recheck",
+      "name": "第十八回合事件：活人档案复查",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-19-counterfeit-city-blackout",
+      "name": "第十九回合事件：伪城熄灯税",
       "type": "event"
     }
   ],
@@ -192,6 +217,14 @@
     {
       "source": "restart-rite-15-counterfeit-city-registry",
       "target": "restart-event-15-broadcast-name-hunt"
+    },
+    {
+      "source": "restart-rite-17-first-living-file",
+      "target": "restart-event-18-living-file-recheck"
+    },
+    {
+      "source": "restart-rite-18-living-file-recheck-hearing",
+      "target": "restart-event-19-counterfeit-city-blackout"
     },
     {
       "source": "restart-event-02-broadcast",

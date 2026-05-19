@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-operator-coordinate",
+  "type": "item",
+  "name": "播音员坐标",
+  "description": "从活人档案边码里抄出的坐标。它指向广播塔内一间不存在楼层的播音室；每次收音机代答，坐标就向上偏移一层。",
+  "coinValue": 7,
+  "metaData": {
+    "tags": ["item", "coordinate", "broadcast", "restart"],
+    "gameCardId": "card-restart-operator-coordinate"
+  },
+  "effects": []
+}

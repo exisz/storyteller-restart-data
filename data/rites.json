@@ -1757,6 +1757,7 @@
       "restart-broadcast-tower-decided"
     ],
     "consequences": [
+      "restart-event-18-living-file-recheck",
       "restart-living-file-claimed"
     ],
     "conditions": [
@@ -1856,6 +1857,344 @@
           }
         ],
         "description": "档案夹最深处写着下一幕的规则：只要有人能作为活人离开，整座医院的死亡证明都会倒欠她一次重启。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-18-living-file-recheck-hearing",
+    "name": "RESTART 18：活人档案复查庭",
+    "description": "广播塔顶层降下一间临时复查庭。桌面上摆着第一份活人档案、假出口审计章和一盒尚未启封的反签针；复查员没有脸，只要求林夕说明：谁有资格把“还活着”带出伪城？",
+    "triggers": [
+      "restart-living-file-claimed",
+      "restart-living-file-recheck-decided"
+    ],
+    "consequences": [
+      "restart-event-19-counterfeit-city-blackout",
+      "restart-living-file-recheck-heard"
+    ],
+    "conditions": [
+      "flag.restart_first_living_file_reached:1",
+      "flag.restart_living_file_recheck_decided:1",
+      "have.card:card-restart-living-file",
+      "have.card:card-restart-seventh-sun",
+      "have.card:card-restart-audit-stamp"
+    ],
+    "effects": [
+      "set.flag:restart_living_file_recheck_heard",
+      "gain.card:card-restart-recheck-pin",
+      "gain.card:card-restart-operator-coordinate"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "出席复查的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "被复查的活人档案",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "让第七次日出公开作证：她从未签过自己的死亡证明。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 7
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_seventh_sun_public_living_witness"
+          }
+        ]
+      },
+      {
+        "text": "用反签针刺穿审计章，把林夕的替身死亡改写成临时豁免。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 7
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_linxi_counter_signed_living_exception"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 7,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "复查庭只承认半份证词。反签针落下时弯了一截，像是在警告这条活路还会被复核。"
+      },
+      {
+        "minValue": 8,
+        "maxValue": 13,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "gain.influence",
+            "amount": 3
+          }
+        ],
+        "description": "复查员第一次停顿。活人档案没有被没收，反而吐出一串指向播音室的坐标。"
+      },
+      {
+        "minValue": 14,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 5
+          },
+          {
+            "type": "gain.influence",
+            "amount": 5
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_recheck_hearing_stabilized"
+          }
+        ],
+        "description": "整座复查庭向广播塔深处折叠。第七次日出听见播音员低声说：别把档案交上来，我也是活人。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-19-operator-room",
+    "name": "RESTART 19：塔内播音室",
+    "description": "播音员坐标指向广播塔没有编号的一层。门后堆满未播出的死亡通知，每张通知都缺一个签名；坏掉的收音机在门口自动调频，像是认出了替它念死讯的人。",
+    "triggers": [
+      "restart-living-file-recheck-heard",
+      "restart-counterfeit-blackout-paid"
+    ],
+    "consequences": [
+      "restart-operator-room-decided"
+    ],
+    "conditions": [
+      "flag.restart_living_file_recheck_heard:1",
+      "flag.restart_counterfeit_blackout_paid:1",
+      "have.card:card-restart-operator-coordinate",
+      "have.card:card-restart-radio",
+      "have.card:card-restart-recheck-pin"
+    ],
+    "effects": [
+      "set.flag:restart_operator_room_entered",
+      "gain.card:card-restart-tower-operator"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "推门对质的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "定位播音室的证物",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "公开塔内播音员的活人身份，切断广播塔继续代答死亡证明的权限。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 7
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_operator_exposed_as_living_voice"
+          }
+        ]
+      },
+      {
+        "text": "和播音员交易：保住TA的缺名档案，换TA护送夜间出口。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 7
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_operator_bargained_for_night_exit"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 7,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "播音室只打开一条缝。你看见里面有第三份活人档案，却没能读到姓名。"
+      },
+      {
+        "minValue": 8,
+        "maxValue": 13,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 3
+          },
+          {
+            "type": "gain.influence",
+            "amount": 3
+          }
+        ],
+        "description": "播音员关掉一半喇叭。伪城的追播慢了下来，夜间出口第一次出现在地图边缘。"
+      },
+      {
+        "minValue": 14,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 5
+          },
+          {
+            "type": "gain.influence",
+            "amount": 5
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_operator_voice_bound_to_escape"
+          }
+        ],
+        "description": "塔内播音员把自己的缺名档案压进收音机：如果要离开伪城，就带走一个仍被广播雇佣的活人。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-20-night-exit-ledger",
+    "name": "RESTART 20：夜间出口账本",
+    "description": "播音室背后藏着一本夜间出口账本。账本只登记两类人：已经被死亡证明骗过的活人，和替广播塔说过谎的活人。第七次日出、林夕和塔内播音员都在等同一个决定。",
+    "triggers": [
+      "restart-operator-room-decided"
+    ],
+    "consequences": [
+      "restart-night-exit-ledger-filed"
+    ],
+    "conditions": [
+      "flag.restart_operator_room_entered:1",
+      "have.card:card-restart-tower-operator",
+      "have.card:card-restart-living-file",
+      "have.card:card-restart-counterfeit-city-map",
+      "have.card:card-restart-seventh-sun"
+    ],
+    "effects": [
+      "set.flag:restart_night_exit_ledger_opened"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "决定夜间出口的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "登记活路的档案",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "把第七次日出登记为受保护活证人，让她先走出伪城。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_seventh_sun_registered_for_night_exit"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_alive_witness_route"
+          }
+        ]
+      },
+      {
+        "text": "把塔内播音员登记为随行债务人，用TA的声音骗过下一道广播。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_operator_registered_as_broadcast_debt"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_operator_debt_route"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "夜间出口账本接受登记，却把下一站写成待复查。你知道门会开，但不知道谁会被留名。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "伪城地图折成一张夜班车票。第七次日出说，下一站不是医院，而是给死亡证明供纸的地方。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_night_exit_route_stabilized"
+          }
+        ],
+        "description": "夜间出口账本合上时，广播塔第一次没有播报死亡。它播报了一句迟到的站名：纸厂。"
       }
     ]
   }
