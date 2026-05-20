@@ -1,0 +1,116 @@
+{
+  "id": "restart-rite-30-sealed-return-tram",
+  "name": "RESTART 30：封签回院车",
+  "description": "夜班车重新挂上旧日出医院的封签，车厢里不再是空白死亡证明，而是一批会追问活人资格的纸。塔内播音员不敢再报站；第七次日出站在车门边，问林夕是要带着公开账本回医院，还是把自己藏进供货箱里。",
+  "triggers": [
+    "restart-hospital-return-invoice-filed"
+  ],
+  "consequences": [
+    "restart-sealed-return-tram-departed"
+  ],
+  "conditions": [
+    "flag.restart_hospital_return_invoice_filed:1",
+    "have.card:card-restart-return-invoice",
+    "have.card:card-restart-living-paper-lot",
+    "have.card:card-restart-night-shift-ticket",
+    "have.card:card-restart-counterfeit-city-map"
+  ],
+  "effects": [
+    "set.flag:restart_sealed_return_tram_departed"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "押送回院车的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "回院凭证",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "押着供纸账本公开回院，让旧日出医院在门口就面对供纸链证据。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 10
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_return_tram_public_account_route"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_next_region_hospital_supply_reversal_route"
+        }
+      ]
+    },
+    {
+      "text": "把林夕和第七次日出藏进活纸箱底，用供货封签骗过医院收货口。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 10
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_return_tram_covert_box_route"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_next_region_hidden_living_paper_route"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "回院车开动，但封签被广播塔咬住一角。下一站会先验货，再验人。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 14,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        }
+      ],
+      "description": "夜班车驶回医院路线。第七次日出第一次不是逃离旧日出医院，而是带着能改写死亡证明的纸回去。"
+    },
+    {
+      "minValue": 15,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_hospital_return_route_stabilized"
+        }
+      ],
+      "description": "车窗外重新出现旧日出医院的地下月台。不同的是，这一次医院等来的不是病人，而是自己的供纸账。"
+    }
+  ]
+}

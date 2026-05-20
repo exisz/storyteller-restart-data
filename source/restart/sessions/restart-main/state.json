@@ -1,5 +1,5 @@
 {
-  "turn": 21,
+  "turn": 26,
   "rites": [
     {
       "id": "restart-rite-01-wake-at-platform",
@@ -2767,8 +2767,8 @@
     },
     {
       "id": "restart-rite-25-foreman-supply-ledger-coordinate",
-      "name": "RESTART 25：工头供纸账本坐标",
-      "description": "工头交出的坐标不是地址，而是一串纸浆配比。塔内播音员说，只要按这串比例反向调频，就能找到决定死亡证明供给的账房。代价是那批污染证明纸会先抵达医院。",
+      "name": "RESTART 25：供纸账本坐标",
+      "description": "无论是工头交出的纸浆配比，还是工人证词纸带背面的复写痕，都指向同一个地方：决定死亡证明供给的账房。塔内播音员说，只要按这串比例反向调频，就能找到它。代价是纸厂会知道林夕已经追到了供纸链下一环。",
       "triggers": [
         "restart-paper-factory-witness-filed"
       ],
@@ -2777,8 +2777,6 @@
       ],
       "conditions": [
         "flag.restart_foreman_witness_ledger_opened:1",
-        "flag.restart_bargained_with_paper_foreman:1",
-        "flag.restart_next_region_supply_ledger_route:1",
         "have.card:card-restart-worker-testimony",
         "have.card:card-restart-uncut-certificate-paper"
       ],
@@ -2796,26 +2794,34 @@
         },
         {
           "id": "slot-1",
-          "name": "污染批次样纸",
+          "name": "供纸链样纸",
           "cardType": "item"
         }
       ],
       "options": [
         {
-          "text": "立刻追踪账房坐标，抢在污染证明纸送回医院前接管供纸账本。",
+          "text": "立刻追踪账房坐标，抢在下一批证明纸送回医院前接管供纸账本。",
           "effects": [
             {
               "type": "gain.influence",
               "amount": 9
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_supply_ledger_pursued_from_testimony"
             }
           ]
         },
         {
-          "text": "放任污染证明纸先抵达医院，让旧日出医院的死亡证明集体失效。",
+          "text": "放任纸厂发现追踪痕迹，把他们的回收账本一起钓出来。",
           "effects": [
             {
               "type": "gain.favor",
               "amount": 9
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_supply_ledger_baited_from_factory"
             }
           ]
         }
@@ -3611,11 +3617,15 @@
       "card-restart-living-file",
       "card-restart-recheck-pin",
       "card-restart-operator-coordinate",
-      "card-restart-tower-operator"
+      "card-restart-tower-operator",
+      "card-restart-night-shift-ticket",
+      "card-restart-watermark-mold",
+      "card-restart-uncut-certificate-paper",
+      "card-restart-worker-testimony"
     ]
   },
   "counters": {
-    "influence": 155,
+    "influence": 215,
     "favor": 41
   },
   "flags": {
@@ -3704,7 +3714,24 @@
     "restart_night_exit_ledger_opened": true,
     "complete_restart-rite-20-night-exit-ledger": true,
     "restart_seventh_sun_registered_for_night_exit": true,
-    "restart_next_region_alive_witness_route": true
+    "restart_next_region_alive_witness_route": true,
+    "restart_paper_factory_tram_seen": true,
+    "complete_restart-rite-21-paper-factory-tram": true,
+    "restart_paper_factory_witness_route": true,
+    "restart_paper_tax_paid": true,
+    "restart_paper_route_shielded_by_audit_stamp": true,
+    "restart_watermark_mold_room_opened": true,
+    "complete_restart-rite-22-watermark-mold-room": true,
+    "restart_stole_death_watermark_mold": true,
+    "restart_foreman_witness_ledger_opened": true,
+    "complete_restart-rite-23-foreman-witness-ledger": true,
+    "restart_protected_paper_workers_testimony": true,
+    "restart_next_region_supply_chain_witness_route": true,
+    "restart_worker_testimony_caravan_ready": true,
+    "complete_restart-rite-24-worker-testimony-caravan": true,
+    "restart_foreman_supply_ledger_coordinate_decoded": true,
+    "complete_restart-rite-25-foreman-supply-ledger-coordinate": true,
+    "restart_supply_ledger_pursued_from_testimony": true
   },
   "unresolvedEvent": null,
   "activeEvents": []

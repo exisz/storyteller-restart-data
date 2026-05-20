@@ -1,0 +1,110 @@
+{
+  "id": "restart-rite-29-hospital-return-invoice",
+  "name": "RESTART 29：回院供货单",
+  "description": "装车警报被压下后，账房只能按规程给活纸批次开具回院供货单。单据抬头写着旧日出医院，收货人却空着；如果林夕填错名字，这批纸会在医院门口重新变回死亡证明。",
+  "triggers": [
+    "restart-living-paper-lot-bound",
+    "restart-return-shipment-alarm-answered"
+  ],
+  "consequences": [
+    "restart-hospital-return-invoice-filed"
+  ],
+  "conditions": [
+    "flag.restart_living_paper_lot_created:1",
+    "flag.restart_return_shipment_alarm_answered:1",
+    "have.card:card-restart-living-paper-lot",
+    "have.card:card-restart-supply-ledger",
+    "have.card:card-restart-quota-clerk"
+  ],
+  "effects": [
+    "set.flag:restart_hospital_return_invoice_filed",
+    "gain.card:card-restart-return-invoice"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "填写收货人的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "需要回院的纸批",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "把收货人填成第七次日出，以活证人名义公开指控医院提前领取死亡纸额。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 10
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_return_invoice_public_indictment_route"
+        }
+      ]
+    },
+    {
+      "text": "把收货人填成林夕的替身尸体，让活纸伪装成正常死亡证明悄悄回院。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 10
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_return_invoice_covert_hospital_route"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "供货单盖章不全。医院会收下这批纸，但账房仍保留一次改口权。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 14,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        }
+      ],
+      "description": "回院供货单生效。活纸批次装上夜班车，目的地变回一开始吞掉第七次日出的医院。"
+    },
+    {
+      "minValue": 15,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_return_invoice_can_reverse_hospital_records"
+        }
+      ],
+      "description": "供货单底部浮出一枚反向医院章：送回的不是纸，是让旧日出医院承认自己预支死亡的账。"
+    }
+  ]
+}

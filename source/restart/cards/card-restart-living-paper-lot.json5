@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-living-paper-lot",
+  "name": "活纸批次",
+  "description": "被活人档案边码污染过的一整批证明纸。它仍能回到医院，却会在写下死因前先问：这个人是否已经被允许活着？",
+  "type": "item",
+  "coinValue": 9,
+  "effects": [],
+  "metaData": {
+    "tags": ["item", "paperwork", "living-file", "supply-chain", "restart"],
+    "gameCardId": "card-restart-living-paper-lot"
+  }
+}

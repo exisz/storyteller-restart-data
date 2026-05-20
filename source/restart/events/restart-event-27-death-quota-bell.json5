@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-27-death-quota-bell",
+  "name": "第二十七回合事件：死亡配额铃",
+  "description": "供纸账本刚被翻开，账房深处就响起一枚铜铃：旧日出医院本批死亡证明短缺一名可登记死者。账房员开始按工人证词上的姓名补账，第七次日出把手按在活人档案上，提醒林夕：如果证人被写进去，证词会先于本人死亡。",
+  "trigger": {
+    "turn": 27
+  },
+  "consequences": [
+    "restart-death-quota-bell-paid"
+  ],
+  "options": [
+    {
+      "text": "先遮住工人证词上的姓名，让账房只能追到空白纸带。",
+      "effects": [
+        "gain.influence:8",
+        "set.flag:restart_death_quota_bell_paid",
+        "set.flag:restart_quota_bell_protected_worker_names"
+      ]
+    },
+    {
+      "text": "把未裁切证明纸推回铃下，让这一批纸先承认自己还没有死者。",
+      "effects": [
+        "gain.favor:8",
+        "set.flag:restart_death_quota_bell_paid",
+        "set.flag:restart_quota_bell_marked_batch_alive"
+      ]
+    }
+  ]
+}

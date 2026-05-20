@@ -1,0 +1,111 @@
+{
+  "id": "restart-rite-26-supply-ledger-account-house",
+  "name": "RESTART 26：供纸账房",
+  "description": "工头坐标把林夕带到纸厂地下的账房。这里没有印刷机，只有一排会自行翻页的总账：每一张死亡证明纸在送回医院前，都要先从账本里扣掉一个尚未出现的死者名额。",
+  "triggers": [
+    "restart-foreman-supply-ledger-coordinate-decoded"
+  ],
+  "consequences": [
+    "restart-event-27-death-quota-bell",
+    "restart-supply-ledger-account-opened"
+  ],
+  "conditions": [
+    "flag.restart_foreman_supply_ledger_coordinate_decoded:1",
+    "flag.restart_supply_ledger_pursued_from_testimony:1",
+    "have.card:card-restart-worker-testimony",
+    "have.card:card-restart-uncut-certificate-paper",
+    "have.card:card-restart-watermark-mold"
+  ],
+  "effects": [
+    "set.flag:restart_supply_ledger_account_opened",
+    "gain.card:card-restart-supply-ledger",
+    "gain.card:card-restart-quota-clerk"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "翻开账本的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "证明供纸链的证据",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "把纸厂工人证词登记成账房证据，让每一笔纸额都必须附上证人姓名。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 9
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_worker_testimony_entered_as_account_evidence"
+        }
+      ]
+    },
+    {
+      "text": "把死亡证明水印模藏进账本书脊，让下一次扣数自动压出伪造痕迹。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 9
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_watermark_mold_hidden_in_supply_ledger"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "账本只承认半页证据，但林夕看清一件事：死亡名额比死者本人更早存在。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 14,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        }
+      ],
+      "description": "配额账房员被迫现身。TA说旧日出医院不会杀人，只会领取已经分配好的纸额。"
+    },
+    {
+      "minValue": 15,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_supply_quota_authority_seen"
+        }
+      ],
+      "description": "总账翻到下一批供货：B-07/0 的床号已经被提前扣了一次死亡纸额。"
+    }
+  ]
+}

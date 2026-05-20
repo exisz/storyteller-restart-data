@@ -2732,5 +2732,561 @@
         "description": "广播塔和纸厂同时沉默一秒。工头的坐标指向下一处核心：给死亡分配纸额的账房。"
       }
     ]
+  },
+  {
+    "id": "restart-rite-26-supply-ledger-account-house",
+    "name": "RESTART 26：供纸账房",
+    "description": "工头坐标把林夕带到纸厂地下的账房。这里没有印刷机，只有一排会自行翻页的总账：每一张死亡证明纸在送回医院前，都要先从账本里扣掉一个尚未出现的死者名额。",
+    "triggers": [
+      "restart-foreman-supply-ledger-coordinate-decoded"
+    ],
+    "consequences": [
+      "restart-event-27-death-quota-bell",
+      "restart-supply-ledger-account-opened"
+    ],
+    "conditions": [
+      "flag.restart_foreman_supply_ledger_coordinate_decoded:1",
+      "flag.restart_supply_ledger_pursued_from_testimony:1",
+      "have.card:card-restart-worker-testimony",
+      "have.card:card-restart-uncut-certificate-paper",
+      "have.card:card-restart-watermark-mold"
+    ],
+    "effects": [
+      "set.flag:restart_supply_ledger_account_opened",
+      "gain.card:card-restart-supply-ledger",
+      "gain.card:card-restart-quota-clerk"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "翻开账本的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "证明供纸链的证据",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "把纸厂工人证词登记成账房证据，让每一笔纸额都必须附上证人姓名。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 9
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_worker_testimony_entered_as_account_evidence"
+          }
+        ]
+      },
+      {
+        "text": "把死亡证明水印模藏进账本书脊，让下一次扣数自动压出伪造痕迹。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 9
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_watermark_mold_hidden_in_supply_ledger"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "账本只承认半页证据，但林夕看清一件事：死亡名额比死者本人更早存在。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "配额账房员被迫现身。TA说旧日出医院不会杀人，只会领取已经分配好的纸额。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_supply_quota_authority_seen"
+          }
+        ],
+        "description": "总账翻到下一批供货：B-07/0 的床号已经被提前扣了一次死亡纸额。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-27-quota-clerk-confrontation",
+    "name": "RESTART 27：配额账房员对账",
+    "description": "铜铃停下后，配额账房员把一张欠条推到林夕面前：旧日出医院少收一名死者，必须由纸厂、广播塔或活人档案补齐。第七次日出说，这不是审判，是库存盘点。",
+    "triggers": [
+      "restart-supply-ledger-account-opened",
+      "restart-death-quota-bell-paid"
+    ],
+    "consequences": [
+      "restart-quota-clerk-confronted"
+    ],
+    "conditions": [
+      "flag.restart_supply_ledger_account_opened:1",
+      "flag.restart_death_quota_bell_paid:1",
+      "have.card:card-restart-supply-ledger",
+      "have.card:card-restart-quota-clerk",
+      "have.card:card-restart-worker-testimony"
+    ],
+    "effects": [
+      "set.flag:restart_quota_clerk_confronted",
+      "gain.card:card-restart-death-quota-note"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "被迫对账的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "压住账页的证据",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "冻结下一批旧日出医院死亡纸额，让医院拿不到新的合法死者。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 9
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_hospital_death_quota_frozen"
+          }
+        ]
+      },
+      {
+        "text": "把欠条转到一批空白纸上，让账房以为死者稍后才会补名。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 9
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_death_quota_redirected_to_blank_lot"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "账房员签下半张欠条，警告林夕：欠下的死者会在回院时补收。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "死亡配额欠条落到林夕手中。账房第一次承认：活人也能让系统欠账。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_quota_debt_usable_against_hospital"
+          }
+        ],
+        "description": "欠条背面显出一条反向供货规程：如果纸额无法写死人名，就必须退回医院复查。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-28-living-paper-lot",
+    "name": "RESTART 28：活纸批次",
+    "description": "死亡配额欠条被压进未裁切证明纸后，一整架空白纸开始拒绝显出死因。活人档案的边码像潮水一样沿着纸纤维蔓延，账房员第一次后退：这批纸仍属于死亡证明，却暂时无法写死任何人。",
+    "triggers": [
+      "restart-quota-clerk-confronted"
+    ],
+    "consequences": [
+      "restart-event-29-return-shipment-alarm",
+      "restart-living-paper-lot-bound"
+    ],
+    "conditions": [
+      "flag.restart_quota_clerk_confronted:1",
+      "have.card:card-restart-death-quota-note",
+      "have.card:card-restart-uncut-certificate-paper",
+      "have.card:card-restart-living-file"
+    ],
+    "effects": [
+      "set.flag:restart_living_paper_lot_created",
+      "gain.card:card-restart-living-paper-lot"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "绑定活纸的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "污染纸批的档案",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "把活纸批次绑定到第七次日出的活证人路线，让她的名字成为整批纸的保护线。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 10
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_living_paper_bound_to_seventh_witness"
+          }
+        ]
+      },
+      {
+        "text": "把林夕的替身死亡证明夹进纸批，让系统以为这批纸已被一具假尸体占用。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 10
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_living_paper_bound_to_linxi_decoy"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "活纸只污染了最上面几张。它们能救人，却救不了整批回院证明。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "纸架上的死亡水印全部反白。第七次日出说：这不是证据，这是能被运回医院的错误。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_living_paper_lot_stabilized"
+          }
+        ],
+        "description": "整批纸同时显出一句批注：待确认活人状态。账房无法销毁它，只能按规程送回旧日出医院复查。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-29-hospital-return-invoice",
+    "name": "RESTART 29：回院供货单",
+    "description": "装车警报被压下后，账房只能按规程给活纸批次开具回院供货单。单据抬头写着旧日出医院，收货人却空着；如果林夕填错名字，这批纸会在医院门口重新变回死亡证明。",
+    "triggers": [
+      "restart-living-paper-lot-bound",
+      "restart-return-shipment-alarm-answered"
+    ],
+    "consequences": [
+      "restart-hospital-return-invoice-filed"
+    ],
+    "conditions": [
+      "flag.restart_living_paper_lot_created:1",
+      "flag.restart_return_shipment_alarm_answered:1",
+      "have.card:card-restart-living-paper-lot",
+      "have.card:card-restart-supply-ledger",
+      "have.card:card-restart-quota-clerk"
+    ],
+    "effects": [
+      "set.flag:restart_hospital_return_invoice_filed",
+      "gain.card:card-restart-return-invoice"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "填写收货人的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "需要回院的纸批",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "把收货人填成第七次日出，以活证人名义公开指控医院提前领取死亡纸额。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 10
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_return_invoice_public_indictment_route"
+          }
+        ]
+      },
+      {
+        "text": "把收货人填成林夕的替身尸体，让活纸伪装成正常死亡证明悄悄回院。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 10
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_return_invoice_covert_hospital_route"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "供货单盖章不全。医院会收下这批纸，但账房仍保留一次改口权。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "回院供货单生效。活纸批次装上夜班车，目的地变回一开始吞掉第七次日出的医院。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_return_invoice_can_reverse_hospital_records"
+          }
+        ],
+        "description": "供货单底部浮出一枚反向医院章：送回的不是纸，是让旧日出医院承认自己预支死亡的账。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-30-sealed-return-tram",
+    "name": "RESTART 30：封签回院车",
+    "description": "夜班车重新挂上旧日出医院的封签，车厢里不再是空白死亡证明，而是一批会追问活人资格的纸。塔内播音员不敢再报站；第七次日出站在车门边，问林夕是要带着公开账本回医院，还是把自己藏进供货箱里。",
+    "triggers": [
+      "restart-hospital-return-invoice-filed"
+    ],
+    "consequences": [
+      "restart-sealed-return-tram-departed"
+    ],
+    "conditions": [
+      "flag.restart_hospital_return_invoice_filed:1",
+      "have.card:card-restart-return-invoice",
+      "have.card:card-restart-living-paper-lot",
+      "have.card:card-restart-night-shift-ticket",
+      "have.card:card-restart-counterfeit-city-map"
+    ],
+    "effects": [
+      "set.flag:restart_sealed_return_tram_departed"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "押送回院车的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "回院凭证",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "押着供纸账本公开回院，让旧日出医院在门口就面对供纸链证据。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 10
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_return_tram_public_account_route"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_hospital_supply_reversal_route"
+          }
+        ]
+      },
+      {
+        "text": "把林夕和第七次日出藏进活纸箱底，用供货封签骗过医院收货口。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 10
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_return_tram_covert_box_route"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_hidden_living_paper_route"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "回院车开动，但封签被广播塔咬住一角。下一站会先验货，再验人。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "夜班车驶回医院路线。第七次日出第一次不是逃离旧日出医院，而是带着能改写死亡证明的纸回去。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_hospital_return_route_stabilized"
+          }
+        ],
+        "description": "车窗外重新出现旧日出医院的地下月台。不同的是，这一次医院等来的不是病人，而是自己的供纸账。"
+      }
+    ]
   }
 ]

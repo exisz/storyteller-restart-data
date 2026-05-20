@@ -1,0 +1,110 @@
+{
+  "id": "restart-rite-27-quota-clerk-confrontation",
+  "name": "RESTART 27：配额账房员对账",
+  "description": "铜铃停下后，配额账房员把一张欠条推到林夕面前：旧日出医院少收一名死者，必须由纸厂、广播塔或活人档案补齐。第七次日出说，这不是审判，是库存盘点。",
+  "triggers": [
+    "restart-supply-ledger-account-opened",
+    "restart-death-quota-bell-paid"
+  ],
+  "consequences": [
+    "restart-quota-clerk-confronted"
+  ],
+  "conditions": [
+    "flag.restart_supply_ledger_account_opened:1",
+    "flag.restart_death_quota_bell_paid:1",
+    "have.card:card-restart-supply-ledger",
+    "have.card:card-restart-quota-clerk",
+    "have.card:card-restart-worker-testimony"
+  ],
+  "effects": [
+    "set.flag:restart_quota_clerk_confronted",
+    "gain.card:card-restart-death-quota-note"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "被迫对账的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "压住账页的证据",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "冻结下一批旧日出医院死亡纸额，让医院拿不到新的合法死者。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 9
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_next_hospital_death_quota_frozen"
+        }
+      ]
+    },
+    {
+      "text": "把欠条转到一批空白纸上，让账房以为死者稍后才会补名。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 9
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_death_quota_redirected_to_blank_lot"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "账房员签下半张欠条，警告林夕：欠下的死者会在回院时补收。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 14,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        }
+      ],
+      "description": "死亡配额欠条落到林夕手中。账房第一次承认：活人也能让系统欠账。"
+    },
+    {
+      "minValue": 15,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_quota_debt_usable_against_hospital"
+        }
+      ],
+      "description": "欠条背面显出一条反向供货规程：如果纸额无法写死人名，就必须退回医院复查。"
+    }
+  ]
+}

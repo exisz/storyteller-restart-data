@@ -126,6 +126,31 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-26-supply-ledger-account-house",
+      "name": "RESTART 26：供纸账房",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-27-quota-clerk-confrontation",
+      "name": "RESTART 27：配额账房员对账",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-28-living-paper-lot",
+      "name": "RESTART 28：活纸批次",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-29-hospital-return-invoice",
+      "name": "RESTART 29：回院供货单",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-30-sealed-return-tram",
+      "name": "RESTART 30：封签回院车",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -188,6 +213,16 @@
     {
       "id": "restart-event-22-night-shift-paper-tax",
       "name": "第二十二回合事件：夜班纸税",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-27-death-quota-bell",
+      "name": "第二十七回合事件：死亡配额铃",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-29-return-shipment-alarm",
+      "name": "第二十九回合事件：回院装车警报",
       "type": "event"
     }
   ],
@@ -255,6 +290,14 @@
     {
       "source": "restart-rite-18-living-file-recheck-hearing",
       "target": "restart-event-19-counterfeit-city-blackout"
+    },
+    {
+      "source": "restart-rite-26-supply-ledger-account-house",
+      "target": "restart-event-27-death-quota-bell"
+    },
+    {
+      "source": "restart-rite-28-living-paper-lot",
+      "target": "restart-event-29-return-shipment-alarm"
     },
     {
       "source": "restart-event-02-broadcast",

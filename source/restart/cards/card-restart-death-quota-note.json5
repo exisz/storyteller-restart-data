@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-death-quota-note",
+  "name": "死亡配额欠条",
+  "description": "账房员被迫签下的欠条：旧日出医院下一批死亡证明少一个合法死者。它既是证据，也是一张会追着活人补账的危险凭证。",
+  "type": "item",
+  "coinValue": 8,
+  "effects": [],
+  "metaData": {
+    "tags": ["item", "debt", "quota", "paperwork", "restart"],
+    "gameCardId": "card-restart-death-quota-note"
+  }
+}

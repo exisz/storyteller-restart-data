@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-quota-clerk",
+  "name": "配额账房员",
+  "description": "没有脸的账房员，负责把纸厂、广播塔和旧日出医院之间的死亡纸额调平。TA不判断谁该死，只判断哪一批纸还缺一个死者。",
+  "type": "person",
+  "coinValue": 6,
+  "effects": [],
+  "metaData": {
+    "tags": ["person", "clerk", "account-house", "restart"],
+    "gameCardId": "card-restart-quota-clerk"
+  }
+}

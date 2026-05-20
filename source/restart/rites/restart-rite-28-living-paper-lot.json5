@@ -1,0 +1,109 @@
+{
+  "id": "restart-rite-28-living-paper-lot",
+  "name": "RESTART 28：活纸批次",
+  "description": "死亡配额欠条被压进未裁切证明纸后，一整架空白纸开始拒绝显出死因。活人档案的边码像潮水一样沿着纸纤维蔓延，账房员第一次后退：这批纸仍属于死亡证明，却暂时无法写死任何人。",
+  "triggers": [
+    "restart-quota-clerk-confronted"
+  ],
+  "consequences": [
+    "restart-event-29-return-shipment-alarm",
+    "restart-living-paper-lot-bound"
+  ],
+  "conditions": [
+    "flag.restart_quota_clerk_confronted:1",
+    "have.card:card-restart-death-quota-note",
+    "have.card:card-restart-uncut-certificate-paper",
+    "have.card:card-restart-living-file"
+  ],
+  "effects": [
+    "set.flag:restart_living_paper_lot_created",
+    "gain.card:card-restart-living-paper-lot"
+  ],
+  "slots": [
+    {
+      "id": "slot-0",
+      "name": "绑定活纸的人",
+      "cardType": "person"
+    },
+    {
+      "id": "slot-1",
+      "name": "污染纸批的档案",
+      "cardType": "item"
+    }
+  ],
+  "options": [
+    {
+      "text": "把活纸批次绑定到第七次日出的活证人路线，让她的名字成为整批纸的保护线。",
+      "effects": [
+        {
+          "type": "gain.influence",
+          "amount": 10
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_living_paper_bound_to_seventh_witness"
+        }
+      ]
+    },
+    {
+      "text": "把林夕的替身死亡证明夹进纸批，让系统以为这批纸已被一具假尸体占用。",
+      "effects": [
+        {
+          "type": "gain.favor",
+          "amount": 10
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_living_paper_bound_to_linxi_decoy"
+        }
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {
+      "minValue": 0,
+      "maxValue": 8,
+      "rewards": [
+        {
+          "type": "gain.influence",
+          "amount": 2
+        }
+      ],
+      "description": "活纸只污染了最上面几张。它们能救人，却救不了整批回院证明。"
+    },
+    {
+      "minValue": 9,
+      "maxValue": 14,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 4
+        },
+        {
+          "type": "gain.influence",
+          "amount": 4
+        }
+      ],
+      "description": "纸架上的死亡水印全部反白。第七次日出说：这不是证据，这是能被运回医院的错误。"
+    },
+    {
+      "minValue": 15,
+      "maxValue": 999,
+      "rewards": [
+        {
+          "type": "gain.favor",
+          "amount": 6
+        },
+        {
+          "type": "gain.influence",
+          "amount": 6
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_living_paper_lot_stabilized"
+        }
+      ],
+      "description": "整批纸同时显出一句批注：待确认活人状态。账房无法销毁它，只能按规程送回旧日出医院复查。"
+    }
+  ]
+}

@@ -127,3 +127,28 @@ Branch memory added for later checks:
 This packet advances the Paperwork, Broadcast/radio, Seventh Sunrise, and Linxi identity threads by shifting from individual false documents to the industrial source of death-proof authority.
 
 Revision: `restart-rite-24-worker-testimony-caravan` and `restart-rite-25-foreman-supply-ledger-coordinate` now consume `纸厂工人证词` on two branch-specific routes, making the protected-worker vs foreman-bargain choice mechanically visible beyond rite 23.
+
+## Turn 26–30 packet: Supply-ledger account-house arc
+
+The paper-factory coordinate now opens a new administrative layer instead of ending on a named destination:
+
+- `restart-rite-26-supply-ledger-account-house` turns worker testimony, uncut paper, and the stolen watermark mold into a direct confrontation with the ledger that allocates death-certificate paper quotas. It grants `供纸账本` and `配额账房员`.
+- `restart-event-27-death-quota-bell` makes the cost immediate: old Sunrise Hospital is short one corpse, so the Player must protect worker names or mark the outgoing paper batch as not-yet-dead.
+- `restart-rite-27-quota-clerk-confrontation` converts that pressure into a concrete `死亡配额欠条`, forcing quota-freeze vs quota-redirection pressure.
+- `restart-rite-28-living-paper-lot` uses the living file and uncut proof paper to create `活纸批次`, a batch of death-certificate paper that can be shipped back to hospital but resists becoming a death record.
+- `restart-event-29-return-shipment-alarm` charges the return route with either operator/broadcast debt or audit/recheck paperwork.
+- `restart-rite-29-hospital-return-invoice` grants `回院供货单` and asks whether the return is public indictment or covert infiltration.
+- `restart-rite-30-sealed-return-tram` stabilizes the next-region route back toward old Sunrise Hospital with controlled supply-chain evidence.
+
+Branch memory added for later checks:
+
+- `restart_worker_testimony_entered_as_account_evidence` vs `restart_watermark_mold_hidden_in_supply_ledger`
+- `restart_quota_bell_protected_worker_names` vs `restart_quota_bell_marked_batch_alive`
+- `restart_next_hospital_death_quota_frozen` vs `restart_death_quota_redirected_to_blank_lot`
+- `restart_living_paper_bound_to_seventh_witness` vs `restart_living_paper_bound_to_linxi_decoy`
+- `restart_living_lot_hidden_by_operator_voice` vs `restart_living_lot_hidden_by_recheck_seal`
+- `restart_return_invoice_public_indictment_route` vs `restart_return_invoice_covert_hospital_route`
+- `restart_return_tram_public_account_route` vs `restart_return_tram_covert_box_route`
+- `restart_next_region_hospital_supply_reversal_route` vs `restart_next_region_hidden_living_paper_route`
+
+This packet advances the Paperwork, Broadcast/radio, Seventh Sunrise, and Linxi identity threads by making the death-paper supply chain reversible: the Player can now return to old Sunrise Hospital not as a patient, but as the carrier of paper that can challenge the hospital's authority to pre-write death.

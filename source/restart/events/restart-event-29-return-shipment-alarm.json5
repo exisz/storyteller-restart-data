@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-29-return-shipment-alarm",
+  "name": "第二十九回合事件：回院装车警报",
+  "description": "活纸批次离开账架时，纸厂、广播塔和旧日出医院同时收到装车警报。三方都要求核验这批纸是否仍能写死者姓名；塔内播音员的声音从收音机里发抖，说如果现在不伪装成正常供货，整批活纸会在门口被烧掉。",
+  "trigger": {
+    "turn": 29
+  },
+  "consequences": [
+    "restart-return-shipment-alarm-answered"
+  ],
+  "options": [
+    {
+      "text": "让收音机用塔内播音员的声音代报装车号，欠下一笔新的广播债。",
+      "effects": [
+        "gain.favor:8",
+        "set.flag:restart_return_shipment_alarm_answered",
+        "set.flag:restart_living_lot_hidden_by_operator_voice"
+      ]
+    },
+    {
+      "text": "用假出口审计章和复查反签针重盖批次封条，声明它只是待复查废纸。",
+      "effects": [
+        "gain.influence:8",
+        "set.flag:restart_return_shipment_alarm_answered",
+        "set.flag:restart_living_lot_hidden_by_recheck_seal"
+      ]
+    }
+  ]
+}

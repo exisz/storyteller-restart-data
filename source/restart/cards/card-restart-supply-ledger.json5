@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-supply-ledger",
+  "name": "供纸账本",
+  "description": "账房用来分配死亡证明纸额的总账。每一行都先扣掉死亡名额，才等待医院补上姓名与死因。",
+  "type": "item",
+  "coinValue": 8,
+  "effects": [],
+  "metaData": {
+    "tags": ["item", "ledger", "paperwork", "supply-chain", "restart"],
+    "gameCardId": "card-restart-supply-ledger"
+  }
+}
