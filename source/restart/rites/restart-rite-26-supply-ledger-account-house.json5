@@ -14,7 +14,10 @@
     "flag.restart_supply_ledger_pursued_from_testimony:1",
     "have.card:card-restart-worker-testimony",
     "have.card:card-restart-uncut-certificate-paper",
-    "have.card:card-restart-watermark-mold"
+    "have.card:card-restart-watermark-mold",
+    "flag.restart_linxi_erased_from_broadcast_list:1",
+    "flag.restart_seventh_sun_rescued_as_witness:1",
+    "flag.restart_linxi_registered_as_dead_resident:1"
   ],
   "effects": [
     "set.flag:restart_supply_ledger_account_opened",

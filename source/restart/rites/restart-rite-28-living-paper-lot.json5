@@ -13,7 +13,10 @@
     "flag.restart_quota_clerk_confronted:1",
     "have.card:card-restart-death-quota-note",
     "have.card:card-restart-uncut-certificate-paper",
-    "have.card:card-restart-living-file"
+    "have.card:card-restart-living-file",
+    "flag.restart_operator_exposed_as_living_voice:1",
+    "flag.restart_seventh_sun_registered_for_night_exit:1",
+    "flag.restart_next_region_alive_witness_route:1"
   ],
   "effects": [
     "set.flag:restart_living_paper_lot_created",

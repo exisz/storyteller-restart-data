@@ -14,7 +14,10 @@
     "flag.restart_return_shipment_alarm_answered:1",
     "have.card:card-restart-living-paper-lot",
     "have.card:card-restart-supply-ledger",
-    "have.card:card-restart-quota-clerk"
+    "have.card:card-restart-quota-clerk",
+    "flag.restart_paper_factory_tram_seen:1",
+    "flag.restart_paper_factory_witness_route:1",
+    "flag.restart_stole_death_watermark_mold:1"
   ],
   "effects": [
     "set.flag:restart_hospital_return_invoice_filed",

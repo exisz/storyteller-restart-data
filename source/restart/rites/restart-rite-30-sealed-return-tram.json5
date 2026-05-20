@@ -13,7 +13,13 @@
     "have.card:card-restart-return-invoice",
     "have.card:card-restart-living-paper-lot",
     "have.card:card-restart-night-shift-ticket",
-    "have.card:card-restart-counterfeit-city-map"
+    "have.card:card-restart-counterfeit-city-map",
+    "flag.restart_worker_testimony_caravan_ready:1",
+    "flag.restart_followed_seventh_knock:1",
+    "flag.restart_baited_tower_operator:1",
+    "flag.restart_protected_seventh_sun_living_status:1",
+    "flag.restart_night_exit_route_shielded:1",
+    "flag.restart_paper_route_shielded_by_audit_stamp:1"
   ],
   "effects": [
     "set.flag:restart_sealed_return_tram_departed"

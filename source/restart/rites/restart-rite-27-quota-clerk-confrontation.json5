@@ -14,7 +14,10 @@
     "flag.restart_death_quota_bell_paid:1",
     "have.card:card-restart-supply-ledger",
     "have.card:card-restart-quota-clerk",
-    "have.card:card-restart-worker-testimony"
+    "have.card:card-restart-worker-testimony",
+    "flag.restart_exposed_radio_operator:1",
+    "flag.restart_living_file_given_to_seventh_sun:1",
+    "flag.restart_seventh_sun_public_living_witness:1"
   ],
   "effects": [
     "set.flag:restart_quota_clerk_confronted",
