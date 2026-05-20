@@ -1,5 +1,5 @@
 {
-  "turn": 15,
+  "turn": 21,
   "rites": [
     {
       "id": "restart-rite-01-wake-at-platform",
@@ -16,8 +16,14 @@
         "have.card:card-restart-linxi"
       ],
       "effects": [
-        "gain.influence:1",
-        "set.flag:restart_woke_at_platform"
+        {
+          "type": "gain.influence",
+          "amount": 1
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_woke_at_platform"
+        }
       ],
       "slots": [
         {
@@ -114,8 +120,14 @@
         "have.card:card-restart-ticket"
       ],
       "effects": [
-        "set.flag:restart_train_seen",
-        "gain.card:card-restart-yue"
+        {
+          "type": "set.flag",
+          "flag": "restart_train_seen"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-yue"
+        }
       ],
       "slots": [
         {
@@ -215,7 +227,10 @@
         "have.card:card-restart-yue"
       ],
       "effects": [
-        "set.flag:restart_black_box_opened"
+        {
+          "type": "set.flag",
+          "flag": "restart_black_box_opened"
+        }
       ],
       "slots": [
         {
@@ -316,7 +331,10 @@
         "have.card:card-restart-yue"
       ],
       "effects": [
-        "set.flag:restart_seventh_sun_named"
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_named"
+        }
       ],
       "slots": [
         {
@@ -423,7 +441,10 @@
         "have.card:card-restart-radio"
       ],
       "effects": [
-        "set.flag:restart_old_hospital_entered"
+        {
+          "type": "set.flag",
+          "flag": "restart_old_hospital_entered"
+        }
       ],
       "slots": [
         {
@@ -530,7 +551,10 @@
         "have.card:card-restart-ticket"
       ],
       "effects": [
-        "set.flag:restart_ward_seven_opened"
+        {
+          "type": "set.flag",
+          "flag": "restart_ward_seven_opened"
+        }
       ],
       "slots": [
         {
@@ -637,7 +661,10 @@
         "have.card:card-restart-yue"
       ],
       "effects": [
-        "set.flag:restart_death_certificate_cabinet_opened"
+        {
+          "type": "set.flag",
+          "flag": "restart_death_certificate_cabinet_opened"
+        }
       ],
       "slots": [
         {
@@ -743,7 +770,10 @@
         "have.card:card-restart-radio"
       ],
       "effects": [
-        "set.flag:restart_false_discharge_route_opened"
+        {
+          "type": "set.flag",
+          "flag": "restart_false_discharge_route_opened"
+        }
       ],
       "slots": [
         {
@@ -850,7 +880,10 @@
         "have.card:card-restart-ticket"
       ],
       "effects": [
-        "set.flag:restart_ambulance_platform_reached"
+        {
+          "type": "set.flag",
+          "flag": "restart_ambulance_platform_reached"
+        }
       ],
       "slots": [
         {
@@ -964,9 +997,18 @@
         "flag.restart_trusted_broadcast:1"
       ],
       "effects": [
-        "set.flag:restart_tunnel_transfer_registered",
-        "gain.card:card-restart-eighth-wristband",
-        "gain.card:card-restart-memory-ampoule"
+        {
+          "type": "set.flag",
+          "flag": "restart_tunnel_transfer_registered"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-eighth-wristband"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-memory-ampoule"
+        }
       ],
       "slots": [
         {
@@ -1075,9 +1117,18 @@
         "flag.restart_saved_linxi_memory_route:1"
       ],
       "effects": [
-        "set.flag:restart_signature_room_entered",
-        "gain.card:card-restart-real-bed-number",
-        "gain.card:card-restart-blank-death-certificate"
+        {
+          "type": "set.flag",
+          "flag": "restart_signature_room_entered"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-real-bed-number"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-blank-death-certificate"
+        }
       ],
       "slots": [
         {
@@ -1186,7 +1237,10 @@
         "flag.restart_promised_rescue_seventh_sun:1"
       ],
       "effects": [
-        "set.flag:restart_blank_certificate_filled"
+        {
+          "type": "set.flag",
+          "flag": "restart_blank_certificate_filled"
+        }
       ],
       "slots": [
         {
@@ -1301,8 +1355,14 @@
         "have.card:card-restart-ticket"
       ],
       "effects": [
-        "set.flag:restart_false_exit_audited",
-        "set.flag:restart_act_two_threshold_unlocked"
+        {
+          "type": "set.flag",
+          "flag": "restart_false_exit_audited"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_act_two_threshold_unlocked"
+        }
       ],
       "slots": [
         {
@@ -1411,10 +1471,22 @@
         "have.card:card-restart-radio"
       ],
       "effects": [
-        "set.flag:restart_act_two_threshold_entered",
-        "set.flag:restart_seventh_sun_witness_stabilized",
-        "gain.card:card-restart-seventh-sun",
-        "gain.card:card-restart-audit-stamp"
+        {
+          "type": "set.flag",
+          "flag": "restart_act_two_threshold_entered"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_witness_stabilized"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-seventh-sun"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-audit-stamp"
+        }
       ],
       "slots": [
         {
@@ -1532,9 +1604,18 @@
         "have.card:card-restart-ticket"
       ],
       "effects": [
-        "set.flag:restart_counterfeit_city_registry_opened",
-        "set.flag:restart_counterfeit_city_map_stabilized",
-        "gain.card:card-restart-counterfeit-city-map"
+        {
+          "type": "set.flag",
+          "flag": "restart_counterfeit_city_registry_opened"
+        },
+        {
+          "type": "set.flag",
+          "flag": "restart_counterfeit_city_map_stabilized"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-counterfeit-city-map"
+        }
       ],
       "slots": [
         {
@@ -1645,7 +1726,10 @@
         "have.card:card-restart-audit-stamp"
       ],
       "effects": [
-        "set.flag:restart_broadcast_tower_entered"
+        {
+          "type": "set.flag",
+          "flag": "restart_broadcast_tower_entered"
+        }
       ],
       "slots": [
         {
@@ -1771,8 +1855,14 @@
         "have.card:card-restart-counterfeit-city-map"
       ],
       "effects": [
-        "set.flag:restart_first_living_file_reached",
-        "gain.card:card-restart-living-file"
+        {
+          "type": "set.flag",
+          "flag": "restart_first_living_file_reached"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-living-file"
+        }
       ],
       "slots": [
         {
@@ -1886,9 +1976,18 @@
         "have.card:card-restart-audit-stamp"
       ],
       "effects": [
-        "set.flag:restart_living_file_recheck_heard",
-        "gain.card:card-restart-recheck-pin",
-        "gain.card:card-restart-operator-coordinate"
+        {
+          "type": "set.flag",
+          "flag": "restart_living_file_recheck_heard"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-recheck-pin"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-operator-coordinate"
+        }
       ],
       "slots": [
         {
@@ -1997,8 +2096,14 @@
         "have.card:card-restart-recheck-pin"
       ],
       "effects": [
-        "set.flag:restart_operator_room_entered",
-        "gain.card:card-restart-tower-operator"
+        {
+          "type": "set.flag",
+          "flag": "restart_operator_room_entered"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-tower-operator"
+        }
       ],
       "slots": [
         {
@@ -2106,7 +2211,10 @@
         "have.card:card-restart-seventh-sun"
       ],
       "effects": [
-        "set.flag:restart_night_exit_ledger_opened"
+        {
+          "type": "set.flag",
+          "flag": "restart_night_exit_ledger_opened"
+        }
       ],
       "slots": [
         {
@@ -2203,15 +2311,568 @@
           "description": "夜间出口账本合上时，广播塔第一次没有播报死亡。它播报了一句迟到的站名：纸厂。"
         }
       ]
+    },
+    {
+      "id": "restart-rite-21-paper-factory-tram",
+      "name": "RESTART 21：纸厂夜班车",
+      "description": "夜间出口账本合上后，伪城边缘开来一辆没有司机的夜班车。车厢里堆满空白纸箱，箱封写着旧日出医院；第七次日出说，死亡证明不是在医院诞生，而是在下一站提前备好。",
+      "triggers": [
+        "restart-night-exit-ledger-filed"
+      ],
+      "consequences": [
+        "restart-paper-factory-tram-boarded"
+      ],
+      "conditions": [
+        "flag.restart_night_exit_ledger_opened:1",
+        "have.card:card-restart-living-file",
+        "have.card:card-restart-counterfeit-city-map",
+        "have.card:card-restart-seventh-sun"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_paper_factory_tram_seen"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-night-shift-ticket"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "登上夜班车的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "证明夜间出口的档案",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "让第七次日出坐在第一排，以受保护活证人的身份进入纸厂。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_paper_factory_witness_route"
+            }
+          ]
+        },
+        {
+          "text": "让塔内播音员用夜班广播代报车次，欠下一段通往纸厂的声音债。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_paper_factory_operator_debt_route"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "夜班车只认出半张票。纸箱里的空白纸开始渗出林夕的姓名。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "车厢广播改口称你们为夜班稽核。纸厂大门在远处亮起一枚准死水印。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_paper_factory_gate_precleared"
+            }
+          ],
+          "description": "夜班票被打出两个孔：一个属于活证人，一个属于欠债播音员。纸厂暂时分不清谁该先被登记。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-22-watermark-mold-room",
+      "name": "RESTART 22：水印模具室",
+      "description": "纸税缴清后，夜班车停进水印模具室。墙上挂满铜模，每一枚都能把“准许死亡”的隐形印压进空白纸里；越医生的旧章也在其中，像是一把曾经被借走又还回来的钥匙。",
+      "triggers": [
+        "restart-paper-tax-paid"
+      ],
+      "consequences": [
+        "restart-watermark-mold-room-opened"
+      ],
+      "conditions": [
+        "flag.restart_paper_tax_paid:1",
+        "have.card:card-restart-night-shift-ticket",
+        "have.card:card-restart-audit-stamp",
+        "have.card:card-restart-living-file"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_watermark_mold_room_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-watermark-mold"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-uncut-certificate-paper"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "进入模具室的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "缴清纸税的凭证",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "偷走死亡证明水印模，让广播塔以后不能再伪造同一批准死纸。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_stole_death_watermark_mold"
+            }
+          ]
+        },
+        {
+          "text": "把活人档案的边码压进未裁切证明纸，污染这一批死亡证明。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_contaminated_certificate_paper_batch"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "铜模烫伤林夕的指尖。你知道它能作证，但纸厂已经发现少了一枚模具。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "未裁切证明纸短暂拒绝显字。第七次日出第一次看见一批死亡证明同时变成空白。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_watermark_authority_broken"
+            }
+          ],
+          "description": "水印室的铜模一起反印出一句话：死亡证明的源头不是医院，是供纸账本。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-23-foreman-witness-ledger",
+      "name": "RESTART 23：纸厂工头证词簿",
+      "description": "水印模具室后方坐着一名没有脸的工头。TA管理所有夜班工人的口供纸带，也知道哪一批证明纸会被送回旧日出医院；只要林夕能让证词离厂，死亡证明的供应链就会第一次拥有证人。",
+      "triggers": [
+        "restart-watermark-mold-room-opened"
+      ],
+      "consequences": [
+        "restart-paper-factory-witness-filed"
+      ],
+      "conditions": [
+        "flag.restart_watermark_mold_room_opened:1",
+        "have.card:card-restart-watermark-mold",
+        "have.card:card-restart-uncut-certificate-paper",
+        "have.card:card-restart-seventh-sun"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_foreman_witness_ledger_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-worker-testimony"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "要求证词的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "指向供纸源头的证物",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "保护夜班工人的证词纸带，让他们证明每一份死亡都曾被预印。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 9
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_protected_paper_workers_testimony"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_supply_chain_witness_route"
+            }
+          ]
+        },
+        {
+          "text": "逼工头交出供纸账本坐标，允许TA把一批污染证明纸送回医院。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 9
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_bargained_with_paper_foreman"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_supply_ledger_route"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "工头只交出半卷证词纸带。上面的名字还在跳动，像是随时会被广播裁掉。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "纸厂工人证词离开车间。夜班车第一次不是运送死亡证明，而是运送能推翻它们的人。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_paper_supply_chain_exposed"
+            }
+          ],
+          "description": "供纸账本坐标在证词纸带背面显形。下一站不是医院，而是决定谁有资格被印成死者的账房。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-24-worker-testimony-caravan",
+      "name": "RESTART 24：证词纸带车队",
+      "description": "被保护的夜班工人把证词纸带藏进送纸车底。第七次日出必须决定这些证词先交给下一站账房，还是先广播给仍在伪城里躲藏的活人。",
+      "triggers": [
+        "restart-paper-factory-witness-filed"
+      ],
+      "consequences": [
+        "restart-worker-testimony-caravan-ready"
+      ],
+      "conditions": [
+        "flag.restart_foreman_witness_ledger_opened:1",
+        "flag.restart_protected_paper_workers_testimony:1",
+        "flag.restart_next_region_supply_chain_witness_route:1",
+        "have.card:card-restart-worker-testimony",
+        "have.card:card-restart-watermark-mold"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_worker_testimony_caravan_ready"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "护送证词的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "离厂证词",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "先把证词送往账房，让供纸链的下一环无法否认预印死亡。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 9
+            }
+          ]
+        },
+        {
+          "text": "先用广播塔余频公布证词，提醒伪城里仍活着的人避开新纸批次。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 9
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "车队只驶出半条街，证词纸带被水印烫出黑边。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "证词纸带在夜色里连续复写，越来越多工人愿意说出供纸账本的位置。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "送纸车变成证人车队。下一站账房必须面对一整批没有被写死的活人。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-25-foreman-supply-ledger-coordinate",
+      "name": "RESTART 25：工头供纸账本坐标",
+      "description": "工头交出的坐标不是地址，而是一串纸浆配比。塔内播音员说，只要按这串比例反向调频，就能找到决定死亡证明供给的账房。代价是那批污染证明纸会先抵达医院。",
+      "triggers": [
+        "restart-paper-factory-witness-filed"
+      ],
+      "consequences": [
+        "restart-foreman-supply-ledger-coordinate-decoded"
+      ],
+      "conditions": [
+        "flag.restart_foreman_witness_ledger_opened:1",
+        "flag.restart_bargained_with_paper_foreman:1",
+        "flag.restart_next_region_supply_ledger_route:1",
+        "have.card:card-restart-worker-testimony",
+        "have.card:card-restart-uncut-certificate-paper"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_foreman_supply_ledger_coordinate_decoded"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "解码坐标的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "污染批次样纸",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "立刻追踪账房坐标，抢在污染证明纸送回医院前接管供纸账本。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 9
+            }
+          ]
+        },
+        {
+          "text": "放任污染证明纸先抵达医院，让旧日出医院的死亡证明集体失效。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 9
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "坐标解出半截。你知道账房存在，却还不知道它属于医院还是广播塔。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "未裁切证明纸显出账房门牌：所有死亡证明都从同一本供纸账里扣数。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "广播塔和纸厂同时沉默一秒。工头的坐标指向下一处核心：给死亡分配纸额的账房。"
+        }
+      ]
     }
   ],
   "cards": [
     {
       "id": "card-restart-audit-stamp",
-      "type": "item",
       "name": "假出口审计章",
       "description": "检票机盖下的临时通行章。它证明本轮的死亡证明足以骗开一扇门，也证明持章者的身份会被下一座城市复查。",
+      "type": "item",
       "coinValue": 6,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2220,15 +2881,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-audit-stamp"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-black-box",
-      "type": "item",
       "name": "黑匣子录音",
       "description": "来自坠毁列车的录音。里面有林夕的声音：如果你听见这段话，说明我们又失败了。",
+      "type": "item",
       "coinValue": 7,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2236,15 +2897,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-black-box"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-blank-death-certificate",
-      "type": "item",
       "name": "空白死亡证明",
       "description": "签名栏还空着的死亡证明。它可以救出第七次日出，也可以把某个人正式留在本轮死亡里。",
+      "type": "item",
       "coinValue": 8,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2253,15 +2914,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-blank-death-certificate"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-counterfeit-city-map",
-      "type": "item",
       "name": "伪城地图",
       "description": "检票口后的城市地图，街名全是被注销过的病历编号。地图背面标着广播塔、户籍柜和一条只能由已死亡者通过的回廊。",
+      "type": "item",
       "coinValue": 6,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2270,15 +2931,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-counterfeit-city-map"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-eighth-wristband",
-      "type": "item",
       "name": "第八轮腕带",
       "description": "病号服林夕从救护车里递出的腕带。腕带内侧写着今天的日期和一串倒置床号，证明她来自下一轮，却也可能是医院预先打印的陷阱。",
+      "type": "item",
       "coinValue": 6,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2287,15 +2948,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-eighth-wristband"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-linxi",
-      "type": "person",
       "name": "林夕",
       "description": "醒来时，她发现整座城市都认识她，唯独她不记得自己是谁。口袋里有一张写着“不要相信第七次日出”的车票。",
+      "type": "person",
       "coinValue": 6,
+      "effects": [],
       "metaData": {
         "tags": [
           "person",
@@ -2304,15 +2965,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-linxi"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-living-file",
-      "type": "item",
       "name": "第一份活人档案",
       "description": "广播塔债务台吐出的档案。它没有死亡日期，只有一行反复闪烁的批注：此人尚未被允许存在。",
+      "type": "item",
       "coinValue": 8,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2321,15 +2982,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-living-file"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-memory-ampoule",
-      "type": "item",
       "name": "记忆安瓿",
       "description": "第八轮林夕留在车门槽里的小玻璃管。打碎它能让一个人带着本轮记忆下车，但医院会立刻注销另一个人的通行权。",
+      "type": "item",
       "coinValue": 5,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2338,15 +2999,32 @@
           "restart"
         ],
         "gameCardId": "card-restart-memory-ampoule"
-      },
-      "effects": []
+      }
+    },
+    {
+      "id": "card-restart-night-shift-ticket",
+      "name": "纸厂夜班票",
+      "description": "夜间出口账本折出的窄票。票面没有座位号，只有一行供货批次：本车运送尚未写上姓名的死亡证明纸。",
+      "type": "item",
+      "coinValue": 7,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "ticket",
+          "paper-factory",
+          "restart"
+        ],
+        "gameCardId": "card-restart-night-shift-ticket"
+      }
     },
     {
       "id": "card-restart-operator-coordinate",
-      "type": "item",
       "name": "播音员坐标",
       "description": "从活人档案边码里抄出的坐标。它指向广播塔内一间不存在楼层的播音室；每次收音机代答，坐标就向上偏移一层。",
+      "type": "item",
       "coinValue": 7,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2355,15 +3033,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-operator-coordinate"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-radio",
-      "type": "item",
       "name": "坏掉的收音机",
       "description": "只能收到未来十五分钟的广播。每当你改变选择，播音员都会用更陌生的声音重新播报你的死讯。",
+      "type": "item",
       "coinValue": 4,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2372,15 +3050,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-radio"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-real-bed-number",
-      "type": "item",
       "name": "真实床号：B-07/0",
       "description": "从第八轮腕带、倒放广播和越医生旧章之间拼出的床号。它指向的不是病房，而是救护车月台下方的签名室。",
+      "type": "item",
       "coinValue": 7,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2389,15 +3067,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-real-bed-number"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-recheck-pin",
-      "type": "item",
       "name": "复查反签针",
       "description": "广播塔复查庭掉出的细针。它能把已经盖章的死亡证明反向刺穿，让一份档案暂时承认：签名不是事实，只是命令。",
+      "type": "item",
       "coinValue": 6,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2406,15 +3084,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-recheck-pin"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-seventh-sun",
-      "type": "person",
       "name": "第七次日出",
       "description": "被旧日出医院反复注销的第一名醒来者。她像林夕，又比林夕多记得一次拒签死亡证明的代价；只要她被带出玻璃门，广播就会追着她的缺名档案而来。",
+      "type": "person",
       "coinValue": 7,
+      "effects": [],
       "metaData": {
         "tags": [
           "person",
@@ -2423,15 +3101,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-seventh-sun"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-ticket",
-      "type": "item",
       "name": "第七次日出的车票",
       "description": "一张没有起点的末班车票。票面背后不断浮现新的字迹，像是来自另一个循环里的自己。",
+      "type": "item",
       "coinValue": 5,
+      "effects": [],
       "metaData": {
         "tags": [
           "item",
@@ -2440,15 +3118,15 @@
           "restart"
         ],
         "gameCardId": "card-restart-ticket"
-      },
-      "effects": []
+      }
     },
     {
       "id": "card-restart-tower-operator",
-      "type": "person",
       "name": "塔内播音员",
       "description": "躲在广播塔无楼层播音室里的声音。TA一直替死亡证明朗读结果，却把自己的活人档案藏在所有播报的空拍之间。",
+      "type": "person",
       "coinValue": 6,
+      "effects": [],
       "metaData": {
         "tags": [
           "person",
@@ -2457,15 +3135,68 @@
           "restart"
         ],
         "gameCardId": "card-restart-tower-operator"
-      },
-      "effects": []
+      }
+    },
+    {
+      "id": "card-restart-uncut-certificate-paper",
+      "name": "未裁切证明纸",
+      "description": "还没被裁成死亡证明的整张纸。它暂时没有姓名、病床号或死因，因此也短暂保留着改写命运的空白。",
+      "type": "item",
+      "coinValue": 6,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "blank",
+          "paperwork",
+          "paper-factory",
+          "restart"
+        ],
+        "gameCardId": "card-restart-uncut-certificate-paper"
+      }
+    },
+    {
+      "id": "card-restart-watermark-mold",
+      "name": "死亡证明水印模",
+      "description": "纸厂水印室的铜模。每一份死亡证明在写上姓名前，都会先被它压出一枚只有广播塔能读懂的隐形准死印。",
+      "type": "item",
+      "coinValue": 8,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "proof",
+          "paperwork",
+          "paper-factory",
+          "restart"
+        ],
+        "gameCardId": "card-restart-watermark-mold"
+      }
+    },
+    {
+      "id": "card-restart-worker-testimony",
+      "name": "纸厂工人证词",
+      "description": "夜班工人偷偷按下的口供纸带。它证明旧日出医院的死亡证明不是医院独立签发，而是由纸厂、广播塔和户籍柜共同预印。",
+      "type": "item",
+      "coinValue": 7,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "testimony",
+          "paper-factory",
+          "restart"
+        ],
+        "gameCardId": "card-restart-worker-testimony"
+      }
     },
     {
       "id": "card-restart-yue",
-      "type": "person",
       "name": "越医生",
       "description": "城中唯一承认循环存在的人。他说自己救过林夕六次，也杀过她一次。",
+      "type": "person",
       "coinValue": 5,
+      "effects": [],
       "metaData": {
         "tags": [
           "person",
@@ -2474,8 +3205,7 @@
           "restart"
         ],
         "gameCardId": "card-restart-yue"
-      },
-      "effects": []
+      }
     }
   ],
   "events": [
@@ -2816,6 +3546,35 @@
           ]
         }
       ]
+    },
+    {
+      "id": "restart-event-22-night-shift-paper-tax",
+      "name": "第二十二回合事件：夜班纸税",
+      "description": "夜班车穿过厂门时，纸箱同时打开。广播要求所有携带活人档案的人缴纳纸税：要么交出一段可被预印的路线，要么交出一个能替车厢报站的声音。",
+      "trigger": {
+        "turn": 22
+      },
+      "consequences": [
+        "restart-paper-tax-paid"
+      ],
+      "options": [
+        {
+          "text": "用假出口审计章遮住活人档案，让纸税只追到伪城废票。",
+          "effects": [
+            "gain.influence:7",
+            "set.flag:restart_paper_tax_paid",
+            "set.flag:restart_paper_route_shielded_by_audit_stamp"
+          ]
+        },
+        {
+          "text": "让塔内播音员替夜班车报站，把纸税转成一笔广播债。",
+          "effects": [
+            "gain.favor:7",
+            "set.flag:restart_paper_tax_paid",
+            "set.flag:restart_paper_tax_converted_to_voice_debt"
+          ]
+        }
+      ]
     }
   ],
   "deck": [
@@ -2847,12 +3606,17 @@
       "card-restart-real-bed-number",
       "card-restart-blank-death-certificate",
       "card-restart-seventh-sun",
-      "card-restart-audit-stamp"
+      "card-restart-audit-stamp",
+      "card-restart-counterfeit-city-map",
+      "card-restart-living-file",
+      "card-restart-recheck-pin",
+      "card-restart-operator-coordinate",
+      "card-restart-tower-operator"
     ]
   },
   "counters": {
-    "influence": 95,
-    "favor": 30
+    "influence": 155,
+    "favor": 41
   },
   "flags": {
     "restart_woke_at_platform": true,
@@ -2912,36 +3676,36 @@
     "restart_seventh_sun_witness_stabilized": true,
     "complete_restart-rite-14-glass-behind-seventh-sun": true,
     "restart_seventh_sun_contacted": true,
-    "restart_seventh_sun_rescued_as_witness": true
+    "restart_seventh_sun_rescued_as_witness": true,
+    "restart_broadcast_tower_named": true,
+    "restart_baited_tower_operator": true,
+    "restart_counterfeit_city_registry_opened": true,
+    "restart_counterfeit_city_map_stabilized": true,
+    "complete_restart-rite-15-counterfeit-city-registry": true,
+    "restart_linxi_registered_as_dead_resident": true,
+    "restart_broadcast_tower_entered": true,
+    "complete_restart-rite-16-broadcast-tower-debt-desk": true,
+    "restart_broadcast_tower_decided": true,
+    "restart_exposed_radio_operator": true,
+    "restart_living_file_location_unsealed": true,
+    "restart_first_living_file_reached": true,
+    "complete_restart-rite-17-first-living-file": true,
+    "restart_living_file_given_to_seventh_sun": true,
+    "restart_living_file_recheck_decided": true,
+    "restart_protected_seventh_sun_living_status": true,
+    "restart_living_file_recheck_heard": true,
+    "complete_restart-rite-18-living-file-recheck-hearing": true,
+    "restart_seventh_sun_public_living_witness": true,
+    "restart_counterfeit_blackout_paid": true,
+    "restart_night_exit_route_shielded": true,
+    "restart_operator_room_entered": true,
+    "complete_restart-rite-19-operator-room": true,
+    "restart_operator_exposed_as_living_voice": true,
+    "restart_night_exit_ledger_opened": true,
+    "complete_restart-rite-20-night-exit-ledger": true,
+    "restart_seventh_sun_registered_for_night_exit": true,
+    "restart_next_region_alive_witness_route": true
   },
-  "unresolvedEvent": {
-    "id": "restart-event-15-broadcast-name-hunt",
-    "name": "第十五回合事件：缺名者追播",
-    "description": "伪城的路灯逐盏亮起，每一盏都在念同一个空白姓名。广播塔发现第七次日出离开了玻璃门，开始沿着审计章追查谁把一个没有死亡证明的人带进了城市。",
-    "trigger": {
-      "turn": 15
-    },
-    "consequences": [
-      "restart-counterfeit-city-breathes"
-    ],
-    "options": [
-      {
-        "text": "把第七次日出的名字藏进收音机静电里，让广播塔暂时追错频率。",
-        "effects": [
-          "gain.influence:5",
-          "set.flag:restart_broadcast_tower_named",
-          "set.flag:restart_seventh_name_hidden_in_static"
-        ]
-      },
-      {
-        "text": "故意让广播塔听见她的真声，逼操作员承认塔里还有活人档案。",
-        "effects": [
-          "gain.favor:5",
-          "set.flag:restart_broadcast_tower_named",
-          "set.flag:restart_baited_tower_operator"
-        ]
-      }
-    ]
-  },
+  "unresolvedEvent": null,
   "activeEvents": []
 }
