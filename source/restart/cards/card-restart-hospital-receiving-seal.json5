@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-hospital-receiving-seal",
+  "name": "医院收货铅封",
+  "description": "封签回院车抵达旧日出医院地下月台后留下的铅封。它证明这批活纸不是闯入医院，而是被医院自己的供货规程接收。",
+  "type": "item",
+  "coinValue": 8,
+  "effects": [],
+  "metaData": {
+    "tags": ["item", "seal", "hospital", "supply-chain", "restart"],
+    "gameCardId": "card-restart-hospital-receiving-seal"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-33-bed-zero-reversed-ledger",
+  "name": "RESTART 33：B-07/0倒扣病床",
+  "description": "倒扣病床账页把林夕带回地下病历架的背面。B-07/0 没有床垫，只有一只收货槽：每当旧日出医院预支一个死者，槽里就提前落下一张还没写姓名的证明纸。林夕的真实床号原来不是住院地址，而是死亡库存的缺口。",
+  "triggers": ["restart-return-goods-audit-filed"],
+  "consequences": ["restart-bed-zero-reversed-ledger-opened", "restart-event-34-patient-stock-count"],
+  "conditions": [
+    "flag.restart_return_goods_audit_filed:1",
+    "have.card:card-restart-reversed-bed-ledger",
+    "have.card:card-restart-real-bed-number",
+    "have.card:card-restart-living-file",
+    "flag.restart_heard_origin:1",
+    "flag.restart_linxi_memorized_bed_zero:1"
+  ],
+  "effects": [
+    "set.flag:restart_bed_zero_reversed_ledger_opened"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "面对真实床号的人", "cardType": "person"},
+    {"id": "slot-1", "name": "倒扣床位证据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把林夕登记回 B-07/0 的活床状态，让医院承认她抵达时还没有合法死亡。",
+      "effects": [
+        {"type": "gain.influence", "amount": 10},
+        {"type": "set.flag", "flag": "restart_linxi_bed_zero_reversed_as_live"}
+      ]
+    },
+    {
+      "text": "不急着登记林夕，先让病床槽显示医院短缺的那一具合法尸体。",
+      "effects": [
+        {"type": "gain.favor", "amount": 10},
+        {"type": "set.flag", "flag": "restart_hospital_missing_corpse_count_forced"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "B-07/0 只反亮半秒。林夕看见自己的名字，但医院立刻用黑条遮住了入院时间。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "倒扣账页承认床号存在。第七次日出按住活人档案，说这不是林夕的病床，是医院欠她的一次未死状态。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_bed_zero_live_status_stabilized"}], "description": "病历架向两侧退开，露出一条写着“待出院活体”的窄廊。医院开始盘点它究竟少了哪一个死人。"}
+  ]
+}

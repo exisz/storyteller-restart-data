@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-living-discharge-order",
+  "name": "活人出院预令",
+  "description": "旧日出医院被迫预先签出的出院令。它还不是出口，但它让一名活人拥有了比死亡证明更早生效的离院资格。",
+  "type": "item",
+  "coinValue": 10,
+  "effects": [],
+  "metaData": {
+    "tags": ["item", "discharge", "hospital", "living-file", "restart"],
+    "gameCardId": "card-restart-living-discharge-order"
+  }
+}

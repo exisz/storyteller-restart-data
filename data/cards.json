@@ -102,6 +102,24 @@
     "effects": []
   },
   {
+    "id": "card-restart-hospital-receiving-seal",
+    "name": "医院收货铅封",
+    "description": "封签回院车抵达旧日出医院地下月台后留下的铅封。它证明这批活纸不是闯入医院，而是被医院自己的供货规程接收。",
+    "type": "item",
+    "coinValue": 8,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "seal",
+        "hospital",
+        "supply-chain",
+        "restart"
+      ],
+      "gameCardId": "card-restart-hospital-receiving-seal"
+    }
+  },
+  {
     "id": "card-restart-linxi",
     "type": "person",
     "name": "林夕",
@@ -117,6 +135,24 @@
       "gameCardId": "card-restart-linxi"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-living-discharge-order",
+    "name": "活人出院预令",
+    "description": "旧日出医院被迫预先签出的出院令。它还不是出口，但它让一名活人拥有了比死亡证明更早生效的离院资格。",
+    "type": "item",
+    "coinValue": 10,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "discharge",
+        "hospital",
+        "living-file",
+        "restart"
+      ],
+      "gameCardId": "card-restart-living-discharge-order"
+    }
   },
   {
     "id": "card-restart-living-file",
@@ -151,6 +187,24 @@
         "restart"
       ],
       "gameCardId": "card-restart-living-paper-lot"
+    }
+  },
+  {
+    "id": "card-restart-living-receipt-form",
+    "name": "收货口活人签收单",
+    "description": "医院收货口吐出的签收单，收货人栏第一次允许填写活人姓名。只要它还在，旧日出医院就必须解释为什么死亡证明纸由活人签收。",
+    "type": "item",
+    "coinValue": 8,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "receipt",
+        "hospital",
+        "living-file",
+        "restart"
+      ],
+      "gameCardId": "card-restart-living-receipt-form"
     }
   },
   {
@@ -288,6 +342,24 @@
         "restart"
       ],
       "gameCardId": "card-restart-return-invoice"
+    }
+  },
+  {
+    "id": "card-restart-reversed-bed-ledger",
+    "name": "倒扣病床账页",
+    "description": "从收货审计夹层里抽出的账页。B-07/0 的床位不是病房编号，而是一笔先扣死亡纸额、后等待病人抵达的倒账。",
+    "type": "item",
+    "coinValue": 9,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "ledger",
+        "bed-zero",
+        "hospital",
+        "restart"
+      ],
+      "gameCardId": "card-restart-reversed-bed-ledger"
     }
   },
   {

@@ -1,0 +1,25 @@
+{
+  "id": "restart-event-34-patient-stock-count",
+  "name": "第三十四回合事件：病人库存盘点",
+  "description": "B-07/0 的窄廊刚亮起，旧日出医院就启动病人库存盘点。屏幕把纸厂工人证词、活纸批次和第七次日出的签收名并排列出：本院短缺一名合法死者，请从证人、纸批或病床中补足。",
+  "trigger": {"turn": 34},
+  "consequences": ["restart-patient-stock-count-answered"],
+  "options": [
+    {
+      "text": "遮住纸厂工人证词上的姓名，让医院只能盘点自己的空白纸批。",
+      "effects": [
+        "gain.influence:9",
+        "set.flag:restart_patient_stock_count_answered",
+        "set.flag:restart_patient_stock_count_protected_worker_names"
+      ]
+    },
+    {
+      "text": "把活纸批次推到盘点屏前，让整批纸替活人承担这次缺额追问。",
+      "effects": [
+        "gain.favor:9",
+        "set.flag:restart_patient_stock_count_answered",
+        "set.flag:restart_patient_stock_count_marked_living_batch"
+      ]
+    }
+  ]
+}

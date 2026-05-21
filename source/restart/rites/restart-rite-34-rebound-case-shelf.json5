@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-34-rebound-case-shelf",
+  "name": "RESTART 34：病历反装订架",
+  "description": "库存盘点没有补到尸体，病历架反而把所有被预支死亡的人装订到同一层。纸厂工人证词在架缝里发烫，活人档案的边码沿着 B-07/0 的床号爬行；只要这一页装反，医院就得先证明人死了，才有资格领取下一张死亡证明。",
+  "triggers": ["restart-bed-zero-reversed-ledger-opened", "restart-patient-stock-count-answered"],
+  "consequences": ["restart-rebound-case-shelf-bound"],
+  "conditions": [
+    "flag.restart_bed_zero_reversed_ledger_opened:1",
+    "flag.restart_patient_stock_count_answered:1",
+    "have.card:card-restart-worker-testimony",
+    "have.card:card-restart-living-paper-lot",
+    "have.card:card-restart-reversed-bed-ledger",
+    "have.card:card-restart-living-receipt-form"
+  ],
+  "effects": [
+    "set.flag:restart_rebound_case_shelf_bound"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "反装订病历的人", "cardType": "person"},
+    {"id": "slot-1", "name": "可反装订的活人证据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把第七次日出的签收单装进病历首页，让医院先承认活证人再翻死亡证明。",
+      "effects": [
+        {"type": "gain.influence", "amount": 11},
+        {"type": "set.flag", "flag": "restart_seventh_receipt_bound_to_case_shelf"}
+      ]
+    },
+    {
+      "text": "把塔内播音员的改口录进病历书脊，让每次翻页都播出医院自己的矛盾。",
+      "effects": [
+        {"type": "gain.favor", "amount": 11},
+        {"type": "set.flag", "flag": "restart_operator_contradiction_bound_to_case_shelf"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "病历只反装订了几页。医院仍能把一部分活纸塞回普通死亡柜，但 B-07/0 不再完全服从。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "反装订架卡住死亡证明柜。每一份新证明都必须先经过活人档案边码的复核。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_rebound_case_shelf_stabilized"}], "description": "旧日出医院第一次签出一张非死亡纸：不是出院令，至少是一份承认活人仍待处理的预令。"}
+  ]
+}

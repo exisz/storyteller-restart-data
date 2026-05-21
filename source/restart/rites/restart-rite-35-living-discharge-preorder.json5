@@ -1,0 +1,44 @@
+{
+  "id": "restart-rite-35-living-discharge-preorder",
+  "name": "RESTART 35：活人出院预令",
+  "description": "反装订架最深处弹出一张未盖章的出院预令。它没有写“治愈”，只写“本院暂不得将此人改列死亡”。第七次日出、林夕和塔内播音员都明白：这张纸不能立刻救所有人，但它能逼旧日出医院打开下一扇本来只给尸体通过的门。",
+  "triggers": ["restart-rebound-case-shelf-bound"],
+  "consequences": ["restart-living-discharge-order-issued", "restart-ward-zero-return-summons-ready"],
+  "conditions": [
+    "flag.restart_rebound_case_shelf_bound:1",
+    "have.card:card-restart-living-file",
+    "have.card:card-restart-living-receipt-form",
+    "have.card:card-restart-reversed-bed-ledger",
+    "have.card:card-restart-seventh-sun",
+    "flag.restart_patient_stock_count_answered:1"
+  ],
+  "effects": [
+    "set.flag:restart_living_discharge_order_issued",
+    "gain.card:card-restart-living-discharge-order"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "申请活人出院的人", "cardType": "person"},
+    {"id": "slot-1", "name": "支撑预令的反装订证据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把出院预令写给第七次日出，让她以公开活证人身份走向 Ward Zero。",
+      "effects": [
+        {"type": "gain.influence", "amount": 12},
+        {"type": "set.flag", "flag": "restart_next_region_seventh_sun_discharge_route"}
+      ]
+    },
+    {
+      "text": "把预令夹进林夕的 B-07/0 倒账，让 Ward Zero 自己传唤这个未死病人。",
+      "effects": [
+        {"type": "gain.favor", "amount": 12},
+        {"type": "set.flag", "flag": "restart_next_region_ward_zero_summons_route"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "出院预令只盖了半枚章。它能让门开一条缝，但医院会在门后继续追问谁来补足死者。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "预令生效。地下月台的尸体通道亮起活人通行灯，Ward Zero 的门牌第一次出现在医院地图上。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_living_discharge_route_stabilized"}], "description": "旧日出医院无法销毁预令，只能把它转交给 Ward Zero 复核。下一次开门时，医院要面对的不是逃跑者，而是一个它亲手承认暂时活着的人。"}
+  ]
+}

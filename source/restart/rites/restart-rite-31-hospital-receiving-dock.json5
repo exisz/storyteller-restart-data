@@ -1,0 +1,46 @@
+{
+  "id": "restart-rite-31-hospital-receiving-dock",
+  "name": "RESTART 31：旧日出收货月台",
+  "description": "封签回院车滑入旧日出医院的地下收货月台。这里没有护士，只有一排自动拆封臂和一台会朗读供货单的冷光屏：本批死亡证明纸已按规程回院，请登记收货人。第七次日出站在铅封旁，第一次不是逃离医院，而是作为医院必须签收的错误回来了。",
+  "triggers": ["restart-sealed-return-tram-departed"],
+  "consequences": ["restart-event-32-receiving-living-alarm", "restart-hospital-receiving-dock-opened"],
+  "conditions": [
+    "flag.restart_sealed_return_tram_departed:1",
+    "flag.restart_return_tram_public_account_route:1",
+    "flag.restart_next_region_hospital_supply_reversal_route:1",
+    "have.card:card-restart-return-invoice",
+    "have.card:card-restart-living-paper-lot",
+    "have.card:card-restart-supply-ledger",
+    "have.card:card-restart-seventh-sun"
+  ],
+  "effects": [
+    "set.flag:restart_hospital_receiving_dock_opened",
+    "gain.card:card-restart-hospital-receiving-seal",
+    "gain.card:card-restart-living-receipt-form"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "押送活纸回院的人", "cardType": "person"},
+    {"id": "slot-1", "name": "医院必须签收的供货凭证", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把供纸账本摊在月台屏幕前，要求医院公开签收自己的死亡纸额倒账。",
+      "effects": [
+        {"type": "gain.influence", "amount": 10},
+        {"type": "set.flag", "flag": "restart_hospital_publicly_received_living_paper"}
+      ]
+    },
+    {
+      "text": "把活纸批次伪装成普通退货，让收货口先吞下证据再反向发作。",
+      "effects": [
+        {"type": "gain.favor", "amount": 10},
+        {"type": "set.flag", "flag": "restart_hospital_quietly_received_living_paper"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "收货月台认下铅封，却把收货人栏打成一片黑块。医院准备先验货，再决定谁算活人。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "铅封裂开，活纸批次没有变回死亡证明。医院广播第一次把第七次日出称作“未定收货人”。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_hospital_receiving_dock_stabilized"}], "description": "收货月台的屏幕反向打印：本院已接收一批无法写死者姓名的证明纸。收货人必须由活人签字。"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "card-restart-living-receipt-form",
+  "name": "收货口活人签收单",
+  "description": "医院收货口吐出的签收单，收货人栏第一次允许填写活人姓名。只要它还在，旧日出医院就必须解释为什么死亡证明纸由活人签收。",
+  "type": "item",
+  "coinValue": 8,
+  "effects": [],
+  "metaData": {
+    "tags": ["item", "receipt", "hospital", "living-file", "restart"],
+    "gameCardId": "card-restart-living-receipt-form"
+  }
+}

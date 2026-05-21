@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-32-return-goods-audit",
+  "name": "RESTART 32：回院验货审计",
+  "description": "活体警报被压下后，收货月台升起验货审计台。审计台要求林夕证明这批纸不是废品，而是旧日出医院曾经合法领取、如今无法写死任何人的死亡证明。供纸账本自动翻到 B-07/0 的扣数行。",
+  "triggers": ["restart-hospital-receiving-dock-opened", "restart-receiving-living-alarm-answered"],
+  "consequences": ["restart-return-goods-audit-filed"],
+  "conditions": [
+    "flag.restart_receiving_living_alarm_answered:1",
+    "have.card:card-restart-hospital-receiving-seal",
+    "have.card:card-restart-living-receipt-form",
+    "have.card:card-restart-living-paper-lot",
+    "have.card:card-restart-supply-ledger"
+  ],
+  "effects": [
+    "set.flag:restart_return_goods_audit_filed",
+    "gain.card:card-restart-reversed-bed-ledger"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "主持验货审计的人", "cardType": "person"},
+    {"id": "slot-1", "name": "证明回院批次的凭证", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "用收货铅封压住供纸账本，强迫医院承认活纸是按合法规程回来的。",
+      "effects": [
+        {"type": "gain.influence", "amount": 10},
+        {"type": "set.flag", "flag": "restart_hospital_admitted_returned_living_paper"}
+      ]
+    },
+    {
+      "text": "让验货台先把活纸判成废品，再用签收单证明废品仍由活人签收。",
+      "effects": [
+        {"type": "gain.favor", "amount": 10},
+        {"type": "set.flag", "flag": "restart_hospital_trapped_by_defective_stock_ruling"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "验货台只承认一半证据，却吐出一张倒扣病床账页：B-07/0 早在林夕到院前就被扣过纸额。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "活纸批次通过验货。医院无法再称它是外来污染，只能承认污染来自本院自己的收货链。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_return_audit_can_reverse_bed_zero"}], "description": "审计台把 B-07/0 的扣数行反向装订：先有死亡纸，后有病人。林夕终于握住能倒查自己床号的账页。"}
+  ]
+}

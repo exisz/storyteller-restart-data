@@ -151,6 +151,31 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-31-hospital-receiving-dock",
+      "name": "RESTART 31：旧日出收货月台",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-32-return-goods-audit",
+      "name": "RESTART 32：回院验货审计",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-33-bed-zero-reversed-ledger",
+      "name": "RESTART 33：B-07/0倒扣病床",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-34-rebound-case-shelf",
+      "name": "RESTART 34：病历反装订架",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-35-living-discharge-preorder",
+      "name": "RESTART 35：活人出院预令",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -223,6 +248,16 @@
     {
       "id": "restart-event-29-return-shipment-alarm",
       "name": "第二十九回合事件：回院装车警报",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-32-receiving-living-alarm",
+      "name": "第三十二回合事件：收货口活体警报",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-34-patient-stock-count",
+      "name": "第三十四回合事件：病人库存盘点",
       "type": "event"
     }
   ],
@@ -298,6 +333,14 @@
     {
       "source": "restart-rite-28-living-paper-lot",
       "target": "restart-event-29-return-shipment-alarm"
+    },
+    {
+      "source": "restart-rite-31-hospital-receiving-dock",
+      "target": "restart-event-32-receiving-living-alarm"
+    },
+    {
+      "source": "restart-rite-33-bed-zero-reversed-ledger",
+      "target": "restart-event-34-patient-stock-count"
     },
     {
       "source": "restart-event-02-broadcast",
