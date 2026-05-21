@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-public-gallery-list",
+  "name": "旁听名单",
+  "description": "活人出院听证的旁听名单。名单上每多一个活人名字，Ward Zero 就少一次把案件关回尸梯的机会。",
+  "type": "item",
+  "coinValue": 13,
+  "effects": [],
+  "metaData": {"tags": ["item", "hearing", "witness", "public", "restart"], "gameCardId": "card-restart-public-gallery-list"}
+}

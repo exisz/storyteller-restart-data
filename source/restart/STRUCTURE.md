@@ -200,3 +200,28 @@ Branch memory added for later checks:
 - `restart_next_region_public_living_hearing_route` vs `restart_next_region_corpse_appeal_backdoor_route`
 
 This packet advances the Paperwork, Seventh Sunrise, Linxi/B-07/0, and hospital authority threads by forcing the hospital's corpse-only exit infrastructure to process a living claimant. It is structurally sufficient for the next Player because it provides five sequential rites, two integrated pressure events, new state-bearing cards, and delayed branch flags for the coming hearing route.
+
+## Turn 41–45 packet: Ward Zero public living-discharge hearing arc
+
+The living hearing bell now opens an actual public hearing instead of ending on a promise:
+
+- `restart-rite-41-public-hearing-docket` turns the bell into a formal case number and grants `听证案号牌` plus `旁听名单`.
+- `restart-event-41-gallery-purge` makes publicness a mechanical pressure: Ward Zero tries to clear the gallery by reclassifying witnesses as corpses.
+- `restart-rite-42-living-oath-stand` creates `活人誓词纸`, forcing the player to anchor testimony in Seventh Sunrise's pulse or Linxi's B-07/0 contradiction.
+- `restart-rite-43-hospital-objection-rebuttal` folds supply-chain evidence into `供纸反证包`, proving the hospital accepted living paper.
+- `restart-event-43-minutes-static` attacks the hearing minutes through broadcast/static, creating public-record vs corpse-appeal copy memory.
+- `restart-rite-44-hearing-minutes-seal` seals the minutes against the next death correction.
+- `restart-rite-45-provisional-living-discharge-writ` grants `暂准活人出院裁定` and opens the next enforcement route.
+
+Branch memory added for later checks:
+
+- `restart_seventh_sun_public_claimant` vs `restart_bed_zero_named_co_witness`
+- `restart_public_gallery_preserved` vs `restart_linxi_blocked_gallery_purge`
+- `restart_seventh_sun_pulse_oath` vs `restart_linxi_bed_zero_oath`
+- `restart_supply_chain_rebuttal_entered` vs `restart_yue_debt_testimony_entered`
+- `restart_public_minutes_pinned` vs `restart_corpse_appeal_minutes_copy`
+- `restart_public_hearing_minutes_sealed` vs `restart_appeal_copy_hearing_minutes_sealed`
+- `restart_seventh_sun_holds_living_discharge_writ` vs `restart_linxi_bed_zero_shelters_writ`
+- `restart_next_region_discharge_enforcement_route` vs `restart_next_region_bed_zero_writ_shelter_route`
+
+This packet advances Paperwork, Seventh Sunrise, Linxi/B-07/0, Yue debt, and Broadcast/radio pressure by making the hospital's public hearing rules playable and by producing a concrete writ that future content can enforce or attack.

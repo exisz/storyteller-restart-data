@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-hearing-case-token",
+  "name": "听证案号牌",
+  "description": "Ward Zero 被迫吐出的活人出院听证案号。它不是通行证，而是一枚把当事人暂时从尸源库存里钉出来的号码牌。",
+  "type": "item",
+  "coinValue": 14,
+  "effects": [],
+  "metaData": {"tags": ["item", "hearing", "ward-zero", "case", "restart"], "gameCardId": "card-restart-hearing-case-token"}
+}

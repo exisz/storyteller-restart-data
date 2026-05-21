@@ -1,0 +1,44 @@
+{
+  "id": "restart-rite-43-hospital-objection-rebuttal",
+  "name": "RESTART 43：驳回医院异议",
+  "description": "医院代表把供纸账本、回院供货单、收货铅封和倒扣病床账页摊成四份互相抵赖的证据：纸厂说纸已离厂，收货口说活人签收，Ward Zero 说只收到尸源。听证席要求林夕选一条矛盾作为主证。",
+  "triggers": ["restart-living-oath-sworn"],
+  "consequences": ["restart-event-43-minutes-static", "restart-hospital-objection-rebutted"],
+  "conditions": [
+    "flag.restart_living_oath_sworn:1",
+    "have.card:card-restart-living-oath-sheet",
+    "have.card:card-restart-supply-ledger",
+    "have.card:card-restart-return-invoice",
+    "have.card:card-restart-hospital-receiving-seal",
+    "have.card:card-restart-reversed-bed-ledger"
+  ],
+  "effects": [
+    "set.flag:restart_hospital_objection_rebutted",
+    "gain.card:card-restart-supply-contradiction-packet"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "提出反证的人", "cardType": "person"},
+    {"id": "slot-1", "name": "医院无法解释的供应证据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把供纸链四份证据订成反证包：医院既然收了活纸，就不能声称没有活人。",
+      "effects": [
+        {"type": "gain.influence", "amount": 17},
+        {"type": "set.flag", "flag": "restart_supply_chain_rebuttal_entered"}
+      ]
+    },
+    {
+      "text": "让越医生在异议上签名作证：他欠下的死亡债，正是医院反复退货的源头。",
+      "effects": [
+        {"type": "gain.favor", "amount": 17},
+        {"type": "set.flag", "flag": "restart_yue_debt_testimony_entered"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 9, "rewards": [{"type": "gain.influence", "amount": 3}], "description": "反证包只钉住一条供应线。医院异议被暂时驳回，但记录员开始抢写另一份结论。"},
+    {"minValue": 10, "maxValue": 15, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 5}], "description": "四份证据第一次互相承认。听证席判定：医院确实收下过一批拒绝成为死亡证明的纸。"},
+    {"minValue": 16, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 7}, {"type": "gain.influence", "amount": 7}, {"type": "set.flag", "flag": "restart_hospital_objection_collapsed_publicly"}], "description": "医院代表的异议被自己的收货铅封反扣。旁听席响起第一轮掌声，Ward Zero 则把记录员的话筒切进广播静电。"}
+  ]
+}

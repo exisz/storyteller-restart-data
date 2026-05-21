@@ -1,0 +1,46 @@
+{
+  "id": "restart-rite-45-provisional-living-discharge-writ",
+  "name": "RESTART 45：暂准活人出院裁定",
+  "description": "封存笔录后，听证席没有宣判自由，只吐出一张临时裁定：在下一次复核前，当事人不得被补录为死人。第七次日出看着那张纸，终于明白出口不是离开医院，而是让医院先承认她仍然有离开的资格。",
+  "triggers": ["restart-hearing-verdict-deliberation"],
+  "consequences": ["restart-provisional-discharge-writ-issued", "restart-next-region-discharge-enforcement-route"],
+  "conditions": [
+    "flag.restart_hearing_minutes_sealed:1",
+    "have.card:card-restart-hearing-case-token",
+    "have.card:card-restart-living-oath-sheet",
+    "have.card:card-restart-supply-contradiction-packet",
+    "have.card:card-restart-living-hearing-bell",
+    "have.card:card-restart-seventh-sun"
+  ],
+  "effects": [
+    "set.flag:restart_provisional_living_discharge_writ_issued",
+    "gain.card:card-restart-provisional-living-discharge-writ"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "领取裁定的人", "cardType": "person"},
+    {"id": "slot-1", "name": "支撑裁定的听证证据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把裁定交给第七次日出，让她以活人身份命令出院口打开下一道复核门。",
+      "effects": [
+        {"type": "gain.influence", "amount": 18},
+        {"type": "set.flag", "flag": "restart_seventh_sun_holds_living_discharge_writ"},
+        {"type": "set.flag", "flag": "restart_next_region_discharge_enforcement_route"}
+      ]
+    },
+    {
+      "text": "先把裁定压在林夕的 B-07/0 上，让替补尸位变成保护活人的临时外壳。",
+      "effects": [
+        {"type": "gain.favor", "amount": 18},
+        {"type": "set.flag", "flag": "restart_linxi_bed_zero_shelters_writ"},
+        {"type": "set.flag", "flag": "restart_next_region_bed_zero_writ_shelter_route"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "临时裁定生效，却只保护到下一次复核。Ward Zero 已经开始准备复核名单。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "裁定压住第七次日出的名字。出院口没有打开，却第一次显示：当事人状态，活。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_living_discharge_writ_stabilized"}], "description": "Ward Zero 被迫给活人出院裁定编号。广播沉默了整整七秒，然后改口：下一站，裁定执行处。"}
+  ]
+}

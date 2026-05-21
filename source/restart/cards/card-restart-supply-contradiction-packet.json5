@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-supply-contradiction-packet",
+  "name": "供纸反证包",
+  "description": "由供纸账本、回院供货单、收货铅封和倒扣病床账页拼成的反证包。它证明医院亲手收下了不会乖乖变成死亡证明的活纸。",
+  "type": "item",
+  "coinValue": 15,
+  "effects": [],
+  "metaData": {"tags": ["item", "evidence", "supply-chain", "paperwork", "restart"], "gameCardId": "card-restart-supply-contradiction-packet"}
+}

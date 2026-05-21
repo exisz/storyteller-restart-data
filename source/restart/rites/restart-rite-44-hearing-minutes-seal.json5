@@ -1,0 +1,42 @@
+{
+  "id": "restart-rite-44-hearing-minutes-seal",
+  "name": "RESTART 44：封存听证笔录",
+  "description": "静电篡改被挡下后，听证席要求封存笔录。受理员递来三枚互相冲突的章：暂未死亡章、假出口审计章、医院收货铅封。只有把其中两枚盖在同一行，笔录才会在下一次死亡修正里幸存。",
+  "triggers": ["restart-hearing-minutes-stabilized"],
+  "consequences": ["restart-hearing-verdict-deliberation"],
+  "conditions": [
+    "flag.restart_minutes_static_answered:1",
+    "have.card:card-restart-living-oath-sheet",
+    "have.card:card-restart-supply-contradiction-packet",
+    "have.card:card-restart-not-yet-dead-stamp",
+    "have.card:card-restart-audit-stamp"
+  ],
+  "effects": [
+    "set.flag:restart_hearing_minutes_sealed"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "封存笔录的人", "cardType": "person"},
+    {"id": "slot-1", "name": "压住静电的证物", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把暂未死亡章和旁听名单盖在公开笔录上，让每个活人名字都能复诵裁定。",
+      "effects": [
+        {"type": "gain.influence", "amount": 17},
+        {"type": "set.flag", "flag": "restart_public_hearing_minutes_sealed"}
+      ]
+    },
+    {
+      "text": "把假出口审计章和收货铅封盖在副本上，给尸体上诉后门留一条可执行笔录。",
+      "effects": [
+        {"type": "gain.favor", "amount": 17},
+        {"type": "set.flag", "flag": "restart_appeal_copy_hearing_minutes_sealed"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 9, "rewards": [{"type": "gain.influence", "amount": 3}], "description": "笔录封住了，但边角仍在被广播啃噬。下一步必须尽快逼出裁定。"},
+    {"minValue": 10, "maxValue": 15, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 5}], "description": "两枚章互相咬合，笔录行文稳定下来：当事人尚未死亡，医院异议不成立。"},
+    {"minValue": 16, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 7}, {"type": "gain.influence", "amount": 7}, {"type": "set.flag", "flag": "restart_hearing_record_survives_correction"}], "description": "听证笔录被封进 Ward Zero 墙体。下一次修正来临时，墙会替林夕和第七次日出作证。"}
+  ]
+}

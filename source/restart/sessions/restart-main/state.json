@@ -1,5 +1,5 @@
 {
-  "turn": 36,
+  "turn": 41,
   "rites": [
     {
       "id": "restart-rite-01-wake-at-platform",
@@ -5894,11 +5894,18 @@
       "card-restart-hospital-receiving-seal",
       "card-restart-living-receipt-form",
       "card-restart-reversed-bed-ledger",
-      "card-restart-living-discharge-order"
+      "card-restart-living-discharge-order",
+      "card-restart-ward-zero-doorplate",
+      "card-restart-temporary-living-pass",
+      "card-restart-corpse-elevator-key",
+      "card-restart-unreturned-pulse-receipt",
+      "card-restart-ward-zero-clerk",
+      "card-restart-not-yet-dead-stamp",
+      "card-restart-living-hearing-bell"
     ]
   },
   "counters": {
-    "influence": 361,
+    "influence": 461,
     "favor": 49
   },
   "flags": {
@@ -6043,7 +6050,26 @@
     "restart_seventh_receipt_bound_to_case_shelf": true,
     "restart_living_discharge_order_issued": true,
     "complete_restart-rite-35-living-discharge-preorder": true,
-    "restart_next_region_seventh_sun_discharge_route": true
+    "restart_next_region_seventh_sun_discharge_route": true,
+    "restart_ward_zero_corpse_gate_opened": true,
+    "complete_restart-rite-36-ward-zero-corpse-gate": true,
+    "restart_seventh_sun_public_discharge_claim": true,
+    "restart_pulse_arrears_answered": true,
+    "restart_pulse_debt_charged_to_hospital_supply": true,
+    "restart_living_elevator_inspected": true,
+    "complete_restart-rite-37-living-only-elevator-inspection": true,
+    "restart_elevator_confessed_living_cargo": true,
+    "restart_corpse_elevator_downcalled": true,
+    "complete_restart-rite-38-corpse-elevator-downcall": true,
+    "restart_unreturned_pulse_entered_at_intake": true,
+    "restart_predeath_roll_call_answered": true,
+    "restart_seventh_name_shielded_by_pulse_receipt": true,
+    "restart_ward_zero_intake_filed": true,
+    "complete_restart-rite-39-ward-zero-intake-counter": true,
+    "restart_seventh_public_living_hearing_case": true,
+    "restart_living_hearing_bell_rung": true,
+    "complete_restart-rite-40-discharge-hearing-bell": true,
+    "restart_next_region_public_living_hearing_route": true
   },
   "unresolvedEvent": null,
   "activeEvents": []

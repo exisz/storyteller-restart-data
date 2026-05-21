@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-42-living-oath-stand",
+  "name": "RESTART 42：活人誓词席",
+  "description": "旁听名单被保住后，听证席升起一张只接受活人签名的誓词纸。第七次日出的手指碰到纸面，死亡证明水印便开始渗血；林夕明白，誓词不是说明事实，而是在逼死亡证明承认自己说谎。",
+  "triggers": ["restart-hearing-gallery-secured"],
+  "consequences": ["restart-living-oath-sworn"],
+  "conditions": [
+    "flag.restart_gallery_purge_answered:1",
+    "have.card:card-restart-hearing-case-token",
+    "have.card:card-restart-public-gallery-list",
+    "have.card:card-restart-seventh-sun",
+    "have.card:card-restart-unreturned-pulse-receipt"
+  ],
+  "effects": [
+    "set.flag:restart_living_oath_sworn",
+    "gain.card:card-restart-living-oath-sheet"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "宣誓的人", "cardType": "person"},
+    {"id": "slot-1", "name": "证明尚未死亡的票据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "让第七次日出按着未退脉搏收据宣誓：她还活着，因此不能被补录成纸。",
+      "effects": [
+        {"type": "gain.influence", "amount": 16},
+        {"type": "set.flag", "flag": "restart_seventh_sun_pulse_oath"}
+      ]
+    },
+    {
+      "text": "让林夕把真实床号 B-07/0 写进誓词，证明医院已经把活人与尸位倒扣。",
+      "effects": [
+        {"type": "gain.favor", "amount": 16},
+        {"type": "set.flag", "flag": "restart_linxi_bed_zero_oath"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 3}], "description": "誓词纸接受签名，却把最后一行留给医院补写。你得到一份危险但有效的活人证词。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 5}], "description": "死亡证明水印在誓词纸上反向显影：当事人未死亡，医院先行登记。旁听席开始低声复述这句矛盾。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_living_oath_contaminated_death_records"}], "description": "誓词纸污染了整排死亡证明。Ward Zero 不得不承认：只要这份誓词仍在，本案不能按尸体流程结案。"}
+  ]
+}

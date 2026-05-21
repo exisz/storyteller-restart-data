@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-provisional-living-discharge-writ",
+  "name": "暂准活人出院裁定",
+  "description": "听证席被迫盖下的临时裁定：在下一次复核前，当事人不得被补录为死人。它还不是出口，却能命令出口先承认活人。",
+  "type": "item",
+  "coinValue": 16,
+  "effects": [],
+  "metaData": {"tags": ["item", "verdict", "discharge", "living", "restart"], "gameCardId": "card-restart-provisional-living-discharge-writ"}
+}

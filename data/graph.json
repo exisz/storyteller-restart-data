@@ -201,6 +201,31 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-41-public-hearing-docket",
+      "name": "RESTART 41：公开听证案号",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-42-living-oath-stand",
+      "name": "RESTART 42：活人誓词席",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-43-hospital-objection-rebuttal",
+      "name": "RESTART 43：驳回医院异议",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-44-hearing-minutes-seal",
+      "name": "RESTART 44：封存听证笔录",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-45-provisional-living-discharge-writ",
+      "name": "RESTART 45：暂准活人出院裁定",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -294,6 +319,16 @@
       "id": "restart-event-39-predeath-roll-call",
       "name": "第三十九回合事件：预死亡点名",
       "type": "event"
+    },
+    {
+      "id": "restart-event-41-gallery-purge",
+      "name": "听证事件：旁听名单清退",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-43-minutes-static",
+      "name": "听证事件：记录员静电篡改",
+      "type": "event"
     }
   ],
   "links": [
@@ -384,6 +419,14 @@
     {
       "source": "restart-rite-38-corpse-elevator-downcall",
       "target": "restart-event-39-predeath-roll-call"
+    },
+    {
+      "source": "restart-rite-41-public-hearing-docket",
+      "target": "restart-event-41-gallery-purge"
+    },
+    {
+      "source": "restart-rite-43-hospital-objection-rebuttal",
+      "target": "restart-event-43-minutes-static"
     },
     {
       "source": "restart-event-02-broadcast",

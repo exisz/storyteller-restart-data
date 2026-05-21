@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-41-gallery-purge",
+  "name": "听证事件：旁听名单清退",
+  "description": "听证案号刚被挂上墙，Ward Zero 就宣布旁听席只接纳已死亡人员。第七次日出的名字从当事人栏滑向尸源栏，林夕的 B-07/0 则被标成可替补旁听尸位。",
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_hearing_docket_opened:1",
+    "NOT:flag.restart_gallery_purge_answered:1"
+  ],
+  "consequences": ["restart-hearing-gallery-secured"],
+  "options": [
+    {
+      "text": "用活人听证铃压住旁听席，让第七次日出以当事人身份留在公开名单上。",
+      "effects": [
+        "gain.influence:13",
+        "set.flag:restart_gallery_purge_answered",
+        "set.flag:restart_public_gallery_preserved"
+      ]
+    },
+    {
+      "text": "把临时活人通行证塞进 B-07/0 旁听尸位，让林夕替名单挡下一次清退。",
+      "effects": [
+        "gain.favor:13",
+        "set.flag:restart_gallery_purge_answered",
+        "set.flag:restart_linxi_blocked_gallery_purge"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-43-minutes-static",
+  "name": "听证事件：记录员静电篡改",
+  "description": "医院异议被驳回后，记录员的话筒开始播放旧广播。听证记录上的“活人出院”四个字被静电改成“预死亡补录”，每一次闪烁都在诱导旁听席承认听证从未发生。",
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_hospital_objection_rebutted:1",
+    "NOT:flag.restart_minutes_static_answered:1"
+  ],
+  "consequences": ["restart-hearing-minutes-stabilized"],
+  "options": [
+    {
+      "text": "用复查反签针把公开记录钉在旁听名单上，让每个名字都成为一分钟证词。",
+      "effects": [
+        "gain.influence:14",
+        "set.flag:restart_minutes_static_answered",
+        "set.flag:restart_public_minutes_pinned"
+      ]
+    },
+    {
+      "text": "让尸梯钥匙带走一份副本，从死亡上诉后门保留未被篡改的裁定草稿。",
+      "effects": [
+        "gain.favor:14",
+        "set.flag:restart_minutes_static_answered",
+        "set.flag:restart_corpse_appeal_minutes_copy"
+      ]
+    }
+  ]
+}

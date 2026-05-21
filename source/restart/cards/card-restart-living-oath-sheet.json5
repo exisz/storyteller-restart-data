@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-living-oath-sheet",
+  "name": "活人誓词纸",
+  "description": "只允许尚未死亡者签字的誓词纸。签上去的每一句话都会反向污染死亡证明的签名栏。",
+  "type": "item",
+  "coinValue": 14,
+  "effects": [],
+  "metaData": {"tags": ["item", "oath", "paperwork", "living", "restart"], "gameCardId": "card-restart-living-oath-sheet"}
+}

@@ -120,6 +120,24 @@
     "effects": []
   },
   {
+    "id": "card-restart-hearing-case-token",
+    "name": "听证案号牌",
+    "description": "Ward Zero 被迫吐出的活人出院听证案号。它不是通行证，而是一枚把当事人暂时从尸源库存里钉出来的号码牌。",
+    "type": "item",
+    "coinValue": 14,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "hearing",
+        "ward-zero",
+        "case",
+        "restart"
+      ],
+      "gameCardId": "card-restart-hearing-case-token"
+    }
+  },
+  {
     "id": "card-restart-hospital-receiving-seal",
     "name": "医院收货铅封",
     "description": "封签回院车抵达旧日出医院地下月台后留下的铅封。它证明这批活纸不是闯入医院，而是被医院自己的供货规程接收。",
@@ -205,6 +223,24 @@
         "restart"
       ],
       "gameCardId": "card-restart-living-hearing-bell"
+    }
+  },
+  {
+    "id": "card-restart-living-oath-sheet",
+    "name": "活人誓词纸",
+    "description": "只允许尚未死亡者签字的誓词纸。签上去的每一句话都会反向污染死亡证明的签名栏。",
+    "type": "item",
+    "coinValue": 14,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "oath",
+        "paperwork",
+        "living",
+        "restart"
+      ],
+      "gameCardId": "card-restart-living-oath-sheet"
     }
   },
   {
@@ -311,6 +347,42 @@
       "gameCardId": "card-restart-operator-coordinate"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-provisional-living-discharge-writ",
+    "name": "暂准活人出院裁定",
+    "description": "听证席被迫盖下的临时裁定：在下一次复核前，当事人不得被补录为死人。它还不是出口，却能命令出口先承认活人。",
+    "type": "item",
+    "coinValue": 16,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "verdict",
+        "discharge",
+        "living",
+        "restart"
+      ],
+      "gameCardId": "card-restart-provisional-living-discharge-writ"
+    }
+  },
+  {
+    "id": "card-restart-public-gallery-list",
+    "name": "旁听名单",
+    "description": "活人出院听证的旁听名单。名单上每多一个活人名字，Ward Zero 就少一次把案件关回尸梯的机会。",
+    "type": "item",
+    "coinValue": 13,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "hearing",
+        "witness",
+        "public",
+        "restart"
+      ],
+      "gameCardId": "card-restart-public-gallery-list"
+    }
   },
   {
     "id": "card-restart-quota-clerk",
@@ -432,6 +504,24 @@
       "gameCardId": "card-restart-seventh-sun"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-supply-contradiction-packet",
+    "name": "供纸反证包",
+    "description": "由供纸账本、回院供货单、收货铅封和倒扣病床账页拼成的反证包。它证明医院亲手收下了不会乖乖变成死亡证明的活纸。",
+    "type": "item",
+    "coinValue": 15,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "evidence",
+        "supply-chain",
+        "paperwork",
+        "restart"
+      ],
+      "gameCardId": "card-restart-supply-contradiction-packet"
+    }
   },
   {
     "id": "card-restart-supply-ledger",

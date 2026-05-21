@@ -1,0 +1,44 @@
+{
+  "id": "restart-rite-41-public-hearing-docket",
+  "name": "RESTART 41：公开听证案号",
+  "description": "活人听证铃的回声把 Ward Zero 受理台震成一张听证席。受理员递出案号牌，却把当事人栏留空：只要林夕填错名字，医院就能把本案改成尸体申诉，而不是活人出院。",
+  "triggers": ["restart-next-region-discharge-hearing-route", "restart-living-hearing-bell-rung"],
+  "consequences": ["restart-event-41-gallery-purge", "restart-hearing-docket-opened"],
+  "conditions": [
+    "flag.restart_living_hearing_bell_rung:1",
+    "flag.restart_next_region_public_living_hearing_route:1",
+    "have.card:card-restart-living-hearing-bell",
+    "have.card:card-restart-not-yet-dead-stamp",
+    "have.card:card-restart-seventh-sun"
+  ],
+  "effects": [
+    "set.flag:restart_hearing_docket_opened",
+    "gain.card:card-restart-hearing-case-token",
+    "gain.card:card-restart-public-gallery-list"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "填写案号的人", "cardType": "person"},
+    {"id": "slot-1", "name": "迫使听证开庭的铃", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把第七次日出登记成公开当事人，让医院必须解释为什么活人不能出院。",
+      "effects": [
+        {"type": "gain.influence", "amount": 15},
+        {"type": "set.flag", "flag": "restart_seventh_sun_public_claimant"}
+      ]
+    },
+    {
+      "text": "让 Ward Zero 受理员先盖案号，再把 B-07/0 写成共同证人，锁住林夕的旁听权。",
+      "effects": [
+        {"type": "gain.favor", "amount": 15},
+        {"type": "set.flag", "flag": "restart_bed_zero_named_co_witness"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "案号牌只亮起一半。受理员承认听证存在，却试图把旁听席关进尸梯。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "案号牌钉上墙面，旁听名单自动展开。第七次日出第一次拥有一个不会立刻被注销的案件编号。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_hearing_docket_publicly_numbered"}], "description": "Ward Zero 的尸体排号屏被迫切到公开听证模式。广播无法再说本案从未受理，只能改口追问谁有资格作证。"}
+  ]
+}
