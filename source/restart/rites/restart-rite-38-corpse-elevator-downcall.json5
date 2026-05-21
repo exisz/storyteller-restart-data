@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-38-corpse-elevator-downcall",
+  "name": "RESTART 38：尸梯下行受理",
+  "description": "尸梯钥匙一转，电梯不是下降，而是把整个走廊抬成一只病历抽屉。磨砂玻璃后有人开始盖章：出院、死亡、上诉，三个章的声音完全一样。受理员问林夕：这一次，你要替谁证明还没死？",
+  "triggers": ["restart-living-elevator-inspected"],
+  "consequences": ["restart-event-39-predeath-roll-call", "restart-corpse-elevator-downcalled"],
+  "conditions": [
+    "flag.restart_living_elevator_inspected:1",
+    "have.card:card-restart-corpse-elevator-key",
+    "have.card:card-restart-unreturned-pulse-receipt",
+    "have.card:card-restart-living-discharge-order",
+    "have.card:card-restart-seventh-sun"
+  ],
+  "effects": [
+    "set.flag:restart_corpse_elevator_downcalled",
+    "gain.card:card-restart-ward-zero-clerk"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "面对受理员的人", "cardType": "person"},
+    {"id": "slot-1", "name": "呼叫尸梯的证据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把未退脉搏收据拍在窗口上，要求受理员先登记一名没有死亡结果的活人。",
+      "effects": [
+        {"type": "gain.influence", "amount": 14},
+        {"type": "set.flag", "flag": "restart_unreturned_pulse_entered_at_intake"}
+      ]
+    },
+    {
+      "text": "逼受理员交出死亡上诉窗口的排号，承认出院和死亡其实共用同一条队伍。",
+      "effects": [
+        {"type": "gain.favor", "amount": 14},
+        {"type": "set.flag", "flag": "restart_death_appeal_window_unsealed"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "受理员只开了半扇窗。她收下收据，却把第七次日出的名字扣在预死亡名单上。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "受理层承认：未退脉搏可以排队，但排队期间仍可能被系统点名为尸源。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_ward_zero_intake_route_stabilized"}], "description": "Ward Zero 受理员的工牌从窗口滑出。她不再只是盖章声，而是一个可以被迫作证的人。"}
+  ]
+}

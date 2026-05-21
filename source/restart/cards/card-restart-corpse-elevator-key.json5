@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-corpse-elevator-key",
+  "name": "尸梯钥匙",
+  "description": "能呼叫 Ward Zero 尸体电梯的铜钥匙。匙齿上残留着活人体温，说明这部电梯从来不只运送死人。",
+  "type": "item",
+  "coinValue": 12,
+  "effects": [],
+  "metaData": {"tags": ["item", "elevator", "ward-zero", "evidence", "restart"], "gameCardId": "card-restart-corpse-elevator-key"}
+}

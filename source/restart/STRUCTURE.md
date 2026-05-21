@@ -152,3 +152,51 @@ Branch memory added for later checks:
 - `restart_next_region_hospital_supply_reversal_route` vs `restart_next_region_hidden_living_paper_route`
 
 This packet advances the Paperwork, Broadcast/radio, Seventh Sunrise, and Linxi identity threads by making the death-paper supply chain reversible: the Player can now return to old Sunrise Hospital not as a patient, but as the carrier of paper that can challenge the hospital's authority to pre-write death.
+
+## Turn 31–35 packet: Hospital supply-reversal return arc
+
+The sealed return tram now re-enters old Sunrise Hospital as an active supply-chain contradiction rather than stopping at the station edge:
+
+- `restart-rite-31-hospital-receiving-dock` makes the hospital accept the returned living-paper batch under its own receiving rules and grants `医院收货铅封` plus `收货口活人签收单`.
+- `restart-event-32-receiving-living-alarm` forces the receiving-dock cost: protect Seventh Sunrise as a named living receiver or bind the tower operator's contradictory voice into hospital intake.
+- `restart-rite-32-return-goods-audit` turns the returned batch into an auditable hospital liability and grants `倒扣病床账页`.
+- `restart-rite-33-bed-zero-reversed-ledger` pays off B-07/0 by revealing it as a pre-charged receiving shelf for death paper, not a normal ward bed.
+- `restart-event-34-patient-stock-count` makes the hospital attempt to balance its missing corpse against worker testimony or the living-paper batch.
+- `restart-rite-34-rebound-case-shelf` binds the patient-stock contradiction into the case shelf so new death certificates must pass through living-file evidence first.
+- `restart-rite-35-living-discharge-preorder` issues `活人出院预令` and exits toward Ward Zero with a living-witness discharge route or a Ward Zero summons route.
+
+Branch memory added for later checks:
+
+- `restart_hospital_publicly_received_living_paper` vs `restart_hospital_quietly_received_living_paper`
+- `restart_seventh_sun_named_as_hospital_receiver` vs `restart_operator_bound_to_hospital_intake_voice`
+- `restart_hospital_admitted_returned_living_paper` vs `restart_hospital_trapped_by_defective_stock_ruling`
+- `restart_linxi_bed_zero_reversed_as_live` vs `restart_hospital_missing_corpse_count_forced`
+- `restart_patient_stock_count_protected_worker_names` vs `restart_patient_stock_count_marked_living_batch`
+- `restart_seventh_receipt_bound_to_case_shelf` vs `restart_operator_contradiction_bound_to_case_shelf`
+- `restart_next_region_seventh_sun_discharge_route` vs `restart_next_region_ward_zero_summons_route`
+
+This packet advances the Paperwork, Seventh Sunrise, Broadcast/operator, and Linxi identity threads by making old Sunrise Hospital confront the supply-chain evidence it previously outsourced: the Player can now use hospital receiving rules, B-07/0, and the living-paper batch to force an institutionally recognized living-discharge contradiction.
+
+## Turn 36–40 packet: Ward Zero living-discharge execution arc
+
+The living-discharge preorder now becomes a playable Ward Zero execution route instead of ending as a promise:
+
+- `restart-rite-36-ward-zero-corpse-gate` turns the preorder into a corpse-only gate problem and grants `Ward Zero 门牌` plus `临时活人通行证`.
+- `restart-event-37-pulse-arrears-toll` charges the cost of being alive inside corpse infrastructure: hospital supply debt vs Linxi carrying pulse arrears.
+- `restart-rite-37-living-only-elevator-inspection` makes the corpse elevator a witness to living transport and grants `尸梯钥匙` plus `未退脉搏收据`.
+- `restart-rite-38-corpse-elevator-downcall` introduces `Ward Zero 受理员` and converts discharge/death appeal into the same intake counter.
+- `restart-event-39-predeath-roll-call` threatens Seventh Sunrise's name and Linxi's B-07/0 delayed-corpse slot before intake can be filed.
+- `restart-rite-39-ward-zero-intake-counter` creates `暂未死亡章`, a formal state that prevents immediate death补录 and opens hearing pressure.
+- `restart-rite-40-discharge-hearing-bell` grants `活人听证铃` and splits the next route between public living-discharge hearing and corpse-appeal backdoor.
+
+Branch memory added for later checks:
+
+- `restart_seventh_sun_public_discharge_claim` vs `restart_linxi_ward_zero_summons_claim`
+- `restart_pulse_debt_charged_to_hospital_supply` vs `restart_linxi_carried_pulse_arrears`
+- `restart_elevator_confessed_living_cargo` vs `restart_elevator_bribed_with_receiving_seal`
+- `restart_unreturned_pulse_entered_at_intake` vs `restart_death_appeal_window_unsealed`
+- `restart_seventh_name_shielded_by_pulse_receipt` vs `restart_linxi_delayed_corpse_slot_broadcast`
+- `restart_seventh_public_living_hearing_case` vs `restart_linxi_bed_zero_counter_case`
+- `restart_next_region_public_living_hearing_route` vs `restart_next_region_corpse_appeal_backdoor_route`
+
+This packet advances the Paperwork, Seventh Sunrise, Linxi/B-07/0, and hospital authority threads by forcing the hospital's corpse-only exit infrastructure to process a living claimant. It is structurally sufficient for the next Player because it provides five sequential rites, two integrated pressure events, new state-bearing cards, and delayed branch flags for the coming hearing route.

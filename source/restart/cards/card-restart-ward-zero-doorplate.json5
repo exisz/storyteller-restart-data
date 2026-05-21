@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-ward-zero-doorplate",
+  "name": "Ward Zero 门牌",
+  "description": "从尸体专用门上撬下来的冷白门牌。它证明 Ward Zero 不是传闻，而是旧日出医院把活人改列死亡前必须经过的部门。",
+  "type": "item",
+  "coinValue": 11,
+  "effects": [],
+  "metaData": {"tags": ["item", "ward-zero", "hospital", "discharge", "restart"], "gameCardId": "card-restart-ward-zero-doorplate"}
+}

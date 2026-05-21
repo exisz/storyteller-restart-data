@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-living-hearing-bell",
+  "name": "活人听证铃",
+  "description": "只在死人名单漏掉活人时才会响的听证铃。摇响它，Ward Zero 必须在杀死当事人之前先开一次庭。",
+  "type": "item",
+  "coinValue": 13,
+  "effects": [],
+  "metaData": {"tags": ["item", "hearing", "ward-zero", "living", "restart"], "gameCardId": "card-restart-living-hearing-bell"}
+}

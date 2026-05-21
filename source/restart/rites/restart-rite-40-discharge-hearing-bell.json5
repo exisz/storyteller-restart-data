@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-40-discharge-hearing-bell",
+  "name": "RESTART 40：活人出院听证铃",
+  "description": "暂未死亡章落下后，受理台后方升起一枚没有锤舌的铃。第七次日出把手伸进去，铃却发出林夕的声音：本院无法确认当事人死亡，因此必须在死亡前举行活人出院听证。Ward Zero 终于被迫把出口变成审判。",
+  "triggers": ["restart-ward-zero-intake-filed"],
+  "consequences": ["restart-living-hearing-bell-rung", "restart-next-region-discharge-hearing-route"],
+  "conditions": [
+    "flag.restart_ward_zero_intake_filed:1",
+    "have.card:card-restart-not-yet-dead-stamp",
+    "have.card:card-restart-ward-zero-clerk",
+    "have.card:card-restart-living-discharge-order",
+    "have.card:card-restart-seventh-sun"
+  ],
+  "effects": [
+    "set.flag:restart_living_hearing_bell_rung",
+    "gain.card:card-restart-living-hearing-bell"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "摇响听证铃的人", "cardType": "person"},
+    {"id": "slot-1", "name": "让铃生效的暂未死亡证据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "公开摇铃，把第七次日出推上活人出院听证席，让医院必须当众解释她为何不能活着离开。",
+      "effects": [
+        {"type": "gain.influence", "amount": 15},
+        {"type": "set.flag", "flag": "restart_next_region_public_living_hearing_route"}
+      ]
+    },
+    {
+      "text": "反向摇铃，把案号送进死亡上诉后门，让林夕带着 B-07/0 从尸体申诉口切入。",
+      "effects": [
+        {"type": "gain.favor", "amount": 15},
+        {"type": "set.flag", "flag": "restart_next_region_corpse_appeal_backdoor_route"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "铃响了一声就被墙吞掉。听证会仍会召开，但 Ward Zero 会试图隐藏旁听名单。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "听证铃响彻尸梯。第七次日出第一次不是被点名为尸源，而是被点名为当事人。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_discharge_hearing_route_stabilized"}], "description": "Ward Zero 的墙体退开，露出听证席和死亡上诉后门两条路。出口仍未出现，但医院已经失去不审而杀的特权。"}
+  ]
+}

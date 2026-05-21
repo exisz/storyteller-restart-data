@@ -1,0 +1,44 @@
+{
+  "id": "restart-rite-37-living-only-elevator-inspection",
+  "name": "RESTART 37：尸梯活重验收",
+  "description": "脉搏欠费闸安静后，走廊尽头的尸梯亮起。电梯只承认“死重”，却在临时活人通行证靠近时自动报出七次活重记录；第七次日出低声说，她每一次被运回循环，都是从这部电梯下去的。",
+  "triggers": ["restart-pulse-arrears-answered", "restart-ward-zero-corpse-gate-opened"],
+  "consequences": ["restart-living-elevator-inspected"],
+  "conditions": [
+    "flag.restart_ward_zero_corpse_gate_opened:1",
+    "flag.restart_pulse_arrears_answered:1",
+    "have.card:card-restart-temporary-living-pass",
+    "have.card:card-restart-ward-zero-doorplate",
+    "have.card:card-restart-hospital-receiving-seal"
+  ],
+  "effects": [
+    "set.flag:restart_living_elevator_inspected",
+    "gain.card:card-restart-corpse-elevator-key",
+    "gain.card:card-restart-unreturned-pulse-receipt"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "验收尸梯的人", "cardType": "person"},
+    {"id": "slot-1", "name": "临时活人凭证", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "逼尸梯打印七次活重记录，让机器承认医院一直把活人当尸体运送。",
+      "effects": [
+        {"type": "gain.influence", "amount": 13},
+        {"type": "set.flag", "flag": "restart_elevator_confessed_living_cargo"}
+      ]
+    },
+    {
+      "text": "用医院收货铅封贿赂验收口，让尸梯先把林夕和第七次日出送到受理层。",
+      "effects": [
+        {"type": "gain.favor", "amount": 13},
+        {"type": "set.flag", "flag": "restart_elevator_bribed_with_receiving_seal"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "尸梯拒绝完整开门，但钥匙从按钮缝里掉出。它知道自己被抓住了。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "未退脉搏收据打印出来：一份活人进入 Ward Zero，却没有对应的死亡或出院结果。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_living_elevator_route_stabilized"}], "description": "尸梯的楼层表倒转，受理层亮起。Ward Zero 不能再假装这只是尸体运输错误。"}
+  ]
+}

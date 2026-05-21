@@ -1,0 +1,25 @@
+{
+  "id": "restart-event-39-predeath-roll-call",
+  "name": "第三十九回合事件：预死亡点名",
+  "description": "尸梯下降到一半，广播开始点名尚未抵达 Ward Zero 的死人。第七次日出的名字被念到一半，林夕的 B-07/0 则在名单上重复闪烁，像一张等着被盖章的替补尸位。",
+  "trigger": {"turn": 39},
+  "consequences": ["restart-predeath-roll-call-answered"],
+  "options": [
+    {
+      "text": "把未退脉搏收据贴到第七次日出的名字上，让点名系统承认她还没被处理完。",
+      "effects": [
+        "gain.influence:11",
+        "set.flag:restart_predeath_roll_call_answered",
+        "set.flag:restart_seventh_name_shielded_by_pulse_receipt"
+      ]
+    },
+    {
+      "text": "用坏掉的收音机广播林夕的延迟尸位，逼 Ward Zero 先审 B-07/0 的矛盾。",
+      "effects": [
+        "gain.favor:11",
+        "set.flag:restart_predeath_roll_call_answered",
+        "set.flag:restart_linxi_delayed_corpse_slot_broadcast"
+      ]
+    }
+  ]
+}

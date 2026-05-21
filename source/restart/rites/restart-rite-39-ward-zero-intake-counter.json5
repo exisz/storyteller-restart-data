@@ -1,0 +1,44 @@
+{
+  "id": "restart-rite-39-ward-zero-intake-counter",
+  "name": "RESTART 39：Ward Zero 受理台",
+  "description": "预死亡点名停下时，受理台把三份材料并排推回：活人出院预令、未退脉搏收据、倒扣病床账页。受理员说，只要盖错一枚章，第七次日出就会从活证人变成“等待死亡补录”的库存；但不盖章，门也不会再开。",
+  "triggers": ["restart-predeath-roll-call-answered", "restart-corpse-elevator-downcalled"],
+  "consequences": ["restart-ward-zero-intake-filed"],
+  "conditions": [
+    "flag.restart_corpse_elevator_downcalled:1",
+    "flag.restart_predeath_roll_call_answered:1",
+    "have.card:card-restart-ward-zero-clerk",
+    "have.card:card-restart-living-discharge-order",
+    "have.card:card-restart-unreturned-pulse-receipt",
+    "have.card:card-restart-reversed-bed-ledger"
+  ],
+  "effects": [
+    "set.flag:restart_ward_zero_intake_filed",
+    "gain.card:card-restart-not-yet-dead-stamp"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "提交受理的人", "cardType": "person"},
+    {"id": "slot-1", "name": "防止死亡补录的证据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把第七次日出的案号公开登记为活人听证，让 Ward Zero 不能私下补死她。",
+      "effects": [
+        {"type": "gain.influence", "amount": 14},
+        {"type": "set.flag", "flag": "restart_seventh_public_living_hearing_case"}
+      ]
+    },
+    {
+      "text": "把林夕的 B-07/0 倒账登记成反案号，让医院先解释为什么活人床位会出现在尸库。",
+      "effects": [
+        {"type": "gain.favor", "amount": 14},
+        {"type": "set.flag", "flag": "restart_linxi_bed_zero_counter_case"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 8, "rewards": [{"type": "gain.influence", "amount": 2}], "description": "暂未死亡章盖得很浅。它只能撑到下一次广播点名，但已经足够阻止立刻补录死亡。"},
+    {"minValue": 9, "maxValue": 14, "rewards": [{"type": "gain.favor", "amount": 4}, {"type": "gain.influence", "amount": 4}], "description": "受理台吐出灰色章面：暂未死亡。Ward Zero 第一次把“不死”当成待办事项。"},
+    {"minValue": 15, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 6}, {"type": "gain.influence", "amount": 6}, {"type": "set.flag", "flag": "restart_not_yet_dead_stamp_stabilized"}], "description": "暂未死亡章压住三份材料，铃声从墙后响起：既然无法直接写死，就必须先开听证。"}
+  ]
+}

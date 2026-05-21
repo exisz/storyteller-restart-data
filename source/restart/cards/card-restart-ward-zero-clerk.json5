@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-ward-zero-clerk",
+  "name": "Ward Zero 受理员",
+  "description": "隔着磨砂玻璃盖章的受理员。她不问病人是否活着，只问这次要按出院、死亡还是上诉收费。",
+  "type": "person",
+  "coinValue": 12,
+  "effects": [],
+  "metaData": {"tags": ["person", "clerk", "ward-zero", "hospital", "restart"], "gameCardId": "card-restart-ward-zero-clerk"}
+}

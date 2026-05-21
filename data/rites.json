@@ -3860,5 +3860,559 @@
         "description": "旧日出医院无法销毁预令，只能把它转交给 Ward Zero 复核。下一次开门时，医院要面对的不是逃跑者，而是一个它亲手承认暂时活着的人。"
       }
     ]
+  },
+  {
+    "id": "restart-rite-36-ward-zero-corpse-gate",
+    "name": "RESTART 36：Ward Zero 尸门",
+    "description": "活人出院预令带林夕和第七次日出回到旧日出医院最底层。门牌写着 Ward Zero，副标题却是“尸体离院处”：只有已经被医院结算过死亡的人，才允许从这里出去。预令在门缝前发白，像一份还没学会装死的通行证。",
+    "triggers": [
+      "restart-living-discharge-order-issued",
+      "restart-ward-zero-return-summons-ready"
+    ],
+    "consequences": [
+      "restart-event-37-pulse-arrears-toll",
+      "restart-ward-zero-corpse-gate-opened"
+    ],
+    "conditions": [
+      "flag.restart_living_discharge_order_issued:1",
+      "flag.restart_next_region_seventh_sun_discharge_route:1",
+      "have.card:card-restart-living-discharge-order",
+      "have.card:card-restart-seventh-sun",
+      "have.card:card-restart-reversed-bed-ledger"
+    ],
+    "effects": [
+      "set.flag:restart_ward_zero_corpse_gate_opened",
+      "gain.card:card-restart-ward-zero-doorplate",
+      "gain.card:card-restart-temporary-living-pass"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "递交出院预令的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "证明活人预令的文件",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "把第七次日出的名字写在门牌背面，要求 Ward Zero 按活证人公开受理。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 13
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_seventh_sun_public_discharge_claim"
+          }
+        ]
+      },
+      {
+        "text": "把林夕的 B-07/0 倒账压进门缝，让尸门先传唤这个“暂未死亡”的病人。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 13
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_linxi_ward_zero_summons_claim"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "尸门只开到能递进一只手。门牌承认 Ward Zero 存在，却把活人通行证盖成临时。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "活人出院预令被门缝吞下又吐回，背面多出一句：通行前请补缴脉搏欠费。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_ward_zero_gate_route_stabilized"
+          }
+        ],
+        "description": "Ward Zero 门牌从墙上松动。它不再只是入口，也是能带走的证据：医院确实设置过只准死人离院的部门。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-37-living-only-elevator-inspection",
+    "name": "RESTART 37：尸梯活重验收",
+    "description": "脉搏欠费闸安静后，走廊尽头的尸梯亮起。电梯只承认“死重”，却在临时活人通行证靠近时自动报出七次活重记录；第七次日出低声说，她每一次被运回循环，都是从这部电梯下去的。",
+    "triggers": [
+      "restart-pulse-arrears-answered",
+      "restart-ward-zero-corpse-gate-opened"
+    ],
+    "consequences": [
+      "restart-living-elevator-inspected"
+    ],
+    "conditions": [
+      "flag.restart_ward_zero_corpse_gate_opened:1",
+      "flag.restart_pulse_arrears_answered:1",
+      "have.card:card-restart-temporary-living-pass",
+      "have.card:card-restart-ward-zero-doorplate",
+      "have.card:card-restart-hospital-receiving-seal"
+    ],
+    "effects": [
+      "set.flag:restart_living_elevator_inspected",
+      "gain.card:card-restart-corpse-elevator-key",
+      "gain.card:card-restart-unreturned-pulse-receipt"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "验收尸梯的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "临时活人凭证",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "逼尸梯打印七次活重记录，让机器承认医院一直把活人当尸体运送。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 13
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_elevator_confessed_living_cargo"
+          }
+        ]
+      },
+      {
+        "text": "用医院收货铅封贿赂验收口，让尸梯先把林夕和第七次日出送到受理层。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 13
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_elevator_bribed_with_receiving_seal"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "尸梯拒绝完整开门，但钥匙从按钮缝里掉出。它知道自己被抓住了。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "未退脉搏收据打印出来：一份活人进入 Ward Zero，却没有对应的死亡或出院结果。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_living_elevator_route_stabilized"
+          }
+        ],
+        "description": "尸梯的楼层表倒转，受理层亮起。Ward Zero 不能再假装这只是尸体运输错误。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-38-corpse-elevator-downcall",
+    "name": "RESTART 38：尸梯下行受理",
+    "description": "尸梯钥匙一转，电梯不是下降，而是把整个走廊抬成一只病历抽屉。磨砂玻璃后有人开始盖章：出院、死亡、上诉，三个章的声音完全一样。受理员问林夕：这一次，你要替谁证明还没死？",
+    "triggers": [
+      "restart-living-elevator-inspected"
+    ],
+    "consequences": [
+      "restart-event-39-predeath-roll-call",
+      "restart-corpse-elevator-downcalled"
+    ],
+    "conditions": [
+      "flag.restart_living_elevator_inspected:1",
+      "have.card:card-restart-corpse-elevator-key",
+      "have.card:card-restart-unreturned-pulse-receipt",
+      "have.card:card-restart-living-discharge-order",
+      "have.card:card-restart-seventh-sun"
+    ],
+    "effects": [
+      "set.flag:restart_corpse_elevator_downcalled",
+      "gain.card:card-restart-ward-zero-clerk"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "面对受理员的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "呼叫尸梯的证据",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "把未退脉搏收据拍在窗口上，要求受理员先登记一名没有死亡结果的活人。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 14
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_unreturned_pulse_entered_at_intake"
+          }
+        ]
+      },
+      {
+        "text": "逼受理员交出死亡上诉窗口的排号，承认出院和死亡其实共用同一条队伍。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 14
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_death_appeal_window_unsealed"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "受理员只开了半扇窗。她收下收据，却把第七次日出的名字扣在预死亡名单上。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "受理层承认：未退脉搏可以排队，但排队期间仍可能被系统点名为尸源。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_ward_zero_intake_route_stabilized"
+          }
+        ],
+        "description": "Ward Zero 受理员的工牌从窗口滑出。她不再只是盖章声，而是一个可以被迫作证的人。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-39-ward-zero-intake-counter",
+    "name": "RESTART 39：Ward Zero 受理台",
+    "description": "预死亡点名停下时，受理台把三份材料并排推回：活人出院预令、未退脉搏收据、倒扣病床账页。受理员说，只要盖错一枚章，第七次日出就会从活证人变成“等待死亡补录”的库存；但不盖章，门也不会再开。",
+    "triggers": [
+      "restart-predeath-roll-call-answered",
+      "restart-corpse-elevator-downcalled"
+    ],
+    "consequences": [
+      "restart-ward-zero-intake-filed"
+    ],
+    "conditions": [
+      "flag.restart_corpse_elevator_downcalled:1",
+      "flag.restart_predeath_roll_call_answered:1",
+      "have.card:card-restart-ward-zero-clerk",
+      "have.card:card-restart-living-discharge-order",
+      "have.card:card-restart-unreturned-pulse-receipt",
+      "have.card:card-restart-reversed-bed-ledger"
+    ],
+    "effects": [
+      "set.flag:restart_ward_zero_intake_filed",
+      "gain.card:card-restart-not-yet-dead-stamp"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "提交受理的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "防止死亡补录的证据",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "把第七次日出的案号公开登记为活人听证，让 Ward Zero 不能私下补死她。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 14
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_seventh_public_living_hearing_case"
+          }
+        ]
+      },
+      {
+        "text": "把林夕的 B-07/0 倒账登记成反案号，让医院先解释为什么活人床位会出现在尸库。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 14
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_linxi_bed_zero_counter_case"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "暂未死亡章盖得很浅。它只能撑到下一次广播点名，但已经足够阻止立刻补录死亡。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "受理台吐出灰色章面：暂未死亡。Ward Zero 第一次把“不死”当成待办事项。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_not_yet_dead_stamp_stabilized"
+          }
+        ],
+        "description": "暂未死亡章压住三份材料，铃声从墙后响起：既然无法直接写死，就必须先开听证。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-40-discharge-hearing-bell",
+    "name": "RESTART 40：活人出院听证铃",
+    "description": "暂未死亡章落下后，受理台后方升起一枚没有锤舌的铃。第七次日出把手伸进去，铃却发出林夕的声音：本院无法确认当事人死亡，因此必须在死亡前举行活人出院听证。Ward Zero 终于被迫把出口变成审判。",
+    "triggers": [
+      "restart-ward-zero-intake-filed"
+    ],
+    "consequences": [
+      "restart-living-hearing-bell-rung",
+      "restart-next-region-discharge-hearing-route"
+    ],
+    "conditions": [
+      "flag.restart_ward_zero_intake_filed:1",
+      "have.card:card-restart-not-yet-dead-stamp",
+      "have.card:card-restart-ward-zero-clerk",
+      "have.card:card-restart-living-discharge-order",
+      "have.card:card-restart-seventh-sun"
+    ],
+    "effects": [
+      "set.flag:restart_living_hearing_bell_rung",
+      "gain.card:card-restart-living-hearing-bell"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "摇响听证铃的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "让铃生效的暂未死亡证据",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "公开摇铃，把第七次日出推上活人出院听证席，让医院必须当众解释她为何不能活着离开。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 15
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_public_living_hearing_route"
+          }
+        ]
+      },
+      {
+        "text": "反向摇铃，把案号送进死亡上诉后门，让林夕带着 B-07/0 从尸体申诉口切入。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 15
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_corpse_appeal_backdoor_route"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 8,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 2
+          }
+        ],
+        "description": "铃响了一声就被墙吞掉。听证会仍会召开，但 Ward Zero 会试图隐藏旁听名单。"
+      },
+      {
+        "minValue": 9,
+        "maxValue": 14,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 4
+          },
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "听证铃响彻尸梯。第七次日出第一次不是被点名为尸源，而是被点名为当事人。"
+      },
+      {
+        "minValue": 15,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 6
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_discharge_hearing_route_stabilized"
+          }
+        ],
+        "description": "Ward Zero 的墙体退开，露出听证席和死亡上诉后门两条路。出口仍未出现，但医院已经失去不审而杀的特权。"
+      }
+    ]
   }
 ]

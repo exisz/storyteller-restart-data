@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-temporary-living-pass",
+  "name": "临时活人通行证",
+  "description": "由活人出院预令反向生成的薄纸通行证。它只在医院还没想好如何把持有人写死之前有效。",
+  "type": "item",
+  "coinValue": 11,
+  "effects": [],
+  "metaData": {"tags": ["item", "living", "pass", "ward-zero", "restart"], "gameCardId": "card-restart-temporary-living-pass"}
+}

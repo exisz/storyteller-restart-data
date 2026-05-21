@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-unreturned-pulse-receipt",
+  "name": "未退脉搏收据",
+  "description": "Ward Zero 打印出的异常收据：本院已接收一份脉搏，但尚未退还死亡、出院或注销结果。",
+  "type": "item",
+  "coinValue": 12,
+  "effects": [],
+  "metaData": {"tags": ["item", "pulse", "receipt", "ward-zero", "restart"], "gameCardId": "card-restart-unreturned-pulse-receipt"}
+}

@@ -481,5 +481,63 @@
         ]
       }
     ]
+  },
+  {
+    "id": "restart-event-37-pulse-arrears-toll",
+    "name": "第三十七回合事件：脉搏欠费闸",
+    "description": "Ward Zero 的走廊突然锁住，墙面伸出一排听诊器。系统提示：活人通行需补缴脉搏欠费；若未指定缴费人，本院将自动把第七次日出改列为待处理尸源。",
+    "trigger": {
+      "turn": 37
+    },
+    "consequences": [
+      "restart-pulse-arrears-answered"
+    ],
+    "options": [
+      {
+        "text": "用纸厂工人证词和收货口签收单证明这份脉搏来自医院自己的供应错误。",
+        "effects": [
+          "gain.influence:10",
+          "set.flag:restart_pulse_arrears_answered",
+          "set.flag:restart_pulse_debt_charged_to_hospital_supply"
+        ]
+      },
+      {
+        "text": "让林夕把 B-07/0 的倒账压在闸机上，暂时替第七次日出背下脉搏欠费。",
+        "effects": [
+          "gain.favor:10",
+          "set.flag:restart_pulse_arrears_answered",
+          "set.flag:restart_linxi_carried_pulse_arrears"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-39-predeath-roll-call",
+    "name": "第三十九回合事件：预死亡点名",
+    "description": "尸梯下降到一半，广播开始点名尚未抵达 Ward Zero 的死人。第七次日出的名字被念到一半，林夕的 B-07/0 则在名单上重复闪烁，像一张等着被盖章的替补尸位。",
+    "trigger": {
+      "turn": 39
+    },
+    "consequences": [
+      "restart-predeath-roll-call-answered"
+    ],
+    "options": [
+      {
+        "text": "把未退脉搏收据贴到第七次日出的名字上，让点名系统承认她还没被处理完。",
+        "effects": [
+          "gain.influence:11",
+          "set.flag:restart_predeath_roll_call_answered",
+          "set.flag:restart_seventh_name_shielded_by_pulse_receipt"
+        ]
+      },
+      {
+        "text": "用坏掉的收音机广播林夕的延迟尸位，逼 Ward Zero 先审 B-07/0 的矛盾。",
+        "effects": [
+          "gain.favor:11",
+          "set.flag:restart_predeath_roll_call_answered",
+          "set.flag:restart_linxi_delayed_corpse_slot_broadcast"
+        ]
+      }
+    ]
   }
 ]

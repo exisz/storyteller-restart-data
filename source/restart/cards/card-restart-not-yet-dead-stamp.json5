@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-not-yet-dead-stamp",
+  "name": "暂未死亡章",
+  "description": "Ward Zero 被迫盖出的灰色印章。它不承认自由，只承认医院暂时没有资格把这个人列入死亡。",
+  "type": "item",
+  "coinValue": 13,
+  "effects": [],
+  "metaData": {"tags": ["item", "stamp", "not-yet-dead", "ward-zero", "restart"], "gameCardId": "card-restart-not-yet-dead-stamp"}
+}

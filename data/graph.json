@@ -176,6 +176,31 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-36-ward-zero-corpse-gate",
+      "name": "RESTART 36：Ward Zero 尸门",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-37-living-only-elevator-inspection",
+      "name": "RESTART 37：尸梯活重验收",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-38-corpse-elevator-downcall",
+      "name": "RESTART 38：尸梯下行受理",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-39-ward-zero-intake-counter",
+      "name": "RESTART 39：Ward Zero 受理台",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-40-discharge-hearing-bell",
+      "name": "RESTART 40：活人出院听证铃",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -259,6 +284,16 @@
       "id": "restart-event-34-patient-stock-count",
       "name": "第三十四回合事件：病人库存盘点",
       "type": "event"
+    },
+    {
+      "id": "restart-event-37-pulse-arrears-toll",
+      "name": "第三十七回合事件：脉搏欠费闸",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-39-predeath-roll-call",
+      "name": "第三十九回合事件：预死亡点名",
+      "type": "event"
     }
   ],
   "links": [
@@ -341,6 +376,14 @@
     {
       "source": "restart-rite-33-bed-zero-reversed-ledger",
       "target": "restart-event-34-patient-stock-count"
+    },
+    {
+      "source": "restart-rite-36-ward-zero-corpse-gate",
+      "target": "restart-event-37-pulse-arrears-toll"
+    },
+    {
+      "source": "restart-rite-38-corpse-elevator-downcall",
+      "target": "restart-event-39-predeath-roll-call"
     },
     {
       "source": "restart-event-02-broadcast",

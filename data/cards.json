@@ -50,6 +50,24 @@
     "effects": []
   },
   {
+    "id": "card-restart-corpse-elevator-key",
+    "name": "尸梯钥匙",
+    "description": "能呼叫 Ward Zero 尸体电梯的铜钥匙。匙齿上残留着活人体温，说明这部电梯从来不只运送死人。",
+    "type": "item",
+    "coinValue": 12,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "elevator",
+        "ward-zero",
+        "evidence",
+        "restart"
+      ],
+      "gameCardId": "card-restart-corpse-elevator-key"
+    }
+  },
+  {
     "id": "card-restart-counterfeit-city-map",
     "type": "item",
     "name": "伪城地图",
@@ -172,6 +190,24 @@
     "effects": []
   },
   {
+    "id": "card-restart-living-hearing-bell",
+    "name": "活人听证铃",
+    "description": "只在死人名单漏掉活人时才会响的听证铃。摇响它，Ward Zero 必须在杀死当事人之前先开一次庭。",
+    "type": "item",
+    "coinValue": 13,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "hearing",
+        "ward-zero",
+        "living",
+        "restart"
+      ],
+      "gameCardId": "card-restart-living-hearing-bell"
+    }
+  },
+  {
     "id": "card-restart-living-paper-lot",
     "name": "活纸批次",
     "description": "被活人档案边码污染过的一整批证明纸。它仍能回到医院，却会在写下死因前先问：这个人是否已经被允许活着？",
@@ -240,6 +276,24 @@
       "gameCardId": "card-restart-night-shift-ticket"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-not-yet-dead-stamp",
+    "name": "暂未死亡章",
+    "description": "Ward Zero 被迫盖出的灰色印章。它不承认自由，只承认医院暂时没有资格把这个人列入死亡。",
+    "type": "item",
+    "coinValue": 13,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "stamp",
+        "not-yet-dead",
+        "ward-zero",
+        "restart"
+      ],
+      "gameCardId": "card-restart-not-yet-dead-stamp"
+    }
   },
   {
     "id": "card-restart-operator-coordinate",
@@ -398,6 +452,24 @@
     }
   },
   {
+    "id": "card-restart-temporary-living-pass",
+    "name": "临时活人通行证",
+    "description": "由活人出院预令反向生成的薄纸通行证。它只在医院还没想好如何把持有人写死之前有效。",
+    "type": "item",
+    "coinValue": 11,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "living",
+        "pass",
+        "ward-zero",
+        "restart"
+      ],
+      "gameCardId": "card-restart-temporary-living-pass"
+    }
+  },
+  {
     "id": "card-restart-ticket",
     "type": "item",
     "name": "第七次日出的车票",
@@ -448,6 +520,60 @@
       "gameCardId": "card-restart-uncut-certificate-paper"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-unreturned-pulse-receipt",
+    "name": "未退脉搏收据",
+    "description": "Ward Zero 打印出的异常收据：本院已接收一份脉搏，但尚未退还死亡、出院或注销结果。",
+    "type": "item",
+    "coinValue": 12,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "pulse",
+        "receipt",
+        "ward-zero",
+        "restart"
+      ],
+      "gameCardId": "card-restart-unreturned-pulse-receipt"
+    }
+  },
+  {
+    "id": "card-restart-ward-zero-clerk",
+    "name": "Ward Zero 受理员",
+    "description": "隔着磨砂玻璃盖章的受理员。她不问病人是否活着，只问这次要按出院、死亡还是上诉收费。",
+    "type": "person",
+    "coinValue": 12,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "person",
+        "clerk",
+        "ward-zero",
+        "hospital",
+        "restart"
+      ],
+      "gameCardId": "card-restart-ward-zero-clerk"
+    }
+  },
+  {
+    "id": "card-restart-ward-zero-doorplate",
+    "name": "Ward Zero 门牌",
+    "description": "从尸体专用门上撬下来的冷白门牌。它证明 Ward Zero 不是传闻，而是旧日出医院把活人改列死亡前必须经过的部门。",
+    "type": "item",
+    "coinValue": 11,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "ward-zero",
+        "hospital",
+        "discharge",
+        "restart"
+      ],
+      "gameCardId": "card-restart-ward-zero-doorplate"
+    }
   },
   {
     "id": "card-restart-watermark-mold",

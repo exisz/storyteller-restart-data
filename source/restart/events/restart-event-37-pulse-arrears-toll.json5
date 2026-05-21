@@ -1,0 +1,25 @@
+{
+  "id": "restart-event-37-pulse-arrears-toll",
+  "name": "第三十七回合事件：脉搏欠费闸",
+  "description": "Ward Zero 的走廊突然锁住，墙面伸出一排听诊器。系统提示：活人通行需补缴脉搏欠费；若未指定缴费人，本院将自动把第七次日出改列为待处理尸源。",
+  "trigger": {"turn": 37},
+  "consequences": ["restart-pulse-arrears-answered"],
+  "options": [
+    {
+      "text": "用纸厂工人证词和收货口签收单证明这份脉搏来自医院自己的供应错误。",
+      "effects": [
+        "gain.influence:10",
+        "set.flag:restart_pulse_arrears_answered",
+        "set.flag:restart_pulse_debt_charged_to_hospital_supply"
+      ]
+    },
+    {
+      "text": "让林夕把 B-07/0 的倒账压在闸机上，暂时替第七次日出背下脉搏欠费。",
+      "effects": [
+        "gain.favor:10",
+        "set.flag:restart_pulse_arrears_answered",
+        "set.flag:restart_linxi_carried_pulse_arrears"
+      ]
+    }
+  ]
+}

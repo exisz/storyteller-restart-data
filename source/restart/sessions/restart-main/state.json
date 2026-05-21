@@ -1,5 +1,5 @@
 {
-  "turn": 31,
+  "turn": 36,
   "rites": [
     {
       "id": "restart-rite-01-wake-at-platform",
@@ -3473,6 +3473,587 @@
           "description": "车窗外重新出现旧日出医院的地下月台。不同的是，这一次医院等来的不是病人，而是自己的供纸账。"
         }
       ]
+    },
+    {
+      "id": "restart-rite-31-hospital-receiving-dock",
+      "name": "RESTART 31：旧日出收货月台",
+      "description": "封签回院车滑入旧日出医院的地下收货月台。这里没有护士，只有一排自动拆封臂和一台会朗读供货单的冷光屏：本批死亡证明纸已按规程回院，请登记收货人。第七次日出站在铅封旁，第一次不是逃离医院，而是作为医院必须签收的错误回来了。",
+      "triggers": [
+        "restart-sealed-return-tram-departed"
+      ],
+      "consequences": [
+        "restart-event-32-receiving-living-alarm",
+        "restart-hospital-receiving-dock-opened"
+      ],
+      "conditions": [
+        "flag.restart_sealed_return_tram_departed:1",
+        "flag.restart_return_tram_public_account_route:1",
+        "flag.restart_next_region_hospital_supply_reversal_route:1",
+        "have.card:card-restart-return-invoice",
+        "have.card:card-restart-living-paper-lot",
+        "have.card:card-restart-supply-ledger",
+        "have.card:card-restart-seventh-sun"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_hospital_receiving_dock_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-hospital-receiving-seal"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-living-receipt-form"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "押送活纸回院的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "医院必须签收的供货凭证",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把供纸账本摊在月台屏幕前，要求医院公开签收自己的死亡纸额倒账。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 10
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_hospital_publicly_received_living_paper"
+            }
+          ]
+        },
+        {
+          "text": "把活纸批次伪装成普通退货，让收货口先吞下证据再反向发作。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 10
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_hospital_quietly_received_living_paper"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "收货月台认下铅封，却把收货人栏打成一片黑块。医院准备先验货，再决定谁算活人。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "铅封裂开，活纸批次没有变回死亡证明。医院广播第一次把第七次日出称作“未定收货人”。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_hospital_receiving_dock_stabilized"
+            }
+          ],
+          "description": "收货月台的屏幕反向打印：本院已接收一批无法写死者姓名的证明纸。收货人必须由活人签字。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-32-return-goods-audit",
+      "name": "RESTART 32：回院验货审计",
+      "description": "活体警报被压下后，收货月台升起验货审计台。审计台要求林夕证明这批纸不是废品，而是旧日出医院曾经合法领取、如今无法写死任何人的死亡证明。供纸账本自动翻到 B-07/0 的扣数行。",
+      "triggers": [
+        "restart-hospital-receiving-dock-opened",
+        "restart-receiving-living-alarm-answered"
+      ],
+      "consequences": [
+        "restart-return-goods-audit-filed"
+      ],
+      "conditions": [
+        "flag.restart_receiving_living_alarm_answered:1",
+        "have.card:card-restart-hospital-receiving-seal",
+        "have.card:card-restart-living-receipt-form",
+        "have.card:card-restart-living-paper-lot",
+        "have.card:card-restart-supply-ledger"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_return_goods_audit_filed"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-reversed-bed-ledger"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "主持验货审计的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "证明回院批次的凭证",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "用收货铅封压住供纸账本，强迫医院承认活纸是按合法规程回来的。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 10
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_hospital_admitted_returned_living_paper"
+            }
+          ]
+        },
+        {
+          "text": "让验货台先把活纸判成废品，再用签收单证明废品仍由活人签收。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 10
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_hospital_trapped_by_defective_stock_ruling"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "验货台只承认一半证据，却吐出一张倒扣病床账页：B-07/0 早在林夕到院前就被扣过纸额。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "活纸批次通过验货。医院无法再称它是外来污染，只能承认污染来自本院自己的收货链。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_return_audit_can_reverse_bed_zero"
+            }
+          ],
+          "description": "审计台把 B-07/0 的扣数行反向装订：先有死亡纸，后有病人。林夕终于握住能倒查自己床号的账页。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-33-bed-zero-reversed-ledger",
+      "name": "RESTART 33：B-07/0倒扣病床",
+      "description": "倒扣病床账页把林夕带回地下病历架的背面。B-07/0 没有床垫，只有一只收货槽：每当旧日出医院预支一个死者，槽里就提前落下一张还没写姓名的证明纸。林夕的真实床号原来不是住院地址，而是死亡库存的缺口。",
+      "triggers": [
+        "restart-return-goods-audit-filed"
+      ],
+      "consequences": [
+        "restart-bed-zero-reversed-ledger-opened",
+        "restart-event-34-patient-stock-count"
+      ],
+      "conditions": [
+        "flag.restart_return_goods_audit_filed:1",
+        "have.card:card-restart-reversed-bed-ledger",
+        "have.card:card-restart-real-bed-number",
+        "have.card:card-restart-living-file",
+        "flag.restart_heard_origin:1",
+        "flag.restart_linxi_memorized_bed_zero:1"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_bed_zero_reversed_ledger_opened"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "面对真实床号的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "倒扣床位证据",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把林夕登记回 B-07/0 的活床状态，让医院承认她抵达时还没有合法死亡。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 10
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_linxi_bed_zero_reversed_as_live"
+            }
+          ]
+        },
+        {
+          "text": "不急着登记林夕，先让病床槽显示医院短缺的那一具合法尸体。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 10
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_hospital_missing_corpse_count_forced"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "B-07/0 只反亮半秒。林夕看见自己的名字，但医院立刻用黑条遮住了入院时间。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "倒扣账页承认床号存在。第七次日出按住活人档案，说这不是林夕的病床，是医院欠她的一次未死状态。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_bed_zero_live_status_stabilized"
+            }
+          ],
+          "description": "病历架向两侧退开，露出一条写着“待出院活体”的窄廊。医院开始盘点它究竟少了哪一个死人。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-34-rebound-case-shelf",
+      "name": "RESTART 34：病历反装订架",
+      "description": "库存盘点没有补到尸体，病历架反而把所有被预支死亡的人装订到同一层。纸厂工人证词在架缝里发烫，活人档案的边码沿着 B-07/0 的床号爬行；只要这一页装反，医院就得先证明人死了，才有资格领取下一张死亡证明。",
+      "triggers": [
+        "restart-bed-zero-reversed-ledger-opened",
+        "restart-patient-stock-count-answered"
+      ],
+      "consequences": [
+        "restart-rebound-case-shelf-bound"
+      ],
+      "conditions": [
+        "flag.restart_bed_zero_reversed_ledger_opened:1",
+        "flag.restart_patient_stock_count_answered:1",
+        "have.card:card-restart-worker-testimony",
+        "have.card:card-restart-living-paper-lot",
+        "have.card:card-restart-reversed-bed-ledger",
+        "have.card:card-restart-living-receipt-form"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_rebound_case_shelf_bound"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "反装订病历的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "可反装订的活人证据",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把第七次日出的签收单装进病历首页，让医院先承认活证人再翻死亡证明。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 11
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_receipt_bound_to_case_shelf"
+            }
+          ]
+        },
+        {
+          "text": "把塔内播音员的改口录进病历书脊，让每次翻页都播出医院自己的矛盾。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 11
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_operator_contradiction_bound_to_case_shelf"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "病历只反装订了几页。医院仍能把一部分活纸塞回普通死亡柜，但 B-07/0 不再完全服从。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "反装订架卡住死亡证明柜。每一份新证明都必须先经过活人档案边码的复核。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_rebound_case_shelf_stabilized"
+            }
+          ],
+          "description": "旧日出医院第一次签出一张非死亡纸：不是出院令，至少是一份承认活人仍待处理的预令。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-35-living-discharge-preorder",
+      "name": "RESTART 35：活人出院预令",
+      "description": "反装订架最深处弹出一张未盖章的出院预令。它没有写“治愈”，只写“本院暂不得将此人改列死亡”。第七次日出、林夕和塔内播音员都明白：这张纸不能立刻救所有人，但它能逼旧日出医院打开下一扇本来只给尸体通过的门。",
+      "triggers": [
+        "restart-rebound-case-shelf-bound"
+      ],
+      "consequences": [
+        "restart-living-discharge-order-issued",
+        "restart-ward-zero-return-summons-ready"
+      ],
+      "conditions": [
+        "flag.restart_rebound_case_shelf_bound:1",
+        "have.card:card-restart-living-file",
+        "have.card:card-restart-living-receipt-form",
+        "have.card:card-restart-reversed-bed-ledger",
+        "have.card:card-restart-seventh-sun",
+        "flag.restart_patient_stock_count_answered:1"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_living_discharge_order_issued"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-living-discharge-order"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "申请活人出院的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "支撑预令的反装订证据",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把出院预令写给第七次日出，让她以公开活证人身份走向 Ward Zero。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 12
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_seventh_sun_discharge_route"
+            }
+          ]
+        },
+        {
+          "text": "把预令夹进林夕的 B-07/0 倒账，让 Ward Zero 自己传唤这个未死病人。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 12
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_ward_zero_summons_route"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "出院预令只盖了半枚章。它能让门开一条缝，但医院会在门后继续追问谁来补足死者。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "预令生效。地下月台的尸体通道亮起活人通行灯，Ward Zero 的门牌第一次出现在医院地图上。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_living_discharge_route_stabilized"
+            }
+          ],
+          "description": "旧日出医院无法销毁预令，只能把它转交给 Ward Zero 复核。下一次开门时，医院要面对的不是逃跑者，而是一个它亲手承认暂时活着的人。"
+        }
+      ]
     }
   ],
   "cards": [
@@ -3579,6 +4160,24 @@
       }
     },
     {
+      "id": "card-restart-hospital-receiving-seal",
+      "name": "医院收货铅封",
+      "description": "封签回院车抵达旧日出医院地下月台后留下的铅封。它证明这批活纸不是闯入医院，而是被医院自己的供货规程接收。",
+      "type": "item",
+      "coinValue": 8,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "seal",
+          "hospital",
+          "supply-chain",
+          "restart"
+        ],
+        "gameCardId": "card-restart-hospital-receiving-seal"
+      }
+    },
+    {
       "id": "card-restart-linxi",
       "name": "林夕",
       "description": "醒来时，她发现整座城市都认识她，唯独她不记得自己是谁。口袋里有一张写着“不要相信第七次日出”的车票。",
@@ -3593,6 +4192,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-linxi"
+      }
+    },
+    {
+      "id": "card-restart-living-discharge-order",
+      "name": "活人出院预令",
+      "description": "旧日出医院被迫预先签出的出院令。它还不是出口，但它让一名活人拥有了比死亡证明更早生效的离院资格。",
+      "type": "item",
+      "coinValue": 10,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "discharge",
+          "hospital",
+          "living-file",
+          "restart"
+        ],
+        "gameCardId": "card-restart-living-discharge-order"
       }
     },
     {
@@ -3628,6 +4245,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-living-paper-lot"
+      }
+    },
+    {
+      "id": "card-restart-living-receipt-form",
+      "name": "收货口活人签收单",
+      "description": "医院收货口吐出的签收单，收货人栏第一次允许填写活人姓名。只要它还在，旧日出医院就必须解释为什么死亡证明纸由活人签收。",
+      "type": "item",
+      "coinValue": 8,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "receipt",
+          "hospital",
+          "living-file",
+          "restart"
+        ],
+        "gameCardId": "card-restart-living-receipt-form"
       }
     },
     {
@@ -3765,6 +4400,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-return-invoice"
+      }
+    },
+    {
+      "id": "card-restart-reversed-bed-ledger",
+      "name": "倒扣病床账页",
+      "description": "从收货审计夹层里抽出的账页。B-07/0 的床位不是病房编号，而是一笔先扣死亡纸额、后等待病人抵达的倒账。",
+      "type": "item",
+      "coinValue": 9,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "ledger",
+          "bed-zero",
+          "hospital",
+          "restart"
+        ],
+        "gameCardId": "card-restart-reversed-bed-ledger"
       }
     },
     {
@@ -4332,6 +4985,64 @@
           ]
         }
       ]
+    },
+    {
+      "id": "restart-event-32-receiving-living-alarm",
+      "name": "第三十二回合事件：收货口活体警报",
+      "description": "第七次日出的名字刚靠近签收单，收货口就响起活体警报：本批死亡证明纸不得由仍可呼吸者签收。塔内播音员的声音从医院喇叭里插进来，试图把“活人”改读成“待处理尸体”。",
+      "trigger": {
+        "turn": 32
+      },
+      "consequences": [
+        "restart-receiving-living-alarm-answered"
+      ],
+      "options": [
+        {
+          "text": "保护第七次日出的收货人姓名，让医院记录她作为活证人签收。",
+          "effects": [
+            "gain.influence:8",
+            "set.flag:restart_receiving_living_alarm_answered",
+            "set.flag:restart_seventh_sun_named_as_hospital_receiver"
+          ]
+        },
+        {
+          "text": "逼塔内播音员继续改口，把TA的活人声音绑进医院收货系统。",
+          "effects": [
+            "gain.favor:8",
+            "set.flag:restart_receiving_living_alarm_answered",
+            "set.flag:restart_operator_bound_to_hospital_intake_voice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restart-event-34-patient-stock-count",
+      "name": "第三十四回合事件：病人库存盘点",
+      "description": "B-07/0 的窄廊刚亮起，旧日出医院就启动病人库存盘点。屏幕把纸厂工人证词、活纸批次和第七次日出的签收名并排列出：本院短缺一名合法死者，请从证人、纸批或病床中补足。",
+      "trigger": {
+        "turn": 34
+      },
+      "consequences": [
+        "restart-patient-stock-count-answered"
+      ],
+      "options": [
+        {
+          "text": "遮住纸厂工人证词上的姓名，让医院只能盘点自己的空白纸批。",
+          "effects": [
+            "gain.influence:9",
+            "set.flag:restart_patient_stock_count_answered",
+            "set.flag:restart_patient_stock_count_protected_worker_names"
+          ]
+        },
+        {
+          "text": "把活纸批次推到盘点屏前，让整批纸替活人承担这次缺额追问。",
+          "effects": [
+            "gain.favor:9",
+            "set.flag:restart_patient_stock_count_answered",
+            "set.flag:restart_patient_stock_count_marked_living_batch"
+          ]
+        }
+      ]
     }
   ],
   "deck": [
@@ -4377,11 +5088,15 @@
       "card-restart-quota-clerk",
       "card-restart-death-quota-note",
       "card-restart-living-paper-lot",
-      "card-restart-return-invoice"
+      "card-restart-return-invoice",
+      "card-restart-hospital-receiving-seal",
+      "card-restart-living-receipt-form",
+      "card-restart-reversed-bed-ledger",
+      "card-restart-living-discharge-order"
     ]
   },
   "counters": {
-    "influence": 281,
+    "influence": 361,
     "favor": 49
   },
   "flags": {
@@ -4507,7 +5222,26 @@
     "restart_sealed_return_tram_departed": true,
     "complete_restart-rite-30-sealed-return-tram": true,
     "restart_return_tram_public_account_route": true,
-    "restart_next_region_hospital_supply_reversal_route": true
+    "restart_next_region_hospital_supply_reversal_route": true,
+    "restart_hospital_receiving_dock_opened": true,
+    "complete_restart-rite-31-hospital-receiving-dock": true,
+    "restart_hospital_publicly_received_living_paper": true,
+    "restart_receiving_living_alarm_answered": true,
+    "restart_seventh_sun_named_as_hospital_receiver": true,
+    "restart_return_goods_audit_filed": true,
+    "complete_restart-rite-32-return-goods-audit": true,
+    "restart_hospital_admitted_returned_living_paper": true,
+    "restart_bed_zero_reversed_ledger_opened": true,
+    "complete_restart-rite-33-bed-zero-reversed-ledger": true,
+    "restart_linxi_bed_zero_reversed_as_live": true,
+    "restart_patient_stock_count_answered": true,
+    "restart_patient_stock_count_protected_worker_names": true,
+    "restart_rebound_case_shelf_bound": true,
+    "complete_restart-rite-34-rebound-case-shelf": true,
+    "restart_seventh_receipt_bound_to_case_shelf": true,
+    "restart_living_discharge_order_issued": true,
+    "complete_restart-rite-35-living-discharge-preorder": true,
+    "restart_next_region_seventh_sun_discharge_route": true
   },
   "unresolvedEvent": null,
   "activeEvents": []
