@@ -342,8 +342,12 @@
     "name": "第二十二回合事件：夜班纸税",
     "description": "夜班车穿过厂门时，纸箱同时打开。广播要求所有携带活人档案的人缴纳纸税：要么交出一段可被预印的路线，要么交出一个能替车厢报站的声音。",
     "trigger": {
-      "turn": 22
+      "condition": true
     },
+    "conditions": [
+      "flag.restart_paper_factory_tram_seen:1",
+      "NOT:flag.restart_paper_tax_paid:1"
+    ],
     "consequences": [
       "restart-paper-tax-paid"
     ],
@@ -371,8 +375,12 @@
     "name": "第二十七回合事件：死亡配额铃",
     "description": "供纸账本刚被翻开，账房深处就响起一枚铜铃：旧日出医院本批死亡证明短缺一名可登记死者。账房员开始按工人证词上的姓名补账，第七次日出把手按在活人档案上，提醒林夕：如果证人被写进去，证词会先于本人死亡。",
     "trigger": {
-      "turn": 27
+      "condition": true
     },
+    "conditions": [
+      "flag.restart_supply_ledger_account_opened:1",
+      "NOT:flag.restart_death_quota_bell_paid:1"
+    ],
     "consequences": [
       "restart-death-quota-bell-paid"
     ],
@@ -400,8 +408,12 @@
     "name": "第二十九回合事件：回院装车警报",
     "description": "活纸批次离开账架时，纸厂、广播塔和旧日出医院同时收到装车警报。三方都要求核验这批纸是否仍能写死者姓名；塔内播音员的声音从收音机里发抖，说如果现在不伪装成正常供货，整批活纸会在门口被烧掉。",
     "trigger": {
-      "turn": 29
+      "condition": true
     },
+    "conditions": [
+      "flag.restart_living_paper_lot_created:1",
+      "NOT:flag.restart_return_shipment_alarm_answered:1"
+    ],
     "consequences": [
       "restart-return-shipment-alarm-answered"
     ],
@@ -429,8 +441,12 @@
     "name": "第三十二回合事件：收货口活体警报",
     "description": "第七次日出的名字刚靠近签收单，收货口就响起活体警报：本批死亡证明纸不得由仍可呼吸者签收。塔内播音员的声音从医院喇叭里插进来，试图把“活人”改读成“待处理尸体”。",
     "trigger": {
-      "turn": 32
+      "condition": true
     },
+    "conditions": [
+      "flag.restart_hospital_receiving_dock_opened:1",
+      "NOT:flag.restart_receiving_living_alarm_answered:1"
+    ],
     "consequences": [
       "restart-receiving-living-alarm-answered"
     ],
@@ -458,8 +474,12 @@
     "name": "第三十四回合事件：病人库存盘点",
     "description": "B-07/0 的窄廊刚亮起，旧日出医院就启动病人库存盘点。屏幕把纸厂工人证词、活纸批次和第七次日出的签收名并排列出：本院短缺一名合法死者，请从证人、纸批或病床中补足。",
     "trigger": {
-      "turn": 34
+      "condition": true
     },
+    "conditions": [
+      "flag.restart_bed_zero_reversed_ledger_opened:1",
+      "NOT:flag.restart_patient_stock_count_answered:1"
+    ],
     "consequences": [
       "restart-patient-stock-count-answered"
     ],
@@ -487,8 +507,12 @@
     "name": "第三十七回合事件：脉搏欠费闸",
     "description": "Ward Zero 的走廊突然锁住，墙面伸出一排听诊器。系统提示：活人通行需补缴脉搏欠费；若未指定缴费人，本院将自动把第七次日出改列为待处理尸源。",
     "trigger": {
-      "turn": 37
+      "condition": true
     },
+    "conditions": [
+      "flag.restart_ward_zero_corpse_gate_opened:1",
+      "NOT:flag.restart_pulse_arrears_answered:1"
+    ],
     "consequences": [
       "restart-pulse-arrears-answered"
     ],
@@ -516,8 +540,12 @@
     "name": "第三十九回合事件：预死亡点名",
     "description": "尸梯下降到一半，广播开始点名尚未抵达 Ward Zero 的死人。第七次日出的名字被念到一半，林夕的 B-07/0 则在名单上重复闪烁，像一张等着被盖章的替补尸位。",
     "trigger": {
-      "turn": 39
+      "condition": true
     },
+    "conditions": [
+      "flag.restart_corpse_elevator_downcalled:1",
+      "NOT:flag.restart_predeath_roll_call_answered:1"
+    ],
     "consequences": [
       "restart-predeath-roll-call-answered"
     ],

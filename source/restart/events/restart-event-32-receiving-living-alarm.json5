@@ -2,7 +2,11 @@
   "id": "restart-event-32-receiving-living-alarm",
   "name": "第三十二回合事件：收货口活体警报",
   "description": "第七次日出的名字刚靠近签收单，收货口就响起活体警报：本批死亡证明纸不得由仍可呼吸者签收。塔内播音员的声音从医院喇叭里插进来，试图把“活人”改读成“待处理尸体”。",
-  "trigger": {"turn": 32},
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_hospital_receiving_dock_opened:1",
+    "NOT:flag.restart_receiving_living_alarm_answered:1"
+  ],
   "consequences": ["restart-receiving-living-alarm-answered"],
   "options": [
     {

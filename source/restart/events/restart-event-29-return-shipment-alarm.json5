@@ -2,9 +2,11 @@
   "id": "restart-event-29-return-shipment-alarm",
   "name": "第二十九回合事件：回院装车警报",
   "description": "活纸批次离开账架时，纸厂、广播塔和旧日出医院同时收到装车警报。三方都要求核验这批纸是否仍能写死者姓名；塔内播音员的声音从收音机里发抖，说如果现在不伪装成正常供货，整批活纸会在门口被烧掉。",
-  "trigger": {
-    "turn": 29
-  },
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_living_paper_lot_created:1",
+    "NOT:flag.restart_return_shipment_alarm_answered:1"
+  ],
   "consequences": [
     "restart-return-shipment-alarm-answered"
   ],

@@ -2,7 +2,11 @@
   "id": "restart-event-39-predeath-roll-call",
   "name": "第三十九回合事件：预死亡点名",
   "description": "尸梯下降到一半，广播开始点名尚未抵达 Ward Zero 的死人。第七次日出的名字被念到一半，林夕的 B-07/0 则在名单上重复闪烁，像一张等着被盖章的替补尸位。",
-  "trigger": {"turn": 39},
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_corpse_elevator_downcalled:1",
+    "NOT:flag.restart_predeath_roll_call_answered:1"
+  ],
   "consequences": ["restart-predeath-roll-call-answered"],
   "options": [
     {

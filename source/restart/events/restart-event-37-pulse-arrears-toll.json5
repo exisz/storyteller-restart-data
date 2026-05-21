@@ -2,7 +2,11 @@
   "id": "restart-event-37-pulse-arrears-toll",
   "name": "第三十七回合事件：脉搏欠费闸",
   "description": "Ward Zero 的走廊突然锁住，墙面伸出一排听诊器。系统提示：活人通行需补缴脉搏欠费；若未指定缴费人，本院将自动把第七次日出改列为待处理尸源。",
-  "trigger": {"turn": 37},
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_ward_zero_corpse_gate_opened:1",
+    "NOT:flag.restart_pulse_arrears_answered:1"
+  ],
   "consequences": ["restart-pulse-arrears-answered"],
   "options": [
     {

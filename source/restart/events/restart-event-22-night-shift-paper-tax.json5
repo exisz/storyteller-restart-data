@@ -2,9 +2,11 @@
   "id": "restart-event-22-night-shift-paper-tax",
   "name": "第二十二回合事件：夜班纸税",
   "description": "夜班车穿过厂门时，纸箱同时打开。广播要求所有携带活人档案的人缴纳纸税：要么交出一段可被预印的路线，要么交出一个能替车厢报站的声音。",
-  "trigger": {
-    "turn": 22
-  },
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_paper_factory_tram_seen:1",
+    "NOT:flag.restart_paper_tax_paid:1"
+  ],
   "consequences": [
     "restart-paper-tax-paid"
   ],
