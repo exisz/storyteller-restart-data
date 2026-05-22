@@ -1,5 +1,5 @@
 {
-  "turn": 41,
+  "turn": 46,
   "rites": [
     {
       "id": "restart-rite-01-wake-at-platform",
@@ -4644,6 +4644,595 @@
           "description": "Ward Zero 的墙体退开，露出听证席和死亡上诉后门两条路。出口仍未出现，但医院已经失去不审而杀的特权。"
         }
       ]
+    },
+    {
+      "id": "restart-rite-41-public-hearing-docket",
+      "name": "RESTART 41：公开听证案号",
+      "description": "活人听证铃的回声把 Ward Zero 受理台震成一张听证席。受理员递出案号牌，却把当事人栏留空：只要林夕填错名字，医院就能把本案改成尸体申诉，而不是活人出院。",
+      "triggers": [
+        "restart-next-region-discharge-hearing-route",
+        "restart-living-hearing-bell-rung"
+      ],
+      "consequences": [
+        "restart-event-41-gallery-purge",
+        "restart-hearing-docket-opened"
+      ],
+      "conditions": [
+        "flag.restart_living_hearing_bell_rung:1",
+        "flag.restart_next_region_public_living_hearing_route:1",
+        "have.card:card-restart-living-hearing-bell",
+        "have.card:card-restart-not-yet-dead-stamp",
+        "have.card:card-restart-seventh-sun"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_hearing_docket_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-hearing-case-token"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-public-gallery-list"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "填写案号的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "迫使听证开庭的铃",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把第七次日出登记成公开当事人，让医院必须解释为什么活人不能出院。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 15
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_sun_public_claimant"
+            }
+          ]
+        },
+        {
+          "text": "让 Ward Zero 受理员先盖案号，再把 B-07/0 写成共同证人，锁住林夕的旁听权。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 15
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_bed_zero_named_co_witness"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 2
+            }
+          ],
+          "description": "案号牌只亮起一半。受理员承认听证存在，却试图把旁听席关进尸梯。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "案号牌钉上墙面，旁听名单自动展开。第七次日出第一次拥有一个不会立刻被注销的案件编号。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_hearing_docket_publicly_numbered"
+            }
+          ],
+          "description": "Ward Zero 的尸体排号屏被迫切到公开听证模式。广播无法再说本案从未受理，只能改口追问谁有资格作证。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-42-living-oath-stand",
+      "name": "RESTART 42：活人誓词席",
+      "description": "旁听名单被保住后，听证席升起一张只接受活人签名的誓词纸。第七次日出的手指碰到纸面，死亡证明水印便开始渗血；林夕明白，誓词不是说明事实，而是在逼死亡证明承认自己说谎。",
+      "triggers": [
+        "restart-hearing-gallery-secured"
+      ],
+      "consequences": [
+        "restart-living-oath-sworn"
+      ],
+      "conditions": [
+        "flag.restart_gallery_purge_answered:1",
+        "have.card:card-restart-hearing-case-token",
+        "have.card:card-restart-public-gallery-list",
+        "have.card:card-restart-seventh-sun",
+        "have.card:card-restart-unreturned-pulse-receipt"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_living_oath_sworn"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-living-oath-sheet"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "宣誓的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "证明尚未死亡的票据",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "让第七次日出按着未退脉搏收据宣誓：她还活着，因此不能被补录成纸。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 16
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_sun_pulse_oath"
+            }
+          ]
+        },
+        {
+          "text": "让林夕把真实床号 B-07/0 写进誓词，证明医院已经把活人与尸位倒扣。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 16
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_linxi_bed_zero_oath"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 8,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 3
+            }
+          ],
+          "description": "誓词纸接受签名，却把最后一行留给医院补写。你得到一份危险但有效的活人证词。"
+        },
+        {
+          "minValue": 9,
+          "maxValue": 14,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 4
+            },
+            {
+              "type": "gain.influence",
+              "amount": 5
+            }
+          ],
+          "description": "死亡证明水印在誓词纸上反向显影：当事人未死亡，医院先行登记。旁听席开始低声复述这句矛盾。"
+        },
+        {
+          "minValue": 15,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 6
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_living_oath_contaminated_death_records"
+            }
+          ],
+          "description": "誓词纸污染了整排死亡证明。Ward Zero 不得不承认：只要这份誓词仍在，本案不能按尸体流程结案。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-43-hospital-objection-rebuttal",
+      "name": "RESTART 43：驳回医院异议",
+      "description": "医院代表把供纸账本、回院供货单、收货铅封和倒扣病床账页摊成四份互相抵赖的证据：纸厂说纸已离厂，收货口说活人签收，Ward Zero 说只收到尸源。听证席要求林夕选一条矛盾作为主证。",
+      "triggers": [
+        "restart-living-oath-sworn"
+      ],
+      "consequences": [
+        "restart-event-43-minutes-static",
+        "restart-hospital-objection-rebutted"
+      ],
+      "conditions": [
+        "flag.restart_living_oath_sworn:1",
+        "have.card:card-restart-living-oath-sheet",
+        "have.card:card-restart-supply-ledger",
+        "have.card:card-restart-return-invoice",
+        "have.card:card-restart-hospital-receiving-seal",
+        "have.card:card-restart-reversed-bed-ledger"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_hospital_objection_rebutted"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-supply-contradiction-packet"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "提出反证的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "医院无法解释的供应证据",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把供纸链四份证据订成反证包：医院既然收了活纸，就不能声称没有活人。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 17
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_supply_chain_rebuttal_entered"
+            }
+          ]
+        },
+        {
+          "text": "让越医生在异议上签名作证：他欠下的死亡债，正是医院反复退货的源头。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 17
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_yue_debt_testimony_entered"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 9,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 3
+            }
+          ],
+          "description": "反证包只钉住一条供应线。医院异议被暂时驳回，但记录员开始抢写另一份结论。"
+        },
+        {
+          "minValue": 10,
+          "maxValue": 15,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 5
+            }
+          ],
+          "description": "四份证据第一次互相承认。听证席判定：医院确实收下过一批拒绝成为死亡证明的纸。"
+        },
+        {
+          "minValue": 16,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 7
+            },
+            {
+              "type": "gain.influence",
+              "amount": 7
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_hospital_objection_collapsed_publicly"
+            }
+          ],
+          "description": "医院代表的异议被自己的收货铅封反扣。旁听席响起第一轮掌声，Ward Zero 则把记录员的话筒切进广播静电。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-44-hearing-minutes-seal",
+      "name": "RESTART 44：封存听证笔录",
+      "description": "静电篡改被挡下后，听证席要求封存笔录。受理员递来三枚互相冲突的章：暂未死亡章、假出口审计章、医院收货铅封。只有把其中两枚盖在同一行，笔录才会在下一次死亡修正里幸存。",
+      "triggers": [
+        "restart-hearing-minutes-stabilized"
+      ],
+      "consequences": [
+        "restart-hearing-verdict-deliberation"
+      ],
+      "conditions": [
+        "flag.restart_minutes_static_answered:1",
+        "have.card:card-restart-living-oath-sheet",
+        "have.card:card-restart-supply-contradiction-packet",
+        "have.card:card-restart-not-yet-dead-stamp",
+        "have.card:card-restart-audit-stamp"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_hearing_minutes_sealed"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "封存笔录的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "压住静电的证物",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把暂未死亡章和旁听名单盖在公开笔录上，让每个活人名字都能复诵裁定。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 17
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_public_hearing_minutes_sealed"
+            }
+          ]
+        },
+        {
+          "text": "把假出口审计章和收货铅封盖在副本上，给尸体上诉后门留一条可执行笔录。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 17
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_appeal_copy_hearing_minutes_sealed"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 9,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 3
+            }
+          ],
+          "description": "笔录封住了，但边角仍在被广播啃噬。下一步必须尽快逼出裁定。"
+        },
+        {
+          "minValue": 10,
+          "maxValue": 15,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 5
+            }
+          ],
+          "description": "两枚章互相咬合，笔录行文稳定下来：当事人尚未死亡，医院异议不成立。"
+        },
+        {
+          "minValue": 16,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 7
+            },
+            {
+              "type": "gain.influence",
+              "amount": 7
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_hearing_record_survives_correction"
+            }
+          ],
+          "description": "听证笔录被封进 Ward Zero 墙体。下一次修正来临时，墙会替林夕和第七次日出作证。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-45-provisional-living-discharge-writ",
+      "name": "RESTART 45：暂准活人出院裁定",
+      "description": "封存笔录后，听证席没有宣判自由，只吐出一张临时裁定：在下一次复核前，当事人不得被补录为死人。第七次日出看着那张纸，终于明白出口不是离开医院，而是让医院先承认她仍然有离开的资格。",
+      "triggers": [
+        "restart-hearing-verdict-deliberation"
+      ],
+      "consequences": [
+        "restart-provisional-discharge-writ-issued",
+        "restart-next-region-discharge-enforcement-route"
+      ],
+      "conditions": [
+        "flag.restart_hearing_minutes_sealed:1",
+        "have.card:card-restart-hearing-case-token",
+        "have.card:card-restart-living-oath-sheet",
+        "have.card:card-restart-supply-contradiction-packet",
+        "have.card:card-restart-living-hearing-bell",
+        "have.card:card-restart-seventh-sun"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_provisional_living_discharge_writ_issued"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-provisional-living-discharge-writ"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "领取裁定的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "支撑裁定的听证证据",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把裁定交给第七次日出，让她以活人身份命令出院口打开下一道复核门。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 18
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_sun_holds_living_discharge_writ"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_discharge_enforcement_route"
+            }
+          ]
+        },
+        {
+          "text": "先把裁定压在林夕的 B-07/0 上，让替补尸位变成保护活人的临时外壳。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 18
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_linxi_bed_zero_shelters_writ"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_bed_zero_writ_shelter_route"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "临时裁定生效，却只保护到下一次复核。Ward Zero 已经开始准备复核名单。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "裁定压住第七次日出的名字。出院口没有打开，却第一次显示：当事人状态，活。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_living_discharge_writ_stabilized"
+            }
+          ],
+          "description": "Ward Zero 被迫给活人出院裁定编号。广播沉默了整整七秒，然后改口：下一站，裁定执行处。"
+        }
+      ]
     }
   ],
   "cards": [
@@ -4768,6 +5357,24 @@
       }
     },
     {
+      "id": "card-restart-hearing-case-token",
+      "name": "听证案号牌",
+      "description": "Ward Zero 被迫吐出的活人出院听证案号。它不是通行证，而是一枚把当事人暂时从尸源库存里钉出来的号码牌。",
+      "type": "item",
+      "coinValue": 14,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "hearing",
+          "ward-zero",
+          "case",
+          "restart"
+        ],
+        "gameCardId": "card-restart-hearing-case-token"
+      }
+    },
+    {
       "id": "card-restart-hospital-receiving-seal",
       "name": "医院收货铅封",
       "description": "封签回院车抵达旧日出医院地下月台后留下的铅封。它证明这批活纸不是闯入医院，而是被医院自己的供货规程接收。",
@@ -4853,6 +5460,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-living-hearing-bell"
+      }
+    },
+    {
+      "id": "card-restart-living-oath-sheet",
+      "name": "活人誓词纸",
+      "description": "只允许尚未死亡者签字的誓词纸。签上去的每一句话都会反向污染死亡证明的签名栏。",
+      "type": "item",
+      "coinValue": 14,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "oath",
+          "paperwork",
+          "living",
+          "restart"
+        ],
+        "gameCardId": "card-restart-living-oath-sheet"
       }
     },
     {
@@ -4958,6 +5583,42 @@
           "restart"
         ],
         "gameCardId": "card-restart-operator-coordinate"
+      }
+    },
+    {
+      "id": "card-restart-provisional-living-discharge-writ",
+      "name": "暂准活人出院裁定",
+      "description": "听证席被迫盖下的临时裁定：在下一次复核前，当事人不得被补录为死人。它还不是出口，却能命令出口先承认活人。",
+      "type": "item",
+      "coinValue": 16,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "verdict",
+          "discharge",
+          "living",
+          "restart"
+        ],
+        "gameCardId": "card-restart-provisional-living-discharge-writ"
+      }
+    },
+    {
+      "id": "card-restart-public-gallery-list",
+      "name": "旁听名单",
+      "description": "活人出院听证的旁听名单。名单上每多一个活人名字，Ward Zero 就少一次把案件关回尸梯的机会。",
+      "type": "item",
+      "coinValue": 13,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "hearing",
+          "witness",
+          "public",
+          "restart"
+        ],
+        "gameCardId": "card-restart-public-gallery-list"
       }
     },
     {
@@ -5079,6 +5740,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-seventh-sun"
+      }
+    },
+    {
+      "id": "card-restart-supply-contradiction-packet",
+      "name": "供纸反证包",
+      "description": "由供纸账本、回院供货单、收货铅封和倒扣病床账页拼成的反证包。它证明医院亲手收下了不会乖乖变成死亡证明的活纸。",
+      "type": "item",
+      "coinValue": 15,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "evidence",
+          "supply-chain",
+          "paperwork",
+          "restart"
+        ],
+        "gameCardId": "card-restart-supply-contradiction-packet"
       }
     },
     {
@@ -5845,6 +6524,72 @@
           ]
         }
       ]
+    },
+    {
+      "id": "restart-event-41-gallery-purge",
+      "name": "听证事件：旁听名单清退",
+      "description": "听证案号刚被挂上墙，Ward Zero 就宣布旁听席只接纳已死亡人员。第七次日出的名字从当事人栏滑向尸源栏，林夕的 B-07/0 则被标成可替补旁听尸位。",
+      "trigger": {
+        "condition": true
+      },
+      "conditions": [
+        "flag.restart_hearing_docket_opened:1",
+        "NOT:flag.restart_gallery_purge_answered:1"
+      ],
+      "consequences": [
+        "restart-hearing-gallery-secured"
+      ],
+      "options": [
+        {
+          "text": "用活人听证铃压住旁听席，让第七次日出以当事人身份留在公开名单上。",
+          "effects": [
+            "gain.influence:13",
+            "set.flag:restart_gallery_purge_answered",
+            "set.flag:restart_public_gallery_preserved"
+          ]
+        },
+        {
+          "text": "把临时活人通行证塞进 B-07/0 旁听尸位，让林夕替名单挡下一次清退。",
+          "effects": [
+            "gain.favor:13",
+            "set.flag:restart_gallery_purge_answered",
+            "set.flag:restart_linxi_blocked_gallery_purge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restart-event-43-minutes-static",
+      "name": "听证事件：记录员静电篡改",
+      "description": "医院异议被驳回后，记录员的话筒开始播放旧广播。听证记录上的“活人出院”四个字被静电改成“预死亡补录”，每一次闪烁都在诱导旁听席承认听证从未发生。",
+      "trigger": {
+        "condition": true
+      },
+      "conditions": [
+        "flag.restart_hospital_objection_rebutted:1",
+        "NOT:flag.restart_minutes_static_answered:1"
+      ],
+      "consequences": [
+        "restart-hearing-minutes-stabilized"
+      ],
+      "options": [
+        {
+          "text": "用复查反签针把公开记录钉在旁听名单上，让每个名字都成为一分钟证词。",
+          "effects": [
+            "gain.influence:14",
+            "set.flag:restart_minutes_static_answered",
+            "set.flag:restart_public_minutes_pinned"
+          ]
+        },
+        {
+          "text": "让尸梯钥匙带走一份副本，从死亡上诉后门保留未被篡改的裁定草稿。",
+          "effects": [
+            "gain.favor:14",
+            "set.flag:restart_minutes_static_answered",
+            "set.flag:restart_corpse_appeal_minutes_copy"
+          ]
+        }
+      ]
     }
   ],
   "deck": [
@@ -5901,11 +6646,16 @@
       "card-restart-unreturned-pulse-receipt",
       "card-restart-ward-zero-clerk",
       "card-restart-not-yet-dead-stamp",
-      "card-restart-living-hearing-bell"
+      "card-restart-living-hearing-bell",
+      "card-restart-hearing-case-token",
+      "card-restart-public-gallery-list",
+      "card-restart-living-oath-sheet",
+      "card-restart-supply-contradiction-packet",
+      "card-restart-provisional-living-discharge-writ"
     ]
   },
   "counters": {
-    "influence": 461,
+    "influence": 586,
     "favor": 49
   },
   "flags": {
@@ -6069,7 +6819,27 @@
     "restart_seventh_public_living_hearing_case": true,
     "restart_living_hearing_bell_rung": true,
     "complete_restart-rite-40-discharge-hearing-bell": true,
-    "restart_next_region_public_living_hearing_route": true
+    "restart_next_region_public_living_hearing_route": true,
+    "restart_hearing_docket_opened": true,
+    "complete_restart-rite-41-public-hearing-docket": true,
+    "restart_seventh_sun_public_claimant": true,
+    "restart_gallery_purge_answered": true,
+    "restart_public_gallery_preserved": true,
+    "restart_living_oath_sworn": true,
+    "complete_restart-rite-42-living-oath-stand": true,
+    "restart_seventh_sun_pulse_oath": true,
+    "restart_hospital_objection_rebutted": true,
+    "complete_restart-rite-43-hospital-objection-rebuttal": true,
+    "restart_supply_chain_rebuttal_entered": true,
+    "restart_minutes_static_answered": true,
+    "restart_public_minutes_pinned": true,
+    "restart_hearing_minutes_sealed": true,
+    "complete_restart-rite-44-hearing-minutes-seal": true,
+    "restart_public_hearing_minutes_sealed": true,
+    "restart_provisional_living_discharge_writ_issued": true,
+    "complete_restart-rite-45-provisional-living-discharge-writ": true,
+    "restart_seventh_sun_holds_living_discharge_writ": true,
+    "restart_next_region_discharge_enforcement_route": true
   },
   "unresolvedEvent": null,
   "activeEvents": []

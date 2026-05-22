@@ -1,0 +1,42 @@
+{
+  "id": "restart-rite-48-exit-identity-check",
+  "name": "RESTART 48：出院口身份核验",
+  "description": "出院口不是门，是一张竖起来的病历。它不认识第七次日出，只认识床号、脉搏、签收单和听证裁定。要让门承认活人，必须把这些互相矛盾的证据排成同一个名字。",
+  "triggers": ["restart-review-list-erased"],
+  "consequences": ["restart-event-48-door-minutes-static", "restart-exit-identity-checked"],
+  "conditions": [
+    "flag.restart_review_list_erased:1",
+    "have.card:card-restart-review-blacklist",
+    "have.card:card-restart-unreturned-pulse-receipt",
+    "have.card:card-restart-living-receipt-form",
+    "have.card:card-restart-provisional-living-discharge-writ"
+  ],
+  "effects": [
+    "set.flag:restart_exit_identity_checked"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "通过身份核验的人", "cardType": "person"},
+    {"id": "slot-1", "name": "证明仍活着的凭据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把未退脉搏收据贴在收货口活人签收单上，让门口读出第七次日出的活人姓名。",
+      "effects": [
+        {"type": "gain.influence", "amount": 20},
+        {"type": "set.flag", "flag": "restart_exit_identified_seventh_as_living"}
+      ]
+    },
+    {
+      "text": "把真实床号 B-07/0 垫在裁定下面，让门先承认林夕的错误尸位不能覆盖第七次日出。",
+      "effects": [
+        {"type": "gain.favor", "amount": 20},
+        {"type": "set.flag", "flag": "restart_exit_identified_bed_zero_shelter"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "出院口识别到活人，却把核验结果写进临时缓存。门上的广播喇叭开始冒出静电。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "四份凭据在门口短暂重合。出院口显示：身份，活；状态，待通行。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_exit_identity_locked_against_review"}], "description": "门禁系统把第七次日出的姓名读成活人。Ward Zero 的复核窗全数变红，只剩广播还能干扰门的记忆。"}
+  ]
+}

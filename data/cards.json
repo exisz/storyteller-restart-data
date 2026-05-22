@@ -103,6 +103,24 @@
     }
   },
   {
+    "id": "card-restart-discharged-witness-ledger",
+    "name": "出院活证人账页",
+    "description": "出院口留下的账页：第七次日出不是被放走的尸源，而是携带裁定离院的活证人。账页的背面已经开始生成追索编号。",
+    "type": "item",
+    "coinValue": 18,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "ledger",
+        "witness",
+        "discharge",
+        "restart"
+      ],
+      "gameCardId": "card-restart-discharged-witness-ledger"
+    }
+  },
+  {
     "id": "card-restart-eighth-wristband",
     "type": "item",
     "name": "第八轮腕带",
@@ -118,6 +136,24 @@
       "gameCardId": "card-restart-eighth-wristband"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-enforcement-seal",
+    "name": "裁定执行铅印",
+    "description": "执行柜台压在暂准活人出院裁定上的铅印。它把“不得补录为死人”翻译成门禁能读取的命令。",
+    "type": "item",
+    "coinValue": 15,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "seal",
+        "enforcement",
+        "discharge",
+        "restart"
+      ],
+      "gameCardId": "card-restart-enforcement-seal"
+    }
   },
   {
     "id": "card-restart-hearing-case-token",
@@ -188,6 +224,24 @@
         "restart"
       ],
       "gameCardId": "card-restart-living-discharge-order"
+    }
+  },
+  {
+    "id": "card-restart-living-exit-pass",
+    "name": "活人出院通行证",
+    "description": "出院闸机终于吐出的活人通行证。它只在门口有效，却证明医院的门已经亲口承认第七次日出可以作为活人离开。",
+    "type": "item",
+    "coinValue": 17,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "exit",
+        "pass",
+        "living",
+        "restart"
+      ],
+      "gameCardId": "card-restart-living-exit-pass"
     }
   },
   {
@@ -489,6 +543,24 @@
     }
   },
   {
+    "id": "card-restart-review-blacklist",
+    "name": "复核除名页",
+    "description": "从下一次死亡复核名单里撕下来的除名页。第七次日出的名字还留着印痕，但已经不能被同一轮复核再次写回。",
+    "type": "item",
+    "coinValue": 15,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "review",
+        "blacklist",
+        "seventh-sun",
+        "restart"
+      ],
+      "gameCardId": "card-restart-review-blacklist"
+    }
+  },
+  {
     "id": "card-restart-seventh-sun",
     "type": "person",
     "name": "第七次日出",
@@ -699,6 +771,24 @@
       "gameCardId": "card-restart-worker-testimony"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-writ-enforcement-clerk",
+    "name": "裁定执行员",
+    "description": "Ward Zero 里专门把听证裁定变成门禁命令的人。她不判断谁活着，只判断哪张纸能让门承认活人。",
+    "type": "person",
+    "coinValue": 14,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "person",
+        "clerk",
+        "enforcement",
+        "ward-zero",
+        "restart"
+      ],
+      "gameCardId": "card-restart-writ-enforcement-clerk"
+    }
   },
   {
     "id": "card-restart-yue",

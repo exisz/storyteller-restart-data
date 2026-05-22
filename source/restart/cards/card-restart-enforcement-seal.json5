@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-enforcement-seal",
+  "name": "裁定执行铅印",
+  "description": "执行柜台压在暂准活人出院裁定上的铅印。它把“不得补录为死人”翻译成门禁能读取的命令。",
+  "type": "item",
+  "coinValue": 15,
+  "effects": [],
+  "metaData": {"tags": ["item", "seal", "enforcement", "discharge", "restart"], "gameCardId": "card-restart-enforcement-seal"}
+}

@@ -226,6 +226,31 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-46-writ-enforcement-counter",
+      "name": "RESTART 46：裁定执行柜台",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-47-review-list-erasure",
+      "name": "RESTART 47：复核名单除名",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-48-exit-identity-check",
+      "name": "RESTART 48：出院口身份核验",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-49-living-exit-turnstile",
+      "name": "RESTART 49：活人出院闸机",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-50-seventh-sun-exit-ledger",
+      "name": "RESTART 50：第七次日出出院账页",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -329,6 +354,16 @@
       "id": "restart-event-43-minutes-static",
       "name": "听证事件：记录员静电篡改",
       "type": "event"
+    },
+    {
+      "id": "restart-event-46-review-window-reopens",
+      "name": "执行事件：复核窗口重开",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-48-door-minutes-static",
+      "name": "执行事件：门上笔录静电",
+      "type": "event"
     }
   ],
   "links": [
@@ -427,6 +462,14 @@
     {
       "source": "restart-rite-43-hospital-objection-rebuttal",
       "target": "restart-event-43-minutes-static"
+    },
+    {
+      "source": "restart-rite-46-writ-enforcement-counter",
+      "target": "restart-event-46-review-window-reopens"
+    },
+    {
+      "source": "restart-rite-48-exit-identity-check",
+      "target": "restart-event-48-door-minutes-static"
     },
     {
       "source": "restart-event-02-broadcast",

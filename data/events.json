@@ -633,5 +633,71 @@
         ]
       }
     ]
+  },
+  {
+    "id": "restart-event-46-review-window-reopens",
+    "name": "执行事件：复核窗口重开",
+    "description": "执行铅印刚落下，柜台背后的复核窗自动打开。第七次日出的名字被抄进“下一次死亡修正候选”，旁听名单上的活人证词开始一行行变淡。",
+    "trigger": {
+      "condition": true
+    },
+    "conditions": [
+      "flag.restart_writ_enforcement_counter_opened:1",
+      "NOT:flag.restart_review_window_answered:1"
+    ],
+    "consequences": [
+      "restart-review-window-cleared"
+    ],
+    "options": [
+      {
+        "text": "把公开听证笔录贴在复核窗上，让旁听名单逐名复诵：此人尚未死亡，不能进入修正候选。",
+        "effects": [
+          "gain.influence:15",
+          "set.flag:restart_review_window_answered",
+          "set.flag:restart_review_blocked_by_public_minutes"
+        ]
+      },
+      {
+        "text": "把 B-07/0 的真实床号塞进候选名单，让复核系统先追林夕的错误尸位。",
+        "effects": [
+          "gain.favor:15",
+          "set.flag:restart_review_window_answered",
+          "set.flag:restart_review_diverted_to_bed_zero"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "restart-event-48-door-minutes-static",
+    "name": "执行事件：门上笔录静电",
+    "description": "身份核验刚通过，门上的喇叭突然播放旧听证笔录的残句：“暂准……预死亡……当事人缺席……”每一次静电都试图让门忘记旁听席曾经见过活人。",
+    "trigger": {
+      "condition": true
+    },
+    "conditions": [
+      "flag.restart_exit_identity_checked:1",
+      "NOT:flag.restart_door_minutes_static_answered:1"
+    ],
+    "consequences": [
+      "restart-door-minutes-bound"
+    ],
+    "options": [
+      {
+        "text": "把封存听证笔录压到门缝里，逼喇叭复诵公开裁定而不是旧广播。",
+        "effects": [
+          "gain.influence:16",
+          "set.flag:restart_door_minutes_static_answered",
+          "set.flag:restart_door_bound_to_public_minutes"
+        ]
+      },
+      {
+        "text": "用供纸反证包堵住喇叭，让门承认自己的纸、自己的章、自己的收货错误。",
+        "effects": [
+          "gain.favor:16",
+          "set.flag:restart_door_minutes_static_answered",
+          "set.flag:restart_door_bound_to_supply_contradiction"
+        ]
+      }
+    ]
   }
 ]

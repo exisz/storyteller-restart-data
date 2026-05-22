@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-49-living-exit-turnstile",
+  "name": "RESTART 49：活人出院闸机",
+  "description": "门上静电被压住后，出院闸机露出一条只够一张纸通过的缝。裁定执行铅印必须和暂未死亡章同时落下，闸机才会吐出真正的活人出院通行证。",
+  "triggers": ["restart-door-minutes-bound"],
+  "consequences": ["restart-living-exit-pass-issued"],
+  "conditions": [
+    "flag.restart_door_minutes_static_answered:1",
+    "have.card:card-restart-enforcement-seal",
+    "have.card:card-restart-not-yet-dead-stamp",
+    "have.card:card-restart-provisional-living-discharge-writ",
+    "have.card:card-restart-supply-contradiction-packet"
+  ],
+  "effects": [
+    "set.flag:restart_living_exit_turnstile_opened",
+    "gain.card:card-restart-living-exit-pass"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "推动闸机的人", "cardType": "person"},
+    {"id": "slot-1", "name": "落在闸机上的章或裁定", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把通行证交给第七次日出本人，让她以公开活证人的身份站到闸机正中。",
+      "effects": [
+        {"type": "gain.influence", "amount": 21},
+        {"type": "set.flag", "flag": "restart_living_exit_pass_held_by_seventh"}
+      ]
+    },
+    {
+      "text": "让林夕先替她夹住闸机，把通行证藏在 B-07/0 与裁定之间。",
+      "effects": [
+        {"type": "gain.favor", "amount": 21},
+        {"type": "set.flag", "flag": "restart_living_exit_pass_sheltered_by_linxi"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "闸机吐出通行证，但把有效期写成“离门后三十步”。出院账页必须立刻登记。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "活人通行证在闸机里完整成形。门没有开大，只承认这一次通行。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_turnstile_opened_under_public_record"}], "description": "闸机被旁听名单和供纸反证同时钉住。第七次日出的名字第一次从门内滚到门外。"}
+  ]
+}

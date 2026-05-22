@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-writ-enforcement-clerk",
+  "name": "裁定执行员",
+  "description": "Ward Zero 里专门把听证裁定变成门禁命令的人。她不判断谁活着，只判断哪张纸能让门承认活人。",
+  "type": "person",
+  "coinValue": 14,
+  "effects": [],
+  "metaData": {"tags": ["person", "clerk", "enforcement", "ward-zero", "restart"], "gameCardId": "card-restart-writ-enforcement-clerk"}
+}

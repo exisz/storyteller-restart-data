@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-review-blacklist",
+  "name": "复核除名页",
+  "description": "从下一次死亡复核名单里撕下来的除名页。第七次日出的名字还留着印痕，但已经不能被同一轮复核再次写回。",
+  "type": "item",
+  "coinValue": 15,
+  "effects": [],
+  "metaData": {"tags": ["item", "review", "blacklist", "seventh-sun", "restart"], "gameCardId": "card-restart-review-blacklist"}
+}

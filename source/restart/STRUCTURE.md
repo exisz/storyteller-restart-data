@@ -225,3 +225,28 @@ Branch memory added for later checks:
 - `restart_next_region_discharge_enforcement_route` vs `restart_next_region_bed_zero_writ_shelter_route`
 
 This packet advances Paperwork, Seventh Sunrise, Linxi/B-07/0, Yue debt, and Broadcast/radio pressure by making the hospital's public hearing rules playable and by producing a concrete writ that future content can enforce or attack.
+
+## Turn 46–50 packet: Discharge-enforcement exit ledger arc
+
+The provisional living discharge writ now becomes executable hospital-door state instead of ending as a paper victory:
+
+- `restart-rite-46-writ-enforcement-counter` turns the writ into an enforcement-counter case and grants `裁定执行员` plus `裁定执行铅印`.
+- `restart-event-46-review-window-reopens` makes the temporary nature of the writ dangerous: Ward Zero tries to put Seventh Sunrise back into the next death-review candidate list.
+- `restart-rite-47-review-list-erasure` produces `复核除名页`, forcing public hearing memory vs B-07/0 shelter as the way to keep the name off the list.
+- `restart-rite-48-exit-identity-check` makes the exit gate read pulse, receipt, living signature, and writ as one living identity.
+- `restart-event-48-door-minutes-static` attacks the door's copy of the hearing record through broadcast/static, paying off public-minutes vs supply-contradiction memory.
+- `restart-rite-49-living-exit-turnstile` mints `活人出院通行证` from the execution seal and not-yet-dead status.
+- `restart-rite-50-seventh-sun-exit-ledger` records Seventh Sunrise as a discharged living witness and grants `出院活证人账页`, opening pursuit/escort pressure outside Ward Zero.
+
+Branch memory added for later checks:
+
+- `restart_public_writ_enforcement_demanded` vs `restart_bed_zero_shelter_enforcement_demanded`
+- `restart_review_blocked_by_public_minutes` vs `restart_review_diverted_to_bed_zero`
+- `restart_seventh_removed_from_review_publicly` vs `restart_seventh_review_hidden_under_bed_zero`
+- `restart_exit_identified_seventh_as_living` vs `restart_exit_identified_bed_zero_shelter`
+- `restart_door_bound_to_public_minutes` vs `restart_door_bound_to_supply_contradiction`
+- `restart_living_exit_pass_held_by_seventh` vs `restart_living_exit_pass_sheltered_by_linxi`
+- `restart_seventh_left_as_public_witness` vs `restart_linxi_carried_exit_pursuit_number`
+- `restart_next_region_public_witness_escort_route` vs `restart_next_region_bed_zero_pursuit_route`
+
+This packet advances the Paperwork, Seventh Sunrise, Linxi/B-07/0, Broadcast/static, and hospital-authority threads by forcing a hearing victory through the hospital's actual exit machinery. It is structurally sufficient for the next Player because it provides five sequential rites, two condition-driven pressure events, new state-bearing cards, and clear delayed branch flags for the coming outside-Ward-Zero pursuit route.

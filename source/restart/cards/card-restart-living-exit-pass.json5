@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-living-exit-pass",
+  "name": "活人出院通行证",
+  "description": "出院闸机终于吐出的活人通行证。它只在门口有效，却证明医院的门已经亲口承认第七次日出可以作为活人离开。",
+  "type": "item",
+  "coinValue": 17,
+  "effects": [],
+  "metaData": {"tags": ["item", "exit", "pass", "living", "restart"], "gameCardId": "card-restart-living-exit-pass"}
+}

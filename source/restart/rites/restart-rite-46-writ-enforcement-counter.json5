@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-46-writ-enforcement-counter",
+  "name": "RESTART 46：裁定执行柜台",
+  "description": "第七次日出把暂准活人出院裁定递到 Ward Zero 最后一排柜台。裁定执行员没有抬头：听证只能证明她暂时不是死人，出院口还需要一枚能命令门禁的执行铅印。",
+  "triggers": ["restart-provisional-discharge-writ-issued"],
+  "consequences": ["restart-event-46-review-window-reopens", "restart-writ-enforcement-counter-opened"],
+  "conditions": [
+    "flag.restart_provisional_living_discharge_writ_issued:1",
+    "have.card:card-restart-provisional-living-discharge-writ",
+    "have.card:card-restart-hearing-case-token",
+    "have.card:card-restart-living-oath-sheet"
+  ],
+  "effects": [
+    "set.flag:restart_writ_enforcement_counter_opened",
+    "gain.card:card-restart-writ-enforcement-clerk",
+    "gain.card:card-restart-enforcement-seal"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "递交裁定的人", "cardType": "person"},
+    {"id": "slot-1", "name": "让柜台认账的裁定", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把裁定编号、听证案号牌和活人誓词纸订在一起，要求柜台公开执行第七次日出的活人身份。",
+      "effects": [
+        {"type": "gain.influence", "amount": 18},
+        {"type": "set.flag", "flag": "restart_public_writ_enforcement_demanded"}
+      ]
+    },
+    {
+      "text": "把裁定先压进 B-07/0 的替补尸位，让林夕的错误床号替第七次日出挡下下一轮复核。",
+      "effects": [
+        {"type": "gain.favor", "amount": 18},
+        {"type": "set.flag", "flag": "restart_bed_zero_shelter_enforcement_demanded"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "执行铅印盖下时只压住半行字。柜台承认裁定，却把复核窗口重新点亮。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "执行员把临时裁定翻译成门禁命令。出院口第一次显示：待执行。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_enforcement_counter_publicly_numbered"}], "description": "裁定执行编号被广播读出一半又咽回去。Ward Zero 不得不承认：门禁正在等待一个活人。"}
+  ]
+}

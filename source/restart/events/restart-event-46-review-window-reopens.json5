@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-46-review-window-reopens",
+  "name": "执行事件：复核窗口重开",
+  "description": "执行铅印刚落下，柜台背后的复核窗自动打开。第七次日出的名字被抄进“下一次死亡修正候选”，旁听名单上的活人证词开始一行行变淡。",
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_writ_enforcement_counter_opened:1",
+    "NOT:flag.restart_review_window_answered:1"
+  ],
+  "consequences": ["restart-review-window-cleared"],
+  "options": [
+    {
+      "text": "把公开听证笔录贴在复核窗上，让旁听名单逐名复诵：此人尚未死亡，不能进入修正候选。",
+      "effects": [
+        "gain.influence:15",
+        "set.flag:restart_review_window_answered",
+        "set.flag:restart_review_blocked_by_public_minutes"
+      ]
+    },
+    {
+      "text": "把 B-07/0 的真实床号塞进候选名单，让复核系统先追林夕的错误尸位。",
+      "effects": [
+        "gain.favor:15",
+        "set.flag:restart_review_window_answered",
+        "set.flag:restart_review_diverted_to_bed_zero"
+      ]
+    }
+  ]
+}

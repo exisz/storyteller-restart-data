@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-discharged-witness-ledger",
+  "name": "出院活证人账页",
+  "description": "出院口留下的账页：第七次日出不是被放走的尸源，而是携带裁定离院的活证人。账页的背面已经开始生成追索编号。",
+  "type": "item",
+  "coinValue": 18,
+  "effects": [],
+  "metaData": {"tags": ["item", "ledger", "witness", "discharge", "restart"], "gameCardId": "card-restart-discharged-witness-ledger"}
+}

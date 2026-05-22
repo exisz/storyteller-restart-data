@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-47-review-list-erasure",
+  "name": "RESTART 47：复核名单除名",
+  "description": "复核窗口被挡住后，执行员递出一页还在发热的候选名单。第七次日出的名字没有被划掉，只是暂时移到下一栏：若不把除名页盖进执行铅印，裁定会在门口过期。",
+  "triggers": ["restart-review-window-cleared"],
+  "consequences": ["restart-review-list-erased"],
+  "conditions": [
+    "flag.restart_review_window_answered:1",
+    "have.card:card-restart-writ-enforcement-clerk",
+    "have.card:card-restart-enforcement-seal",
+    "have.card:card-restart-provisional-living-discharge-writ",
+    "have.card:card-restart-public-gallery-list"
+  ],
+  "effects": [
+    "set.flag:restart_review_list_erased",
+    "gain.card:card-restart-review-blacklist"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "划掉复核名的人", "cardType": "person"},
+    {"id": "slot-1", "name": "压住复核窗口的证物", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "让旁听名单上的每个名字替第七次日出作证，把除名页变成公开复核禁令。",
+      "effects": [
+        {"type": "gain.influence", "amount": 19},
+        {"type": "set.flag", "flag": "restart_seventh_removed_from_review_publicly"}
+      ]
+    },
+    {
+      "text": "让裁定执行员把除名页挂在 B-07/0 后面，使复核系统只看见林夕的替补尸位。",
+      "effects": [
+        {"type": "gain.favor", "amount": 19},
+        {"type": "set.flag", "flag": "restart_seventh_review_hidden_under_bed_zero"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "除名页暂时生效，但边缘仍能看见第七次日出的旧编号。门口身份核验必须尽快完成。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "复核名单少了一行。执行铅印把缺口烧成门禁能识别的空白。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_review_erasure_survives_next_correction"}], "description": "复核窗在众目睽睽下关死。系统只好把错误转嫁给出院口身份核验。"}
+  ]
+}

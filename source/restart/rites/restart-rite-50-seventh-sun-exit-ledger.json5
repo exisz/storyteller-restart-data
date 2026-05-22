@@ -1,0 +1,45 @@
+{
+  "id": "restart-rite-50-seventh-sun-exit-ledger",
+  "name": "RESTART 50：第七次日出出院账页",
+  "description": "闸机背后不是街道，而是一张向外延伸的账页。Ward Zero 要求最后登记：若第七次日出作为活证人离院，医院就会把追索编号寄给每一个曾经帮她作证的人。",
+  "triggers": ["restart-living-exit-pass-issued"],
+  "consequences": ["restart-seventh-sun-discharged-witness", "restart-next-region-discharged-witness-pursuit-route"],
+  "conditions": [
+    "flag.restart_living_exit_turnstile_opened:1",
+    "have.card:card-restart-living-exit-pass",
+    "have.card:card-restart-provisional-living-discharge-writ",
+    "have.card:card-restart-seventh-sun",
+    "have.card:card-restart-public-gallery-list"
+  ],
+  "effects": [
+    "set.flag:restart_seventh_sun_exit_ledger_signed",
+    "gain.card:card-restart-discharged-witness-ledger"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "在账页上签名的人", "cardType": "person"},
+    {"id": "slot-1", "name": "证明离院合法的通行凭据", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "让第七次日出以自己的名字签下出院活证人账页，把追索压力留给公开旁听名单分担。",
+      "effects": [
+        {"type": "gain.influence", "amount": 22},
+        {"type": "set.flag", "flag": "restart_seventh_left_as_public_witness"},
+        {"type": "set.flag", "flag": "restart_next_region_public_witness_escort_route"}
+      ]
+    },
+    {
+      "text": "让林夕把 B-07/0 写在账页背面，带着追索编号先替第七次日出挡住门外广播。",
+      "effects": [
+        {"type": "gain.favor", "amount": 22},
+        {"type": "set.flag", "flag": "restart_linxi_carried_exit_pursuit_number"},
+        {"type": "set.flag", "flag": "restart_next_region_bed_zero_pursuit_route"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "出院账页成立，但追索编号立刻亮起。门外的广播开始寻找刚刚离院的活证人。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "第七次日出离开 Ward Zero 的账页被保存。医院不能取消这次出院，只能追索它。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_discharge_record_survives_outside_broadcast"}], "description": "出院活证人账页在门外生成副本。广播第一次不再说“请回病房”，而是说：追索队，准备接站。"}
+  ]
+}
