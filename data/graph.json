@@ -251,6 +251,36 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-51-pursuit-platform",
+      "name": "RESTART 51：门外追索站台",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-52-living-witness-escort-number",
+      "name": "RESTART 52：活证人护送案号",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-53-gallery-escort-roster",
+      "name": "RESTART 53：旁听护送队名单",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-54-outside-transfer-timetable",
+      "name": "RESTART 54：站外换乘时刻表",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-55-sever-pursuit-number",
+      "name": "RESTART 55：割离追索编号",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-56-witness-safehouse-bell",
+      "name": "RESTART 56：活证人保护屋门铃",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -363,6 +393,16 @@
     {
       "id": "restart-event-48-door-minutes-static",
       "name": "执行事件：门上笔录静电",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-51-pursuit-announcement",
+      "name": "追索事件：门外编号广播",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-53-recall-ambulance-siren",
+      "name": "追索事件：召回救护车鸣笛",
       "type": "event"
     }
   ],

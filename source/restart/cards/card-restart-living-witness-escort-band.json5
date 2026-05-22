@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-living-witness-escort-band",
+  "name": "活证人护送腕带",
+  "description": "门外护送台临时扣下的腕带。它承认佩戴者不是逃尸，而是需要被送达下一处听证地点的活证人。",
+  "type": "item",
+  "coinValue": 17,
+  "effects": [],
+  "metaData": {"tags": ["item", "escort", "witness", "band", "restart"], "gameCardId": "card-restart-living-witness-escort-band"}
+}

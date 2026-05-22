@@ -250,3 +250,29 @@ Branch memory added for later checks:
 - `restart_next_region_public_witness_escort_route` vs `restart_next_region_bed_zero_pursuit_route`
 
 This packet advances the Paperwork, Seventh Sunrise, Linxi/B-07/0, Broadcast/static, and hospital-authority threads by forcing a hearing victory through the hospital's actual exit machinery. It is structurally sufficient for the next Player because it provides five sequential rites, two condition-driven pressure events, new state-bearing cards, and clear delayed branch flags for the coming outside-Ward-Zero pursuit route.
+
+## Turn 51–56 packet: Public witness escort / safehouse arc
+
+The discharged witness ledger now opens an outside-Ward-Zero pursuit route instead of ending at a door victory:
+
+- `restart-rite-51-pursuit-platform` turns the exit ledger into a door-exterior problem and grants `门外追索通知` plus `活证人护送腕带`.
+- `restart-event-51-pursuit-announcement` makes public witness status risky: the hospital uses the same public list that protected the hearing as a pursuit address book.
+- `restart-rite-52-living-witness-escort-number` converts the pursuit notice into an escort docket instead of a recall order.
+- `restart-rite-53-gallery-escort-roster` turns the public gallery into an active护送队 and grants `护送旁听队名单`.
+- `restart-event-53-recall-ambulance-siren` escalates the outside pressure with a recall ambulance that must be legalized as escort transfer or jammed through broadcast contradiction.
+- `restart-rite-54-outside-transfer-timetable` opens the station-exterior transfer line and grants `站外换乘时刻表` plus `活证人保护屋门牌`.
+- `restart-rite-55-sever-pursuit-number` cuts the pursuit number off the witness ledger and turns it into carryable evidence/decoy state.
+- `restart-rite-56-witness-safehouse-bell` rings the protection-house door and opens the next protected-witness route.
+
+Branch memory added for later checks:
+
+- `restart_seventh_wore_escort_band_publicly` vs `restart_linxi_sheltered_escort_band`
+- `restart_gallery_shared_pursuit_address` vs `restart_linxi_absorbed_first_pursuit_ping`
+- `restart_escort_registered_as_public_procedure` vs `restart_escort_registered_under_linxi_decoy`
+- `restart_public_gallery_became_escort_roster` vs `restart_yue_masked_gallery_names_for_escort`
+- `restart_ambulance_converted_to_escort_transfer` vs `restart_operator_jammed_recall_siren`
+- `restart_public_escort_transfer_scheduled` vs `restart_transfer_hidden_in_radio_gap`
+- `restart_pursuit_number_preserved_as_evidence` vs `restart_pursuit_number_left_as_blank_decoy`
+- `restart_next_region_protected_witness_route` vs `restart_next_region_linxi_pursuit_shadow_route`
+
+This packet advances the Paperwork, Seventh Sunrise, public-witness, Linxi/B-07/0, Yue, and Broadcast/operator threads by showing that an official living discharge becomes a pursuit problem outside the hospital. It is structurally sufficient for the next Player because it provides six sequential rites, two condition-driven pressure events, seven state-bearing cards, and delayed branch flags for the next protected-witness/safehouse region.

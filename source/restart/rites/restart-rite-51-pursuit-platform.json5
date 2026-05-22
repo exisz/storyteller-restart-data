@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-51-pursuit-platform",
+  "name": "RESTART 51：门外追索站台",
+  "description": "出院门外没有天空，只有一座贴满送达地址的站台。第七次日出的活证人账页被站台承认，但承认的同时，追索编号也开始在账页背面生长。",
+  "triggers": ["restart-next-region-discharged-witness-pursuit-route"],
+  "consequences": ["restart-pursuit-platform-opened"],
+  "conditions": [
+    "flag.restart_next_region_public_witness_escort_route:1",
+    "have.card:card-restart-discharged-witness-ledger",
+    "have.card:card-restart-living-exit-pass",
+    "have.card:card-restart-seventh-sun"
+  ],
+  "effects": [
+    "set.flag:restart_pursuit_platform_opened",
+    "gain.card:card-restart-exit-pursuit-notice",
+    "gain.card:card-restart-living-witness-escort-band"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "带活证人走出门的人", "cardType": "person"},
+    {"id": "slot-1", "name": "证明出院仍然有效的账页或通行证", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "让第七次日出戴上护送腕带，公开承认她离院后仍是活证人。",
+      "effects": [
+        {"type": "gain.influence", "amount": 23},
+        {"type": "set.flag", "flag": "restart_seventh_wore_escort_band_publicly"}
+      ]
+    },
+    {
+      "text": "让林夕先拿着追索通知，把第一个编号压在 B-07/0 的旧床号下面。",
+      "effects": [
+        {"type": "gain.favor", "amount": 23},
+        {"type": "set.flag", "flag": "restart_linxi_sheltered_escort_band"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "站台承认出院，却把追索编号投到每一面玻璃上。广播马上开始点名。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "护送腕带扣住了活证人的脉搏。追索通知只能跟着走，不能把她拖回门内。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_pursuit_station_recorded_public_exit"}], "description": "门外站台生成公开副本：第七次日出已离院，下一步只能护送，不能注销。"}
+  ]
+}

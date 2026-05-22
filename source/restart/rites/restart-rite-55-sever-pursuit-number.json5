@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-55-sever-pursuit-number",
+  "name": "RESTART 55：割离追索编号",
+  "description": "换乘时刻表能带人走，却带不走账页背面的编号。编号像一根细线，一头系着 Ward Zero，另一头正往第七次日出的名字里钻。",
+  "triggers": ["restart-outside-transfer-route-opened"],
+  "consequences": ["restart-pursuit-number-severed"],
+  "conditions": [
+    "flag.restart_outside_transfer_timetable_opened:1",
+    "have.card:card-restart-exit-pursuit-notice",
+    "have.card:card-restart-recheck-pin",
+    "have.card:card-restart-enforcement-seal",
+    "have.card:card-restart-outside-transfer-timetable"
+  ],
+  "effects": [
+    "set.flag:restart_pursuit_number_cut_loose",
+    "gain.card:card-restart-severed-pursuit-number"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "握住编号的人", "cardType": "person"},
+    {"id": "slot-1", "name": "切断编号的针、章或通知", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "用复查反签针挑断编号，把它作为医院追索活人的证据夹进护送案号。",
+      "effects": [
+        {"type": "gain.influence", "amount": 27},
+        {"type": "set.flag", "flag": "restart_pursuit_number_preserved_as_evidence"}
+      ]
+    },
+    {
+      "text": "用裁定执行铅印把编号盖成无主回执，让追索队暂时只能追一张空通知。",
+      "effects": [
+        {"type": "gain.favor", "amount": 27},
+        {"type": "set.flag", "flag": "restart_pursuit_number_left_as_blank_decoy"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "编号被割下，却还在跳。保护屋门铃会先检查它有没有重新贴回活证人身上。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "追索编号离开账页，成了一件可携带的证物。第七次日出的名字短暂安静。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_pursuit_number_cannot_rebind_without_hearing"}], "description": "编号被反签针钉在护送案号夹内。它还属于医院，但暂时不再属于任何一个活人。"}
+  ]
+}

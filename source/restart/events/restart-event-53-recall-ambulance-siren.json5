@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-53-recall-ambulance-siren",
+  "name": "追索事件：召回救护车鸣笛",
+  "description": "护送队名单刚成形，旧救护车从站外雾里倒车回来。车门上的字不是“急救”，而是“召回”。它要把刚离院的活证人送回 Ward Zero 复核。",
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_escort_gallery_roster_signed:1",
+    "NOT:flag.restart_recall_ambulance_answered:1"
+  ],
+  "consequences": ["restart-recall-ambulance-diverted"],
+  "options": [
+    {
+      "text": "把活人出院通行证贴到车门上，逼救护车承认这次不是入院运输，而是院外送达。",
+      "effects": [
+        "gain.influence:18",
+        "set.flag:restart_recall_ambulance_answered",
+        "set.flag:restart_ambulance_converted_to_escort_transfer"
+      ]
+    },
+    {
+      "text": "让塔内播音员的活人声线盖过鸣笛，把召回指令改成无法定位的静电回执。",
+      "effects": [
+        "gain.favor:18",
+        "set.flag:restart_recall_ambulance_answered",
+        "set.flag:restart_operator_jammed_recall_siren"
+      ]
+    }
+  ]
+}

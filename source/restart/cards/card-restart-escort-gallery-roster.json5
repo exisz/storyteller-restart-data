@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-escort-gallery-roster",
+  "name": "护送旁听队名单",
+  "description": "旁听名单被重写成护送队名单。每一个名字都可能保护第七次日出，也可能被医院追索队反向定位。",
+  "type": "item",
+  "coinValue": 19,
+  "effects": [],
+  "metaData": {"tags": ["item", "gallery", "escort", "risk", "restart"], "gameCardId": "card-restart-escort-gallery-roster"}
+}

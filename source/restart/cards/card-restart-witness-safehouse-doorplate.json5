@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-witness-safehouse-doorplate",
+  "name": "活证人保护屋门牌",
+  "description": "一块没有楼号的门牌，只有听证案号和一道门铃。它不庇护死人，只收留还愿意继续作证的活人。",
+  "type": "item",
+  "coinValue": 22,
+  "effects": [],
+  "metaData": {"tags": ["item", "safehouse", "witness", "door", "restart"], "gameCardId": "card-restart-witness-safehouse-doorplate"}
+}

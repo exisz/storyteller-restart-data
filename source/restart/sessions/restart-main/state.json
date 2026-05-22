@@ -1,5 +1,5 @@
 {
-  "turn": 46,
+  "turn": 51,
   "rites": [
     {
       "id": "restart-rite-01-wake-at-platform",
@@ -5233,6 +5233,591 @@
           "description": "Ward Zero 被迫给活人出院裁定编号。广播沉默了整整七秒，然后改口：下一站，裁定执行处。"
         }
       ]
+    },
+    {
+      "id": "restart-rite-46-writ-enforcement-counter",
+      "name": "RESTART 46：裁定执行柜台",
+      "description": "第七次日出把暂准活人出院裁定递到 Ward Zero 最后一排柜台。裁定执行员没有抬头：听证只能证明她暂时不是死人，出院口还需要一枚能命令门禁的执行铅印。",
+      "triggers": [
+        "restart-provisional-discharge-writ-issued"
+      ],
+      "consequences": [
+        "restart-event-46-review-window-reopens",
+        "restart-writ-enforcement-counter-opened"
+      ],
+      "conditions": [
+        "flag.restart_provisional_living_discharge_writ_issued:1",
+        "have.card:card-restart-provisional-living-discharge-writ",
+        "have.card:card-restart-hearing-case-token",
+        "have.card:card-restart-living-oath-sheet"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_writ_enforcement_counter_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-writ-enforcement-clerk"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-enforcement-seal"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "递交裁定的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "让柜台认账的裁定",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把裁定编号、听证案号牌和活人誓词纸订在一起，要求柜台公开执行第七次日出的活人身份。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 18
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_public_writ_enforcement_demanded"
+            }
+          ]
+        },
+        {
+          "text": "把裁定先压进 B-07/0 的替补尸位，让林夕的错误床号替第七次日出挡下下一轮复核。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 18
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_bed_zero_shelter_enforcement_demanded"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "执行铅印盖下时只压住半行字。柜台承认裁定，却把复核窗口重新点亮。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "执行员把临时裁定翻译成门禁命令。出院口第一次显示：待执行。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_enforcement_counter_publicly_numbered"
+            }
+          ],
+          "description": "裁定执行编号被广播读出一半又咽回去。Ward Zero 不得不承认：门禁正在等待一个活人。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-47-review-list-erasure",
+      "name": "RESTART 47：复核名单除名",
+      "description": "复核窗口被挡住后，执行员递出一页还在发热的候选名单。第七次日出的名字没有被划掉，只是暂时移到下一栏：若不把除名页盖进执行铅印，裁定会在门口过期。",
+      "triggers": [
+        "restart-review-window-cleared"
+      ],
+      "consequences": [
+        "restart-review-list-erased"
+      ],
+      "conditions": [
+        "flag.restart_review_window_answered:1",
+        "have.card:card-restart-writ-enforcement-clerk",
+        "have.card:card-restart-enforcement-seal",
+        "have.card:card-restart-provisional-living-discharge-writ",
+        "have.card:card-restart-public-gallery-list"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_review_list_erased"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-review-blacklist"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "划掉复核名的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "压住复核窗口的证物",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "让旁听名单上的每个名字替第七次日出作证，把除名页变成公开复核禁令。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 19
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_removed_from_review_publicly"
+            }
+          ]
+        },
+        {
+          "text": "让裁定执行员把除名页挂在 B-07/0 后面，使复核系统只看见林夕的替补尸位。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 19
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_review_hidden_under_bed_zero"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "除名页暂时生效，但边缘仍能看见第七次日出的旧编号。门口身份核验必须尽快完成。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "复核名单少了一行。执行铅印把缺口烧成门禁能识别的空白。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_review_erasure_survives_next_correction"
+            }
+          ],
+          "description": "复核窗在众目睽睽下关死。系统只好把错误转嫁给出院口身份核验。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-48-exit-identity-check",
+      "name": "RESTART 48：出院口身份核验",
+      "description": "出院口不是门，是一张竖起来的病历。它不认识第七次日出，只认识床号、脉搏、签收单和听证裁定。要让门承认活人，必须把这些互相矛盾的证据排成同一个名字。",
+      "triggers": [
+        "restart-review-list-erased"
+      ],
+      "consequences": [
+        "restart-event-48-door-minutes-static",
+        "restart-exit-identity-checked"
+      ],
+      "conditions": [
+        "flag.restart_review_list_erased:1",
+        "have.card:card-restart-review-blacklist",
+        "have.card:card-restart-unreturned-pulse-receipt",
+        "have.card:card-restart-living-receipt-form",
+        "have.card:card-restart-provisional-living-discharge-writ"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_exit_identity_checked"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "通过身份核验的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "证明仍活着的凭据",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把未退脉搏收据贴在收货口活人签收单上，让门口读出第七次日出的活人姓名。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 20
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_exit_identified_seventh_as_living"
+            }
+          ]
+        },
+        {
+          "text": "把真实床号 B-07/0 垫在裁定下面，让门先承认林夕的错误尸位不能覆盖第七次日出。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 20
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_exit_identified_bed_zero_shelter"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "出院口识别到活人，却把核验结果写进临时缓存。门上的广播喇叭开始冒出静电。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "四份凭据在门口短暂重合。出院口显示：身份，活；状态，待通行。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_exit_identity_locked_against_review"
+            }
+          ],
+          "description": "门禁系统把第七次日出的姓名读成活人。Ward Zero 的复核窗全数变红，只剩广播还能干扰门的记忆。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-49-living-exit-turnstile",
+      "name": "RESTART 49：活人出院闸机",
+      "description": "门上静电被压住后，出院闸机露出一条只够一张纸通过的缝。裁定执行铅印必须和暂未死亡章同时落下，闸机才会吐出真正的活人出院通行证。",
+      "triggers": [
+        "restart-door-minutes-bound"
+      ],
+      "consequences": [
+        "restart-living-exit-pass-issued"
+      ],
+      "conditions": [
+        "flag.restart_door_minutes_static_answered:1",
+        "have.card:card-restart-enforcement-seal",
+        "have.card:card-restart-not-yet-dead-stamp",
+        "have.card:card-restart-provisional-living-discharge-writ",
+        "have.card:card-restart-supply-contradiction-packet"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_living_exit_turnstile_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-living-exit-pass"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "推动闸机的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "落在闸机上的章或裁定",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把通行证交给第七次日出本人，让她以公开活证人的身份站到闸机正中。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 21
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_living_exit_pass_held_by_seventh"
+            }
+          ]
+        },
+        {
+          "text": "让林夕先替她夹住闸机，把通行证藏在 B-07/0 与裁定之间。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 21
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_living_exit_pass_sheltered_by_linxi"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "闸机吐出通行证，但把有效期写成“离门后三十步”。出院账页必须立刻登记。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "活人通行证在闸机里完整成形。门没有开大，只承认这一次通行。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_turnstile_opened_under_public_record"
+            }
+          ],
+          "description": "闸机被旁听名单和供纸反证同时钉住。第七次日出的名字第一次从门内滚到门外。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-50-seventh-sun-exit-ledger",
+      "name": "RESTART 50：第七次日出出院账页",
+      "description": "闸机背后不是街道，而是一张向外延伸的账页。Ward Zero 要求最后登记：若第七次日出作为活证人离院，医院就会把追索编号寄给每一个曾经帮她作证的人。",
+      "triggers": [
+        "restart-living-exit-pass-issued"
+      ],
+      "consequences": [
+        "restart-seventh-sun-discharged-witness",
+        "restart-next-region-discharged-witness-pursuit-route"
+      ],
+      "conditions": [
+        "flag.restart_living_exit_turnstile_opened:1",
+        "have.card:card-restart-living-exit-pass",
+        "have.card:card-restart-provisional-living-discharge-writ",
+        "have.card:card-restart-seventh-sun",
+        "have.card:card-restart-public-gallery-list"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_seventh_sun_exit_ledger_signed"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-discharged-witness-ledger"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "在账页上签名的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "证明离院合法的通行凭据",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "让第七次日出以自己的名字签下出院活证人账页，把追索压力留给公开旁听名单分担。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 22
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_left_as_public_witness"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_public_witness_escort_route"
+            }
+          ]
+        },
+        {
+          "text": "让林夕把 B-07/0 写在账页背面，带着追索编号先替第七次日出挡住门外广播。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 22
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_linxi_carried_exit_pursuit_number"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_bed_zero_pursuit_route"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "出院账页成立，但追索编号立刻亮起。门外的广播开始寻找刚刚离院的活证人。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "第七次日出离开 Ward Zero 的账页被保存。医院不能取消这次出院，只能追索它。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_discharge_record_survives_outside_broadcast"
+            }
+          ],
+          "description": "出院活证人账页在门外生成副本。广播第一次不再说“请回病房”，而是说：追索队，准备接站。"
+        }
+      ]
     }
   ],
   "cards": [
@@ -5340,6 +5925,24 @@
       }
     },
     {
+      "id": "card-restart-discharged-witness-ledger",
+      "name": "出院活证人账页",
+      "description": "出院口留下的账页：第七次日出不是被放走的尸源，而是携带裁定离院的活证人。账页的背面已经开始生成追索编号。",
+      "type": "item",
+      "coinValue": 18,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "ledger",
+          "witness",
+          "discharge",
+          "restart"
+        ],
+        "gameCardId": "card-restart-discharged-witness-ledger"
+      }
+    },
+    {
       "id": "card-restart-eighth-wristband",
       "name": "第八轮腕带",
       "description": "病号服林夕从救护车里递出的腕带。腕带内侧写着今天的日期和一串倒置床号，证明她来自下一轮，却也可能是医院预先打印的陷阱。",
@@ -5354,6 +5957,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-eighth-wristband"
+      }
+    },
+    {
+      "id": "card-restart-enforcement-seal",
+      "name": "裁定执行铅印",
+      "description": "执行柜台压在暂准活人出院裁定上的铅印。它把“不得补录为死人”翻译成门禁能读取的命令。",
+      "type": "item",
+      "coinValue": 15,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "seal",
+          "enforcement",
+          "discharge",
+          "restart"
+        ],
+        "gameCardId": "card-restart-enforcement-seal"
       }
     },
     {
@@ -5425,6 +6046,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-living-discharge-order"
+      }
+    },
+    {
+      "id": "card-restart-living-exit-pass",
+      "name": "活人出院通行证",
+      "description": "出院闸机终于吐出的活人通行证。它只在门口有效，却证明医院的门已经亲口承认第七次日出可以作为活人离开。",
+      "type": "item",
+      "coinValue": 17,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "exit",
+          "pass",
+          "living",
+          "restart"
+        ],
+        "gameCardId": "card-restart-living-exit-pass"
       }
     },
     {
@@ -5726,6 +6365,24 @@
       }
     },
     {
+      "id": "card-restart-review-blacklist",
+      "name": "复核除名页",
+      "description": "从下一次死亡复核名单里撕下来的除名页。第七次日出的名字还留着印痕，但已经不能被同一轮复核再次写回。",
+      "type": "item",
+      "coinValue": 15,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "review",
+          "blacklist",
+          "seventh-sun",
+          "restart"
+        ],
+        "gameCardId": "card-restart-review-blacklist"
+      }
+    },
+    {
       "id": "card-restart-seventh-sun",
       "name": "第七次日出",
       "description": "被旧日出医院反复注销的第一名醒来者。她像林夕，又比林夕多记得一次拒签死亡证明的代价；只要她被带出玻璃门，广播就会追着她的缺名档案而来。",
@@ -5935,6 +6592,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-worker-testimony"
+      }
+    },
+    {
+      "id": "card-restart-writ-enforcement-clerk",
+      "name": "裁定执行员",
+      "description": "Ward Zero 里专门把听证裁定变成门禁命令的人。她不判断谁活着，只判断哪张纸能让门承认活人。",
+      "type": "person",
+      "coinValue": 14,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "person",
+          "clerk",
+          "enforcement",
+          "ward-zero",
+          "restart"
+        ],
+        "gameCardId": "card-restart-writ-enforcement-clerk"
       }
     },
     {
@@ -6590,6 +7265,72 @@
           ]
         }
       ]
+    },
+    {
+      "id": "restart-event-46-review-window-reopens",
+      "name": "执行事件：复核窗口重开",
+      "description": "执行铅印刚落下，柜台背后的复核窗自动打开。第七次日出的名字被抄进“下一次死亡修正候选”，旁听名单上的活人证词开始一行行变淡。",
+      "trigger": {
+        "condition": true
+      },
+      "conditions": [
+        "flag.restart_writ_enforcement_counter_opened:1",
+        "NOT:flag.restart_review_window_answered:1"
+      ],
+      "consequences": [
+        "restart-review-window-cleared"
+      ],
+      "options": [
+        {
+          "text": "把公开听证笔录贴在复核窗上，让旁听名单逐名复诵：此人尚未死亡，不能进入修正候选。",
+          "effects": [
+            "gain.influence:15",
+            "set.flag:restart_review_window_answered",
+            "set.flag:restart_review_blocked_by_public_minutes"
+          ]
+        },
+        {
+          "text": "把 B-07/0 的真实床号塞进候选名单，让复核系统先追林夕的错误尸位。",
+          "effects": [
+            "gain.favor:15",
+            "set.flag:restart_review_window_answered",
+            "set.flag:restart_review_diverted_to_bed_zero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restart-event-48-door-minutes-static",
+      "name": "执行事件：门上笔录静电",
+      "description": "身份核验刚通过，门上的喇叭突然播放旧听证笔录的残句：“暂准……预死亡……当事人缺席……”每一次静电都试图让门忘记旁听席曾经见过活人。",
+      "trigger": {
+        "condition": true
+      },
+      "conditions": [
+        "flag.restart_exit_identity_checked:1",
+        "NOT:flag.restart_door_minutes_static_answered:1"
+      ],
+      "consequences": [
+        "restart-door-minutes-bound"
+      ],
+      "options": [
+        {
+          "text": "把封存听证笔录压到门缝里，逼喇叭复诵公开裁定而不是旧广播。",
+          "effects": [
+            "gain.influence:16",
+            "set.flag:restart_door_minutes_static_answered",
+            "set.flag:restart_door_bound_to_public_minutes"
+          ]
+        },
+        {
+          "text": "用供纸反证包堵住喇叭，让门承认自己的纸、自己的章、自己的收货错误。",
+          "effects": [
+            "gain.favor:16",
+            "set.flag:restart_door_minutes_static_answered",
+            "set.flag:restart_door_bound_to_supply_contradiction"
+          ]
+        }
+      ]
     }
   ],
   "deck": [
@@ -6651,11 +7392,16 @@
       "card-restart-public-gallery-list",
       "card-restart-living-oath-sheet",
       "card-restart-supply-contradiction-packet",
-      "card-restart-provisional-living-discharge-writ"
+      "card-restart-provisional-living-discharge-writ",
+      "card-restart-writ-enforcement-clerk",
+      "card-restart-enforcement-seal",
+      "card-restart-review-blacklist",
+      "card-restart-living-exit-pass",
+      "card-restart-discharged-witness-ledger"
     ]
   },
   "counters": {
-    "influence": 586,
+    "influence": 737,
     "favor": 49
   },
   "flags": {
@@ -6839,7 +7585,27 @@
     "restart_provisional_living_discharge_writ_issued": true,
     "complete_restart-rite-45-provisional-living-discharge-writ": true,
     "restart_seventh_sun_holds_living_discharge_writ": true,
-    "restart_next_region_discharge_enforcement_route": true
+    "restart_next_region_discharge_enforcement_route": true,
+    "restart_writ_enforcement_counter_opened": true,
+    "complete_restart-rite-46-writ-enforcement-counter": true,
+    "restart_public_writ_enforcement_demanded": true,
+    "restart_review_window_answered": true,
+    "restart_review_blocked_by_public_minutes": true,
+    "restart_review_list_erased": true,
+    "complete_restart-rite-47-review-list-erasure": true,
+    "restart_seventh_removed_from_review_publicly": true,
+    "restart_exit_identity_checked": true,
+    "complete_restart-rite-48-exit-identity-check": true,
+    "restart_exit_identified_seventh_as_living": true,
+    "restart_door_minutes_static_answered": true,
+    "restart_door_bound_to_public_minutes": true,
+    "restart_living_exit_turnstile_opened": true,
+    "complete_restart-rite-49-living-exit-turnstile": true,
+    "restart_living_exit_pass_held_by_seventh": true,
+    "restart_seventh_sun_exit_ledger_signed": true,
+    "complete_restart-rite-50-seventh-sun-exit-ledger": true,
+    "restart_seventh_left_as_public_witness": true,
+    "restart_next_region_public_witness_escort_route": true
   },
   "unresolvedEvent": null,
   "activeEvents": []

@@ -1,0 +1,44 @@
+{
+  "id": "restart-rite-54-outside-transfer-timetable",
+  "name": "RESTART 54：站外换乘时刻表",
+  "description": "召回救护车被迫改道后，伪城地图背面渗出一张站外时刻表。它不是给病人的车次，而是给已经离院、还要继续作证的人。",
+  "triggers": ["restart-recall-ambulance-diverted"],
+  "consequences": ["restart-outside-transfer-route-opened"],
+  "conditions": [
+    "flag.restart_recall_ambulance_answered:1",
+    "have.card:card-restart-escort-gallery-roster",
+    "have.card:card-restart-counterfeit-city-map",
+    "have.card:card-restart-ticket",
+    "have.card:card-restart-radio"
+  ],
+  "effects": [
+    "set.flag:restart_outside_transfer_timetable_opened",
+    "gain.card:card-restart-outside-transfer-timetable",
+    "gain.card:card-restart-witness-safehouse-doorplate"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "读取站外时刻的人", "cardType": "person"},
+    {"id": "slot-1", "name": "对照车次的地图、车票或收音机", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "把护送队名单排进公开换乘车次，让第七次日出沿着听证记录离开追索站台。",
+      "effects": [
+        {"type": "gain.influence", "amount": 26},
+        {"type": "set.flag", "flag": "restart_public_escort_transfer_scheduled"}
+      ]
+    },
+    {
+      "text": "用坏掉的收音机偷听两次广播间隙，把换乘车次藏进静电空拍。",
+      "effects": [
+        {"type": "gain.favor", "amount": 26},
+        {"type": "set.flag", "flag": "restart_transfer_hidden_in_radio_gap"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "时刻表出现，但每个站名后面都跟着追索编号。必须把编号从账页上割下来。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "站外换乘线稳定下来。它能送走活证人，但不能带走追索编号。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_outside_timetable_saved_to_radio"}], "description": "收音机第一次播出门外车次。医院听见的是静电，林夕听见的是下一站。"}
+  ]
+}

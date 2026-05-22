@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-severed-pursuit-number",
+  "name": "割离追索编号",
+  "description": "被复查反签针从出院账页背面挑下来的追索编号。它还在跳动，但暂时不再贴在第七次日出的名字上。",
+  "type": "item",
+  "coinValue": 21,
+  "effects": [],
+  "metaData": {"tags": ["item", "pursuit", "number", "evidence", "restart"], "gameCardId": "card-restart-severed-pursuit-number"}
+}

@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-outside-transfer-timetable",
+  "name": "站外换乘时刻表",
+  "description": "伪城地图背面浮出的站外时刻表。它显示出院门外还有一条给活证人换乘的暗线，只在追索广播换气时出现。",
+  "type": "item",
+  "coinValue": 20,
+  "effects": [],
+  "metaData": {"tags": ["item", "timetable", "outside", "route", "restart"], "gameCardId": "card-restart-outside-transfer-timetable"}
+}

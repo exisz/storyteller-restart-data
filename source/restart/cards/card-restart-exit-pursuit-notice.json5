@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-exit-pursuit-notice",
+  "name": "门外追索通知",
+  "description": "第七次日出离开 Ward Zero 后，门外广播吐出的第一张通知。它不撤销出院，只把活证人的追索编号寄给所有公开见证人。",
+  "type": "item",
+  "coinValue": 16,
+  "effects": [],
+  "metaData": {"tags": ["item", "pursuit", "witness", "outside", "restart"], "gameCardId": "card-restart-exit-pursuit-notice"}
+}

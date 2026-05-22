@@ -1,0 +1,9 @@
+{
+  "id": "card-restart-escort-docket-folder",
+  "name": "护送案号夹",
+  "description": "把出院账页、通行证和旁听名单夹在一起的案号夹。它让护送不再像逃跑，而像一场还没结束的公开听证。",
+  "type": "item",
+  "coinValue": 18,
+  "effects": [],
+  "metaData": {"tags": ["item", "docket", "escort", "hearing", "restart"], "gameCardId": "card-restart-escort-docket-folder"}
+}

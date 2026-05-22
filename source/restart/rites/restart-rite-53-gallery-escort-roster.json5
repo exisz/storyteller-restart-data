@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-53-gallery-escort-roster",
+  "name": "RESTART 53：旁听护送队名单",
+  "description": "护送案号需要一个队伍。旁听名单上的名字一行行亮起：他们可以成为护送队，也可以成为医院追索队的送达坐标。",
+  "triggers": ["restart-living-witness-escort-docket"],
+  "consequences": ["restart-gallery-escort-roster-signed"],
+  "conditions": [
+    "flag.restart_living_witness_escort_number_opened:1",
+    "have.card:card-restart-escort-docket-folder",
+    "have.card:card-restart-public-gallery-list",
+    "have.card:card-restart-hearing-case-token",
+    "have.card:card-restart-provisional-living-discharge-writ"
+  ],
+  "effects": [
+    "set.flag:restart_escort_gallery_roster_signed",
+    "gain.card:card-restart-escort-gallery-roster"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "替旁听名单签护送的人", "cardType": "person"},
+    {"id": "slot-1", "name": "证明旁听仍公开的记录", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "让旁听名单作为集体护送队签名，保护第七次日出的同时让追索无法只咬住一个人。",
+      "effects": [
+        {"type": "gain.influence", "amount": 25},
+        {"type": "set.flag", "flag": "restart_public_gallery_became_escort_roster"}
+      ]
+    },
+    {
+      "text": "让越医生把医院见证栏补签成医疗送达，暂时遮住真实旁听者的姓名。",
+      "effects": [
+        {"type": "gain.favor", "amount": 25},
+        {"type": "set.flag", "flag": "restart_yue_masked_gallery_names_for_escort"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "护送队名单签成，但旧救护车听见了新地址。鸣笛从站外雾里倒回来。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "护送队名单把第七次日出围在中间。召回系统必须先拆散见证，才能碰到她。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_escort_roster_resists_single_targeting"}], "description": "每个旁听名字都复诵同一句话：她离院时活着。召回车门一时找不到单独的目标。"}
+  ]
+}

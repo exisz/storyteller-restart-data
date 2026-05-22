@@ -1,0 +1,44 @@
+{
+  "id": "restart-rite-56-witness-safehouse-bell",
+  "name": "RESTART 56：活证人保护屋门铃",
+  "description": "站外时刻表的最后一站没有站名，只有一块门牌和一枚门铃。门铃不问是谁逃出来，只问：追索编号有没有被割离，证词还愿不愿意继续。",
+  "triggers": ["restart-pursuit-number-severed"],
+  "consequences": ["restart-witness-safehouse-opened", "restart-next-region-protected-witness-route"],
+  "conditions": [
+    "flag.restart_pursuit_number_cut_loose:1",
+    "have.card:card-restart-witness-safehouse-doorplate",
+    "have.card:card-restart-severed-pursuit-number",
+    "have.card:card-restart-seventh-sun",
+    "have.card:card-restart-escort-docket-folder"
+  ],
+  "effects": [
+    "set.flag:restart_witness_safehouse_bell_rung"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "按下门铃的人", "cardType": "person"},
+    {"id": "slot-1", "name": "交给保护屋的编号或案号", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "让第七次日出把割离追索编号交给保护屋，以公开活证人的身份进入下一场证词。",
+      "effects": [
+        {"type": "gain.influence", "amount": 28},
+        {"type": "set.flag", "flag": "restart_seventh_entered_witness_safehouse"},
+        {"type": "set.flag", "flag": "restart_next_region_protected_witness_route"}
+      ]
+    },
+    {
+      "text": "让林夕带着护送案号先进去登记，把自己的 B-07/0 留在门外作为假追索影子。",
+      "effects": [
+        {"type": "gain.favor", "amount": 28},
+        {"type": "set.flag", "flag": "restart_linxi_registered_safehouse_decoy"},
+        {"type": "set.flag", "flag": "restart_next_region_linxi_pursuit_shadow_route"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "保护屋开门一线。门外追索队还没失去路线，只是暂时不能进来。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "保护屋承认第七次日出仍是活证人。下一轮斗争将不在 Ward Zero 门内发生。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_safehouse_preserves_public_testimony"}], "description": "门牌把护送案号、割离编号和活证人姓名一起收进屋内。广播在门外第一次找不到病房。"}
+  ]
+}

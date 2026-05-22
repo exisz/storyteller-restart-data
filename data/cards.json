@@ -156,6 +156,60 @@
     }
   },
   {
+    "id": "card-restart-escort-docket-folder",
+    "name": "护送案号夹",
+    "description": "把出院账页、通行证和旁听名单夹在一起的案号夹。它让护送不再像逃跑，而像一场还没结束的公开听证。",
+    "type": "item",
+    "coinValue": 18,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "docket",
+        "escort",
+        "hearing",
+        "restart"
+      ],
+      "gameCardId": "card-restart-escort-docket-folder"
+    }
+  },
+  {
+    "id": "card-restart-escort-gallery-roster",
+    "name": "护送旁听队名单",
+    "description": "旁听名单被重写成护送队名单。每一个名字都可能保护第七次日出，也可能被医院追索队反向定位。",
+    "type": "item",
+    "coinValue": 19,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "gallery",
+        "escort",
+        "risk",
+        "restart"
+      ],
+      "gameCardId": "card-restart-escort-gallery-roster"
+    }
+  },
+  {
+    "id": "card-restart-exit-pursuit-notice",
+    "name": "门外追索通知",
+    "description": "第七次日出离开 Ward Zero 后，门外广播吐出的第一张通知。它不撤销出院，只把活证人的追索编号寄给所有公开见证人。",
+    "type": "item",
+    "coinValue": 16,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "pursuit",
+        "witness",
+        "outside",
+        "restart"
+      ],
+      "gameCardId": "card-restart-exit-pursuit-notice"
+    }
+  },
+  {
     "id": "card-restart-hearing-case-token",
     "name": "听证案号牌",
     "description": "Ward Zero 被迫吐出的活人出院听证案号。它不是通行证，而是一枚把当事人暂时从尸源库存里钉出来的号码牌。",
@@ -334,6 +388,24 @@
     }
   },
   {
+    "id": "card-restart-living-witness-escort-band",
+    "name": "活证人护送腕带",
+    "description": "门外护送台临时扣下的腕带。它承认佩戴者不是逃尸，而是需要被送达下一处听证地点的活证人。",
+    "type": "item",
+    "coinValue": 17,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "escort",
+        "witness",
+        "band",
+        "restart"
+      ],
+      "gameCardId": "card-restart-living-witness-escort-band"
+    }
+  },
+  {
     "id": "card-restart-memory-ampoule",
     "type": "item",
     "name": "记忆安瓿",
@@ -401,6 +473,24 @@
       "gameCardId": "card-restart-operator-coordinate"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-outside-transfer-timetable",
+    "name": "站外换乘时刻表",
+    "description": "伪城地图背面浮出的站外时刻表。它显示出院门外还有一条给活证人换乘的暗线，只在追索广播换气时出现。",
+    "type": "item",
+    "coinValue": 20,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "timetable",
+        "outside",
+        "route",
+        "restart"
+      ],
+      "gameCardId": "card-restart-outside-transfer-timetable"
+    }
   },
   {
     "id": "card-restart-provisional-living-discharge-writ",
@@ -576,6 +666,24 @@
       "gameCardId": "card-restart-seventh-sun"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-severed-pursuit-number",
+    "name": "割离追索编号",
+    "description": "被复查反签针从出院账页背面挑下来的追索编号。它还在跳动，但暂时不再贴在第七次日出的名字上。",
+    "type": "item",
+    "coinValue": 21,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "pursuit",
+        "number",
+        "evidence",
+        "restart"
+      ],
+      "gameCardId": "card-restart-severed-pursuit-number"
+    }
   },
   {
     "id": "card-restart-supply-contradiction-packet",
@@ -754,6 +862,24 @@
       "gameCardId": "card-restart-watermark-mold"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-witness-safehouse-doorplate",
+    "name": "活证人保护屋门牌",
+    "description": "一块没有楼号的门牌，只有听证案号和一道门铃。它不庇护死人，只收留还愿意继续作证的活人。",
+    "type": "item",
+    "coinValue": 22,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "safehouse",
+        "witness",
+        "door",
+        "restart"
+      ],
+      "gameCardId": "card-restart-witness-safehouse-doorplate"
+    }
   },
   {
     "id": "card-restart-worker-testimony",

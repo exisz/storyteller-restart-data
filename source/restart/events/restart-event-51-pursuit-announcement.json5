@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-51-pursuit-announcement",
+  "name": "追索事件：门外编号广播",
+  "description": "出院账页刚离开门缝，门外广播就读出一串新编号：活证人已离院，所有旁听者自动成为送达地址。公开记录开始反过来暴露保护她的人。",
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_pursuit_platform_opened:1",
+    "NOT:flag.restart_pursuit_announcement_answered:1"
+  ],
+  "consequences": ["restart-pursuit-announcement-contained"],
+  "options": [
+    {
+      "text": "把旁听名单举成公开送达墙，让追索编号必须先经过所有证人的共同签名。",
+      "effects": [
+        "gain.influence:17",
+        "set.flag:restart_pursuit_announcement_answered",
+        "set.flag:restart_gallery_shared_pursuit_address"
+      ]
+    },
+    {
+      "text": "让林夕把 B-07/0 写成临时送达床号，替第七次日出挡住第一轮门外追索。",
+      "effects": [
+        "gain.favor:17",
+        "set.flag:restart_pursuit_announcement_answered",
+        "set.flag:restart_linxi_absorbed_first_pursuit_ping"
+      ]
+    }
+  ]
+}

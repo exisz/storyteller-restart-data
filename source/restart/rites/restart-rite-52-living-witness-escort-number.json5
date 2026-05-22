@@ -1,0 +1,43 @@
+{
+  "id": "restart-rite-52-living-witness-escort-number",
+  "name": "RESTART 52：活证人护送案号",
+  "description": "追索广播被压住后，站台护送窗开出一条缝。窗口不问她是不是活着，只问这场出院还有没有案号可以送达。",
+  "triggers": ["restart-pursuit-announcement-contained"],
+  "consequences": ["restart-living-witness-escort-docket"],
+  "conditions": [
+    "flag.restart_pursuit_announcement_answered:1",
+    "have.card:card-restart-exit-pursuit-notice",
+    "have.card:card-restart-living-witness-escort-band",
+    "have.card:card-restart-discharged-witness-ledger",
+    "have.card:card-restart-hearing-case-token"
+  ],
+  "effects": [
+    "set.flag:restart_living_witness_escort_number_opened",
+    "gain.card:card-restart-escort-docket-folder"
+  ],
+  "slots": [
+    {"id": "slot-0", "name": "申请护送案号的人", "cardType": "person"},
+    {"id": "slot-1", "name": "夹进窗口的案号或追索通知", "cardType": "item"}
+  ],
+  "options": [
+    {
+      "text": "用听证案号把护送登记成公开程序，让每一步都继续留下可复查记录。",
+      "effects": [
+        {"type": "gain.influence", "amount": 24},
+        {"type": "set.flag", "flag": "restart_escort_registered_as_public_procedure"}
+      ]
+    },
+    {
+      "text": "把追索通知夹进案号背面，让医院以为编号仍在林夕手里。",
+      "effects": [
+        {"type": "gain.favor", "amount": 24},
+        {"type": "set.flag", "flag": "restart_escort_registered_under_linxi_decoy"}
+      ]
+    }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "护送案号成立，但窗口把旁听名单也复印了一份。名单会成为护送，也会成为风险。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "案号夹合上。第七次日出暂时被分类为需送达的活证人，而不是需召回的病人。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}, {"type": "set.flag", "flag": "restart_escort_docket_has_outside_copy"}], "description": "护送案号在门外站台和公开笔录里各生成一份。召回系统必须同时篡改两边。"}
+  ]
+}

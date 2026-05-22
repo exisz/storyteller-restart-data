@@ -5528,5 +5528,668 @@
         "description": "出院活证人账页在门外生成副本。广播第一次不再说“请回病房”，而是说：追索队，准备接站。"
       }
     ]
+  },
+  {
+    "id": "restart-rite-51-pursuit-platform",
+    "name": "RESTART 51：门外追索站台",
+    "description": "出院门外没有天空，只有一座贴满送达地址的站台。第七次日出的活证人账页被站台承认，但承认的同时，追索编号也开始在账页背面生长。",
+    "triggers": [
+      "restart-next-region-discharged-witness-pursuit-route"
+    ],
+    "consequences": [
+      "restart-pursuit-platform-opened"
+    ],
+    "conditions": [
+      "flag.restart_next_region_public_witness_escort_route:1",
+      "have.card:card-restart-discharged-witness-ledger",
+      "have.card:card-restart-living-exit-pass",
+      "have.card:card-restart-seventh-sun"
+    ],
+    "effects": [
+      "set.flag:restart_pursuit_platform_opened",
+      "gain.card:card-restart-exit-pursuit-notice",
+      "gain.card:card-restart-living-witness-escort-band"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "带活证人走出门的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "证明出院仍然有效的账页或通行证",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "让第七次日出戴上护送腕带，公开承认她离院后仍是活证人。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 23
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_seventh_wore_escort_band_publicly"
+          }
+        ]
+      },
+      {
+        "text": "让林夕先拿着追索通知，把第一个编号压在 B-07/0 的旧床号下面。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 23
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_linxi_sheltered_escort_band"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 10,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "站台承认出院，却把追索编号投到每一面玻璃上。广播马上开始点名。"
+      },
+      {
+        "minValue": 11,
+        "maxValue": 16,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 5
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          }
+        ],
+        "description": "护送腕带扣住了活证人的脉搏。追索通知只能跟着走，不能把她拖回门内。"
+      },
+      {
+        "minValue": 17,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 8
+          },
+          {
+            "type": "gain.influence",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_pursuit_station_recorded_public_exit"
+          }
+        ],
+        "description": "门外站台生成公开副本：第七次日出已离院，下一步只能护送，不能注销。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-52-living-witness-escort-number",
+    "name": "RESTART 52：活证人护送案号",
+    "description": "追索广播被压住后，站台护送窗开出一条缝。窗口不问她是不是活着，只问这场出院还有没有案号可以送达。",
+    "triggers": [
+      "restart-pursuit-announcement-contained"
+    ],
+    "consequences": [
+      "restart-living-witness-escort-docket"
+    ],
+    "conditions": [
+      "flag.restart_pursuit_announcement_answered:1",
+      "have.card:card-restart-exit-pursuit-notice",
+      "have.card:card-restart-living-witness-escort-band",
+      "have.card:card-restart-discharged-witness-ledger",
+      "have.card:card-restart-hearing-case-token"
+    ],
+    "effects": [
+      "set.flag:restart_living_witness_escort_number_opened",
+      "gain.card:card-restart-escort-docket-folder"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "申请护送案号的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "夹进窗口的案号或追索通知",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "用听证案号把护送登记成公开程序，让每一步都继续留下可复查记录。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 24
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_escort_registered_as_public_procedure"
+          }
+        ]
+      },
+      {
+        "text": "把追索通知夹进案号背面，让医院以为编号仍在林夕手里。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 24
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_escort_registered_under_linxi_decoy"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 10,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "护送案号成立，但窗口把旁听名单也复印了一份。名单会成为护送，也会成为风险。"
+      },
+      {
+        "minValue": 11,
+        "maxValue": 16,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 5
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          }
+        ],
+        "description": "案号夹合上。第七次日出暂时被分类为需送达的活证人，而不是需召回的病人。"
+      },
+      {
+        "minValue": 17,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 8
+          },
+          {
+            "type": "gain.influence",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_escort_docket_has_outside_copy"
+          }
+        ],
+        "description": "护送案号在门外站台和公开笔录里各生成一份。召回系统必须同时篡改两边。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-53-gallery-escort-roster",
+    "name": "RESTART 53：旁听护送队名单",
+    "description": "护送案号需要一个队伍。旁听名单上的名字一行行亮起：他们可以成为护送队，也可以成为医院追索队的送达坐标。",
+    "triggers": [
+      "restart-living-witness-escort-docket"
+    ],
+    "consequences": [
+      "restart-gallery-escort-roster-signed"
+    ],
+    "conditions": [
+      "flag.restart_living_witness_escort_number_opened:1",
+      "have.card:card-restart-escort-docket-folder",
+      "have.card:card-restart-public-gallery-list",
+      "have.card:card-restart-hearing-case-token",
+      "have.card:card-restart-provisional-living-discharge-writ"
+    ],
+    "effects": [
+      "set.flag:restart_escort_gallery_roster_signed",
+      "gain.card:card-restart-escort-gallery-roster"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "替旁听名单签护送的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "证明旁听仍公开的记录",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "让旁听名单作为集体护送队签名，保护第七次日出的同时让追索无法只咬住一个人。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 25
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_public_gallery_became_escort_roster"
+          }
+        ]
+      },
+      {
+        "text": "让越医生把医院见证栏补签成医疗送达，暂时遮住真实旁听者的姓名。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 25
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_yue_masked_gallery_names_for_escort"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 10,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "护送队名单签成，但旧救护车听见了新地址。鸣笛从站外雾里倒回来。"
+      },
+      {
+        "minValue": 11,
+        "maxValue": 16,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 5
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          }
+        ],
+        "description": "护送队名单把第七次日出围在中间。召回系统必须先拆散见证，才能碰到她。"
+      },
+      {
+        "minValue": 17,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 8
+          },
+          {
+            "type": "gain.influence",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_escort_roster_resists_single_targeting"
+          }
+        ],
+        "description": "每个旁听名字都复诵同一句话：她离院时活着。召回车门一时找不到单独的目标。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-54-outside-transfer-timetable",
+    "name": "RESTART 54：站外换乘时刻表",
+    "description": "召回救护车被迫改道后，伪城地图背面渗出一张站外时刻表。它不是给病人的车次，而是给已经离院、还要继续作证的人。",
+    "triggers": [
+      "restart-recall-ambulance-diverted"
+    ],
+    "consequences": [
+      "restart-outside-transfer-route-opened"
+    ],
+    "conditions": [
+      "flag.restart_recall_ambulance_answered:1",
+      "have.card:card-restart-escort-gallery-roster",
+      "have.card:card-restart-counterfeit-city-map",
+      "have.card:card-restart-ticket",
+      "have.card:card-restart-radio"
+    ],
+    "effects": [
+      "set.flag:restart_outside_transfer_timetable_opened",
+      "gain.card:card-restart-outside-transfer-timetable",
+      "gain.card:card-restart-witness-safehouse-doorplate"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "读取站外时刻的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "对照车次的地图、车票或收音机",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "把护送队名单排进公开换乘车次，让第七次日出沿着听证记录离开追索站台。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 26
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_public_escort_transfer_scheduled"
+          }
+        ]
+      },
+      {
+        "text": "用坏掉的收音机偷听两次广播间隙，把换乘车次藏进静电空拍。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 26
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_transfer_hidden_in_radio_gap"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 10,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "时刻表出现，但每个站名后面都跟着追索编号。必须把编号从账页上割下来。"
+      },
+      {
+        "minValue": 11,
+        "maxValue": 16,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 5
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          }
+        ],
+        "description": "站外换乘线稳定下来。它能送走活证人，但不能带走追索编号。"
+      },
+      {
+        "minValue": 17,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 8
+          },
+          {
+            "type": "gain.influence",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_outside_timetable_saved_to_radio"
+          }
+        ],
+        "description": "收音机第一次播出门外车次。医院听见的是静电，林夕听见的是下一站。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-55-sever-pursuit-number",
+    "name": "RESTART 55：割离追索编号",
+    "description": "换乘时刻表能带人走，却带不走账页背面的编号。编号像一根细线，一头系着 Ward Zero，另一头正往第七次日出的名字里钻。",
+    "triggers": [
+      "restart-outside-transfer-route-opened"
+    ],
+    "consequences": [
+      "restart-pursuit-number-severed"
+    ],
+    "conditions": [
+      "flag.restart_outside_transfer_timetable_opened:1",
+      "have.card:card-restart-exit-pursuit-notice",
+      "have.card:card-restart-recheck-pin",
+      "have.card:card-restart-enforcement-seal",
+      "have.card:card-restart-outside-transfer-timetable"
+    ],
+    "effects": [
+      "set.flag:restart_pursuit_number_cut_loose",
+      "gain.card:card-restart-severed-pursuit-number"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "握住编号的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "切断编号的针、章或通知",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "用复查反签针挑断编号，把它作为医院追索活人的证据夹进护送案号。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 27
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_pursuit_number_preserved_as_evidence"
+          }
+        ]
+      },
+      {
+        "text": "用裁定执行铅印把编号盖成无主回执，让追索队暂时只能追一张空通知。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 27
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_pursuit_number_left_as_blank_decoy"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 10,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "编号被割下，却还在跳。保护屋门铃会先检查它有没有重新贴回活证人身上。"
+      },
+      {
+        "minValue": 11,
+        "maxValue": 16,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 5
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          }
+        ],
+        "description": "追索编号离开账页，成了一件可携带的证物。第七次日出的名字短暂安静。"
+      },
+      {
+        "minValue": 17,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 8
+          },
+          {
+            "type": "gain.influence",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_pursuit_number_cannot_rebind_without_hearing"
+          }
+        ],
+        "description": "编号被反签针钉在护送案号夹内。它还属于医院，但暂时不再属于任何一个活人。"
+      }
+    ]
+  },
+  {
+    "id": "restart-rite-56-witness-safehouse-bell",
+    "name": "RESTART 56：活证人保护屋门铃",
+    "description": "站外时刻表的最后一站没有站名，只有一块门牌和一枚门铃。门铃不问是谁逃出来，只问：追索编号有没有被割离，证词还愿不愿意继续。",
+    "triggers": [
+      "restart-pursuit-number-severed"
+    ],
+    "consequences": [
+      "restart-witness-safehouse-opened",
+      "restart-next-region-protected-witness-route"
+    ],
+    "conditions": [
+      "flag.restart_pursuit_number_cut_loose:1",
+      "have.card:card-restart-witness-safehouse-doorplate",
+      "have.card:card-restart-severed-pursuit-number",
+      "have.card:card-restart-seventh-sun",
+      "have.card:card-restart-escort-docket-folder"
+    ],
+    "effects": [
+      "set.flag:restart_witness_safehouse_bell_rung"
+    ],
+    "slots": [
+      {
+        "id": "slot-0",
+        "name": "按下门铃的人",
+        "cardType": "person"
+      },
+      {
+        "id": "slot-1",
+        "name": "交给保护屋的编号或案号",
+        "cardType": "item"
+      }
+    ],
+    "options": [
+      {
+        "text": "让第七次日出把割离追索编号交给保护屋，以公开活证人的身份进入下一场证词。",
+        "effects": [
+          {
+            "type": "gain.influence",
+            "amount": 28
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_seventh_entered_witness_safehouse"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_protected_witness_route"
+          }
+        ]
+      },
+      {
+        "text": "让林夕带着护送案号先进去登记，把自己的 B-07/0 留在门外作为假追索影子。",
+        "effects": [
+          {
+            "type": "gain.favor",
+            "amount": 28
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_linxi_registered_safehouse_decoy"
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_next_region_linxi_pursuit_shadow_route"
+          }
+        ]
+      }
+    ],
+    "coinRewardTiers": [
+      {
+        "minValue": 0,
+        "maxValue": 10,
+        "rewards": [
+          {
+            "type": "gain.influence",
+            "amount": 4
+          }
+        ],
+        "description": "保护屋开门一线。门外追索队还没失去路线，只是暂时不能进来。"
+      },
+      {
+        "minValue": 11,
+        "maxValue": 16,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 5
+          },
+          {
+            "type": "gain.influence",
+            "amount": 6
+          }
+        ],
+        "description": "保护屋承认第七次日出仍是活证人。下一轮斗争将不在 Ward Zero 门内发生。"
+      },
+      {
+        "minValue": 17,
+        "maxValue": 999,
+        "rewards": [
+          {
+            "type": "gain.favor",
+            "amount": 8
+          },
+          {
+            "type": "gain.influence",
+            "amount": 8
+          },
+          {
+            "type": "set.flag",
+            "flag": "restart_safehouse_preserves_public_testimony"
+          }
+        ],
+        "description": "门牌把护送案号、割离编号和活证人姓名一起收进屋内。广播在门外第一次找不到病房。"
+      }
+    ]
   }
 ]
