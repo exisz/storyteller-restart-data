@@ -276,3 +276,29 @@ Branch memory added for later checks:
 - `restart_next_region_protected_witness_route` vs `restart_next_region_linxi_pursuit_shadow_route`
 
 This packet advances the Paperwork, Seventh Sunrise, public-witness, Linxi/B-07/0, Yue, and Broadcast/operator threads by showing that an official living discharge becomes a pursuit problem outside the hospital. It is structurally sufficient for the next Player because it provides six sequential rites, two condition-driven pressure events, seven state-bearing cards, and delayed branch flags for the next protected-witness/safehouse region.
+
+## Turn 57–62 packet: Protected-witness safehouse testimony relay arc
+
+The witness safehouse now becomes a contested testimony relay instead of a passive hiding place:
+
+- `restart-rite-57-safehouse-custodian-register` separates Seventh Sunrise, the escort docket, and the severed pursuit number, granting `保护屋看门人` and `活证人锁账簿`.
+- `restart-rite-58-witness-room-lockbook` locks the public gallery/hearing memory into the safehouse and grants `借脉灯`.
+- `restart-event-58-safehouse-curfew-knock` makes the safehouse itself risky: hospital curfew procedure can still demand protected witnesses back for review.
+- `restart-rite-59-curfew-warrant-reversal` reverses that curfew pressure into a no-recall record and grants `保护屋宵禁令` plus `屋顶天线钥匙`.
+- `restart-rite-60-roof-antenna-testimony` uses the antenna, radio, and borrowed pulse to broadcast the living testimony outside hospital reach, granting `院外证词转播单`.
+- `restart-event-60-signal-triangulation` pressures the broadcast route with ambulance triangulation that must be redirected to the empty pursuit number or tower shadow.
+- `restart-rite-61-outside-relay-affidavit` turns the relay into signed evidence and grants `黎明边界证言书`.
+- `restart-rite-62-dawn-border-handoff` hands the affidavit across the dawn boundary and opens either an outside-witness route or Linxi loop-border route.
+
+Branch memory added for later checks:
+
+- `restart_seventh_registered_as_protected_witness` vs `restart_linxi_decoy_registered_at_safehouse`
+- `restart_public_names_locked_in_safehouse` vs `restart_linxi_kept_safehouse_dark_copy`
+- `restart_curfew_knock_logged_by_custodian` vs `restart_curfew_knock_masked_by_static`
+- `restart_curfew_rewritten_as_no_recall_order` vs `restart_curfew_reflected_to_pursuit_team`
+- `restart_seventh_pulse_relayed_outside` vs `restart_radio_relay_hid_safehouse_location`
+- `restart_triangulation_chased_empty_pursuit_number` vs `restart_triangulation_diverted_to_tower_shadow`
+- `restart_custodian_signed_outside_affidavit` vs `restart_linxi_bound_oath_to_outside_relay`
+- `restart_next_region_outside_witness_route` vs `restart_next_region_loop_border_route`
+
+This packet advances the Seventh Sunrise, public-witness, Paperwork, Broadcast/operator, and Linxi/B-07/0 threads by making protection conditional: a safehouse only works if its shelter becomes portable, public testimony outside hospital jurisdiction. It is structurally sufficient for the next Player because it provides six sequential rites, two condition-driven pressure events, seven state-bearing cards, and clear branch flags for the next outside-boundary region.

@@ -6520,6 +6520,686 @@
           "description": "门牌把护送案号、割离编号和活证人姓名一起收进屋内。广播在门外第一次找不到病房。"
         }
       ]
+    },
+    {
+      "id": "restart-rite-57-safehouse-custodian-register",
+      "name": "RESTART 57：保护屋看门登记",
+      "description": "保护屋门没有立刻关上。看门人要求把追索编号、护送案号和活证人的姓名分开登记：如果三者仍绑在一起，医院只要追回一个编号，就能追回整个人。",
+      "triggers": [
+        "restart-safehouse-packet-57"
+      ],
+      "consequences": [
+        "restart-safehouse-packet-58"
+      ],
+      "conditions": [
+        "flag.restart_next_region_protected_witness_route:1",
+        "flag.restart_seventh_entered_witness_safehouse:1",
+        "have.card:card-restart-witness-safehouse-doorplate",
+        "have.card:card-restart-severed-pursuit-number",
+        "have.card:card-restart-escort-docket-folder",
+        "have.card:card-restart-seventh-sun"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_safehouse_custodian_register_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-safehouse-custodian"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-witness-lockbook"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "登记进屋的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "交给看门人的编号或门牌",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "让第七次日出当面登记，把割离追索编号锁进保护屋账簿，承认她不再属于医院路线。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 29
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_registered_as_protected_witness"
+            }
+          ]
+        },
+        {
+          "text": "让林夕先交护送案号，把 B-07/0 写成追索编号的空壳，替第七次日出挡住第一轮查门。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 29
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_linxi_decoy_registered_at_safehouse"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "路线勉强接上，但门外追索仍能听见脚步。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "保护屋把证词和追索拆开，下一步可以继续推进。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            }
+          ],
+          "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-58-witness-room-lockbook",
+      "name": "RESTART 58：活证人房间锁账",
+      "description": "看门人把锁账簿推到一间没有病床的房间。第七次日出必须决定：证词放进公开账，还是先藏成林夕能带走的暗页。",
+      "triggers": [
+        "restart-safehouse-packet-58"
+      ],
+      "consequences": [
+        "restart-safehouse-packet-59"
+      ],
+      "conditions": [
+        "flag.restart_safehouse_custodian_register_opened:1",
+        "have.card:card-restart-safehouse-custodian",
+        "have.card:card-restart-witness-lockbook",
+        "have.card:card-restart-public-gallery-list",
+        "have.card:card-restart-hearing-case-token"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_witness_room_lockbook_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-borrowed-pulse-lantern"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "翻开锁账的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "压住账页的公开名单或案号",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把旁听名单钉进锁账簿，让保护屋承认公开听见过的名字不能再被医院收回。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 27
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_public_names_locked_in_safehouse"
+            }
+          ]
+        },
+        {
+          "text": "把听证案号牌夹进暗页，让林夕保留一份只有活人能读出的备份证词。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 27
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_linxi_kept_safehouse_dark_copy"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "路线勉强接上，但门外追索仍能听见脚步。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "保护屋把证词和追索拆开，下一步可以继续推进。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            }
+          ],
+          "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-59-curfew-warrant-reversal",
+      "name": "RESTART 59：保护屋宵禁令反签",
+      "description": "门外贴上宵禁令后，看门人承认它是真的：保护屋每晚都要把“保护中名单”回报医院。唯一的办法，是把宵禁令反签成医院不得入内的证据。",
+      "triggers": [
+        "restart-safehouse-packet-59"
+      ],
+      "consequences": [
+        "restart-safehouse-packet-60"
+      ],
+      "conditions": [
+        "flag.restart_safehouse_curfew_knock_answered:1",
+        "have.card:card-restart-witness-lockbook",
+        "have.card:card-restart-borrowed-pulse-lantern",
+        "have.card:card-restart-recheck-pin",
+        "have.card:card-restart-not-yet-dead-stamp"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_curfew_warrant_reversed"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-safehouse-curfew-warrant"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-roof-antenna-key"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "反签宵禁的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "用来反签的章或反签针",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "用暂未死亡章把宵禁令改成“不得回收活证人”，让保护屋的门第一次对医院关上。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 30
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_curfew_rewritten_as_no_recall_order"
+            }
+          ]
+        },
+        {
+          "text": "用复查反签针把宵禁令倒钉在门外，留给追索队一张会追索自己的回执。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 30
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_curfew_reflected_to_pursuit_team"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "路线勉强接上，但门外追索仍能听见脚步。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "保护屋把证词和追索拆开，下一步可以继续推进。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            }
+          ],
+          "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-60-roof-antenna-testimony",
+      "name": "RESTART 60：保护屋屋顶天线",
+      "description": "屋顶天线箱里没有频道，只有一串旧病房号。看门人说：证词如果只锁在屋内，迟早会被宵禁回报；必须让门外也有人听见。",
+      "triggers": [
+        "restart-safehouse-packet-60"
+      ],
+      "consequences": [
+        "restart-safehouse-packet-61"
+      ],
+      "conditions": [
+        "flag.restart_curfew_warrant_reversed:1",
+        "have.card:card-restart-roof-antenna-key",
+        "have.card:card-restart-radio",
+        "have.card:card-restart-operator-coordinate",
+        "have.card:card-restart-borrowed-pulse-lantern"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_roof_antenna_testimony_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-outside-testimony-relay"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "爬上屋顶的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "接入天线的收音机或坐标",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把借脉灯挂上天线，让第七次日出的脉搏以院外证词的形式持续闪烁。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 31
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_pulse_relayed_outside"
+            }
+          ]
+        },
+        {
+          "text": "让坏掉的收音机吞下塔内坐标，把证词播进医院无法定位的静电高处。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 31
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_radio_relay_hid_safehouse_location"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "路线勉强接上，但门外追索仍能听见脚步。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "保护屋把证词和追索拆开，下一步可以继续推进。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            }
+          ],
+          "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-61-outside-relay-affidavit",
+      "name": "RESTART 61：院外转播证言书",
+      "description": "转播单开始发热，说明医院正在寻找信号源。要保住保护屋，证词必须从“有人听见”变成“有人愿意签名作证”。",
+      "triggers": [
+        "restart-safehouse-packet-61"
+      ],
+      "consequences": [
+        "restart-safehouse-packet-62"
+      ],
+      "conditions": [
+        "flag.restart_signal_triangulation_answered:1",
+        "have.card:card-restart-outside-testimony-relay",
+        "have.card:card-restart-safehouse-custodian",
+        "have.card:card-restart-discharged-witness-ledger",
+        "have.card:card-restart-living-oath-sheet"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_outside_relay_affidavit_opened"
+        },
+        {
+          "type": "gain.card",
+          "cardId": "card-restart-dawn-border-affidavit"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "签下证言的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "证明院外转播的账页或誓词",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "让看门人在出院活证人账页背面签名，证明第七次日出已经在医院外继续作证。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 32
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_custodian_signed_outside_affidavit"
+            }
+          ]
+        },
+        {
+          "text": "让林夕把活人誓词纸接到转播单下，签成一份会反咬 B-07/0 死亡记录的证言。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 32
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_linxi_bound_oath_to_outside_relay"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "路线勉强接上，但门外追索仍能听见脚步。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "保护屋把证词和追索拆开，下一步可以继续推进。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            }
+          ],
+          "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"
+        }
+      ]
+    },
+    {
+      "id": "restart-rite-62-dawn-border-handoff",
+      "name": "RESTART 62：黎明边界交接",
+      "description": "保护屋的窗在第七次日出前一刻打开，外面不是自由，而是一道边界：医院的车站、广播和账本都想证明院外仍属于它。证言书必须被交给边界外的人。",
+      "triggers": [
+        "restart-safehouse-packet-62"
+      ],
+      "consequences": [
+        "restart-safehouse-packet-63"
+      ],
+      "conditions": [
+        "flag.restart_outside_relay_affidavit_opened:1",
+        "have.card:card-restart-dawn-border-affidavit",
+        "have.card:card-restart-outside-transfer-timetable",
+        "have.card:card-restart-ticket",
+        "have.card:card-restart-seventh-sun",
+        "have.card:card-restart-linxi"
+      ],
+      "effects": [
+        {
+          "type": "set.flag",
+          "flag": "restart_dawn_border_handoff_opened"
+        }
+      ],
+      "slots": [
+        {
+          "id": "slot-0",
+          "name": "走到黎明边界的人",
+          "cardType": "person"
+        },
+        {
+          "id": "slot-1",
+          "name": "交出的证言书或车票",
+          "cardType": "item"
+        }
+      ],
+      "options": [
+        {
+          "text": "把黎明边界证言书交给第七次日出，让她以院外活证人的身份走向下一条公开路线。",
+          "effects": [
+            {
+              "type": "gain.influence",
+              "amount": 34
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_seventh_crossed_dawn_border_as_witness"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_outside_witness_route"
+            }
+          ]
+        },
+        {
+          "text": "让林夕拿车票站在边界线上，把自己的循环身份变成医院追不过去的最后一个路标。",
+          "effects": [
+            {
+              "type": "gain.favor",
+              "amount": 34
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_linxi_held_border_as_loop_marker"
+            },
+            {
+              "type": "set.flag",
+              "flag": "restart_next_region_loop_border_route"
+            }
+          ]
+        }
+      ],
+      "coinRewardTiers": [
+        {
+          "minValue": 0,
+          "maxValue": 10,
+          "rewards": [
+            {
+              "type": "gain.influence",
+              "amount": 4
+            }
+          ],
+          "description": "路线勉强接上，但门外追索仍能听见脚步。"
+        },
+        {
+          "minValue": 11,
+          "maxValue": 16,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 5
+            },
+            {
+              "type": "gain.influence",
+              "amount": 6
+            }
+          ],
+          "description": "保护屋把证词和追索拆开，下一步可以继续推进。"
+        },
+        {
+          "minValue": 17,
+          "maxValue": 999,
+          "rewards": [
+            {
+              "type": "gain.favor",
+              "amount": 8
+            },
+            {
+              "type": "gain.influence",
+              "amount": 8
+            }
+          ],
+          "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"
+        }
+      ]
     }
   ],
   "cards": [
@@ -6574,6 +7254,24 @@
       }
     },
     {
+      "id": "card-restart-borrowed-pulse-lantern",
+      "name": "借脉灯",
+      "description": "保护屋走廊尽头的一盏灯。它不证明身份，只临时借给证人一个不会被医院回收的脉搏影子。",
+      "type": "item",
+      "coinValue": 25,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "pulse",
+          "safehouse",
+          "lantern",
+          "restart"
+        ],
+        "gameCardId": "card-restart-borrowed-pulse-lantern"
+      }
+    },
+    {
       "id": "card-restart-corpse-elevator-key",
       "name": "尸梯钥匙",
       "description": "能呼叫 Ward Zero 尸体电梯的铜钥匙。匙齿上残留着活人体温，说明这部电梯从来不只运送死人。",
@@ -6606,6 +7304,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-counterfeit-city-map"
+      }
+    },
+    {
+      "id": "card-restart-dawn-border-affidavit",
+      "name": "黎明边界证言书",
+      "description": "保护屋在黎明前誊出的证言书。它不是出院证明，而是证明医院边界以外也有人听见第七次日出仍活着。",
+      "type": "item",
+      "coinValue": 30,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "affidavit",
+          "dawn",
+          "border",
+          "restart"
+        ],
+        "gameCardId": "card-restart-dawn-border-affidavit"
       }
     },
     {
@@ -6999,6 +7715,24 @@
       }
     },
     {
+      "id": "card-restart-outside-testimony-relay",
+      "name": "院外证词转播单",
+      "description": "一张盖着保护屋暗章的转播单，证明第七次日出的证词已在院外连续播出，不能再被写回病房。",
+      "type": "item",
+      "coinValue": 28,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "testimony",
+          "relay",
+          "outside",
+          "restart"
+        ],
+        "gameCardId": "card-restart-outside-testimony-relay"
+      }
+    },
+    {
       "id": "card-restart-outside-transfer-timetable",
       "name": "站外换乘时刻表",
       "description": "伪城地图背面浮出的站外时刻表。它显示出院门外还有一条给活证人换乘的暗线，只在追索广播换气时出现。",
@@ -7172,6 +7906,60 @@
           "restart"
         ],
         "gameCardId": "card-restart-review-blacklist"
+      }
+    },
+    {
+      "id": "card-restart-roof-antenna-key",
+      "name": "屋顶天线钥匙",
+      "description": "看门人从门铃背面拆下的小钥匙，能打开保护屋屋顶的旧天线箱，把证词送到门外广播够不到的高度。",
+      "type": "item",
+      "coinValue": 26,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "antenna",
+          "safehouse",
+          "broadcast",
+          "restart"
+        ],
+        "gameCardId": "card-restart-roof-antenna-key"
+      }
+    },
+    {
+      "id": "card-restart-safehouse-curfew-warrant",
+      "name": "保护屋宵禁令",
+      "description": "门外追索队贴上的宵禁令。字面上是保护，背面却写着：所有保护中的活证人，黎明前交回 Ward Zero 复核。",
+      "type": "item",
+      "coinValue": 23,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "curfew",
+          "pursuit",
+          "warrant",
+          "restart"
+        ],
+        "gameCardId": "card-restart-safehouse-curfew-warrant"
+      }
+    },
+    {
+      "id": "card-restart-safehouse-custodian",
+      "name": "保护屋看门人",
+      "description": "一个不登记楼号的人，只登记谁还活着、谁在门外追索、谁愿意把证词交给下一盏灯。",
+      "type": "person",
+      "coinValue": 24,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "person",
+          "safehouse",
+          "custodian",
+          "witness",
+          "restart"
+        ],
+        "gameCardId": "card-restart-safehouse-custodian"
       }
     },
     {
@@ -7385,6 +8173,24 @@
           "restart"
         ],
         "gameCardId": "card-restart-watermark-mold"
+      }
+    },
+    {
+      "id": "card-restart-witness-lockbook",
+      "name": "活证人锁账簿",
+      "description": "保护屋门内的铁皮账簿。每一页都有两把锁：一把锁住追索编号，另一把锁住证词仍可公开。",
+      "type": "item",
+      "coinValue": 24,
+      "effects": [],
+      "metaData": {
+        "tags": [
+          "item",
+          "safehouse",
+          "ledger",
+          "witness",
+          "restart"
+        ],
+        "gameCardId": "card-restart-witness-lockbook"
       }
     },
     {
@@ -8222,6 +9028,72 @@
             "gain.favor:18",
             "set.flag:restart_recall_ambulance_answered",
             "set.flag:restart_operator_jammed_recall_siren"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restart-event-58-safehouse-curfew-knock",
+      "name": "追索事件：保护屋宵禁敲门",
+      "description": "锁账簿合上的同一刻，门外响起三下敲门。追索队不说抓捕，只宣读保护屋宵禁：所有活证人必须在黎明前交回复核。",
+      "trigger": {
+        "condition": true
+      },
+      "conditions": [
+        "flag.restart_witness_room_lockbook_opened:1",
+        "NOT:flag.restart_safehouse_curfew_knock_answered:1"
+      ],
+      "consequences": [
+        "restart-safehouse-curfew-pressure"
+      ],
+      "options": [
+        {
+          "text": "让看门人隔门承认宵禁存在，但要求追索队先在活证人锁账簿上签收自己的敲门记录。",
+          "effects": [
+            "gain.influence:19",
+            "set.flag:restart_safehouse_curfew_knock_answered",
+            "set.flag:restart_curfew_knock_logged_by_custodian"
+          ]
+        },
+        {
+          "text": "让坏掉的收音机在门缝里复播召回救护车的静电，把敲门声伪装成医院内部误报。",
+          "effects": [
+            "gain.favor:19",
+            "set.flag:restart_safehouse_curfew_knock_answered",
+            "set.flag:restart_curfew_knock_masked_by_static"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restart-event-60-signal-triangulation",
+      "name": "追索事件：信号三角定位",
+      "description": "院外证词刚从屋顶天线发出，医院的三辆空救护车就停在三个街角。它们不找门牌，只用广播回声量出保护屋的位置。",
+      "trigger": {
+        "condition": true
+      },
+      "conditions": [
+        "flag.restart_roof_antenna_testimony_opened:1",
+        "NOT:flag.restart_signal_triangulation_answered:1"
+      ],
+      "consequences": [
+        "restart-signal-triangulation-broken"
+      ],
+      "options": [
+        {
+          "text": "把割离追索编号挂到天线上，让三角定位追到那个已经脱离证人的空编号。",
+          "effects": [
+            "gain.influence:20",
+            "set.flag:restart_signal_triangulation_answered",
+            "set.flag:restart_triangulation_chased_empty_pursuit_number"
+          ]
+        },
+        {
+          "text": "让塔内播音员坐标和坏掉的收音机互相指认，把三辆救护车导回广播塔影子里。",
+          "effects": [
+            "gain.favor:20",
+            "set.flag:restart_signal_triangulation_answered",
+            "set.flag:restart_triangulation_diverted_to_tower_shadow"
           ]
         }
       ]

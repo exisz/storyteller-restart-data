@@ -6523,6 +6523,7 @@
     "conditions": [
       "flag.restart_curfew_warrant_reversed:1",
       "have.card:card-restart-roof-antenna-key",
+      "have.card:card-restart-safehouse-curfew-warrant",
       "have.card:card-restart-radio",
       "have.card:card-restart-operator-coordinate",
       "have.card:card-restart-borrowed-pulse-lantern"
