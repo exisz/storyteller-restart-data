@@ -50,6 +50,24 @@
     "effects": []
   },
   {
+    "id": "card-restart-borrowed-pulse-lantern",
+    "name": "借脉灯",
+    "description": "保护屋走廊尽头的一盏灯。它不证明身份，只临时借给证人一个不会被医院回收的脉搏影子。",
+    "type": "item",
+    "coinValue": 25,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "pulse",
+        "safehouse",
+        "lantern",
+        "restart"
+      ],
+      "gameCardId": "card-restart-borrowed-pulse-lantern"
+    }
+  },
+  {
     "id": "card-restart-corpse-elevator-key",
     "name": "尸梯钥匙",
     "description": "能呼叫 Ward Zero 尸体电梯的铜钥匙。匙齿上残留着活人体温，说明这部电梯从来不只运送死人。",
@@ -83,6 +101,24 @@
       "gameCardId": "card-restart-counterfeit-city-map"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-dawn-border-affidavit",
+    "name": "黎明边界证言书",
+    "description": "保护屋在黎明前誊出的证言书。它不是出院证明，而是证明医院边界以外也有人听见第七次日出仍活着。",
+    "type": "item",
+    "coinValue": 30,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "affidavit",
+        "dawn",
+        "border",
+        "restart"
+      ],
+      "gameCardId": "card-restart-dawn-border-affidavit"
+    }
   },
   {
     "id": "card-restart-death-quota-note",
@@ -475,6 +511,24 @@
     "effects": []
   },
   {
+    "id": "card-restart-outside-testimony-relay",
+    "name": "院外证词转播单",
+    "description": "一张盖着保护屋暗章的转播单，证明第七次日出的证词已在院外连续播出，不能再被写回病房。",
+    "type": "item",
+    "coinValue": 28,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "testimony",
+        "relay",
+        "outside",
+        "restart"
+      ],
+      "gameCardId": "card-restart-outside-testimony-relay"
+    }
+  },
+  {
     "id": "card-restart-outside-transfer-timetable",
     "name": "站外换乘时刻表",
     "description": "伪城地图背面浮出的站外时刻表。它显示出院门外还有一条给活证人换乘的暗线，只在追索广播换气时出现。",
@@ -648,6 +702,60 @@
         "restart"
       ],
       "gameCardId": "card-restart-review-blacklist"
+    }
+  },
+  {
+    "id": "card-restart-roof-antenna-key",
+    "name": "屋顶天线钥匙",
+    "description": "看门人从门铃背面拆下的小钥匙，能打开保护屋屋顶的旧天线箱，把证词送到门外广播够不到的高度。",
+    "type": "item",
+    "coinValue": 26,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "antenna",
+        "safehouse",
+        "broadcast",
+        "restart"
+      ],
+      "gameCardId": "card-restart-roof-antenna-key"
+    }
+  },
+  {
+    "id": "card-restart-safehouse-curfew-warrant",
+    "name": "保护屋宵禁令",
+    "description": "门外追索队贴上的宵禁令。字面上是保护，背面却写着：所有保护中的活证人，黎明前交回 Ward Zero 复核。",
+    "type": "item",
+    "coinValue": 23,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "curfew",
+        "pursuit",
+        "warrant",
+        "restart"
+      ],
+      "gameCardId": "card-restart-safehouse-curfew-warrant"
+    }
+  },
+  {
+    "id": "card-restart-safehouse-custodian",
+    "name": "保护屋看门人",
+    "description": "一个不登记楼号的人，只登记谁还活着、谁在门外追索、谁愿意把证词交给下一盏灯。",
+    "type": "person",
+    "coinValue": 24,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "person",
+        "safehouse",
+        "custodian",
+        "witness",
+        "restart"
+      ],
+      "gameCardId": "card-restart-safehouse-custodian"
     }
   },
   {
@@ -862,6 +970,24 @@
       "gameCardId": "card-restart-watermark-mold"
     },
     "effects": []
+  },
+  {
+    "id": "card-restart-witness-lockbook",
+    "name": "活证人锁账簿",
+    "description": "保护屋门内的铁皮账簿。每一页都有两把锁：一把锁住追索编号，另一把锁住证词仍可公开。",
+    "type": "item",
+    "coinValue": 24,
+    "effects": [],
+    "metaData": {
+      "tags": [
+        "item",
+        "safehouse",
+        "ledger",
+        "witness",
+        "restart"
+      ],
+      "gameCardId": "card-restart-witness-lockbook"
+    }
   },
   {
     "id": "card-restart-witness-safehouse-doorplate",

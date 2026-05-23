@@ -1,0 +1,9 @@
+{
+      "id": "card-restart-dawn-border-affidavit",
+      "name": "黎明边界证言书",
+      "description": "保护屋在黎明前誊出的证言书。它不是出院证明，而是证明医院边界以外也有人听见第七次日出仍活着。",
+      "type": "item",
+      "coinValue": 30,
+      "effects": [],
+      "metaData": {"tags": ["item", "affidavit", "dawn", "border", "restart"], "gameCardId": "card-restart-dawn-border-affidavit"}
+    }

@@ -1,0 +1,63 @@
+{
+  "id": "restart-rite-62-dawn-border-handoff",
+  "name": "RESTART 62：黎明边界交接",
+  "description": "保护屋的窗在第七次日出前一刻打开，外面不是自由，而是一道边界：医院的车站、广播和账本都想证明院外仍属于它。证言书必须被交给边界外的人。",
+  "triggers": ["restart-safehouse-packet-62"],
+  "consequences": ["restart-safehouse-packet-63"],
+  "conditions": [
+    "flag.restart_outside_relay_affidavit_opened:1",
+    "have.card:card-restart-dawn-border-affidavit",
+    "have.card:card-restart-outside-transfer-timetable",
+    "have.card:card-restart-ticket",
+    "have.card:card-restart-seventh-sun",
+    "have.card:card-restart-linxi"
+],
+  "effects": [
+    "set.flag:restart_dawn_border_handoff_opened"
+],
+  "slots": [
+    {"id": "slot-0", "name": "走到黎明边界的人", "cardType": "person"},
+    {"id": "slot-1", "name": "交出的证言书或车票", "cardType": "item"}
+  ],
+  "options": [
+      {
+        "text": "把黎明边界证言书交给第七次日出，让她以院外活证人的身份走向下一条公开路线。",
+        "effects": [
+                {
+                        "type": "gain.influence",
+                        "amount": 34
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_seventh_crossed_dawn_border_as_witness"
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_next_region_outside_witness_route"
+                }
+        ]
+      },
+      {
+        "text": "让林夕拿车票站在边界线上，把自己的循环身份变成医院追不过去的最后一个路标。",
+        "effects": [
+                {
+                        "type": "gain.favor",
+                        "amount": 34
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_linxi_held_border_as_loop_marker"
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_next_region_loop_border_route"
+                }
+        ]
+      }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "路线勉强接上，但门外追索仍能听见脚步。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "保护屋把证词和追索拆开，下一步可以继续推进。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}], "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"}
+  ]
+}

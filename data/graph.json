@@ -281,6 +281,36 @@
       "type": "rite"
     },
     {
+      "id": "restart-rite-57-safehouse-custodian-register",
+      "name": "RESTART 57：保护屋看门登记",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-58-witness-room-lockbook",
+      "name": "RESTART 58：活证人房间锁账",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-59-curfew-warrant-reversal",
+      "name": "RESTART 59：保护屋宵禁令反签",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-60-roof-antenna-testimony",
+      "name": "RESTART 60：保护屋屋顶天线",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-61-outside-relay-affidavit",
+      "name": "RESTART 61：院外转播证言书",
+      "type": "rite"
+    },
+    {
+      "id": "restart-rite-62-dawn-border-handoff",
+      "name": "RESTART 62：黎明边界交接",
+      "type": "rite"
+    },
+    {
       "id": "restart-event-02-broadcast",
       "name": "第二回合事件：未来广播",
       "type": "event"
@@ -403,6 +433,16 @@
     {
       "id": "restart-event-53-recall-ambulance-siren",
       "name": "追索事件：召回救护车鸣笛",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-58-safehouse-curfew-knock",
+      "name": "追索事件：保护屋宵禁敲门",
+      "type": "event"
+    },
+    {
+      "id": "restart-event-60-signal-triangulation",
+      "name": "追索事件：信号三角定位",
       "type": "event"
     }
   ],

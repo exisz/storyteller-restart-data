@@ -1,0 +1,55 @@
+{
+  "id": "restart-rite-61-outside-relay-affidavit",
+  "name": "RESTART 61：院外转播证言书",
+  "description": "转播单开始发热，说明医院正在寻找信号源。要保住保护屋，证词必须从“有人听见”变成“有人愿意签名作证”。",
+  "triggers": ["restart-safehouse-packet-61"],
+  "consequences": ["restart-safehouse-packet-62"],
+  "conditions": [
+    "flag.restart_signal_triangulation_answered:1",
+    "have.card:card-restart-outside-testimony-relay",
+    "have.card:card-restart-safehouse-custodian",
+    "have.card:card-restart-discharged-witness-ledger",
+    "have.card:card-restart-living-oath-sheet"
+],
+  "effects": [
+    "set.flag:restart_outside_relay_affidavit_opened",
+    "gain.card:card-restart-dawn-border-affidavit"
+],
+  "slots": [
+    {"id": "slot-0", "name": "签下证言的人", "cardType": "person"},
+    {"id": "slot-1", "name": "证明院外转播的账页或誓词", "cardType": "item"}
+  ],
+  "options": [
+      {
+        "text": "让看门人在出院活证人账页背面签名，证明第七次日出已经在医院外继续作证。",
+        "effects": [
+                {
+                        "type": "gain.influence",
+                        "amount": 32
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_custodian_signed_outside_affidavit"
+                }
+        ]
+      },
+      {
+        "text": "让林夕把活人誓词纸接到转播单下，签成一份会反咬 B-07/0 死亡记录的证言。",
+        "effects": [
+                {
+                        "type": "gain.favor",
+                        "amount": 32
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_linxi_bound_oath_to_outside_relay"
+                }
+        ]
+      }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "路线勉强接上，但门外追索仍能听见脚步。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "保护屋把证词和追索拆开，下一步可以继续推进。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}], "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"}
+  ]
+}

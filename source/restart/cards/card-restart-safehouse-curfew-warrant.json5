@@ -1,0 +1,9 @@
+{
+      "id": "card-restart-safehouse-curfew-warrant",
+      "name": "保护屋宵禁令",
+      "description": "门外追索队贴上的宵禁令。字面上是保护，背面却写着：所有保护中的活证人，黎明前交回 Ward Zero 复核。",
+      "type": "item",
+      "coinValue": 23,
+      "effects": [],
+      "metaData": {"tags": ["item", "curfew", "pursuit", "warrant", "restart"], "gameCardId": "card-restart-safehouse-curfew-warrant"}
+    }

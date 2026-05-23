@@ -1,0 +1,56 @@
+{
+  "id": "restart-rite-59-curfew-warrant-reversal",
+  "name": "RESTART 59：保护屋宵禁令反签",
+  "description": "门外贴上宵禁令后，看门人承认它是真的：保护屋每晚都要把“保护中名单”回报医院。唯一的办法，是把宵禁令反签成医院不得入内的证据。",
+  "triggers": ["restart-safehouse-packet-59"],
+  "consequences": ["restart-safehouse-packet-60"],
+  "conditions": [
+    "flag.restart_safehouse_curfew_knock_answered:1",
+    "have.card:card-restart-witness-lockbook",
+    "have.card:card-restart-borrowed-pulse-lantern",
+    "have.card:card-restart-recheck-pin",
+    "have.card:card-restart-not-yet-dead-stamp"
+],
+  "effects": [
+    "set.flag:restart_curfew_warrant_reversed",
+    "gain.card:card-restart-safehouse-curfew-warrant",
+    "gain.card:card-restart-roof-antenna-key"
+],
+  "slots": [
+    {"id": "slot-0", "name": "反签宵禁的人", "cardType": "person"},
+    {"id": "slot-1", "name": "用来反签的章或反签针", "cardType": "item"}
+  ],
+  "options": [
+      {
+        "text": "用暂未死亡章把宵禁令改成“不得回收活证人”，让保护屋的门第一次对医院关上。",
+        "effects": [
+                {
+                        "type": "gain.influence",
+                        "amount": 30
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_curfew_rewritten_as_no_recall_order"
+                }
+        ]
+      },
+      {
+        "text": "用复查反签针把宵禁令倒钉在门外，留给追索队一张会追索自己的回执。",
+        "effects": [
+                {
+                        "type": "gain.favor",
+                        "amount": 30
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_curfew_reflected_to_pursuit_team"
+                }
+        ]
+      }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "路线勉强接上，但门外追索仍能听见脚步。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "保护屋把证词和追索拆开，下一步可以继续推进。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}], "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"}
+  ]
+}

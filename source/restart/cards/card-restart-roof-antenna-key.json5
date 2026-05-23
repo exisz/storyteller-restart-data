@@ -1,0 +1,9 @@
+{
+      "id": "card-restart-roof-antenna-key",
+      "name": "屋顶天线钥匙",
+      "description": "看门人从门铃背面拆下的小钥匙，能打开保护屋屋顶的旧天线箱，把证词送到门外广播够不到的高度。",
+      "type": "item",
+      "coinValue": 26,
+      "effects": [],
+      "metaData": {"tags": ["item", "antenna", "safehouse", "broadcast", "restart"], "gameCardId": "card-restart-roof-antenna-key"}
+    }

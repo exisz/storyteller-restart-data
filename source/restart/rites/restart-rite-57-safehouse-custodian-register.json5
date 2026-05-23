@@ -1,0 +1,57 @@
+{
+  "id": "restart-rite-57-safehouse-custodian-register",
+  "name": "RESTART 57：保护屋看门登记",
+  "description": "保护屋门没有立刻关上。看门人要求把追索编号、护送案号和活证人的姓名分开登记：如果三者仍绑在一起，医院只要追回一个编号，就能追回整个人。",
+  "triggers": ["restart-safehouse-packet-57"],
+  "consequences": ["restart-safehouse-packet-58"],
+  "conditions": [
+    "flag.restart_next_region_protected_witness_route:1",
+    "flag.restart_seventh_entered_witness_safehouse:1",
+    "have.card:card-restart-witness-safehouse-doorplate",
+    "have.card:card-restart-severed-pursuit-number",
+    "have.card:card-restart-escort-docket-folder",
+    "have.card:card-restart-seventh-sun"
+],
+  "effects": [
+    "set.flag:restart_safehouse_custodian_register_opened",
+    "gain.card:card-restart-safehouse-custodian",
+    "gain.card:card-restart-witness-lockbook"
+],
+  "slots": [
+    {"id": "slot-0", "name": "登记进屋的人", "cardType": "person"},
+    {"id": "slot-1", "name": "交给看门人的编号或门牌", "cardType": "item"}
+  ],
+  "options": [
+      {
+        "text": "让第七次日出当面登记，把割离追索编号锁进保护屋账簿，承认她不再属于医院路线。",
+        "effects": [
+                {
+                        "type": "gain.influence",
+                        "amount": 29
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_seventh_registered_as_protected_witness"
+                }
+        ]
+      },
+      {
+        "text": "让林夕先交护送案号，把 B-07/0 写成追索编号的空壳，替第七次日出挡住第一轮查门。",
+        "effects": [
+                {
+                        "type": "gain.favor",
+                        "amount": 29
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_linxi_decoy_registered_at_safehouse"
+                }
+        ]
+      }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "路线勉强接上，但门外追索仍能听见脚步。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "保护屋把证词和追索拆开，下一步可以继续推进。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}], "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"}
+  ]
+}

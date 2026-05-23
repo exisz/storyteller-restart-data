@@ -1,0 +1,9 @@
+{
+      "id": "card-restart-outside-testimony-relay",
+      "name": "院外证词转播单",
+      "description": "一张盖着保护屋暗章的转播单，证明第七次日出的证词已在院外连续播出，不能再被写回病房。",
+      "type": "item",
+      "coinValue": 28,
+      "effects": [],
+      "metaData": {"tags": ["item", "testimony", "relay", "outside", "restart"], "gameCardId": "card-restart-outside-testimony-relay"}
+    }

@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-60-signal-triangulation",
+  "name": "追索事件：信号三角定位",
+  "description": "院外证词刚从屋顶天线发出，医院的三辆空救护车就停在三个街角。它们不找门牌，只用广播回声量出保护屋的位置。",
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_roof_antenna_testimony_opened:1",
+    "NOT:flag.restart_signal_triangulation_answered:1"
+  ],
+  "consequences": ["restart-signal-triangulation-broken"],
+  "options": [
+    {
+      "text": "把割离追索编号挂到天线上，让三角定位追到那个已经脱离证人的空编号。",
+      "effects": [
+        "gain.influence:20",
+        "set.flag:restart_signal_triangulation_answered",
+        "set.flag:restart_triangulation_chased_empty_pursuit_number"
+      ]
+    },
+    {
+      "text": "让塔内播音员坐标和坏掉的收音机互相指认，把三辆救护车导回广播塔影子里。",
+      "effects": [
+        "gain.favor:20",
+        "set.flag:restart_signal_triangulation_answered",
+        "set.flag:restart_triangulation_diverted_to_tower_shadow"
+      ]
+    }
+  ]
+}

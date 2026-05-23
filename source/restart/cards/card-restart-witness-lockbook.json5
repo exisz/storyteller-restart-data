@@ -1,0 +1,9 @@
+{
+      "id": "card-restart-witness-lockbook",
+      "name": "活证人锁账簿",
+      "description": "保护屋门内的铁皮账簿。每一页都有两把锁：一把锁住追索编号，另一把锁住证词仍可公开。",
+      "type": "item",
+      "coinValue": 24,
+      "effects": [],
+      "metaData": {"tags": ["item", "safehouse", "ledger", "witness", "restart"], "gameCardId": "card-restart-witness-lockbook"}
+    }

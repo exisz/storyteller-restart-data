@@ -1,0 +1,9 @@
+{
+      "id": "card-restart-safehouse-custodian",
+      "name": "保护屋看门人",
+      "description": "一个不登记楼号的人，只登记谁还活着、谁在门外追索、谁愿意把证词交给下一盏灯。",
+      "type": "person",
+      "coinValue": 24,
+      "effects": [],
+      "metaData": {"tags": ["person", "safehouse", "custodian", "witness", "restart"], "gameCardId": "card-restart-safehouse-custodian"}
+    }

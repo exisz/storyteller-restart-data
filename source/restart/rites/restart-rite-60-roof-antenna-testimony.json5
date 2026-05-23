@@ -1,0 +1,55 @@
+{
+  "id": "restart-rite-60-roof-antenna-testimony",
+  "name": "RESTART 60：保护屋屋顶天线",
+  "description": "屋顶天线箱里没有频道，只有一串旧病房号。看门人说：证词如果只锁在屋内，迟早会被宵禁回报；必须让门外也有人听见。",
+  "triggers": ["restart-safehouse-packet-60"],
+  "consequences": ["restart-safehouse-packet-61"],
+  "conditions": [
+    "flag.restart_curfew_warrant_reversed:1",
+    "have.card:card-restart-roof-antenna-key",
+    "have.card:card-restart-radio",
+    "have.card:card-restart-operator-coordinate",
+    "have.card:card-restart-borrowed-pulse-lantern"
+],
+  "effects": [
+    "set.flag:restart_roof_antenna_testimony_opened",
+    "gain.card:card-restart-outside-testimony-relay"
+],
+  "slots": [
+    {"id": "slot-0", "name": "爬上屋顶的人", "cardType": "person"},
+    {"id": "slot-1", "name": "接入天线的收音机或坐标", "cardType": "item"}
+  ],
+  "options": [
+      {
+        "text": "把借脉灯挂上天线，让第七次日出的脉搏以院外证词的形式持续闪烁。",
+        "effects": [
+                {
+                        "type": "gain.influence",
+                        "amount": 31
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_seventh_pulse_relayed_outside"
+                }
+        ]
+      },
+      {
+        "text": "让坏掉的收音机吞下塔内坐标，把证词播进医院无法定位的静电高处。",
+        "effects": [
+                {
+                        "type": "gain.favor",
+                        "amount": 31
+                },
+                {
+                        "type": "set.flag",
+                        "flag": "restart_radio_relay_hid_safehouse_location"
+                }
+        ]
+      }
+  ],
+  "coinRewardTiers": [
+    {"minValue": 0, "maxValue": 10, "rewards": [{"type": "gain.influence", "amount": 4}], "description": "路线勉强接上，但门外追索仍能听见脚步。"},
+    {"minValue": 11, "maxValue": 16, "rewards": [{"type": "gain.favor", "amount": 5}, {"type": "gain.influence", "amount": 6}], "description": "保护屋把证词和追索拆开，下一步可以继续推进。"},
+    {"minValue": 17, "maxValue": 999, "rewards": [{"type": "gain.favor", "amount": 8}, {"type": "gain.influence", "amount": 8}], "description": "证词获得院外回声。医院的旧路径开始找不到完整地址。"}
+  ]
+}

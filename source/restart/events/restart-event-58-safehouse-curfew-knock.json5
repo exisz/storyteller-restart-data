@@ -1,0 +1,29 @@
+{
+  "id": "restart-event-58-safehouse-curfew-knock",
+  "name": "追索事件：保护屋宵禁敲门",
+  "description": "锁账簿合上的同一刻，门外响起三下敲门。追索队不说抓捕，只宣读保护屋宵禁：所有活证人必须在黎明前交回复核。",
+  "trigger": {"condition": true},
+  "conditions": [
+    "flag.restart_witness_room_lockbook_opened:1",
+    "NOT:flag.restart_safehouse_curfew_knock_answered:1"
+  ],
+  "consequences": ["restart-safehouse-curfew-pressure"],
+  "options": [
+    {
+      "text": "让看门人隔门承认宵禁存在，但要求追索队先在活证人锁账簿上签收自己的敲门记录。",
+      "effects": [
+        "gain.influence:19",
+        "set.flag:restart_safehouse_curfew_knock_answered",
+        "set.flag:restart_curfew_knock_logged_by_custodian"
+      ]
+    },
+    {
+      "text": "让坏掉的收音机在门缝里复播召回救护车的静电，把敲门声伪装成医院内部误报。",
+      "effects": [
+        "gain.favor:19",
+        "set.flag:restart_safehouse_curfew_knock_answered",
+        "set.flag:restart_curfew_knock_masked_by_static"
+      ]
+    }
+  ]
+}

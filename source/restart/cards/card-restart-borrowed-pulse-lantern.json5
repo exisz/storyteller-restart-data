@@ -1,0 +1,9 @@
+{
+      "id": "card-restart-borrowed-pulse-lantern",
+      "name": "借脉灯",
+      "description": "保护屋走廊尽头的一盏灯。它不证明身份，只临时借给证人一个不会被医院回收的脉搏影子。",
+      "type": "item",
+      "coinValue": 25,
+      "effects": [],
+      "metaData": {"tags": ["item", "pulse", "safehouse", "lantern", "restart"], "gameCardId": "card-restart-borrowed-pulse-lantern"}
+    }
